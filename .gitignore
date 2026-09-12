@@ -1,3 +1,30 @@
-/.env
-/.env.example
-/.pytest_cache
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# Secrets & Environment Variables
+.env
+*.env.local
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Project Data & Cache (Keep directory structure via .gitkeep)
+data/cache/*
+!data/cache/.gitkeep
+data/reports/*
+!data/reports/.gitkeep
+
+# IDE & Editor configs
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
