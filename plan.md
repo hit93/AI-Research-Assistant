@@ -45,10 +45,12 @@ flowchart TD
   ├── tests/              # Unit & integration tests
   ├── data/               # Cache, saved reports, downloads
   ├── .env.example        # Template for API keys
+  ├── .env                # Local keys (Groq & Tavily)
+  ├── .gitignore          # Environment & secret exclusion
   ├── requirements.txt    # Project dependencies
   └── plan.md             # This progress tracker
   ```
-- [x] Set up Python environment & dependency management (`uv` or `pip`).
+- [x] Set up Python environment & dependency management (`uv` with `.venv`).
 - [x] Implement robust configuration management with `pydantic-settings` / `python-dotenv`.
 - [x] Set up structured logging for research tracking.
 
