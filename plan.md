@@ -48,6 +48,7 @@ flowchart TD
   ├── .env                # Local keys (Groq & Tavily)
   ├── .gitignore          # Environment & secret exclusion
   ├── requirements.txt    # Project dependencies
+  ├── README.md           # Project documentation
   └── plan.md             # This progress tracker
   ```
 - [x] Set up Python environment & dependency management (`uv` with `.venv`).
