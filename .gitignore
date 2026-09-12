@@ -1,13 +1,22 @@
-# Virtual Environment
+# ==========================================
+# Environments & Packages
+# ==========================================
 .venv/
 venv/
 ENV/
+env/
+.uv_cache/
 
+# ==========================================
 # Secrets & Environment Variables
+# ==========================================
 .env
-*.env.local
+.env.*
+!.env.example
 
-# Python cache & artifacts
+# ==========================================
+# Byte-compiled / optimized / cache files
+# ==========================================
 __pycache__/
 *.py[cod]
 *$py.class
@@ -15,16 +24,30 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov/
+.mypy_cache/
+.ruff_cache/
 
-# Project Data & Cache (Keep directory structure via .gitkeep)
+# ==========================================
+# Project Output & Cache (Keep .gitkeep)
+# ==========================================
 data/cache/*
 !data/cache/.gitkeep
 data/reports/*
 !data/reports/.gitkeep
+*.log
 
-# IDE & Editor configs
+# ==========================================
+# Jupyter & Interactive Notebooks
+# ==========================================
+.ipynb_checkpoints/
+
+# ==========================================
+# Operating System & IDEs
+# ==========================================
 .vscode/
 .idea/
 *.swp
 *.swo
 .DS_Store
+Thumbs.db
+desktop.ini
