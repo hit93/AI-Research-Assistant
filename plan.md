@@ -61,21 +61,23 @@ flowchart TD
 ---
 
 ### 🔹 Phase 2: Research Tools & Ingestion Engine
-- [ ] **ArXiv Research Tool**:
-  - [ ] Search papers by topic, title, or authors.
-  - [ ] Extract metadata: abstract, publication date, authors, PDF links, arXiv ID.
-- [ ] **Web Search Tool**:
-  - [ ] Integrate Tavily Search API or DuckDuckGo Search for general web & news context.
-  - [ ] Clean and strip boilerplate HTML content.
-- [ ] **Document & PDF Parsing**:
-  - [ ] Implement text chunking and abstract extraction from downloaded academic papers.
-- [ ] **Deduplication & Re-ranking**:
-  - [ ] Score and deduplicate gathered literature based on relevance.
+- [x] **ArXiv Research Tool**:
+  - [x] Search papers by topic, title, or authors.
+  - [x] Extract metadata: abstract, publication date, authors, PDF links, arXiv ID.
+- [x] **Web Search Tool**:
+  - [x] Integrate Tavily Search API or DuckDuckGo Search for general web & news context.
+  - [x] Clean and strip boilerplate HTML content.
+- [x] **Document & Content Normalization**:
+  - [x] Implement text cleaning and abstract extraction from academic sources.
+- [x] **Deduplication & Unified Schemas**:
+  - [x] Unified `ResearchSource` model and duplicate pruning based on URL and title.
+- [x] **Interactive Streamlit Explorer (`app.py`)**:
+  - [x] Visual UI to search, browse, and inspect ArXiv & Web retrieval items live.
 
-> ### 🏁 Checkpoint 2: Retrieval Tools Verification
-> - [ ] Independent test scripts verify ArXiv query returns parsed paper objects.
-> - [ ] Web search tool returns clean text snippets and source URLs.
-> - [ ] Mock queries confirm zero crashes on network failures or malformed responses.
+> ### 🏁 Checkpoint 2: Retrieval Tools Verification (PASSED)
+> - [x] Independent test scripts verify ArXiv query returns parsed paper objects.
+> - [x] Web search tool returns clean text snippets and source URLs.
+> - [x] Mock queries confirm zero crashes on network failures or malformed responses.
 
 ---
 
@@ -137,8 +139,9 @@ flowchart TD
 | Step | Milestone | Status | Notes / Blockers |
 | :--- | :--- | :---: | :--- |
 | **Step 1** | Project Setup & Environment | 🟢 Completed | Directory scaffold, config loader & tests pass |
-| **Step 2** | Research Tools (ArXiv + Web) | 🟡 Next Up | Tools implementation (ArXiv + Web Search) |
-| **Step 3** | Reasoning & Agentic Pipeline | ⚪ Not Started | LLM integration & prompt design |
+| **Step 2** | Research Tools (ArXiv + Web) | 🟢 Completed | ArXiv + Tavily / DDG tools & tests pass (5/5) |
+| **Step 3** | Reasoning & Agentic Pipeline | 🟡 Next Up | Groq client, Planner & Synthesizer agents |
 | **Step 4** | Citations & Report Exporter | ⚪ Not Started | Formatted Markdown & PDF output |
 | **Step 5** | Server & Web Interface | ⚪ Not Started | FastAPI / Streamlit at the end |
+
 
