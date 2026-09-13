@@ -51,3 +51,8 @@ data/reports/*
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ==========================================
+# Personal Learning Guides (local only)
+# ==========================================
+PHASE3_EXPLAINED.md

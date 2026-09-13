@@ -7,9 +7,10 @@ from src.tools import (
     web_results_to_sources,
     deduplicate_sources,
 )
+from src.agents import run_research
 
 st.set_page_config(
-    page_title="AI Research Assistant - Tools Explorer",
+    page_title="AI Research Assistant",
     page_icon="🔬",
     layout="wide",
 )
@@ -36,12 +37,18 @@ st.markdown("""
         border: 1px solid #30363d;
         margin-bottom: 1rem;
     }
+    .synthesis-section {
+        padding: 1rem;
+        border-left: 3px solid #58a6ff;
+        margin-bottom: 1rem;
+        background-color: rgba(88, 166, 255, 0.05);
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # Header
-st.markdown('<div class="main-header">🔬 AI Research Assistant — Tools Explorer</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-header">Phase 2 Verification: Interactive ArXiv Academic Retrieval & Web Search</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header">🔬 AI Research Assistant</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-header">Phase 3: LLM-Powered Research Pipeline with Query Planning & Synthesis</div>', unsafe_allow_html=True)
 
 # Sidebar
 with st.sidebar:
@@ -50,23 +57,32 @@ with st.sidebar:
     # Environment Status
     keys = settings.validate_keys()
     st.markdown("### 🔑 API Status")
+    if keys["groq"]:
+        st.success(f"Groq API: Connected ({settings.GROQ_MODEL})")
+    else:
+        st.error("Groq API: Missing — Add GROQ_API_KEY to .env")
+
     if keys["tavily"]:
         st.success("Tavily API: Connected (Primary Web)")
     else:
         st.info("Tavily API: Not Set (Using DuckDuckGo Fallback)")
-        
-    if keys["groq"]:
-        st.success("Groq API: Connected (Phase 3 Ready)")
-    else:
-        st.warning("Groq API: Pending in .env")
 
     st.divider()
     st.subheader("Search Parameters")
-    arxiv_max = st.slider("Max ArXiv Papers", min_value=1, max_value=10, value=3)
-    web_max = st.slider("Max Web Results", min_value=1, max_value=10, value=3)
+    arxiv_max = st.slider("Max ArXiv Papers (per sub-query)", min_value=1, max_value=10, value=3)
+    web_max = st.slider("Max Web Results (per sub-query)", min_value=1, max_value=10, value=3)
     
     st.divider()
-    st.caption("Roadmap Status: Phase 2 (Tools & UI Explorer)")
+
+    # Mode selector
+    mode = st.radio(
+        "Research Mode",
+        ["🧠 Full Research (LLM Pipeline)", "🔧 Tools Explorer (Manual)"],
+        index=0,
+    )
+    
+    st.divider()
+    st.caption("Roadmap Status: Phase 3 (LLM Agentic Pipeline)")
 
 # Main Query Input
 col_input, col_btn = st.columns([5, 1])
@@ -79,58 +95,164 @@ with col_input:
 with col_btn:
     search_clicked = st.button("🔍 Search", type="primary", use_container_width=True)
 
-if search_clicked or query:
-    if not query.strip():
-        st.warning("Please enter a search topic first.")
+
+# ═══════════════════════════════════════════════════════════════
+# MODE 1: Full LLM Research Pipeline
+# ═══════════════════════════════════════════════════════════════
+if "🧠" in mode:
+    if search_clicked or (query and "last_full_query" in st.session_state and st.session_state.last_full_query == query):
+        if not query.strip():
+            st.warning("Please enter a search topic first.")
+        elif not keys["groq"]:
+            st.error("🔑 Groq API key required for Full Research mode. Add `GROQ_API_KEY` to your `.env` file.")
+        else:
+            # Store query to avoid re-runs on rerender
+            st.session_state.last_full_query = query
+
+            # Progress display
+            progress_container = st.empty()
+            progress_messages = []
+
+            def on_progress(status: str, detail: str):
+                icons = {
+                    "planning": "🧠",
+                    "planned": "✅",
+                    "retrieving": "🔍",
+                    "retrieved": "📦",
+                    "deduplicated": "🧹",
+                    "synthesizing": "⚗️",
+                    "synthesized": "✅",
+                    "complete": "🏁",
+                }
+                icon = icons.get(status, "▸")
+                progress_messages.append(f"{icon} **{status.upper()}**: {detail}")
+                progress_container.markdown("\n\n".join(progress_messages))
+
+            with st.spinner("Running full research pipeline..."):
+                result = run_research(
+                    query=query,
+                    max_papers=arxiv_max,
+                    max_web=web_max,
+                    on_progress=on_progress,
+                )
+
+            progress_container.empty()
+
+            # Success banner
+            st.success(
+                f"✅ Research complete in **{result.duration_seconds}s** — "
+                f"{len(result.sources)} sources, {len(result.synthesis)} sections"
+            )
+
+            # Tabs for results
+            tab_report, tab_plan, tab_sources = st.tabs([
+                "📝 Research Report",
+                f"📋 Query Plan ({len(result.plan.sub_queries)} sub-queries)",
+                f"📚 Sources ({len(result.sources)})",
+            ])
+
+            # ── Research Report Tab ───────────────────────────
+            with tab_report:
+                for section in result.synthesis:
+                    st.markdown(f"### {section.heading}")
+                    st.markdown(section.content)
+                    if section.source_indices:
+                        refs = []
+                        for idx in section.source_indices:
+                            if 0 <= idx < len(result.sources):
+                                s = result.sources[idx]
+                                refs.append(f"[{idx}] *{s.title}*")
+                        if refs:
+                            with st.expander("📎 Referenced Sources"):
+                                for ref in refs:
+                                    st.caption(ref)
+                    st.divider()
+
+            # ── Query Plan Tab ────────────────────────────────
+            with tab_plan:
+                if result.plan.reasoning:
+                    st.info(f"**Strategy:** {result.plan.reasoning}")
+                for i, sq in enumerate(result.plan.sub_queries, 1):
+                    with st.container():
+                        st.markdown(f"**{i}. {sq.question}**")
+                        st.caption(
+                            f"🔑 Keywords: {', '.join(sq.search_keywords)} | "
+                            f"📂 Source: `{sq.source_type}`"
+                        )
+                        st.divider()
+
+            # ── Sources Tab ───────────────────────────────────
+            with tab_sources:
+                for idx, source in enumerate(result.sources):
+                    badge = "📘 ArXiv" if source.source_type == "arxiv" else "🌐 Web"
+                    with st.container():
+                        st.markdown(f"**[{idx}] {badge} — {source.title}**")
+                        st.caption(f"Source: `{source.url_or_id}`")
+                        if source.authors:
+                            st.caption(f"Authors: {', '.join(source.authors)}")
+                        with st.expander("View content"):
+                            st.write(source.content)
+                        st.divider()
     else:
-        with st.spinner("Querying research tools..."):
-            # Execute retrievals
-            arxiv_results = search_arxiv(query, max_results=arxiv_max)
-            web_results = search_web(query, max_results=web_max)
+        st.info("💡 Enter a research topic above and click **Search** to run the full LLM research pipeline.")
 
-            # Convert to unified schema & deduplicate
-            arxiv_sources = papers_to_sources(arxiv_results)
-            web_sources = web_results_to_sources(web_results)
-            all_sources = deduplicate_sources(arxiv_sources + web_sources)
 
-        tab_arxiv, tab_web, tab_unified = st.tabs([
-            f"📚 ArXiv Papers ({len(arxiv_results)})",
-            f"🌐 Web Results ({len(web_results)})",
-            f"🧬 Unified Sources ({len(all_sources)})",
-        ])
-
-        with tab_arxiv:
-            if not arxiv_results:
-                st.info("No ArXiv papers found for this query.")
-            else:
-                for idx, paper in enumerate(arxiv_results, start=1):
-                    with st.container():
-                        st.markdown(f"### {idx}. {paper.title}")
-                        st.caption(f"**Authors**: {', '.join(paper.authors) if paper.authors else 'Unknown'} | **Published**: {paper.published} | **ID**: `{paper.arxiv_id}`")
-                        with st.expander("📄 View Abstract", expanded=True):
-                            st.write(paper.summary)
-                        if paper.pdf_url:
-                            st.link_button("📥 Open PDF Link", paper.pdf_url)
-                        st.divider()
-
-        with tab_web:
-            if not web_results:
-                st.info("No web results found.")
-            else:
-                for idx, item in enumerate(web_results, start=1):
-                    with st.container():
-                        st.markdown(f"### {idx}. [{item.title}]({item.url})")
-                        st.write(item.snippet)
-                        st.caption(f"🔗 [Visit Source]({item.url})")
-                        st.divider()
-
-        with tab_unified:
-            st.write("This deduplicated stream will feed directly into the **Groq Reasoning Agent** in Phase 3:")
-            for idx, source in enumerate(all_sources, start=1):
-                badge = "📘 ArXiv" if source.source_type == "arxiv" else "🌐 Web"
-                st.markdown(f"**{idx}. [{badge}] {source.title}**")
-                st.caption(f"Source: `{source.url_or_id}`")
-                st.write(source.content[:300] + ("..." if len(source.content) > 300 else ""))
-                st.divider()
+# ═══════════════════════════════════════════════════════════════
+# MODE 2: Manual Tools Explorer (original Phase 2 UI)
+# ═══════════════════════════════════════════════════════════════
 else:
-    st.info("💡 Enter a topic above and click **Search** to test the retrieval tools.")
+    if search_clicked or query:
+        if not query.strip():
+            st.warning("Please enter a search topic first.")
+        else:
+            with st.spinner("Querying research tools..."):
+                # Execute retrievals
+                arxiv_results = search_arxiv(query, max_results=arxiv_max)
+                web_results = search_web(query, max_results=web_max)
+
+                # Convert to unified schema & deduplicate
+                arxiv_sources = papers_to_sources(arxiv_results)
+                web_sources = web_results_to_sources(web_results)
+                all_sources = deduplicate_sources(arxiv_sources + web_sources)
+
+            tab_arxiv, tab_web, tab_unified = st.tabs([
+                f"📚 ArXiv Papers ({len(arxiv_results)})",
+                f"🌐 Web Results ({len(web_results)})",
+                f"🧬 Unified Sources ({len(all_sources)})",
+            ])
+
+            with tab_arxiv:
+                if not arxiv_results:
+                    st.info("No ArXiv papers found for this query.")
+                else:
+                    for idx, paper in enumerate(arxiv_results, start=1):
+                        with st.container():
+                            st.markdown(f"### {idx}. {paper.title}")
+                            st.caption(f"**Authors**: {', '.join(paper.authors) if paper.authors else 'Unknown'} | **Published**: {paper.published} | **ID**: `{paper.arxiv_id}`")
+                            with st.expander("📄 View Abstract", expanded=True):
+                                st.write(paper.summary)
+                            if paper.pdf_url:
+                                st.link_button("📥 Open PDF Link", paper.pdf_url)
+                            st.divider()
+
+            with tab_web:
+                if not web_results:
+                    st.info("No web results found.")
+                else:
+                    for idx, item in enumerate(web_results, start=1):
+                        with st.container():
+                            st.markdown(f"### {idx}. [{item.title}]({item.url})")
+                            st.write(item.snippet)
+                            st.caption(f"🔗 [Visit Source]({item.url})")
+                            st.divider()
+
+            with tab_unified:
+                st.write("This deduplicated stream feeds into the **Groq Reasoning Agent** in Full Research mode:")
+                for idx, source in enumerate(all_sources, start=1):
+                    badge = "📘 ArXiv" if source.source_type == "arxiv" else "🌐 Web"
+                    st.markdown(f"**{idx}. [{badge}] {source.title}**")
+                    st.caption(f"Source: `{source.url_or_id}`")
+                    st.write(source.content[:300] + ("..." if len(source.content) > 300 else ""))
+                    st.divider()
+    else:
+        st.info("💡 Enter a topic above and click **Search** to test the retrieval tools.")

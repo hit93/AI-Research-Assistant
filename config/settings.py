@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 class Settings:
     # LLM & Search
     GROQ_API_KEY: str = field(default_factory=lambda: os.getenv("GROQ_API_KEY", ""))
-    GROQ_MODEL: str = field(default_factory=lambda: os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile"))
+    GROQ_MODEL: str = field(default_factory=lambda: os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b"))
     SEARCH_ENGINE: str = field(default_factory=lambda: os.getenv("SEARCH_ENGINE", "tavily"))
     
     # Optional fallback keys

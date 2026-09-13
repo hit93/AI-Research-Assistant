@@ -83,20 +83,20 @@ flowchart TD
 ---
 
 ### 🔹 Phase 3: Core LLM & Agentic Reasoning Workflow
-- [ ] Configure LLM provider abstraction (Groq, OpenAI, Google Gemini, or Ollama for local LLMs).
-- [ ] **Query Decomposition & Planning Agent**:
-  - [ ] Break down broad user queries into targeted sub-questions.
-  - [ ] Formulate domain-specific search keywords.
-- [ ] **Research Synthesis Agent**:
-  - [ ] Process retrieved sources and summarize key insights.
-  - [ ] Identify consensus, controversies, and research gaps.
-- [ ] **State & Flow Orchestration**:
-  - [ ] Implement state management (LangGraph or modular Python pipeline).
-  - [ ] Enable iterative query refinement if initial results are insufficient.
+- [x] Configure LLM provider abstraction (Groq via `llm_client.py`, extensible to OpenAI/Gemini).
+- [x] **Query Decomposition & Planning Agent**:
+  - [x] Break down broad user queries into targeted sub-questions.
+  - [x] Formulate domain-specific search keywords.
+- [x] **Research Synthesis Agent**:
+  - [x] Process retrieved sources and summarize key insights.
+  - [x] Identify consensus, controversies, and research gaps.
+- [x] **State & Flow Orchestration**:
+  - [x] Implement state management (dataclass-based modular Python pipeline).
+  - [x] Enable iterative query refinement if initial results are insufficient.
 
 > ### 🏁 Checkpoint 3: CLI Research Run Verification
-> - [ ] Run full research cycle via CLI: `python -m src.agents.orchestrator --topic "Quantum Computing in Drug Discovery"`.
-> - [ ] Outputs structured research notes with raw source citations directly to terminal.
+> - [x] Run full research cycle via CLI: `python -m src.agents --topic "Quantum Computing in Drug Discovery"`.
+> - [x] Outputs structured research notes with raw source citations directly to terminal.
 
 ---
 
@@ -141,7 +141,7 @@ flowchart TD
 | :--- | :--- | :---: | :--- |
 | **Step 1** | Project Setup & Environment | 🟢 Completed | Directory scaffold, config loader & tests pass |
 | **Step 2** | Research Tools (ArXiv + Web) | 🟢 Completed | ArXiv + Tavily / DDG tools & tests pass (5/5) |
-| **Step 3** | Reasoning & Agentic Pipeline | 🟡 Next Up | Groq client, Planner & Synthesizer agents |
+| **Step 3** | Reasoning & Agentic Pipeline | 🟢 Completed | Groq LLM client, Planner, Synthesizer, Orchestrator & CLI |
 | **Step 4** | Citations & Report Exporter | ⚪ Not Started | Formatted Markdown & PDF output |
 | **Step 5** | Server & Web Interface | ⚪ Not Started | FastAPI / Streamlit at the end |
 

@@ -22,3 +22,45 @@ class ResearchSource(BaseModel):
     source_type: Literal["arxiv", "web"]
     authors: list[str] = Field(default_factory=list)
     published: str = ""
+
+
+# ── Phase 3: Agentic Pipeline Models ──────────────────────────
+
+class SubQuery(BaseModel):
+    """A single focused sub-question decomposed from the user's broad query."""
+    question: str = Field(description="Focused research sub-question")
+    search_keywords: list[str] = Field(default_factory=list, description="Targeted search terms")
+    source_type: Literal["arxiv", "web", "both"] = Field(default="both", description="Where to search")
+
+
+class QueryPlan(BaseModel):
+    """The Planner agent's output: the original query broken into sub-queries."""
+    original_query: str
+    sub_queries: list[SubQuery] = Field(default_factory=list)
+    reasoning: str = Field(default="", description="Planner's rationale for the decomposition")
+
+
+class SynthesisSection(BaseModel):
+    """One section of the synthesized research report."""
+    heading: str = Field(description="Section heading (e.g., 'Key Findings', 'Research Gaps')")
+    content: str = Field(description="Synthesized narrative for this section")
+    source_indices: list[int] = Field(default_factory=list, description="Indices into the source list")
+
+
+class ResearchResult(BaseModel):
+    """The final output of a complete research run."""
+    query: str
+    plan: QueryPlan
+    sources: list[ResearchSource] = Field(default_factory=list)
+    synthesis: list[SynthesisSection] = Field(default_factory=list)
+    duration_seconds: float = 0.0
+
+
+class ResearchState(BaseModel):
+    """Mutable state passed through the orchestrator pipeline."""
+    query: str
+    plan: QueryPlan | None = None
+    sources: list[ResearchSource] = Field(default_factory=list)
+    synthesis: list[SynthesisSection] = Field(default_factory=list)
+    status: str = "initialized"
+    errors: list[str] = Field(default_factory=list)
