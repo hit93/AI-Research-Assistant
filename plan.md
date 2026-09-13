@@ -2,7 +2,7 @@
 
 A step-by-step, checkpoint-driven blueprint for building a modular, production-ready AI Research Assistant.
 
-**Base project:** Krish Naik — Multi-Agent AI Research Platform with AWS Guardrails, LLM Gateway, Red Teaming, STM/LTM & Semantic Caching, extended with a Visual LLM agent | **Timeline:** Aug 2026 – Nov 2026 (16 weeks)
+**Base project:** Krish Naik — Multi-Agent AI Research Platform with AWS Guardrails, LLM Gateway, Red Teaming, STM/LTM & Semantic Caching, extended with a Visual LLM agent | **Timeline:** Aug 2026 – Nov 2026
 
 ---
 
@@ -120,7 +120,7 @@ research_assistant/
 - [x] **Backward-Compatibility Facade Layer (`src/agents/`)**.
 - [x] **Interactive Streamlit Integration (`app.py`)**: Full Research mode + Tools Explorer mode.
 - [x] **Comprehensive Testing**: 26 unit tests, 100% passing, offline-mocked.
-- [ ] **Add a distinct Verify agent** (self-critique / LLM-as-judge, "did the summary/report actually follow from the sources") as its own graph node, rather than folding verification into the Synthesizer — closes the loop the roadmap's Week 4 milestone calls for (`START → planner → retriever → synthesizer → verify → END`).
+- [ ] **Add a distinct Verify agent** (self-critique / LLM-as-judge, "did the summary/report actually follow from the sources") as its own graph node, rather than folding verification into the Synthesizer — closes the loop the roadmap milestone calls for (`START → planner → retriever → synthesizer → verify → END`).
 - [ ] Split synthesis into distinct **Write** and **Verify** stages if the single `synthesize_node` still does both.
 
 > ### 🏁 Checkpoint 3: CLI & Web Research Run Verification (PASSED, verify-agent split pending)
@@ -133,7 +133,7 @@ research_assistant/
 
 ---
 
-### 🔹 Phase 4: Gateway, Memory & Evaluation (Weeks 5–8) 🎯 Next Up
+### 🔹 Phase 4: Gateway, Memory & Evaluation 🎯 Next Up
 
 Make the pipeline production-shaped: a resilient model gateway, layered memory, and automated evaluation.
 
@@ -152,7 +152,7 @@ Make the pipeline production-shaped: a resilient model gateway, layered memory, 
 
 ---
 
-### 🔹 Phase 5: Visual LLM Extension (Weeks 9–11)
+### 🔹 Phase 5: Visual LLM Extension
 
 Give the pipeline eyes. A Visual Analyst agent reads figures, charts, and screenshots from source material instead of treating everything as text — directly reusable across the CV research-assistant portfolio work.
 
@@ -168,7 +168,7 @@ Give the pipeline eyes. A Visual Analyst agent reads figures, charts, and screen
 
 ---
 
-### 🔹 Phase 6: Security & Red Teaming (Weeks 12–13)
+### 🔹 Phase 6: Security & Red Teaming
 
 Prove the guardrails hold — the part of the project that differentiates a toy demo from something defensible in an interview.
 
@@ -183,7 +183,7 @@ Prove the guardrails hold — the part of the project that differentiates a toy 
 
 ---
 
-### 🔹 Phase 7: Infrastructure & Deployment (Weeks 14–16)
+### 🔹 Phase 7: Infrastructure & Deployment
 
 Ship it like a real platform: infrastructure as code, CI/CD, and a demo you can put in front of recruiters or a PhD panel.
 
