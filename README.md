@@ -1,6 +1,9 @@
-# 🔬 AI Research Assistant
+# 🔬 AI Research Assistant — Enterprise Multi-Agent Platform
 
-An autonomous, multi-agent AI research assistant built with a **100% textbook LangChain & LangGraph** architecture. It decomposes broad research topics into targeted sub-questions, retrieves academic preprints from **arXiv** and real-time context from the **Web (Tavily / DuckDuckGo)**, normalizes and deduplicates the gathered sources, and synthesizes a comprehensive research report with inline citations.
+An autonomous, production-grade AI Research Platform built with a **100% textbook LangChain & LangGraph** architecture, extended with an **LLM Gateway**, **layered memory (Redis STM + pgvector LTM)**, **semantic caching**, **Visual LLM (VLM) analysis**, **AWS Bedrock Guardrails**, and **PyRIT Red Teaming**.
+
+> **Base Project:** Krish Naik — Multi-Agent AI Research Platform with AWS Guardrails, LLM Gateway, Red Teaming, STM/LTM & Semantic Caching, extended with a Visual LLM agent  
+> **Timeline:** Aug 2026 – Nov 2026 (16 weeks)
 
 ---
 
@@ -8,50 +11,87 @@ An autonomous, multi-agent AI research assistant built with a **100% textbook La
 
 ```mermaid
 flowchart TD
-    UserQuery["User Research Topic"] --> StateGraph["LangGraph StateGraph"]
+    UserQuery["User Topic / Query"] --> Planner["1. Query Planner & Decomposer"]
+    Planner --> SearchTools["2. Research & Retrieval Tools"]
 
-    subgraph StateGraph ["Multi-Agent LangGraph Workflow"]
-        Start(["__start__"]) --> Planner["🧠 Planner Node (LCEL)\nChatPromptTemplate + with_structured_output(QueryPlan)"]
-        Planner --> Retriever["🔍 Retriever Node (Tools)\narXiv API + Tavily / DuckDuckGo"]
-        Retriever --> Deduplicator["🧹 Deduplicator & Cleaner\nNormalize text & prune duplicate sources"]
-        Deduplicator --> Synthesizer["⚗️ Synthesizer Node (LCEL)\nChatPromptTemplate + with_structured_output(SynthesisReport)"]
-        Synthesizer --> EndNode(["__end__"])
+    subgraph RetrievalLayer ["Data Retrieval Layer (Phase 2)"]
+        SearchTools --> Arxiv["ArXiv Tool (Academic Papers)"]
+        SearchTools --> WebSearch["Web Search (Tavily / DuckDuckGo)"]
+        SearchTools --> DocParser["Document & HTML Normalizer"]
     end
 
-    StateGraph --> Streamlit["🖥️ Interactive Streamlit Dashboard (Live Event Stream)"]
-    StateGraph --> CLI["💻 Terminal CLI Runner"]
-    StateGraph --> Exporter["📝 Markdown & PDF Exporter (Phase 4)"]
-    Exporter --> Server["🚀 FastAPI Backend Server (Phase 5)"]
+    RetrievalLayer --> Synthesizer["3. Synthesis & Reasoning Engine"]
+    Synthesizer --> Verifier["3b. Verify Agent (self-critique / LLM-as-judge)"]
+    Verifier --> FactCheck["4. Fact-Checker & Citation Engine"]
+    FactCheck --> Exporter["4b. Markdown / PDF Exporter"]
+
+    subgraph GatewayMemory ["Phase 4: Gateway, Memory & Evaluation"]
+        Gateway["LLM Gateway (GPT-4o primary, Groq fallback)"]
+        STM["Redis Short-Term Memory"]
+        LTM["PostgreSQL + pgvector Long-Term Memory"]
+        Cache["Semantic Caching"]
+        Trace["LangSmith Tracing + LLM-as-Judge"]
+    end
+
+    subgraph VisualExt ["Phase 5: Visual LLM Extension"]
+        VLM["Visual Analyst Agent (VLM)"]
+        VisualVerify["Visual Verification vs. Source Figures"]
+    end
+
+    subgraph SecurityLayer ["Phase 6: Security & Red Teaming"]
+        Guardrails["AWS Bedrock Guardrails"]
+        RedTeam["PyRIT Red-Team Dashboard (incl. image-based attacks)"]
+    end
+
+    subgraph ServerLayer ["Phase 7: Infrastructure & Deployment"]
+        Exporter --> APIServer["FastAPI Server / Background Workers"]
+        APIServer --> Terraform["Terraform: ECS, RDS, ElastiCache, ALB, Secrets Manager"]
+        Terraform --> CICD["GitHub Actions CI/CD (build, deploy, rollback)"]
+        CICD --> WebUI["Interactive Web UI / Dashboard"]
+    end
 ```
 
 ---
 
-## ✨ Features
+## ✨ Platform Highlights
 
-- **🧠 Textbook LangChain & LangGraph Multi-Agent Architecture**:
-  - State machine orchestrated via **LangGraph `StateGraph`** (`START ➔ planner ➔ retriever ➔ synthesizer ➔ END`).
-  - Modular, versioned prompt templates in `src/prompts/`.
-  - Reusable **LangChain Expression Language (LCEL)** chains with structured output binding in `src/chains/`.
-  - Pure functional graph node transitions and streaming events in `src/graphs/`.
+### 🟢 Built & Operational (Phases 1–3)
+- **🧠 100% Textbook LangChain & LangGraph Multi-Agent Architecture**:
+  - Declarative state machine via **LangGraph `StateGraph`** (`START ➔ planner ➔ retriever ➔ synthesizer ➔ END`).
+  - Decoupled `src/prompts/` (versioned `ChatPromptTemplate`s), `src/chains/` (reusable LCEL runnables), and `src/graphs/` (state graph nodes and event streaming).
 - **📋 Autonomous Query Decomposition**:
-  - Breaks broad topics into 3–5 targeted research angles (foundations, architectures, challenges, applications).
-  - Generates domain-specific search keywords and routes sub-queries to appropriate sources (`arxiv`, `web`, or `both`).
-- **📚 Multi-Source Research Ingestion**:
-  - **Academic Literature**: Direct integration with the **arXiv API** (titles, authors, abstracts, published dates, and PDF links) with resilient socket timeouts.
-  - **Web Intelligence**: Primary integration with **Tavily Search API** (tailored for AI agents), with zero-config fallback to **DuckDuckGo Search**.
-- **🧹 Content Normalization & Deduplication**:
-  - Strips boilerplate HTML and whitespace noise.
-  - Prunes duplicate sources based on normalized URLs and titles into a unified `ResearchSource` stream.
+  - Breaks broad topics into 3–5 targeted sub-questions with search keyword formulation and channel routing (`arxiv`, `web`, or `both`).
+- **📚 Multi-Source Ingestion & Resilient Retrieval**:
+  - **Academic Preprints**: Direct arXiv API integration extracting titles, authors, abstracts, dates, and direct PDF links with resilient socket timeouts.
+  - **Web Intelligence**: Primary integration with **Tavily Search API**, with zero-config automatic fallback to **DuckDuckGo Search**.
+- **🧹 Content Normalization & Pruning**:
+  - Strips HTML boilerplate and deduplicates across sub-queries into a unified `ResearchSource` stream.
 - **⚗️ Structured Synthesis with Source Citations**:
-  - Synthesizes findings across multiple structured sections: *Key Findings*, *Technical Approaches*, *Consensus & Controversies*, *Research Gaps*, *Practical Applications*, and *Future Directions*.
-  - Strictly maps claims to referenced sources using indexed citations (`[0]`, `[1]`, `[2]`).
+  - Direct Pydantic structured output mapping findings into *Key Findings*, *Technical Approaches*, *Consensus & Controversies*, *Research Gaps*, *Practical Applications*, and *Future Directions*.
+  - Strict 0-based source citation tagging (`[0]`, `[1]`, `[2]`).
 - **🖥️ Dual-Mode Streamlit Dashboard (`app.py`)**:
-  - **Mode 1 (Full Research)**: End-to-end LangGraph pipeline with real-time streaming progress callbacks, tabbed inspection of the synthesized report, decomposed query plan, and source cards.
-  - **Mode 2 (Tools Explorer)**: Manual inspection interface to browse and test arXiv and Web search queries individually.
-- **💻 CLI Runner**:
-  - Execute full research cycles straight from the terminal with `python -m src.agents --topic "..."`.
-- **🧪 Comprehensive Test Suite**:
-  - 26 automated unit tests covering graph compilation, nodes, chains, and error recovery with 100% offline mocking.
+  - **Full Research**: Real-time LangGraph streaming progress indicators, tabbed report view, query plan breakdown, and source cards.
+  - **Tools Explorer**: Manual testing and inspection interface for arXiv and web search queries.
+- **🧪 26 Passing Unit Tests**: Complete coverage of graph compilation, nodes, fallback recovery, and schemas.
+
+### 🟡 Roadmap Extensions (Phases 4–7)
+- **🎯 Discrete Verify Agent (Self-Critique)**: Adds a distinct verification node (`START ➔ planner ➔ retriever ➔ synthesizer ➔ verify ➔ END`) to score faithfulness and flag ungrounded assertions before report generation.
+- **🛡️ LLM Gateway & Layered Memory (Phase 4)**:
+  - TensorZero-style gateway: GPT-4o primary with automatic Groq fallback, circuit breaking, and retries.
+  - Redis Short-Term Memory (session-level context).
+  - PostgreSQL + `pgvector` Long-Term Memory (cross-session research retrieval).
+  - Semantic Caching for near-duplicate research queries.
+  - LangSmith tracing with automated LLM-as-judge scoring.
+- **👁️ Visual LLM Extension (Phase 5)**:
+  - Standalone Visual Analyst agent (GPT-4o Vision / Qwen-VL / LLaVA) parsing figures and charts from research papers.
+  - Visual verification cross-checking written numerical claims against actual figures.
+- **🔒 Security & Red Teaming (Phase 6)**:
+  - AWS Bedrock Guardrails for input/output sanitization.
+  - Automated PyRIT red-team dashboard executing jailbreak, XPIA (cross-prompt injection), crescendo, and image-based adversarial attacks.
+- **🚀 Enterprise Infrastructure & CI/CD (Phase 7)**:
+  - Terraform AWS infrastructure provisioning (ECS, RDS, ElastiCache, ALB, Secrets Manager, ECR, VPC).
+  - GitHub Actions CI/CD with automated build, deployment, and blue-green rollback on test failures.
+  - Production FastAPI REST API and multi-format report exporter (Markdown, PDF, JSON).
 
 ---
 
@@ -74,7 +114,7 @@ uv pip install -r requirements.txt
 ```
 
 ### 3. Configure API Keys
-Copy the environment template:
+Copy the template file:
 ```powershell
 cp .env.example .env
 ```
@@ -148,7 +188,8 @@ research_assistant/
 │   │   └── langchain_tools.py # LangChain @tool wrappers (arxiv_search, web_search)
 │   ├── models/              # Pydantic schemas (QueryPlan, SynthesisSection, ResearchResult)
 │   ├── utils/               # Structured logger
-│   └── agents/              # Backward-compatibility facades delegating to chains & graphs
+│   ├── agents/              # Backward-compatibility facades delegating to chains & graphs
+│   └── server/              # API backend (Phase 7)
 ├── tests/
 │   ├── test_graphs.py       # LangGraph state machine & node unit tests
 │   ├── test_agents.py       # Backward-compatibility facade tests
@@ -159,22 +200,25 @@ research_assistant/
 ├── .env.example             # Environment variables template
 ├── requirements.txt         # Project dependencies
 ├── plan.md                  # Master milestone roadmap with checkpoints
+├── LICENSE                  # MIT License
 └── README.md                # Project documentation
 ```
 
 ---
 
-## 🗺️ Roadmap & Milestones
+## 🗺️ 16-Week Roadmap & Milestones
 
 Track our step-by-step development in [plan.md](plan.md):
 
-| Phase | Description | Status |
-| :--- | :--- | :---: |
-| **Phase 1** | Project Scaffolding & Environment Setup | 🟢 Completed |
-| **Phase 2** | Research Tools (arXiv + Tavily/DDG) & Tools Explorer | 🟢 Completed |
-| **Phase 3** | Core Reasoning Pipeline (LangChain LCEL & LangGraph StateGraph) | 🟢 Completed |
-| **Phase 4** | Citation Engine, Fact-Checking & Multi-Format Exporter (PDF/MD) | 🟡 Next Up |
-| **Phase 5** | Production Server (FastAPI), Async Workers & Dockerization | ⚪ Pending |
+| Step | Milestone | Status | Details / Focus Areas |
+|:-----|:----------|:------:|:----------------------|
+| **Phase 1** | Project Scaffolding & Setup | 🟢 Completed | Modular layout, `uv` environment, Pydantic settings, logging |
+| **Phase 2** | Research Tools & Ingestion | 🟢 Completed | arXiv + Tavily/DDG search, text cleaner, source deduplication, Streamlit explorer |
+| **Phase 3** | Reasoning & Agentic Pipeline | 🟡 Mostly Complete | LangChain LCEL, LangGraph `StateGraph`, 26 tests pass; discrete Verify agent pending |
+| **Phase 4** | Gateway, Memory & Evaluation | 🎯 Next Up | LLM Gateway (GPT-4o / Groq fallback), Redis STM, pgvector LTM, Semantic Caching, LangSmith |
+| **Phase 5** | Visual LLM Extension | ⚪ Pending | VLM Visual Analyst agent, multimodal RAG, figure verification |
+| **Phase 6** | Security & Red Teaming | ⚪ Pending | AWS Bedrock Guardrails, PyRIT red-team dashboard (text & image attacks) |
+| **Phase 7** | Infrastructure & Deployment | ⚪ Pending | Terraform on AWS (ECS, RDS, ALB), GitHub Actions CI/CD, FastAPI, report exporter |
 
 ---
 
