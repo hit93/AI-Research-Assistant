@@ -37,13 +37,17 @@ flowchart TD
   research_assistant/
   ├── config/             # Configuration & environment loader
   ├── src/
-  │   ├── tools/          # ArXiv, Web Search, Scrapers
-  │   ├── agents/         # Planner, Researcher, Synthesizer
+  │   ├── prompts/        # Versioned ChatPromptTemplates (Planner, Synthesizer)
+  │   ├── chains/         # Composable LCEL chains (LLM factory, Planner, Synthesizer)
+  │   ├── graphs/         # LangGraph StateGraph, nodes, and workflow execution
+  │   ├── tools/          # ArXiv, Web Search (Tavily/DDG), text cleaner, @tool wrappers
   │   ├── models/         # Pydantic schemas & state models
   │   ├── utils/          # Formatting, exports, logging
+  │   ├── agents/         # Backward-compatibility facades delegating to chains & graphs
   │   └── server/         # API / Web server (Phase 5)
-  ├── tests/              # Unit & integration tests
+  ├── tests/              # Automated pytest suite (graphs, chains, tools, config)
   ├── data/               # Cache, saved reports, downloads
+  ├── app.py              # Streamlit interactive dashboard
   ├── .env.example        # Template for API keys
   ├── .env                # Local keys (Groq & Tavily)
   ├── .gitignore          # Environment & secret exclusion
