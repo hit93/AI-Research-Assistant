@@ -2,7 +2,7 @@
 
 A step-by-step, checkpoint-driven blueprint for building a modular, production-ready AI Research Assistant.
 
-**Base project:** Krish Naik — Multi-Agent AI Research Platform with AWS Guardrails, LLM Gateway, Red Teaming, STM/LTM & Semantic Caching, extended with a Visual LLM agent | **Timeline:** Aug 2026 – Nov 2026
+**Base project:** Krish Naik — Multi-Agent AI Research Platform with AWS Guardrails, LLM Gateway, Red Teaming, STM/LTM & Semantic Caching, extended with a Visual LLM agent
 
 ---
 

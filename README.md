@@ -2,8 +2,7 @@
 
 An autonomous, production-grade AI Research Platform built with a **100% textbook LangChain & LangGraph** architecture, extended with an **LLM Gateway**, **layered memory (Redis STM + pgvector LTM)**, **semantic caching**, **Visual LLM (VLM) analysis**, **AWS Bedrock Guardrails**, and **PyRIT Red Teaming**.
 
-> **Base Project:** Krish Naik — Multi-Agent AI Research Platform with AWS Guardrails, LLM Gateway, Red Teaming, STM/LTM & Semantic Caching, extended with a Visual LLM agent  
-> **Timeline:** Aug 2026 – Nov 2026
+> **Base Project:** Krish Naik — Multi-Agent AI Research Platform with AWS Guardrails, LLM Gateway, Red Teaming, STM/LTM & Semantic Caching, extended with a Visual LLM agent
 
 ---
 
