@@ -47,6 +47,14 @@ class SynthesisSection(BaseModel):
     source_indices: list[int] = Field(default_factory=list, description="Indices into the source list")
 
 
+class SynthesisReport(BaseModel):
+    """Structured report output container for LangChain structured outputs."""
+    sections: list[SynthesisSection] = Field(
+        default_factory=list,
+        description="Synthesized report sections covering findings, gaps, applications, etc.",
+    )
+
+
 class ResearchResult(BaseModel):
     """The final output of a complete research run."""
     query: str

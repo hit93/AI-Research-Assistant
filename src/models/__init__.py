@@ -5,6 +5,7 @@ from .schemas import (
     SubQuery,
     QueryPlan,
     SynthesisSection,
+    SynthesisReport,
     ResearchResult,
     ResearchState,
 )
@@ -16,6 +17,7 @@ __all__ = [
     "SubQuery",
     "QueryPlan",
     "SynthesisSection",
+    "SynthesisReport",
     "ResearchResult",
     "ResearchState",
 ]

@@ -1,8 +1,8 @@
 """
-Tests for Phase 3: LLM Client, Planner, Synthesizer, and Orchestrator.
+Tests for Backward-Compatibility Facades: LLM Client, Planner, Synthesizer, and Orchestrator.
 
-Uses unittest.mock to patch the Groq API calls so tests run without
-a live API key and without hitting rate limits.
+Verifies that callers using src.agents continue to work seamlessly when delegating
+to the new canonical LangChain and LangGraph layers (src.chains and src.graphs).
 """
 
 import json
@@ -12,64 +12,52 @@ from src.models.schemas import (
     SubQuery,
     QueryPlan,
     SynthesisSection,
+    SynthesisReport,
     ResearchSource,
     ResearchResult,
 )
 
 
 # ═══════════════════════════════════════════════════════════════
-# LLM Client Tests
+# LLM Client Tests (Facade)
 # ═══════════════════════════════════════════════════════════════
 
 class TestLLMClient:
-    """Tests for the LLM client wrapper."""
+    """Tests for the LLM client facade."""
 
-    @patch("src.agents.llm_client._get_client")
-    def test_call_llm_returns_text(self, mock_get_client):
+    @patch("src.chains.llm.get_chat_llm")
+    def test_call_llm_returns_text(self, mock_get_llm):
         """call_llm() should return the model's text response."""
-        # Mock the Groq client response
         mock_response = MagicMock()
-        mock_response.choices = [MagicMock()]
-        mock_response.choices[0].message.content = "Hello from LLM"
-        mock_get_client.return_value.chat.completions.create.return_value = mock_response
+        mock_response.content = "Hello from LangChain LLM"
+        mock_get_llm.return_value.invoke.return_value = mock_response
 
         from src.agents.llm_client import call_llm
         result = call_llm("system", "user")
-        assert result == "Hello from LLM"
+        assert result == "Hello from LangChain LLM"
 
-    @patch("src.agents.llm_client._get_client")
-    def test_call_llm_json_parses_response(self, mock_get_client):
+    @patch("src.chains.llm.call_llm")
+    def test_call_llm_json_parses_response(self, mock_call_llm):
         """call_llm_json() should parse valid JSON from the LLM."""
-        json_response = json.dumps({"key": "value", "items": [1, 2, 3]})
-        mock_response = MagicMock()
-        mock_response.choices = [MagicMock()]
-        mock_response.choices[0].message.content = json_response
-        mock_get_client.return_value.chat.completions.create.return_value = mock_response
+        mock_call_llm.return_value = json.dumps({"key": "value", "items": [1, 2, 3]})
 
         from src.agents.llm_client import call_llm_json
         result = call_llm_json("system", "user")
         assert result == {"key": "value", "items": [1, 2, 3]}
 
-    @patch("src.agents.llm_client._get_client")
-    def test_call_llm_json_strips_code_fences(self, mock_get_client):
+    @patch("src.chains.llm.call_llm")
+    def test_call_llm_json_strips_code_fences(self, mock_call_llm):
         """call_llm_json() should handle ```json ... ``` wrapper."""
-        wrapped = '```json\n{"result": true}\n```'
-        mock_response = MagicMock()
-        mock_response.choices = [MagicMock()]
-        mock_response.choices[0].message.content = wrapped
-        mock_get_client.return_value.chat.completions.create.return_value = mock_response
+        mock_call_llm.return_value = '```json\n{"result": true}\n```'
 
         from src.agents.llm_client import call_llm_json
         result = call_llm_json("system", "user")
         assert result == {"result": True}
 
-    @patch("src.agents.llm_client._get_client")
-    def test_call_llm_json_raises_on_invalid(self, mock_get_client):
+    @patch("src.chains.llm.call_llm")
+    def test_call_llm_json_raises_on_invalid(self, mock_call_llm):
         """call_llm_json() should raise ValueError on invalid JSON."""
-        mock_response = MagicMock()
-        mock_response.choices = [MagicMock()]
-        mock_response.choices[0].message.content = "not valid json at all"
-        mock_get_client.return_value.chat.completions.create.return_value = mock_response
+        mock_call_llm.return_value = "not valid json at all"
 
         from src.agents.llm_client import call_llm_json
         try:
@@ -80,30 +68,35 @@ class TestLLMClient:
 
 
 # ═══════════════════════════════════════════════════════════════
-# Planner Tests
+# Planner Tests (Facade)
 # ═══════════════════════════════════════════════════════════════
 
 class TestPlanner:
-    """Tests for the Planner agent."""
+    """Tests for the Planner facade delegating to src.chains.planner."""
 
-    @patch("src.agents.planner.call_llm_json")
-    def test_plan_research_parses_subqueries(self, mock_llm):
+    @patch("src.chains.planner.get_chat_llm")
+    def test_plan_research_parses_subqueries(self, mock_get_llm):
         """plan_research() should return a QueryPlan with parsed sub-queries."""
-        mock_llm.return_value = {
-            "reasoning": "Test decomposition",
-            "sub_queries": [
-                {
-                    "question": "What is quantum computing?",
-                    "search_keywords": ["quantum computing basics"],
-                    "source_type": "both",
-                },
-                {
-                    "question": "Drug discovery applications?",
-                    "search_keywords": ["quantum drug discovery"],
-                    "source_type": "arxiv",
-                },
+        expected_plan = QueryPlan(
+            original_query="Quantum Computing in Drug Discovery",
+            reasoning="Test decomposition",
+            sub_queries=[
+                SubQuery(
+                    question="What is quantum computing?",
+                    search_keywords=["quantum computing basics"],
+                    source_type="both",
+                ),
+                SubQuery(
+                    question="Drug discovery applications?",
+                    search_keywords=["quantum drug discovery"],
+                    source_type="arxiv",
+                ),
             ],
-        }
+        )
+        mock_structured = MagicMock()
+        mock_structured.return_value = expected_plan
+        mock_structured.invoke.return_value = expected_plan
+        mock_get_llm.return_value.with_structured_output.return_value = mock_structured
 
         from src.agents.planner import plan_research
         plan = plan_research("Quantum Computing in Drug Discovery")
@@ -121,10 +114,10 @@ class TestPlanner:
         plan = plan_research("")
         assert len(plan.sub_queries) == 0
 
-    @patch("src.agents.planner.call_llm_json")
-    def test_plan_research_fallback_on_error(self, mock_llm):
-        """plan_research() should fallback to direct query on LLM error."""
-        mock_llm.side_effect = ValueError("Bad JSON")
+    @patch("src.chains.planner.get_chat_llm")
+    def test_plan_research_fallback_on_error(self, mock_get_llm):
+        """plan_research() should fallback to direct query on LangChain error."""
+        mock_get_llm.side_effect = RuntimeError("Groq Connection Refused")
 
         from src.agents.planner import plan_research
         plan = plan_research("test topic")
@@ -135,29 +128,33 @@ class TestPlanner:
 
 
 # ═══════════════════════════════════════════════════════════════
-# Synthesizer Tests
+# Synthesizer Tests (Facade)
 # ═══════════════════════════════════════════════════════════════
 
 class TestSynthesizer:
-    """Tests for the Synthesizer agent."""
+    """Tests for the Synthesizer facade delegating to src.chains.synthesizer."""
 
-    @patch("src.agents.synthesizer.call_llm_json")
-    def test_synthesize_returns_sections(self, mock_llm):
+    @patch("src.chains.synthesizer.get_chat_llm")
+    def test_synthesize_returns_sections(self, mock_get_llm):
         """synthesize_sources() should return structured SynthesisSection list."""
-        mock_llm.return_value = {
-            "sections": [
-                {
-                    "heading": "Key Findings",
-                    "content": "Source [0] shows X. Source [1] confirms Y.",
-                    "source_indices": [0, 1],
-                },
-                {
-                    "heading": "Research Gaps",
-                    "content": "No sources address Z.",
-                    "source_indices": [],
-                },
-            ],
-        }
+        mock_report = SynthesisReport(
+            sections=[
+                SynthesisSection(
+                    heading="Key Findings",
+                    content="Source [0] shows X. Source [1] confirms Y.",
+                    source_indices=[0, 1],
+                ),
+                SynthesisSection(
+                    heading="Research Gaps",
+                    content="No sources address Z.",
+                    source_indices=[],
+                ),
+            ]
+        )
+        mock_structured = MagicMock()
+        mock_structured.return_value = mock_report
+        mock_structured.invoke.return_value = mock_report
+        mock_get_llm.return_value.with_structured_output.return_value = mock_structured
 
         sources = [
             ResearchSource(title="Paper A", url_or_id="http://a.com", content="Content A", source_type="arxiv"),
@@ -179,10 +176,10 @@ class TestSynthesizer:
         assert len(sections) == 1
         assert "No Sources" in sections[0].heading
 
-    @patch("src.agents.synthesizer.call_llm_json")
-    def test_synthesize_fallback_on_error(self, mock_llm):
-        """synthesize_sources() should return raw summary on LLM error."""
-        mock_llm.side_effect = ValueError("Bad JSON")
+    @patch("src.chains.synthesizer.get_chat_llm")
+    def test_synthesize_fallback_on_error(self, mock_get_llm):
+        """synthesize_sources() should return raw summary on LangChain error."""
+        mock_get_llm.side_effect = RuntimeError("Synthesis model timeout")
 
         sources = [
             ResearchSource(title="Paper A", url_or_id="http://a.com", content="Content A", source_type="arxiv"),
@@ -192,27 +189,26 @@ class TestSynthesizer:
         sections = synthesize_sources("test", sources)
 
         assert len(sections) == 1
-        assert "Failed" in sections[0].heading
+        assert "Fallback" in sections[0].heading
 
 
 # ═══════════════════════════════════════════════════════════════
-# Orchestrator Integration Tests
+# Orchestrator Integration Tests (Facade)
 # ═══════════════════════════════════════════════════════════════
 
 class TestOrchestrator:
-    """Integration tests for the full pipeline (with mocked LLM)."""
+    """Integration tests for orchestrator delegating to LangGraph."""
 
-    @patch("src.agents.orchestrator.synthesize_sources")
-    @patch("src.agents.orchestrator.plan_research")
-    @patch("src.agents.orchestrator.search_web")
-    @patch("src.agents.orchestrator.search_arxiv")
+    @patch("src.graphs.nodes.synthesize_sources")
+    @patch("src.graphs.nodes.plan_research")
+    @patch("src.graphs.nodes.search_web")
+    @patch("src.graphs.nodes.search_arxiv")
     def test_run_research_full_pipeline(
         self, mock_arxiv, mock_web, mock_plan, mock_synth
     ):
-        """run_research() should chain plan → retrieve → synthesize."""
+        """run_research() should execute the LangGraph state machine."""
         from src.models.schemas import AcademicPaper, WebSearchResult
 
-        # Mock planner
         mock_plan.return_value = QueryPlan(
             original_query="test",
             sub_queries=[
@@ -221,7 +217,6 @@ class TestOrchestrator:
             reasoning="test plan",
         )
 
-        # Mock retrieval tools
         mock_arxiv.return_value = [
             AcademicPaper(
                 title="Test Paper", authors=["Author A"], summary="Abstract",
@@ -232,7 +227,6 @@ class TestOrchestrator:
             WebSearchResult(title="Web Article", url="http://web.com", snippet="Snippet")
         ]
 
-        # Mock synthesizer
         mock_synth.return_value = [
             SynthesisSection(heading="Findings", content="Summary text", source_indices=[0, 1]),
         ]
@@ -245,12 +239,12 @@ class TestOrchestrator:
         assert len(result.plan.sub_queries) == 1
         assert len(result.sources) > 0
         assert len(result.synthesis) == 1
-        assert result.duration_seconds >= 0  # mocked calls may complete in 0ms
+        assert result.duration_seconds >= 0
 
-    @patch("src.agents.orchestrator.synthesize_sources")
-    @patch("src.agents.orchestrator.plan_research")
-    @patch("src.agents.orchestrator.search_web")
-    @patch("src.agents.orchestrator.search_arxiv")
+    @patch("src.graphs.nodes.synthesize_sources")
+    @patch("src.graphs.nodes.plan_research")
+    @patch("src.graphs.nodes.search_web")
+    @patch("src.graphs.nodes.search_arxiv")
     def test_run_research_handles_retrieval_errors(
         self, mock_arxiv, mock_web, mock_plan, mock_synth
     ):
@@ -268,9 +262,8 @@ class TestOrchestrator:
         from src.agents.orchestrator import run_research
         result = run_research("test")
 
-        # Should complete without crashing
         assert isinstance(result, ResearchResult)
-        assert result.duration_seconds >= 0  # mocked calls may complete in 0ms
+        assert result.duration_seconds >= 0
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -278,7 +271,7 @@ class TestOrchestrator:
 # ═══════════════════════════════════════════════════════════════
 
 class TestPhase3Schemas:
-    """Test the new Phase 3 Pydantic models."""
+    """Test the Phase 3 Pydantic models including LangChain SynthesisReport."""
 
     def test_subquery_defaults(self):
         sq = SubQuery(question="test?")
@@ -291,6 +284,15 @@ class TestPhase3Schemas:
             sub_queries=[SubQuery(question="q1"), SubQuery(question="q2")],
         )
         assert len(plan.sub_queries) == 2
+
+    def test_synthesis_report_container(self):
+        report = SynthesisReport(
+            sections=[
+                SynthesisSection(heading="Summary", content="Text", source_indices=[0])
+            ]
+        )
+        assert len(report.sections) == 1
+        assert report.sections[0].heading == "Summary"
 
     def test_research_result_serialization(self):
         result = ResearchResult(
@@ -306,8 +308,19 @@ class TestPhase3Schemas:
 
 
 # ═══════════════════════════════════════════════════════════════
-# CLI Runner (for manual execution)
+# LangChain Tools Test
 # ═══════════════════════════════════════════════════════════════
+
+class TestLangChainTools:
+    """Verify LangChain tool definitions."""
+
+    def test_tools_registered(self):
+        from src.tools import arxiv_search, web_search
+        assert hasattr(arxiv_search, "invoke")
+        assert hasattr(web_search, "invoke")
+        assert arxiv_search.name == "arxiv_search"
+        assert web_search.name == "web_search"
+
 
 if __name__ == "__main__":
     import pytest

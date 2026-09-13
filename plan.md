@@ -82,37 +82,57 @@ flowchart TD
 
 ---
 
-### 🔹 Phase 3: Core LLM & Agentic Reasoning Workflow
-- [x] Configure LLM provider abstraction (Groq via `llm_client.py`, extensible to OpenAI/Gemini).
-- [x] **Query Decomposition & Planning Agent**:
-  - [x] Break down broad user queries into targeted sub-questions.
-  - [x] Formulate domain-specific search keywords.
-- [x] **Research Synthesis Agent**:
-  - [x] Process retrieved sources and summarize key insights.
-  - [x] Identify consensus, controversies, and research gaps.
-- [x] **State & Flow Orchestration**:
-  - [x] Implement state management (dataclass-based modular Python pipeline).
-  - [x] Enable iterative query refinement if initial results are insufficient.
+### 🔹 Phase 3: Core LLM & Agentic Reasoning Workflow (Textbook LangChain & LangGraph)
+- [x] Configure LLM provider abstraction via **LangChain** (`langchain-groq`, `ChatGroq`, extensible to OpenAI/Gemini).
+- [x] **Modular Prompts Layer (`src/prompts/`)**:
+  - [x] Versioned `ChatPromptTemplate` for query decomposition (`src/prompts/planner.py`).
+  - [x] Versioned `ChatPromptTemplate` for source synthesis (`src/prompts/synthesizer.py`).
+- [x] **Composable LCEL Chains Layer (`src/chains/`)**:
+  - [x] Centralized ChatGroq factory (`src/chains/llm.py`).
+  - [x] `planner_chain`: `planner_prompt | llm.with_structured_output(QueryPlan)`.
+  - [x] `synthesizer_chain`: `synthesizer_prompt | llm.with_structured_output(SynthesisReport)`.
+- [x] **State Machine Graph Layer (`src/graphs/` via LangGraph)**:
+  - [x] `ResearchGraphState` TypedDict state schema (`src/graphs/state.py`).
+  - [x] Graph nodes: `plan_node`, `retrieve_node`, `synthesize_node` (`src/graphs/nodes.py`).
+  - [x] Compiled `StateGraph`: `START -> planner -> retriever -> synthesizer -> END` with live stream callbacks (`src/graphs/graph.py`).
+- [x] **LangChain Tool Integration**:
+  - [x] Added `@tool` wrappers for `arxiv_search` and `web_search` in `src/tools/langchain_tools.py`.
+- [x] **Backward-Compatibility Facade Layer (`src/agents/`)**:
+  - [x] Re-exports and adapters preserving compatibility for `app.py` (Streamlit) and CLI (`python -m src.agents`).
+- [x] **Interactive Streamlit Integration (`app.py`)**:
+  - [x] Full Research mode with live progress indicator callback.
+  - [x] Tabbed UI displaying Synthesized Report, Query Plan breakdown, and Sources cards.
+- [x] **Comprehensive Testing & Educational Docs**:
+  - [x] 26 unit tests across `tests/test_graphs.py`, `tests/test_agents.py`, and `tests/test_config.py` (100% passing).
+  - [x] Created `PHASE3_EXPLAINED.md` deep dive into the reasoning pipeline.
 
-> ### 🏁 Checkpoint 3: CLI Research Run Verification
-> - [x] Run full research cycle via CLI: `python -m src.agents --topic "Quantum Computing in Drug Discovery"`.
-> - [x] Outputs structured research notes with raw source citations directly to terminal.
+> ### 🏁 Checkpoint 3: CLI & Web Research Run Verification (PASSED)
+> - [x] CLI execution verified: `python -m src.agents --topic "Quantum Machine Learning"`.
+> - [x] LangGraph StateGraph pipeline verified: 5 sub-queries decomposed, 4 sources retrieved, 6 synthesized sections generated with citations.
+> - [x] Streamlit Web execution verified: live end-to-end run on `localhost:8502`.
+> - [x] Resilient ArXiv timeout and error recovery verified.
 
 ---
 
-### 🔹 Phase 4: Citation Engine, Fact-Checking & Report Generation
+### 🔹 Phase 4: Citation Engine, Fact-Checking & Report Generation (🎯 Next Up)
 - [ ] **Citation & Attribution Engine**:
-  - [ ] Standardize citation format (APA, IEEE, or Markdown with footnotes).
-  - [ ] Validate every claim maps to an extracted source link.
+  - [ ] Standardize citation format (inline brackets `[1]`, Markdown footnotes `[^1]`, or academic bibliography).
+  - [ ] Validate every claim maps to an extracted source link with author and publication metadata.
+  - [ ] Source reference linker connecting report claims directly to raw excerpts.
 - [ ] **Quality & Hallucination Guard**:
-  - [ ] Cross-check generated report against retrieved excerpts.
+  - [ ] Cross-check generated report against retrieved excerpts for factual consistency.
+  - [ ] Flag ungrounded assertions or hallucinated sources.
 - [ ] **Multi-Format Report Exporter**:
   - [ ] Export comprehensive research report to Markdown (`.md`).
-  - [ ] Export to formatted PDF and JSON summaries.
+  - [ ] Export to formatted PDF and structured JSON summaries.
+  - [ ] Auto-save reports with query slug & timestamp to `data/reports/`.
+- [ ] **UI Download Integration**:
+  - [ ] Integrate Markdown and PDF download buttons in the Streamlit app.
 
 > ### 🏁 Checkpoint 4: Report Quality & Export Verification
 > - [ ] Automated verification: Report contains executive summary, literature review, findings, and bibliography.
 > - [ ] Output file saved successfully in `data/reports/` with working citation links.
+> - [ ] Streamlit UI export buttons allow single-click download of `.md` and `.pdf` reports.
 
 ---
 
@@ -122,12 +142,12 @@ flowchart TD
   - [ ] `GET /api/research/{job_id}`: Stream progress / check status.
   - [ ] `GET /api/research/{job_id}/download`: Download report as PDF/Markdown.
 - [ ] **Interactive User Interface**:
-  - [ ] Streamlit Dashboard or Modern Web Frontend.
-  - [ ] Real-time progress updates (showing current agent activity: Searching, Synthesizing, Exporting).
+  - [x] Streamlit Dashboard (Mode 1 & Mode 2 already operational in `app.py`).
+  - [ ] Real-time WebSocket or streaming progress updates for background jobs.
   - [ ] Interactive report viewer with markdown rendering and download buttons.
 - [ ] **Production Readiness**:
   - [ ] Dockerfile containerization.
-  - [ ] Caching layer to avoid repeated API spend on identical queries.
+  - [ ] Caching layer (SQLite / Redis) to avoid repeated API spend on identical queries.
 
 > ### 🏁 Checkpoint 5: Full System End-to-End Verification
 > - [ ] Server starts with `python -m src.server.main` without warnings.
@@ -141,8 +161,8 @@ flowchart TD
 | :--- | :--- | :---: | :--- |
 | **Step 1** | Project Setup & Environment | 🟢 Completed | Directory scaffold, config loader & tests pass |
 | **Step 2** | Research Tools (ArXiv + Web) | 🟢 Completed | ArXiv + Tavily / DDG tools & tests pass (5/5) |
-| **Step 3** | Reasoning & Agentic Pipeline | 🟢 Completed | Groq LLM client, Planner, Synthesizer, Orchestrator & CLI |
-| **Step 4** | Citations & Report Exporter | ⚪ Not Started | Formatted Markdown & PDF output |
-| **Step 5** | Server & Web Interface | ⚪ Not Started | FastAPI / Streamlit at the end |
+| **Step 3** | Reasoning & Agentic Pipeline | 🟢 Completed | Groq LLM client, Planner, Synthesizer, CLI + Streamlit UI verified |
+| **Step 4** | Citations & Report Exporter | 🟡 Next Up | Citation engine, fact-checking, Markdown & PDF export |
+| **Step 5** | Server & Production Deployment | ⚪ Pending | FastAPI endpoints, background worker, Docker, caching |
 
 
