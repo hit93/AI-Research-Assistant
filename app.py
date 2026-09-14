@@ -8,6 +8,12 @@ from src.tools import (
     deduplicate_sources,
 )
 from src.agents import run_research
+from src.utils import (
+    export_to_markdown,
+    export_to_pdf,
+    export_to_json,
+    save_report,
+)
 
 st.set_page_config(
     page_title="AI Research Assistant",
@@ -102,45 +108,56 @@ with col_btn:
 # MODE 1: Full LLM Research Pipeline
 # ═══════════════════════════════════════════════════════════════
 if "🧠" in mode:
-    if search_clicked or (query and "last_full_query" in st.session_state and st.session_state.last_full_query == query):
+    has_cached = (
+        "last_research_result" in st.session_state
+        and st.session_state.get("last_full_query") == query
+        and query.strip()
+    )
+    if search_clicked or has_cached:
         if not query.strip():
             st.warning("Please enter a search topic first.")
         elif not keys["groq"]:
             st.error("🔑 Groq API key required for Full Research mode. Add `GROQ_API_KEY` to your `.env` file.")
         else:
-            # Store query to avoid re-runs on rerender
-            st.session_state.last_full_query = query
+            if search_clicked or not has_cached:
+                st.session_state.last_full_query = query
 
-            # Progress display
-            progress_container = st.empty()
-            progress_messages = []
+                # Progress display
+                progress_container = st.empty()
+                progress_messages = []
 
-            def on_progress(status: str, detail: str):
-                icons = {
-                    "planning": "🧠",
-                    "planned": "✅",
-                    "retrieving": "🔍",
-                    "retrieved": "📦",
-                    "deduplicated": "🧹",
-                    "synthesizing": "⚗️",
-                    "synthesized": "✅",
-                    "verifying": "🔎",
-                    "verified": "✅",
-                    "complete": "🏁",
-                }
-                icon = icons.get(status, "▸")
-                progress_messages.append(f"{icon} **{status.upper()}**: {detail}")
-                progress_container.markdown("\n\n".join(progress_messages))
+                def on_progress(status: str, detail: str):
+                    icons = {
+                        "planning": "🧠",
+                        "planned": "✅",
+                        "retrieving": "🔍",
+                        "retrieved": "📦",
+                        "deduplicated": "🧹",
+                        "synthesizing": "⚗️",
+                        "synthesized": "✅",
+                        "verifying": "🔎",
+                        "verified": "✅",
+                        "complete": "🏁",
+                    }
+                    icon = icons.get(status, "▸")
+                    progress_messages.append(f"{icon} **{status.upper()}**: {detail}")
+                    progress_container.markdown("\n\n".join(progress_messages))
 
-            with st.spinner("Running full research pipeline..."):
-                result = run_research(
-                    query=query,
-                    max_papers=arxiv_max,
-                    max_web=web_max,
-                    on_progress=on_progress,
-                )
+                with st.spinner("Running full research pipeline..."):
+                    result = run_research(
+                        query=query,
+                        max_papers=arxiv_max,
+                        max_web=web_max,
+                        on_progress=on_progress,
+                    )
 
-            progress_container.empty()
+                progress_container.empty()
+                st.session_state.last_research_result = result
+                st.session_state.saved_reports = save_report(result)
+            else:
+                result = st.session_state.last_research_result
+                if "saved_reports" not in st.session_state:
+                    st.session_state.saved_reports = save_report(result)
 
             # Success banner
             score_info = ""
@@ -150,6 +167,43 @@ if "🧠" in mode:
                 f"✅ Research complete in **{result.duration_seconds}s** — "
                 f"{len(result.sources)} sources, {len(result.synthesis)} sections{score_info}"
             )
+
+            # ── Multi-Format Report Export & Download Row ────────
+            saved_paths = st.session_state.saved_reports
+            pdf_filename = saved_paths.get("pdf", Path("report.pdf")).name
+            md_filename = saved_paths.get("md", Path("report.md")).name
+            json_filename = saved_paths.get("json", Path("report.json")).name
+
+            col_pdf, col_md, col_json, col_info = st.columns([1.2, 1.4, 1.2, 2.2])
+            with col_pdf:
+                pdf_bytes = export_to_pdf(result)
+                st.download_button(
+                    label="📄 Download PDF",
+                    data=pdf_bytes,
+                    file_name=pdf_filename,
+                    mime="application/pdf",
+                    use_container_width=True,
+                )
+            with col_md:
+                md_content = export_to_markdown(result)
+                st.download_button(
+                    label="📝 Download Markdown",
+                    data=md_content,
+                    file_name=md_filename,
+                    mime="text/markdown",
+                    use_container_width=True,
+                )
+            with col_json:
+                json_content = export_to_json(result)
+                st.download_button(
+                    label="📊 Download JSON",
+                    data=json_content,
+                    file_name=json_filename,
+                    mime="application/json",
+                    use_container_width=True,
+                )
+            with col_info:
+                st.caption(f"💾 *Auto-saved to `data/reports/{pdf_filename}`*")
 
             # Tabs for results
             tab_report, tab_plan, tab_sources, tab_verify = st.tabs([

@@ -123,8 +123,11 @@ research_assistant/
 - [x] **Add a distinct Verify agent** (self-critique / LLM-as-judge, "did the summary/report actually follow from the sources") as its own graph node, rather than folding verification into the Synthesizer — closes the loop the roadmap milestone calls for (`START → planner → retriever → synthesizer → verifier → END`).
 - [x] Split synthesis into distinct **Write** and **Verify** stages if the single `synthesize_node` still does both.
 - [x] **Dedicated Verifier LLM** (`openai/gpt-oss-120b` via Groq): the Verify node uses a separate, more capable judge model configured via `VERIFIER_MODEL` in `.env`, distinct from the `GROQ_MODEL` used by the Planner and Synthesizer.
+- [x] **Multi-Format Report Exporter (`src/utils/exporter.py`)**: Export verified research results into publication-ready PDF (ReportLab with custom typography, headers, citation tables, evaluator badges, and dynamic page numbering), GitHub-Flavored Markdown, and structured JSON. Includes auto-saving to `data/reports/`.
+- [x] **Streamlit UI Download Action Bar**: One-click download buttons for `📄 Download PDF`, `📝 Download Markdown`, and `📊 Download JSON`, with auto-save confirmation and rerender caching.
+- [x] **Comprehensive Testing Suite**: 41 unit tests covering agents, chains, graphs, tools, config, and PDF/Markdown/JSON exporters (100% passing).
 
-> ### 🏁 Checkpoint 3: CLI & Web Research Run Verification (PASSED)
+> ### 🏁 Checkpoint 3: CLI, Web Research Run & PDF Export Verification (PASSED)
 >
 > - [x] CLI execution verified: `python -m src.agents --topic "Quantum Machine Learning"`.
 > - [x] LangGraph StateGraph pipeline verified: 5 sub-queries decomposed, 4 sources retrieved, 6 synthesized sections generated with citations.
@@ -132,6 +135,7 @@ research_assistant/
 > - [x] Resilient ArXiv timeout and error recovery verified.
 > - [x] Verify agent runs as a discrete node and can reject/flag a report before it reaches the user.
 > - [x] Verifier uses `openai/gpt-oss-120b` (120B MoE, 131K context window) as a dedicated judge model, independently configurable via `VERIFIER_MODEL` env var.
+> - [x] Multi-format export verified: instantaneous PDF/MD/JSON downloads in Streamlit and auto-save to `data/reports/`. 41/41 tests passing.
 
 ---
 
@@ -194,9 +198,7 @@ Ship it like a real platform: infrastructure as code, CI/CD, and a demo you can 
 - [ ] **Backend API (FastAPI)**:
   - [ ] `POST /api/research`: trigger async research job with topic & depth options.
   - [ ] `GET /api/research/{job_id}`: stream progress / check status.
-  - [ ] `GET /api/research/{job_id}/download`: download report as PDF/Markdown.
-- [ ] **Multi-Format Report Exporter**: Markdown, PDF, and structured JSON summaries, auto-saved with query slug & timestamp to `data/reports/`.
-- [ ] **UI Download Integration**: Markdown/PDF download buttons in the Streamlit app.
+  - [ ] `GET /api/research/{job_id}/download`: download report as PDF/Markdown (delegating to `src/utils/exporter.py`).
 - [ ] End-to-end testing on the deployed system, project documentation, short demo recording, portfolio/LinkedIn writeup.
 
 > ### 🏁 Checkpoint 7: Full System End-to-End Verification
@@ -213,8 +215,8 @@ Ship it like a real platform: infrastructure as code, CI/CD, and a demo you can 
 |------|-----------|--------|-------------------|
 | **Step 1** | Project Setup & Environment | 🟢 Completed | Directory scaffold, config loader & tests pass |
 | **Step 2** | Research Tools (ArXiv + Web) | 🟢 Completed | ArXiv + Tavily / DDG tools & tests pass (5/5) |
-| **Step 3** | Reasoning & Agentic Pipeline | 🟢 Completed | Groq LLM client, Planner, Synthesizer, Verifier (LLM-as-judge), CLI + Streamlit UI verified; 36 tests passing |
+| **Step 3** | Reasoning & Agentic Pipeline + PDF Exporter | 🟢 Completed | Groq LLM client, Planner, Synthesizer, Verifier (LLM-as-judge), ReportLab PDF/MD/JSON exporter & Streamlit downloads; 41 tests passing |
 | **Step 4** | Gateway, Memory & Evaluation | 🎯 Next Up | LLM gateway w/ fallback, Redis STM, pgvector LTM, semantic caching, LangSmith + LLM-as-judge |
 | **Step 5** | Visual LLM Extension | ⚪ Pending | VLM Visual Analyst agent, multimodal RAG wiring, visual verification |
 | **Step 6** | Security & Red Teaming | ⚪ Pending | AWS Bedrock guardrails, PyRIT red-team dashboard incl. image-based attacks |
-| **Step 7** | Infrastructure & Deployment | ⚪ Pending | Terraform (ECS/RDS/ElastiCache), GitHub Actions CI/CD, FastAPI server, report exporter |
+| **Step 7** | Infrastructure & Deployment | ⚪ Pending | Terraform (ECS/RDS/ElastiCache), GitHub Actions CI/CD, FastAPI server |

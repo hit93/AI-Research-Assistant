@@ -75,8 +75,13 @@ flowchart TD
   - Categorizes issues (`hallucination`, `unsupported_claim`, `broken_citation`, `missing_evidence`, `clarity_issue`) with severity levels (`high`, `medium`, `low`) and actionable recommendations.
 - **🖥️ Dual-Mode Streamlit Dashboard (`app.py`)**:
   - **Full Research**: Real-time LangGraph streaming progress indicators, 4-tabbed report view (📑 Synthesis Report, 📋 Query Plan, 📚 Sources, and ✅ Verification Report with score metrics and issue badges).
+  - **One-Click Multi-Format Export Bar**: Download generated reports immediately as **PDF** (`📄 Download PDF`), **Markdown** (`📝 Download Markdown`), or **JSON** (`📊 Download JSON`).
   - **Tools Explorer**: Manual testing and inspection interface for arXiv and web search queries.
-- **🧪 36 Passing Unit Tests**: Complete coverage of graph compilation, all 4 nodes, LLM-as-judge chains, fallback recovery, tools, and schemas.
+- **📄 Multi-Format Report Exporter (`src/utils/exporter.py`)**:
+  - **Publication-Ready PDF**: ReportLab-powered PDF engine generating styled reports with custom typography, evaluator quality score badges, cited references, callout blocks, and dynamic two-pass page numbering ("Page X of Y").
+  - **Markdown & JSON**: GitHub-Flavored Markdown with inline source citations and structured JSON serialization.
+  - **Automated Archival**: Automatically saves generated reports with timestamped slug filenames to `data/reports/`.
+- **🧪 41 Passing Unit Tests**: Complete coverage of graph compilation, all 4 nodes, LLM-as-judge chains, fallback recovery, tools, schemas, and multi-format export engines.
 
 ### 🟡 Roadmap Extensions (Phases 4–7)
 - **🛡️ LLM Gateway & Layered Memory (Phase 4)**:
@@ -94,7 +99,7 @@ flowchart TD
 - **🚀 Enterprise Infrastructure & CI/CD (Phase 7)**:
   - Terraform AWS infrastructure provisioning (ECS, RDS, ElastiCache, ALB, Secrets Manager, ECR, VPC).
   - GitHub Actions CI/CD with automated build, deployment, and blue-green rollback on test failures.
-  - Production FastAPI REST API and multi-format report exporter (Markdown, PDF, JSON).
+  - Production FastAPI REST API with async research job queues and download endpoints.
 
 ---
 
