@@ -1,10 +1,11 @@
 """
-Chains Package — Composable LCEL chains for planning and synthesis.
+Chains Package — Composable LCEL chains for planning, synthesis, and verification.
 """
 
 from .llm import get_chat_llm, call_llm, call_llm_json
 from .planner import get_planner_chain, plan_research
 from .synthesizer import get_synthesizer_chain, synthesize_sources
+from .verifier import get_verifier_chain, verify_synthesis
 
 __all__ = [
     "get_chat_llm",
@@ -14,4 +15,7 @@ __all__ = [
     "plan_research",
     "get_synthesizer_chain",
     "synthesize_sources",
+    "get_verifier_chain",
+    "verify_synthesis",
 ]
+

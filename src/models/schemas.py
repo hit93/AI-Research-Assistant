@@ -55,12 +55,31 @@ class SynthesisReport(BaseModel):
     )
 
 
+class VerificationIssue(BaseModel):
+    """A single issue found by the Verify agent during report review."""
+    section_heading: str = Field(description="Which synthesis section this issue relates to")
+    issue: str = Field(description="Description of the problem found")
+    severity: Literal["low", "medium", "high"] = Field(
+        default="medium", description="Impact level of the issue"
+    )
+    suggestion: str = Field(default="", description="How to fix or improve")
+
+
+class VerificationResult(BaseModel):
+    """The Verify agent's verdict on the synthesized report."""
+    is_approved: bool = Field(default=True, description="Whether the report passes quality review")
+    overall_score: int = Field(default=7, ge=1, le=10, description="Quality score from 1 (poor) to 10 (excellent)")
+    issues: list[VerificationIssue] = Field(default_factory=list, description="Specific issues found")
+    summary: str = Field(default="", description="Brief overall assessment of the report quality")
+
+
 class ResearchResult(BaseModel):
     """The final output of a complete research run."""
     query: str
     plan: QueryPlan
     sources: list[ResearchSource] = Field(default_factory=list)
     synthesis: list[SynthesisSection] = Field(default_factory=list)
+    verification: VerificationResult | None = None
     duration_seconds: float = 0.0
 
 

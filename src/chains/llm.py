@@ -34,6 +34,12 @@ def get_chat_llm(
         )
 
     chosen_model = model or settings.GROQ_MODEL
+    # Normalize common model names if missing provider prefix on Groq
+    if chosen_model in ("gpt-oss-120b", "gpt_oss_120b"):
+        chosen_model = "openai/gpt-oss-120b"
+    elif chosen_model in ("qwen3.8-27b", "qwen-3.8-27b"):
+        chosen_model = "qwen/qwen3.8-27b"
+
     logger.debug(f"Instantiating ChatGroq (model: {chosen_model}, temp: {temperature})")
 
     return ChatGroq(

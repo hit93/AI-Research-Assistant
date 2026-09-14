@@ -7,6 +7,7 @@ def test_settings_initialization():
     assert isinstance(settings.CACHE_DIR, Path)
     assert settings.LOG_LEVEL in ["DEBUG", "INFO", "WARNING", "ERROR"]
     assert settings.GROQ_MODEL != ""
+    assert settings.VERIFIER_MODEL != ""
     assert settings.SEARCH_ENGINE == "tavily"
 
 def test_key_validation():

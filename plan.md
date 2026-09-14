@@ -115,21 +115,23 @@ research_assistant/
 - [x] Configure LLM provider abstraction via **LangChain** (`langchain-groq`, `ChatGroq`, extensible to OpenAI/Gemini/GPT-4o).
 - [x] **Modular Prompts Layer (`src/prompts/`)**: versioned `ChatPromptTemplate` for query decomposition and source synthesis.
 - [x] **Composable LCEL Chains Layer (`src/chains/`)**: `planner_chain`, `synthesizer_chain` with structured output binding.
-- [x] **State Machine Graph Layer (`src/graphs/`)**: `ResearchGraphState`, nodes `plan_node` / `retrieve_node` / `synthesize_node`, compiled `START → planner → retriever → synthesizer → END` with streaming callbacks.
+- [x] **State Machine Graph Layer (`src/graphs/`)**: `ResearchGraphState`, nodes `plan_node` / `retrieve_node` / `synthesize_node` / `verify_node`, compiled `START → planner → retriever → synthesizer → verifier → END` with streaming callbacks.
 - [x] **LangChain Tool Integration**: `@tool` wrappers for `arxiv_search` and `web_search`.
 - [x] **Backward-Compatibility Facade Layer (`src/agents/`)**.
 - [x] **Interactive Streamlit Integration (`app.py`)**: Full Research mode + Tools Explorer mode.
-- [x] **Comprehensive Testing**: 26 unit tests, 100% passing, offline-mocked.
-- [ ] **Add a distinct Verify agent** (self-critique / LLM-as-judge, "did the summary/report actually follow from the sources") as its own graph node, rather than folding verification into the Synthesizer — closes the loop the roadmap milestone calls for (`START → planner → retriever → synthesizer → verify → END`).
-- [ ] Split synthesis into distinct **Write** and **Verify** stages if the single `synthesize_node` still does both.
+- [x] **Comprehensive Testing**: 36 unit tests, 100% passing, offline-mocked.
+- [x] **Add a distinct Verify agent** (self-critique / LLM-as-judge, "did the summary/report actually follow from the sources") as its own graph node, rather than folding verification into the Synthesizer — closes the loop the roadmap milestone calls for (`START → planner → retriever → synthesizer → verifier → END`).
+- [x] Split synthesis into distinct **Write** and **Verify** stages if the single `synthesize_node` still does both.
+- [x] **Dedicated Verifier LLM** (`openai/gpt-oss-120b` via Groq): the Verify node uses a separate, more capable judge model configured via `VERIFIER_MODEL` in `.env`, distinct from the `GROQ_MODEL` used by the Planner and Synthesizer.
 
-> ### 🏁 Checkpoint 3: CLI & Web Research Run Verification (PASSED, verify-agent split pending)
+> ### 🏁 Checkpoint 3: CLI & Web Research Run Verification (PASSED)
 >
 > - [x] CLI execution verified: `python -m src.agents --topic "Quantum Machine Learning"`.
 > - [x] LangGraph StateGraph pipeline verified: 5 sub-queries decomposed, 4 sources retrieved, 6 synthesized sections generated with citations.
 > - [x] Streamlit Web execution verified: live end-to-end run on `localhost:8502`.
 > - [x] Resilient ArXiv timeout and error recovery verified.
-> - [ ] Verify agent runs as a discrete node and can reject/flag a report before it reaches the user.
+> - [x] Verify agent runs as a discrete node and can reject/flag a report before it reaches the user.
+> - [x] Verifier uses `openai/gpt-oss-120b` (120B MoE, 131K context window) as a dedicated judge model, independently configurable via `VERIFIER_MODEL` env var.
 
 ---
 
@@ -211,7 +213,7 @@ Ship it like a real platform: infrastructure as code, CI/CD, and a demo you can 
 |------|-----------|--------|-------------------|
 | **Step 1** | Project Setup & Environment | 🟢 Completed | Directory scaffold, config loader & tests pass |
 | **Step 2** | Research Tools (ArXiv + Web) | 🟢 Completed | ArXiv + Tavily / DDG tools & tests pass (5/5) |
-| **Step 3** | Reasoning & Agentic Pipeline | 🟡 Mostly Complete | Groq LLM client, Planner, Synthesizer, CLI + Streamlit UI verified; discrete Verify agent still pending |
+| **Step 3** | Reasoning & Agentic Pipeline | 🟢 Completed | Groq LLM client, Planner, Synthesizer, Verifier (LLM-as-judge), CLI + Streamlit UI verified; 36 tests passing |
 | **Step 4** | Gateway, Memory & Evaluation | 🎯 Next Up | LLM gateway w/ fallback, Redis STM, pgvector LTM, semantic caching, LangSmith + LLM-as-judge |
 | **Step 5** | Visual LLM Extension | ⚪ Pending | VLM Visual Analyst agent, multimodal RAG wiring, visual verification |
 | **Step 6** | Security & Red Teaming | ⚪ Pending | AWS Bedrock guardrails, PyRIT red-team dashboard incl. image-based attacks |

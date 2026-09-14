@@ -6,6 +6,8 @@ from .schemas import (
     QueryPlan,
     SynthesisSection,
     SynthesisReport,
+    VerificationIssue,
+    VerificationResult,
     ResearchResult,
     ResearchState,
 )
@@ -18,7 +20,10 @@ __all__ = [
     "QueryPlan",
     "SynthesisSection",
     "SynthesisReport",
+    "VerificationIssue",
+    "VerificationResult",
     "ResearchResult",
     "ResearchState",
 ]
+
 

@@ -13,6 +13,8 @@ from src.models.schemas import (
     QueryPlan,
     SynthesisSection,
     SynthesisReport,
+    VerificationIssue,
+    VerificationResult,
     ResearchSource,
     ResearchResult,
 )
@@ -193,18 +195,99 @@ class TestSynthesizer:
 
 
 # ═══════════════════════════════════════════════════════════════
+# Verifier Tests (Facade)
+# ═══════════════════════════════════════════════════════════════
+
+class TestVerifier:
+    """Tests for the Verifier facade delegating to src.chains.verifier."""
+
+    @patch("src.chains.verifier.get_verifier_chain")
+    def test_verify_returns_verification_result(self, mock_get_chain):
+        """verify_synthesis() should return a VerificationResult."""
+        mock_result = VerificationResult(
+            is_approved=True,
+            overall_score=8,
+            issues=[
+                VerificationIssue(
+                    section_heading="Key Findings",
+                    issue="Minor unsupported claim in paragraph 2",
+                    severity="low",
+                    suggestion="Add citation for the claim about efficiency gains.",
+                )
+            ],
+            summary="Report is well-structured with minor citation gaps.",
+        )
+        mock_chain = MagicMock()
+        mock_chain.invoke.return_value = mock_result
+        mock_get_chain.return_value = mock_chain
+
+        sources = [
+            ResearchSource(title="Paper A", url_or_id="http://a.com", content="Content A", source_type="arxiv"),
+        ]
+        synthesis = [
+            SynthesisSection(heading="Key Findings", content="Important results.", source_indices=[0]),
+        ]
+
+        from src.agents.verifier import verify_synthesis
+        result = verify_synthesis("test query", sources, synthesis)
+
+        assert isinstance(result, VerificationResult)
+        assert result.is_approved is True
+        assert result.overall_score == 8
+        assert len(result.issues) == 1
+        assert result.issues[0].severity == "low"
+
+    def test_verify_no_synthesis(self):
+        """verify_synthesis() with empty synthesis should return low-score result."""
+        from src.agents.verifier import verify_synthesis
+        result = verify_synthesis("test", [], [])
+        assert result.is_approved is False
+        assert result.overall_score == 1
+
+    def test_verify_no_sources(self):
+        """verify_synthesis() with no sources should auto-approve with low confidence."""
+        from src.agents.verifier import verify_synthesis
+        synthesis = [
+            SynthesisSection(heading="Summary", content="Content", source_indices=[]),
+        ]
+        result = verify_synthesis("test", [], synthesis)
+        assert result.is_approved is True
+        assert result.overall_score == 3
+
+    @patch("src.chains.verifier.get_chat_llm")
+    def test_verify_fallback_on_error(self, mock_get_llm):
+        """verify_synthesis() should return auto-approved result on LangChain error."""
+        mock_get_llm.side_effect = RuntimeError("Verifier model timeout")
+
+        sources = [
+            ResearchSource(title="Paper A", url_or_id="http://a.com", content="Content A", source_type="arxiv"),
+        ]
+        synthesis = [
+            SynthesisSection(heading="Findings", content="Text", source_indices=[0]),
+        ]
+
+        from src.agents.verifier import verify_synthesis
+        result = verify_synthesis("test", sources, synthesis)
+
+        assert isinstance(result, VerificationResult)
+        assert result.is_approved is True
+        assert result.overall_score == 5
+
+
+# ═══════════════════════════════════════════════════════════════
 # Orchestrator Integration Tests (Facade)
 # ═══════════════════════════════════════════════════════════════
 
 class TestOrchestrator:
     """Integration tests for orchestrator delegating to LangGraph."""
 
+    @patch("src.graphs.nodes.verify_synthesis")
     @patch("src.graphs.nodes.synthesize_sources")
     @patch("src.graphs.nodes.plan_research")
     @patch("src.graphs.nodes.search_web")
     @patch("src.graphs.nodes.search_arxiv")
     def test_run_research_full_pipeline(
-        self, mock_arxiv, mock_web, mock_plan, mock_synth
+        self, mock_arxiv, mock_web, mock_plan, mock_synth, mock_verify
     ):
         """run_research() should execute the LangGraph state machine."""
         from src.models.schemas import AcademicPaper, WebSearchResult
@@ -231,6 +314,10 @@ class TestOrchestrator:
             SynthesisSection(heading="Findings", content="Summary text", source_indices=[0, 1]),
         ]
 
+        mock_verify.return_value = VerificationResult(
+            is_approved=True, overall_score=8, issues=[], summary="Good report."
+        )
+
         from src.agents.orchestrator import run_research
         result = run_research("test", max_papers=2, max_web=2)
 
@@ -239,14 +326,17 @@ class TestOrchestrator:
         assert len(result.plan.sub_queries) == 1
         assert len(result.sources) > 0
         assert len(result.synthesis) == 1
+        assert result.verification is not None
+        assert result.verification.is_approved is True
         assert result.duration_seconds >= 0
 
+    @patch("src.graphs.nodes.verify_synthesis")
     @patch("src.graphs.nodes.synthesize_sources")
     @patch("src.graphs.nodes.plan_research")
     @patch("src.graphs.nodes.search_web")
     @patch("src.graphs.nodes.search_arxiv")
     def test_run_research_handles_retrieval_errors(
-        self, mock_arxiv, mock_web, mock_plan, mock_synth
+        self, mock_arxiv, mock_web, mock_plan, mock_synth, mock_verify
     ):
         """run_research() should continue even if retrieval fails."""
         mock_plan.return_value = QueryPlan(
@@ -258,11 +348,15 @@ class TestOrchestrator:
         mock_synth.return_value = [
             SynthesisSection(heading="No Data", content="No sources found", source_indices=[]),
         ]
+        mock_verify.return_value = VerificationResult(
+            is_approved=True, overall_score=5, issues=[], summary="Limited data."
+        )
 
         from src.agents.orchestrator import run_research
         result = run_research("test")
 
         assert isinstance(result, ResearchResult)
+        assert result.verification is not None
         assert result.duration_seconds >= 0
 
 

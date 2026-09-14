@@ -16,6 +16,7 @@ class Settings:
     # LLM & Search
     GROQ_API_KEY: str = field(default_factory=lambda: os.getenv("GROQ_API_KEY", ""))
     GROQ_MODEL: str = field(default_factory=lambda: os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b"))
+    VERIFIER_MODEL: str = field(default_factory=lambda: os.getenv("VERIFIER_MODEL", "openai/gpt-oss-120b"))
     SEARCH_ENGINE: str = field(default_factory=lambda: os.getenv("SEARCH_ENGINE", "tavily"))
     
     # Optional fallback keys

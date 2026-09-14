@@ -3,7 +3,7 @@ LangGraph State Schema — Represents state across the research assistant graph.
 """
 
 from typing import TypedDict, Optional
-from src.models.schemas import QueryPlan, ResearchSource, SynthesisSection
+from src.models.schemas import QueryPlan, ResearchSource, SynthesisSection, VerificationResult
 
 
 class ResearchGraphState(TypedDict, total=False):
@@ -14,5 +14,7 @@ class ResearchGraphState(TypedDict, total=False):
     plan: Optional[QueryPlan]
     sources: list[ResearchSource]
     synthesis: list[SynthesisSection]
+    verification: Optional[VerificationResult]
     status: str
     errors: list[str]
+

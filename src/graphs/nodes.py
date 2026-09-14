@@ -5,6 +5,7 @@ LangGraph Nodes — Discrete executable functions for each graph state transitio
 from src.graphs.state import ResearchGraphState
 from src.chains.planner import plan_research
 from src.chains.synthesizer import synthesize_sources
+from src.chains.verifier import verify_synthesis
 from src.tools.arxiv_tool import search_arxiv, papers_to_sources
 from src.tools.web_search_tool import search_web, web_results_to_sources
 from src.tools.text_cleaner import deduplicate_sources
@@ -80,3 +81,21 @@ def synthesize_node(state: ResearchGraphState) -> dict:
         "synthesis": synthesis,
         "status": "synthesized",
     }
+
+
+def verify_node(state: ResearchGraphState) -> dict:
+    """Graph Node: Verify the synthesized report against sources (LLM-as-judge)."""
+    query = state.get("query", "")
+    sources = state.get("sources", [])
+    synthesis = state.get("synthesis", [])
+    logger.info(
+        f"[Node: Verifier] Verifying {len(synthesis)} sections "
+        f"against {len(sources)} sources for: '{query}'"
+    )
+
+    verification = verify_synthesis(query, sources, synthesis)
+    return {
+        "verification": verification,
+        "status": "verified",
+    }
+

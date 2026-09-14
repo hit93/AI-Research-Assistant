@@ -4,12 +4,14 @@ Tests for LangGraph Workflow: StateGraph, Nodes, and Streaming Graph Execution.
 
 from unittest.mock import patch, MagicMock
 from src.graphs import build_research_graph, research_graph, run_research
-from src.graphs.nodes import plan_node, retrieve_node, synthesize_node
+from src.graphs.nodes import plan_node, retrieve_node, synthesize_node, verify_node
 from src.models.schemas import (
     QueryPlan,
     SubQuery,
     ResearchSource,
     SynthesisSection,
+    VerificationIssue,
+    VerificationResult,
     AcademicPaper,
     WebSearchResult,
     ResearchResult,
@@ -20,12 +22,13 @@ class TestResearchGraph:
     """Verify LangGraph StateGraph topology and compilation."""
 
     def test_graph_has_expected_nodes(self):
-        """StateGraph should contain planner, retriever, and synthesizer nodes."""
+        """StateGraph should contain planner, retriever, synthesizer, and verifier nodes."""
         graph = build_research_graph()
         nodes = graph.nodes
         assert "planner" in nodes
         assert "retriever" in nodes
         assert "synthesizer" in nodes
+        assert "verifier" in nodes
 
     def test_compiled_graph_is_runnable(self):
         """Compiled research_graph should have stream and invoke methods."""
@@ -98,16 +101,51 @@ class TestGraphNodes:
         assert len(result["synthesis"]) == 1
         assert result["status"] == "synthesized"
 
+    @patch("src.graphs.nodes.verify_synthesis")
+    def test_verify_node(self, mock_verify):
+        mock_verify.return_value = VerificationResult(
+            is_approved=True,
+            overall_score=8,
+            issues=[
+                VerificationIssue(
+                    section_heading="Key Findings",
+                    issue="Minor citation gap",
+                    severity="low",
+                    suggestion="Add reference.",
+                )
+            ],
+            summary="Good report.",
+        )
+
+        state = {
+            "query": "Quantum AI",
+            "sources": [
+                ResearchSource(title="Paper", url_or_id="1", content="Text", source_type="arxiv")
+            ],
+            "synthesis": [
+                SynthesisSection(heading="Key Findings", content="Text", source_indices=[0])
+            ],
+        }
+
+        result = verify_node(state)
+
+        assert "verification" in result
+        assert result["status"] == "verified"
+        assert result["verification"].is_approved is True
+        assert result["verification"].overall_score == 8
+        assert len(result["verification"].issues) == 1
+
 
 class TestGraphExecution:
     """Test full LangGraph execution using run_research."""
 
+    @patch("src.graphs.nodes.verify_synthesis")
     @patch("src.graphs.nodes.synthesize_sources")
     @patch("src.graphs.nodes.search_web")
     @patch("src.graphs.nodes.search_arxiv")
     @patch("src.graphs.nodes.plan_research")
     def test_run_research_via_langgraph(
-        self, mock_plan, mock_arxiv, mock_web, mock_synth
+        self, mock_plan, mock_arxiv, mock_web, mock_synth, mock_verify
     ):
         mock_plan.return_value = QueryPlan(
             original_query="Test Topic",
@@ -123,6 +161,9 @@ class TestGraphExecution:
         mock_synth.return_value = [
             SynthesisSection(heading="Findings", content="Content", source_indices=[0])
         ]
+        mock_verify.return_value = VerificationResult(
+            is_approved=True, overall_score=9, issues=[], summary="Excellent."
+        )
 
         events = []
         def on_progress(status, detail):
@@ -134,8 +175,12 @@ class TestGraphExecution:
         assert result.query == "Test Topic"
         assert len(result.sources) == 1
         assert len(result.synthesis) == 1
+        assert result.verification is not None
+        assert result.verification.is_approved is True
         assert "planning" in events
         assert "planned" in events
         assert "retrieved" in events
         assert "synthesized" in events
+        assert "verifying" in events
+        assert "verified" in events
         assert "complete" in events

@@ -7,7 +7,7 @@ from typing import Callable, Optional
 from langgraph.graph import StateGraph, START, END
 
 from src.graphs.state import ResearchGraphState
-from src.graphs.nodes import plan_node, retrieve_node, synthesize_node
+from src.graphs.nodes import plan_node, retrieve_node, synthesize_node, verify_node
 from src.models.schemas import ResearchResult, QueryPlan
 from src.utils.logger import get_logger
 
@@ -22,12 +22,14 @@ def build_research_graph() -> StateGraph:
     workflow.add_node("planner", plan_node)
     workflow.add_node("retriever", retrieve_node)
     workflow.add_node("synthesizer", synthesize_node)
+    workflow.add_node("verifier", verify_node)
 
     # Establish linear state graph edges
     workflow.add_edge(START, "planner")
     workflow.add_edge("planner", "retriever")
     workflow.add_edge("retriever", "synthesizer")
-    workflow.add_edge("synthesizer", END)
+    workflow.add_edge("synthesizer", "verifier")
+    workflow.add_edge("verifier", END)
 
     return workflow
 
@@ -54,7 +56,7 @@ def run_research(
         on_progress: Optional callback(status, detail) for UI/CLI updates.
 
     Returns:
-        A complete ResearchResult with plan, sources, synthesis, and elapsed time.
+        A complete ResearchResult with plan, sources, synthesis, verification, and elapsed time.
     """
     start_time = time.time()
 
@@ -72,6 +74,7 @@ def run_research(
         "plan": None,
         "sources": [],
         "synthesis": [],
+        "verification": None,
         "status": "initialized",
         "errors": [],
     }
@@ -98,6 +101,17 @@ def run_research(
             elif node_name == "synthesizer":
                 sections = final_state.get("synthesis", [])
                 notify("synthesized", f"{len(sections)} sections generated")
+                notify("verifying", "Verifying report against sources (LLM-as-judge)...")
+
+            elif node_name == "verifier":
+                verification = final_state.get("verification")
+                if verification:
+                    notify(
+                        "verified",
+                        f"Score: {verification.overall_score}/10 — "
+                        f"{'✅ Approved' if verification.is_approved else '⚠️ Flagged'} "
+                        f"({len(verification.issues)} issues)"
+                    )
 
     duration = round(time.time() - start_time, 2)
     notify("complete", f"Research finished in {duration}s")
@@ -107,5 +121,7 @@ def run_research(
         plan=final_state.get("plan") or QueryPlan(original_query=query),
         sources=final_state.get("sources", []),
         synthesis=final_state.get("synthesis", []),
+        verification=final_state.get("verification"),
         duration_seconds=duration,
     )
+

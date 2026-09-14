@@ -58,7 +58,9 @@ with st.sidebar:
     keys = settings.validate_keys()
     st.markdown("### 🔑 API Status")
     if keys["groq"]:
-        st.success(f"Groq API: Connected ({settings.GROQ_MODEL})")
+        st.success("Groq API: Connected")
+        st.caption(f"🤖 **Synthesizer:** `{settings.GROQ_MODEL}`")
+        st.caption(f"⚖️ **Verifier:** `{settings.VERIFIER_MODEL}`")
     else:
         st.error("Groq API: Missing — Add GROQ_API_KEY to .env")
 
@@ -122,6 +124,8 @@ if "🧠" in mode:
                     "deduplicated": "🧹",
                     "synthesizing": "⚗️",
                     "synthesized": "✅",
+                    "verifying": "🔎",
+                    "verified": "✅",
                     "complete": "🏁",
                 }
                 icon = icons.get(status, "▸")
@@ -139,16 +143,20 @@ if "🧠" in mode:
             progress_container.empty()
 
             # Success banner
+            score_info = ""
+            if result.verification:
+                score_info = f", Score: {result.verification.overall_score}/10"
             st.success(
                 f"✅ Research complete in **{result.duration_seconds}s** — "
-                f"{len(result.sources)} sources, {len(result.synthesis)} sections"
+                f"{len(result.sources)} sources, {len(result.synthesis)} sections{score_info}"
             )
 
             # Tabs for results
-            tab_report, tab_plan, tab_sources = st.tabs([
+            tab_report, tab_plan, tab_sources, tab_verify = st.tabs([
                 "📝 Research Report",
                 f"📋 Query Plan ({len(result.plan.sub_queries)} sub-queries)",
                 f"📚 Sources ({len(result.sources)})",
+                "✅ Verification Report",
             ])
 
             # ── Research Report Tab ───────────────────────────
@@ -193,6 +201,46 @@ if "🧠" in mode:
                         with st.expander("View content"):
                             st.write(source.content)
                         st.divider()
+
+            # ── Verification Report Tab ──────────────────────
+            with tab_verify:
+                if result.verification:
+                    v = result.verification
+
+                    # Score and approval banner
+                    col_score, col_status = st.columns(2)
+                    with col_score:
+                        st.metric("Quality Score", f"{v.overall_score}/10")
+                    with col_status:
+                        if v.is_approved:
+                            st.success("✅ Report Approved")
+                        else:
+                            st.warning("⚠️ Report Flagged for Review")
+
+                    # Summary
+                    st.markdown(f"**Assessment:** {v.summary}")
+
+                    # Issues
+                    if v.issues:
+                        st.markdown(f"### Issues Found ({len(v.issues)})")
+                        for issue in v.issues:
+                            severity_colors = {
+                                "low": "🟢", "medium": "🟡", "high": "🔴"
+                            }
+                            icon = severity_colors.get(issue.severity, "⚪")
+                            with st.container():
+                                st.markdown(
+                                    f"{icon} **[{issue.severity.upper()}]** "
+                                    f"*{issue.section_heading}*: {issue.issue}"
+                                )
+                                if issue.suggestion:
+                                    st.caption(f"💡 Suggestion: {issue.suggestion}")
+                                st.divider()
+                    else:
+                        st.info("✨ No issues found — the report passed verification cleanly.")
+                else:
+                    st.info("Verification was not performed for this research run.")
+
     else:
         st.info("💡 Enter a research topic above and click **Search** to run the full LLM research pipeline.")
 

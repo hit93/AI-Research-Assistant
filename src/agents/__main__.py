@@ -61,6 +61,8 @@ def main():
             "deduplicated": "🧹",
             "synthesizing": "⚗️",
             "synthesized": "✅",
+            "verifying": "🔎",
+            "verified": "✅",
             "complete": "🏁",
         }
         icon = icons.get(status, "▸")
@@ -107,12 +109,39 @@ def main():
             refs = ", ".join(f"[{i}]" for i in section.source_indices)
             print(f"\n  Sources: {refs}")
 
+    # ── Print verification report ─────────────────────────────
+    print("\n" + "=" * 70)
+    print("✅ VERIFICATION REPORT (LLM-as-Judge)")
+    print("=" * 70)
+    if result.verification:
+        v = result.verification
+        status_badge = "✅ APPROVED" if v.is_approved else "⚠️  FLAGGED"
+        print(f"\n  Status:  {status_badge}")
+        print(f"  Score:   {v.overall_score}/10")
+        print(f"  Summary: {v.summary}")
+        if v.issues:
+            print(f"\n  Issues ({len(v.issues)}):")
+            for issue in v.issues:
+                severity_icon = {"low": "💡", "medium": "⚠️", "high": "🚨"}.get(issue.severity, "•")
+                print(f"    {severity_icon} [{issue.severity.upper()}] {issue.section_heading}: {issue.issue}")
+                if issue.suggestion:
+                    print(f"      → Suggestion: {issue.suggestion}")
+        else:
+            print("\n  No issues found. ✨")
+    else:
+        print("\n  Verification was not performed.")
+
     # ── Footer ────────────────────────────────────────────────
     print("\n" + "=" * 70)
     print(f"⏱  Completed in {result.duration_seconds}s")
-    print(f"📊 {len(result.sources)} sources | {len(result.synthesis)} sections")
+    print(f"📊 {len(result.sources)} sources | {len(result.synthesis)} sections", end="")
+    if result.verification:
+        print(f" | Score: {result.verification.overall_score}/10")
+    else:
+        print()
     print("=" * 70 + "\n")
 
 
 if __name__ == "__main__":
     main()
+
