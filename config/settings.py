@@ -29,6 +29,17 @@ class Settings:
     REPORTS_DIR: Path = field(default_factory=lambda: BASE_DIR / os.getenv("REPORTS_DIR", "data/reports"))
     CACHE_DIR: Path = field(default_factory=lambda: BASE_DIR / os.getenv("CACHE_DIR", "data/cache"))
 
+    # Phase 4: Gateway, Memory & Semantic Cache
+    FALLBACK_MODEL: str = field(default_factory=lambda: os.getenv("FALLBACK_MODEL", "llama-3.1-8b-instant"))
+    REDIS_URL: str = field(default_factory=lambda: os.getenv("REDIS_URL", "redis://localhost:6379/0"))
+    DATABASE_URL: str = field(default_factory=lambda: os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/research_memory"))
+    SEMANTIC_CACHE_ENABLED: bool = field(default_factory=lambda: os.getenv("SEMANTIC_CACHE_ENABLED", "true").lower() in ("true", "1", "yes"))
+    CACHE_SIMILARITY_THRESHOLD: float = field(default_factory=lambda: float(os.getenv("CACHE_SIMILARITY_THRESHOLD", "0.85")))
+
+    # Observability (LangSmith)
+    LANGCHAIN_TRACING_V2: str = field(default_factory=lambda: os.getenv("LANGCHAIN_TRACING_V2", "false"))
+    LANGCHAIN_PROJECT: str = field(default_factory=lambda: os.getenv("LANGCHAIN_PROJECT", "research-assistant"))
+
     def validate_keys(self) -> dict[str, bool]:
         """Check available LLM and search keys without exposing values."""
         return {
@@ -39,3 +50,4 @@ class Settings:
         }
 
 settings = Settings()
+

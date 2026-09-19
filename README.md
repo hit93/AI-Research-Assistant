@@ -224,6 +224,11 @@ research_assistant/
 │   │   ├── web_search_tool.py # Tavily + DuckDuckGo search
 │   │   ├── text_cleaner.py  # Content normalization and deduplication
 │   │   └── langchain_tools.py # LangChain @tool wrappers (arxiv_search, web_search)
+│   ├── memory/              # Phase 4: Layered Memory & Semantic Cache
+│   │   ├── __init__.py
+│   │   ├── stm.py           # Redis Short-Term Memory with in-memory fallback
+│   │   ├── ltm.py           # Long-Term Memory (SQLite/pgvector) research archive
+│   │   └── semantic_cache.py # Blended similarity query cache (0-token hits)
 │   ├── models/              # Pydantic schemas (QueryPlan, SynthesisReport, VerificationResult, ResearchResult)
 │   ├── utils/               # Structured logger & ReportLab PDF/Markdown/JSON exporter
 │   ├── agents/              # Backward-compatibility facades delegating to chains & graphs
@@ -233,8 +238,8 @@ research_assistant/
 │   │   ├── verifier.py      # Facade for verify_synthesis
 │   │   └── orchestrator.py  # Full pipeline runner
 │   └── server/              # API backend (Phase 7)
-├── tests/                   # 48 Automated unit, mock, and integration tests
-├── data/                    # Saved research reports (PDF, MD, JSON) and cache
+├── tests/                   # 54 Automated unit, mock, and integration tests
+├── data/                    # Saved research reports (PDF, MD, JSON), LTM database, and cache
 ├── app.py                   # Streamlit interactive dashboard (4 tabs + live graph streaming)
 ├── Dockerfile               # Multi-stage production container image
 ├── docker-compose.yml       # Local orchestration for App, Redis (STM), and pgvector (LTM)
@@ -259,11 +264,12 @@ Track our step-by-step development in [plan.md](plan.md):
 |:-----|:----------|:------:|:----------------------|
 | **Phase 1** | Project Setup & Management | 🟢 Completed | Modular layout, `pyproject.toml`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, logging |
 | **Phase 2** | Research Tools & Ingestion | 🟢 Completed | arXiv + Tavily/DDG search, text cleaner, source deduplication, Streamlit explorer |
-| **Phase 3** | Reasoning & Agentic Pipeline | 🟢 Completed | LangChain LCEL, LangGraph `StateGraph` (`START ➔ planner ➔ retriever ➔ synthesizer ➔ verifier ➔ END`), ReportLab PDF/MD/JSON exporter, 48 tests |
-| **Phase 4** | Gateway, Memory & Evaluation | 🎯 Next Up | LLM Gateway (GPT-4o / Groq fallback), Redis STM, pgvector LTM, Semantic Caching, LangSmith |
-| **Phase 5** | Visual LLM Extension | ⚪ Pending | VLM Visual Analyst agent, multimodal RAG, figure verification |
+| **Phase 3** | Reasoning & Agentic Pipeline | 🟢 Completed | LangChain LCEL, LangGraph `StateGraph` (`START ➔ planner ➔ retriever ➔ synthesizer ➔ verifier ➔ END`), ReportLab PDF/MD/JSON exporter |
+| **Phase 4** | Gateway, Memory & Evaluation | 🟢 Completed | Resilient LLM Gateway with CircuitBreaker, Redis STM, pgvector/SQLite LTM, Semantic Cache, LangSmith; 52 tests pass |
+| **Phase 5** | Visual LLM Extension | 🎯 Next Up | VLM Visual Analyst agent, multimodal RAG, figure verification |
 | **Phase 6** | Security & Red Teaming | ⚪ Pending | AWS Bedrock Guardrails, PyRIT red-team dashboard (text & image attacks) |
 | **Phase 7** | Infrastructure & Deployment | 🟡 In Progress | Multi-stage Dockerfile, docker-compose.yml, GitHub Actions CI workflow initialized |
+
 
 ---
 

@@ -81,6 +81,8 @@ class ResearchResult(BaseModel):
     synthesis: list[SynthesisSection] = Field(default_factory=list)
     verification: VerificationResult | None = None
     duration_seconds: float = 0.0
+    is_cache_hit: bool = False
+
 
 
 class ResearchState(BaseModel):

@@ -169,7 +169,10 @@ class TestGraphExecution:
         def on_progress(status, detail):
             events.append(status)
 
-        result = run_research("Test Topic", max_papers=1, max_web=1, on_progress=on_progress)
+        result = run_research(
+            "Test Topic", max_papers=1, max_web=1, on_progress=on_progress, use_cache=False
+        )
+
 
         assert isinstance(result, ResearchResult)
         assert result.query == "Test Topic"

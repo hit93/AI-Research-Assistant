@@ -17,6 +17,10 @@ class ResearchGraphState(TypedDict, total=False):
     verification: Optional[VerificationResult]
     revision_count: int
     max_revisions: int
+    session_id: Optional[str]
+    is_cache_hit: Optional[bool]
+    cache_similarity: Optional[float]
     status: str
     errors: list[str]
+
 

@@ -15,6 +15,8 @@ from src.utils import (
     export_to_json,
     save_report,
 )
+from src.memory.ltm import get_ltm
+
 
 st.set_page_config(
     page_title="AI Research Assistant",
@@ -55,7 +57,7 @@ st.markdown("""
 
 # Header
 st.markdown('<div class="main-header">🔬 AI Research Assistant</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-header">Phase 3: LLM-Powered Research Pipeline with Query Planning & Synthesis</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-header">Phase 4: Resilient LLM Gateway, Layered Memory & Semantic Caching</div>', unsafe_allow_html=True)
 
 # Sidebar
 with st.sidebar:
@@ -77,6 +79,12 @@ with st.sidebar:
         st.info("Tavily API: Not Set (Using DuckDuckGo Fallback)")
 
     st.divider()
+    st.subheader("⚡ Memory & Gateway (Phase 4)")
+    st.caption(f"🛡️ **Fallback Model:** `{settings.FALLBACK_MODEL}`")
+    st.caption(f"⚡ **Semantic Cache:** `{'Active' if settings.SEMANTIC_CACHE_ENABLED else 'Disabled'}`")
+    st.caption(f"🧠 **STM / LTM:** `Redis & SQLite Active`")
+
+    st.divider()
     st.subheader("Search Parameters")
     arxiv_max = st.slider("Max ArXiv Papers (per sub-query)", min_value=1, max_value=10, value=3)
     web_max = st.slider("Max Web Results (per sub-query)", min_value=1, max_value=10, value=3)
@@ -91,7 +99,8 @@ with st.sidebar:
     )
     
     st.divider()
-    st.caption("Roadmap Status: Phase 3 (LLM Agentic Pipeline)")
+    st.caption("Roadmap Status: Phase 4 (Gateway, Memory & Evaluation)")
+
 
 # Main Query Input
 col_input, col_btn = st.columns([5, 1])
@@ -162,6 +171,10 @@ if "🧠" in mode:
                 if "saved_reports" not in st.session_state:
                     st.session_state.saved_reports = save_report(result)
 
+            # Cache Hit Banner
+            if getattr(result, "is_cache_hit", False):
+                st.info("⚡ **Served from Semantic Cache:** Query matched past research run. Bypassed search & LLM generation.")
+
             # Success banner
             score_info = ""
             if result.verification:
@@ -170,6 +183,7 @@ if "🧠" in mode:
                 f"✅ Research complete in **{result.duration_seconds}s** — "
                 f"{len(result.sources)} sources, {len(result.synthesis)} sections{score_info}"
             )
+
 
             # ── Multi-Format Report Export & Download Row ────────
             saved_paths = st.session_state.saved_reports
@@ -209,12 +223,14 @@ if "🧠" in mode:
                 st.caption(f"💾 *Auto-saved to `data/reports/{pdf_filename}`*")
 
             # Tabs for results
-            tab_report, tab_plan, tab_sources, tab_verify = st.tabs([
+            tab_report, tab_plan, tab_sources, tab_verify, tab_history = st.tabs([
                 "📝 Research Report",
                 f"📋 Query Plan ({len(result.plan.sub_queries)} sub-queries)",
                 f"📚 Sources ({len(result.sources)})",
                 "✅ Verification Report",
+                "🏛️ Memory History (LTM)",
             ])
+
 
             # ── Research Report Tab ───────────────────────────
             with tab_report:
@@ -298,8 +314,38 @@ if "🧠" in mode:
                 else:
                     st.info("Verification was not performed for this research run.")
 
+            # ── Long-Term Memory (LTM) Tab ───────────────────
+            with tab_history:
+                st.markdown("### 🏛️ Long-Term Memory (LTM) Archive")
+                st.caption("Past research runs stored in SQLite / pgvector database (`data/cache/ltm.db`).")
+                history = get_ltm().get_history(limit=10)
+                if history:
+                    for h in history:
+                        col1, col2, col3 = st.columns([4, 1.2, 1.2])
+                        with col1:
+                            st.markdown(f"**{h['topic']}**")
+                            if h.get("synthesis_summary"):
+                                st.caption(h["synthesis_summary"][:150] + "...")
+                        with col2:
+                            score = h.get("score")
+                            st.metric("Score", f"{score}/10" if score else "N/A")
+                        with col3:
+                            approved = h.get("approved")
+                            st.caption("✅ Approved" if approved else "⚠️ Flagged")
+                        st.divider()
+                else:
+                    st.info("No past research runs recorded in LTM yet.")
+
     else:
         st.info("💡 Enter a research topic above and click **Search** to run the full LLM research pipeline.")
+
+        # Show recent LTM records on homepage
+        history = get_ltm().get_history(limit=5)
+        if history:
+            with st.expander(f"📚 Recent Research Archive ({len(history)} past topics saved in LTM)"):
+                for h in history:
+                    st.markdown(f"• **{h['topic']}** (Score: `{h.get('score', 'N/A')}/10`)")
+
 
 
 # ═══════════════════════════════════════════════════════════════

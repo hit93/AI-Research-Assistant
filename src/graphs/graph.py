@@ -9,6 +9,9 @@ from langgraph.graph import StateGraph, START, END
 from src.graphs.state import ResearchGraphState
 from src.graphs.nodes import plan_node, retrieve_node, synthesize_node, verify_node, improve_node
 from src.models.schemas import ResearchResult, QueryPlan
+from src.memory.semantic_cache import get_semantic_cache
+from src.memory.stm import get_stm
+from src.memory.ltm import get_ltm
 from src.utils.logger import get_logger
 
 logger = get_logger("graphs.workflow")
@@ -71,23 +74,14 @@ def run_research(
     max_web: int = 3,
     max_revisions: int = 2,
     on_progress: Optional[Callable[[str, str], None]] = None,
+    use_cache: bool = True,
 ) -> ResearchResult:
     """
     Execute end-to-end research workflow via the compiled LangGraph StateGraph.
 
-    Uses LangGraph streaming to emit live progress updates during node transitions.
-    If the Verifier scores the report < 8/10, the workflow iteratively routes to
-    an Improver node up to max_revisions times before finalizing.
-
-    Args:
-        query: Research topic or question.
-        max_papers: Maximum ArXiv papers per sub-query.
-        max_web: Maximum web search results per sub-query.
-        max_revisions: Maximum critique-refine iterations if score < 8 (default 2).
-        on_progress: Optional callback(status, detail) for UI/CLI updates.
-
-    Returns:
-        A complete ResearchResult with plan, sources, synthesis, verification, and elapsed time.
+    Checks SemanticCache first for instant cache hits (unless use_cache=False).
+    Tracks session state in Redis STM, and upon completion archives the run in
+    pgvector/SQLite LTM and SemanticCache.
     """
     start_time = time.time()
 
@@ -96,7 +90,20 @@ def run_research(
         if on_progress:
             on_progress(status, detail)
 
+    # 1. Semantic Cache check (Instant short-circuit)
+    if use_cache:
+        cached_result, similarity = get_semantic_cache().get(query)
+        if cached_result:
+            notify("cache_hit", f"⚡ Retrieved from Semantic Cache ({similarity:.0%} similarity)")
+            cached_result.is_cache_hit = True
+            return cached_result
+
+
     notify("planning", f"Decomposing query: '{query}'")
+
+    session_id = f"session_{int(time.time() * 1000)}"
+    stm = get_stm()
+    stm.set_session(session_id, {"query": query, "status": "planning"})
 
     initial_state: ResearchGraphState = {
         "query": query,
@@ -104,6 +111,8 @@ def run_research(
         "max_web": max_web,
         "max_revisions": max_revisions,
         "revision_count": 0,
+        "session_id": session_id,
+        "is_cache_hit": False,
         "plan": None,
         "sources": [],
         "synthesis": [],
@@ -118,6 +127,7 @@ def run_research(
     for event in research_graph.stream(initial_state):
         for node_name, state_update in event.items():
             final_state.update(state_update)
+            stm.update_session(session_id, "current_node", node_name)
 
             if node_name == "planner":
                 plan = final_state.get("plan")
@@ -160,12 +170,21 @@ def run_research(
     duration = round(time.time() - start_time, 2)
     notify("complete", f"Research finished in {duration}s")
 
-    return ResearchResult(
+    result = ResearchResult(
         query=query,
         plan=final_state.get("plan") or QueryPlan(original_query=query),
         sources=final_state.get("sources", []),
         synthesis=final_state.get("synthesis", []),
         verification=final_state.get("verification"),
         duration_seconds=duration,
+        is_cache_hit=False,
     )
+
+    # 2. Persist to Semantic Cache and LTM Archive
+    get_semantic_cache().set(query, result)
+    get_ltm().save_research(query, result)
+    stm.clear_session(session_id)
+
+    return result
+
 
