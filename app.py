@@ -78,7 +78,15 @@ with st.sidebar:
     else:
         st.info("Tavily API: Not Set (Using DuckDuckGo Fallback)")
 
+    if keys.get("langsmith"):
+        st.success("LangSmith: Connected (Tracing Active)")
+    elif keys.get("langsmith_configured"):
+        st.warning(f"LangSmith: {keys.get('langsmith_msg', 'Invalid Key')} — Tracing Auto-Disabled")
+    else:
+        st.caption("LangSmith: Disabled")
+
     st.divider()
+
     st.subheader("⚡ Memory & Gateway (Phase 4)")
     st.caption(f"🛡️ **Fallback Model:** `{settings.FALLBACK_MODEL}`")
     st.caption(f"⚡ **Semantic Cache:** `{'Active' if settings.SEMANTIC_CACHE_ENABLED else 'Disabled'}`")

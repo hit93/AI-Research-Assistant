@@ -67,7 +67,16 @@ def build_research_graph() -> StateGraph:
 # Compiled LangGraph instance ready for invoke / stream
 research_graph = build_research_graph().compile()
 
+try:
+    from langsmith import traceable
+except ImportError:
+    def traceable(*args, **kwargs):
+        def decorator(fn):
+            return fn
+        return decorator
 
+
+@traceable(name="research_assistant_workflow", run_type="chain")
 def run_research(
     query: str,
     max_papers: int = 3,
@@ -83,6 +92,7 @@ def run_research(
     Tracks session state in Redis STM, and upon completion archives the run in
     pgvector/SQLite LTM and SemanticCache.
     """
+
     start_time = time.time()
 
     def notify(status: str, detail: str = ""):
