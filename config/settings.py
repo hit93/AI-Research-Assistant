@@ -4,15 +4,14 @@ from typing import Any
 from dataclasses import dataclass, field
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 # Load .env if present
 try:
     from dotenv import load_dotenv
-    load_dotenv(dotenv_path=BASE_DIR / ".env", override=True)
+    load_dotenv()
 except ImportError:
     pass
 
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 @dataclass
 class Settings:
@@ -42,7 +41,6 @@ class Settings:
     # Observability (LangSmith)
     LANGCHAIN_TRACING_V2: str = field(default_factory=lambda: os.getenv("LANGCHAIN_TRACING_V2", "false"))
     LANGCHAIN_PROJECT: str = field(default_factory=lambda: os.getenv("LANGCHAIN_PROJECT", "research-assistant"))
-    LANGCHAIN_ENDPOINT: str = field(default_factory=lambda: os.getenv("LANGCHAIN_ENDPOINT", os.getenv("LANGSMITH_ENDPOINT", "https://api.smith.langchain.com")))
 
     def validate_keys(self) -> dict[str, Any]:
         """Check available LLM and search keys without exposing values."""
@@ -60,7 +58,7 @@ class Settings:
         }
 
 
-def check_langsmith_key(api_key: str, workspace_id: str = "", endpoint: str = "https://api.smith.langchain.com") -> tuple[bool, str]:
+def check_langsmith_key(api_key: str, workspace_id: str = "") -> tuple[bool, str]:
     """Validate LangSmith API key with a fast ping upon initialization."""
     if not api_key:
         return False, "Key missing"
@@ -69,12 +67,10 @@ def check_langsmith_key(api_key: str, workspace_id: str = "", endpoint: str = "h
         headers = {"x-api-key": api_key, "Accept": "application/json"}
         if workspace_id:
             headers["x-tenant-id"] = workspace_id
-        
-        clean_endpoint = endpoint.rstrip("/")
         resp = requests.get(
-            f"{clean_endpoint}/sessions?limit=1",
+            "https://api.smith.langchain.com/sessions?limit=1",
             headers=headers,
-            timeout=3.0,
+            timeout=2.0,
         )
         if resp.status_code == 200:
             return True, "Valid"
@@ -91,12 +87,11 @@ def check_langsmith_key(api_key: str, workspace_id: str = "", endpoint: str = "h
 _tracing_requested = os.getenv("LANGSMITH_TRACING", os.getenv("LANGCHAIN_TRACING_V2", "")).lower() in ("true", "1")
 _raw_ls_key = (os.getenv("LANGSMITH_API_KEY") or os.getenv("LANGCHAIN_API_KEY", "")).strip("'\"")
 _workspace_id = (os.getenv("LANGSMITH_WORKSPACE_ID") or os.getenv("LANGCHAIN_WORKSPACE_ID", "")).strip("'\"")
-_raw_endpoint = (os.getenv("LANGSMITH_ENDPOINT") or os.getenv("LANGCHAIN_ENDPOINT") or "https://api.smith.langchain.com").strip("'\"").rstrip("/")
 _ls_is_valid = False
 _ls_status_msg = "Disabled"
 
 if _tracing_requested:
-    _ls_is_valid, _ls_status_msg = check_langsmith_key(_raw_ls_key, _workspace_id, _raw_endpoint)
+    _ls_is_valid, _ls_status_msg = check_langsmith_key(_raw_ls_key, _workspace_id)
     if _ls_is_valid:
         os.environ["LANGSMITH_TRACING"] = "true"
         os.environ["LANGCHAIN_TRACING_V2"] = "true"
@@ -108,14 +103,14 @@ if _tracing_requested:
         _proj = (os.getenv("LANGSMITH_PROJECT") or os.getenv("LANGCHAIN_PROJECT", "research-assistant")).strip("'\"")
         os.environ["LANGSMITH_PROJECT"] = _proj
         os.environ["LANGCHAIN_PROJECT"] = _proj
-        os.environ["LANGSMITH_ENDPOINT"] = _raw_endpoint
-        os.environ["LANGCHAIN_ENDPOINT"] = _raw_endpoint
-        print(f"[LangSmith] Key verified successfully. Tracing active on project: '{_proj}'.")
+        os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
+        os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
+        print(f"[LangSmith] ✅ Key verified successfully. Tracing active on project: '{_proj}'.")
     else:
         # Automatically disable tracing to suppress continuous 403 errors
         os.environ["LANGSMITH_TRACING"] = "false"
         os.environ["LANGCHAIN_TRACING_V2"] = "false"
-        print(f"[LangSmith] WARNING: Key validation failed ({_ls_status_msg}). Auto-disabled tracing to prevent error spam.")
+        print(f"[LangSmith] ⚠️ Key validation failed ({_ls_status_msg}). Auto-disabled tracing to prevent error spam.")
 else:
     os.environ["LANGSMITH_TRACING"] = "false"
     os.environ["LANGCHAIN_TRACING_V2"] = "false"
