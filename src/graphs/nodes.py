@@ -6,6 +6,7 @@ from src.graphs.state import ResearchGraphState
 from src.chains.planner import plan_research
 from src.chains.synthesizer import synthesize_sources
 from src.chains.verifier import verify_synthesis
+from src.chains.refiner import refine_synthesis
 from src.tools.arxiv_tool import search_arxiv, papers_to_sources
 from src.tools.web_search_tool import search_web, web_results_to_sources
 from src.tools.text_cleaner import deduplicate_sources
@@ -97,5 +98,36 @@ def verify_node(state: ResearchGraphState) -> dict:
     return {
         "verification": verification,
         "status": "verified",
+    }
+
+
+def improve_node(state: ResearchGraphState) -> dict:
+    """Graph Node: Refine and elevate synthesis sections when verifier score < 8."""
+    query = state.get("query", "")
+    sources = state.get("sources", [])
+    synthesis = state.get("synthesis", [])
+    verification = state.get("verification")
+    revision_count = state.get("revision_count", 0)
+
+    if not verification:
+        logger.warning("[Node: Improver] No verification verdict found to guide improvement.")
+        return {"status": "improved"}
+
+    logger.info(
+        f"[Node: Improver] Refining report (Revision {revision_count + 1}) "
+        f"for: '{query}' (Verifier Score: {verification.overall_score}/10)"
+    )
+
+    improved_synthesis = refine_synthesis(
+        query=query,
+        sources=sources,
+        synthesis=synthesis,
+        verification=verification,
+    )
+
+    return {
+        "synthesis": improved_synthesis,
+        "revision_count": revision_count + 1,
+        "status": "improved",
     }
 

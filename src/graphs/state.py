@@ -15,6 +15,8 @@ class ResearchGraphState(TypedDict, total=False):
     sources: list[ResearchSource]
     synthesis: list[SynthesisSection]
     verification: Optional[VerificationResult]
+    revision_count: int
+    max_revisions: int
     status: str
     errors: list[str]
 

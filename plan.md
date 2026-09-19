@@ -60,21 +60,29 @@ flowchart TD
 
 - [x] Initialize modular folder hierarchy:
 
-```
+```text
 research_assistant/
+├── .github/workflows/  # Automated GitHub Actions CI pipeline
+│   └── ci.yml
 ├── config/             # Configuration & environment loader
 ├── src/
-│   ├── prompts/        # Versioned ChatPromptTemplates (Planner, Synthesizer)
-│   ├── chains/         # Composable LCEL chains (LLM factory, Planner, Synthesizer)
+│   ├── prompts/        # Versioned ChatPromptTemplates (Planner, Synthesizer, Verifier)
+│   ├── chains/         # Composable LCEL chains (LLM factory, Planner, Synthesizer, Verifier)
 │   ├── graphs/         # LangGraph StateGraph, nodes, and workflow execution
 │   ├── tools/          # ArXiv, Web Search (Tavily/DDG), text cleaner, @tool wrappers
 │   ├── models/         # Pydantic schemas & state models
-│   ├── utils/          # Formatting, exports, logging
+│   ├── utils/          # Formatting, PDF/MD/JSON exports, logging
 │   ├── agents/         # Backward-compatibility facades delegating to chains & graphs
 │   └── server/         # API / Web server (Phase 7)
-├── tests/              # Automated pytest suite (graphs, chains, tools, config)
+├── tests/              # Automated pytest suite (48 tests covering graphs, chains, tools, exporters)
 ├── data/               # Cache, saved reports, downloads
 ├── app.py              # Streamlit interactive dashboard
+├── Dockerfile          # Multi-stage production container image
+├── docker-compose.yml  # Multi-service stack (App, Redis STM, PostgreSQL+pgvector LTM)
+├── .dockerignore       # Docker build exclusion rules
+├── pyproject.toml      # Modern Python packaging, Ruff, and Pytest configuration
+├── ARCHITECTURE.md     # Token-efficient architectural blueprint & Mermaid state machine
+├── CONTRIBUTING.md     # Contributor guide, code standards, and PR checklist
 ├── .env.example        # Template for API keys
 ├── .env                # Local keys (Groq & Tavily)
 ├── .gitignore          # Environment & secret exclusion
@@ -83,14 +91,17 @@ research_assistant/
 └── plan.md             # This progress tracker
 ```
 
-- [x] Set up Python environment & dependency management (`uv` with `.venv`).
+- [x] Set up Python environment & dependency management (`uv` with `.venv` and `pyproject.toml`).
 - [x] Implement robust configuration management with `pydantic-settings` / `python-dotenv`.
 - [x] Set up structured logging for research tracking.
+- [x] Create developer ergonomics & management docs (`ARCHITECTURE.md`, `CONTRIBUTING.md`, `pyproject.toml`).
+- [x] Scaffolding for Docker containerization (`Dockerfile`, `docker-compose.yml`, `.dockerignore`) and CI/CD (`.github/workflows/ci.yml`).
 
-> ### 🏁 Checkpoint 1: Environment & Config Verification
+> ### 🏁 Checkpoint 1: Environment & Config Verification (PASSED)
 >
 > - [x] Config validator script passes: successfully loads API keys or warns with actionable messages.
 > - [x] Project directory structure is cleanly initialized without errors.
+> - [x] Modern development tooling, CI pipeline, and architecture documentation active.
 
 ---
 
@@ -193,8 +204,10 @@ Prove the guardrails hold — the part of the project that differentiates a toy 
 
 Ship it like a real platform: infrastructure as code, CI/CD, and a demo you can put in front of recruiters or a PhD panel.
 
+- [x] **Containerization Baseline**: Production multi-stage `Dockerfile`, `docker-compose.yml` (App, Redis, pgvector), and `.dockerignore`.
+- [x] **GitHub Actions CI/CD Baseline**: Automated linting (`ruff`) and multi-version Python test runner (`.github/workflows/ci.yml`).
 - [ ] **Terraform**: provision the AWS stack — ECS, RDS, ElastiCache, ALB, Secrets Manager, ECR, VPC.
-- [ ] **GitHub Actions CI/CD**: automatic build, deploy, and rollback on failure (blue-green or equivalent).
+- [ ] **CD Deployment & Rollback**: automatic build, deploy, and rollback on failure (blue-green or equivalent).
 - [ ] **Backend API (FastAPI)**:
   - [ ] `POST /api/research`: trigger async research job with topic & depth options.
   - [ ] `GET /api/research/{job_id}`: stream progress / check status.
@@ -213,10 +226,10 @@ Ship it like a real platform: infrastructure as code, CI/CD, and a demo you can 
 
 | Step | Milestone | Status | Notes / Blockers |
 |------|-----------|--------|-------------------|
-| **Step 1** | Project Setup & Environment | 🟢 Completed | Directory scaffold, config loader & tests pass |
+| **Step 1** | Project Setup & Management | 🟢 Completed | Directory scaffold, pyproject.toml, ARCHITECTURE.md, CONTRIBUTING.md, config loader |
 | **Step 2** | Research Tools (ArXiv + Web) | 🟢 Completed | ArXiv + Tavily / DDG tools & tests pass (5/5) |
-| **Step 3** | Reasoning & Agentic Pipeline + PDF Exporter | 🟢 Completed | Groq LLM client, Planner, Synthesizer, Verifier (LLM-as-judge), ReportLab PDF/MD/JSON exporter & Streamlit downloads; 41 tests passing |
+| **Step 3** | Reasoning & Agentic Pipeline + PDF Exporter | 🟢 Completed | Groq LLM client, Planner, Synthesizer, Verifier (LLM-as-judge), ReportLab PDF/MD/JSON exporter & Streamlit downloads; 48 tests |
 | **Step 4** | Gateway, Memory & Evaluation | 🎯 Next Up | LLM gateway w/ fallback, Redis STM, pgvector LTM, semantic caching, LangSmith + LLM-as-judge |
 | **Step 5** | Visual LLM Extension | ⚪ Pending | VLM Visual Analyst agent, multimodal RAG wiring, visual verification |
 | **Step 6** | Security & Red Teaming | ⚪ Pending | AWS Bedrock guardrails, PyRIT red-team dashboard incl. image-based attacks |
-| **Step 7** | Infrastructure & Deployment | ⚪ Pending | Terraform (ECS/RDS/ElastiCache), GitHub Actions CI/CD, FastAPI server |
+| **Step 7** | Infrastructure & Deployment | 🟡 In Progress | Dockerfile, docker-compose.yml, GitHub Actions CI workflow initialized; Terraform & FastAPI pending |

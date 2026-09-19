@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "research-assistant"
+version = "0.1.0"
+description = "Enterprise multi-agent AI research assistant with LangGraph, verification judge, and multi-format reporting"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Hitesh" }
+]
+dependencies = [
+    "pydantic>=2.0",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+    "arxiv>=2.1.0",
+    "beautifulsoup4>=4.12.0",
+    "groq>=0.30.0",
+    "tavily-python>=0.5.0",
+    "duckduckgo-search>=8.0.0",
+    "streamlit>=1.30.0",
+    "langchain-groq>=0.2.0",
+    "langchain-core>=0.3.0",
+    "langchain>=0.3.0",
+    "langgraph>=0.2.0",
+    "reportlab>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.4.0",
+    "mypy>=1.10.0",
+]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --strict-markers"
+markers = [
+    "network: marks tests that require external network access (deselect with '-m \"not network\"')",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+exclude = [
+    ".venv",
+    ".git",
+    "__pycache__",
+    "data",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501", # line too long (handled by formatter)
+]

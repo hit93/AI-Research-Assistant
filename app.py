@@ -138,6 +138,8 @@ if "🧠" in mode:
                         "synthesized": "✅",
                         "verifying": "🔎",
                         "verified": "✅",
+                        "improving": "🛠️",
+                        "improved": "✨",
                         "complete": "🏁",
                     }
                     icon = icons.get(status, "▸")

@@ -1,3 +1,33 @@
+Metadata-Version: 2.4
+Name: research-assistant
+Version: 0.1.0
+Summary: Enterprise multi-agent AI research assistant with LangGraph, verification judge, and multi-format reporting
+Author: Hitesh
+License: MIT
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic>=2.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: arxiv>=2.1.0
+Requires-Dist: beautifulsoup4>=4.12.0
+Requires-Dist: groq>=0.30.0
+Requires-Dist: tavily-python>=0.5.0
+Requires-Dist: duckduckgo-search>=8.0.0
+Requires-Dist: streamlit>=1.30.0
+Requires-Dist: langchain-groq>=0.2.0
+Requires-Dist: langchain-core>=0.3.0
+Requires-Dist: langchain>=0.3.0
+Requires-Dist: langgraph>=0.2.0
+Requires-Dist: reportlab>=4.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.23.0; extra == "dev"
+Requires-Dist: ruff>=0.4.0; extra == "dev"
+Requires-Dist: mypy>=1.10.0; extra == "dev"
+Dynamic: license-file
+
 # 🔬 AI Research Assistant — Enterprise Multi-Agent Platform
 
 An autonomous, production-grade AI Research Platform built with a **100% textbook LangChain & LangGraph** architecture, extended with an **LLM Gateway**, **layered memory (Redis STM + pgvector LTM)**, **semantic caching**, **Visual LLM (VLM) analysis**, **AWS Bedrock Guardrails**, and **PyRIT Red Teaming**.

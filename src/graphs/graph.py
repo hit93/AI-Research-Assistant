@@ -7,11 +7,27 @@ from typing import Callable, Optional
 from langgraph.graph import StateGraph, START, END
 
 from src.graphs.state import ResearchGraphState
-from src.graphs.nodes import plan_node, retrieve_node, synthesize_node, verify_node
+from src.graphs.nodes import plan_node, retrieve_node, synthesize_node, verify_node, improve_node
 from src.models.schemas import ResearchResult, QueryPlan
 from src.utils.logger import get_logger
 
 logger = get_logger("graphs.workflow")
+
+
+def route_after_verifier(state: ResearchGraphState) -> str:
+    """Route to improver if score < 8 and revision limit not reached; else finish."""
+    verification = state.get("verification")
+    revision_count = state.get("revision_count", 0)
+    max_revisions = state.get("max_revisions", 2)
+
+    if verification and verification.overall_score < 8 and revision_count < max_revisions:
+        logger.info(
+            f"[Router] Score {verification.overall_score}/10 < 8. "
+            f"Routing to improver (Revision {revision_count + 1}/{max_revisions})."
+        )
+        return "improver"
+
+    return END
 
 
 def build_research_graph() -> StateGraph:
@@ -23,13 +39,24 @@ def build_research_graph() -> StateGraph:
     workflow.add_node("retriever", retrieve_node)
     workflow.add_node("synthesizer", synthesize_node)
     workflow.add_node("verifier", verify_node)
+    workflow.add_node("improver", improve_node)
 
-    # Establish linear state graph edges
+    # Establish graph edges
     workflow.add_edge(START, "planner")
     workflow.add_edge("planner", "retriever")
     workflow.add_edge("retriever", "synthesizer")
     workflow.add_edge("synthesizer", "verifier")
-    workflow.add_edge("verifier", END)
+
+    # Conditional routing after verification: refine if score < 8
+    workflow.add_conditional_edges(
+        "verifier",
+        route_after_verifier,
+        {
+            "improver": "improver",
+            END: END,
+        },
+    )
+    workflow.add_edge("improver", "verifier")
 
     return workflow
 
@@ -42,17 +69,21 @@ def run_research(
     query: str,
     max_papers: int = 3,
     max_web: int = 3,
+    max_revisions: int = 2,
     on_progress: Optional[Callable[[str, str], None]] = None,
 ) -> ResearchResult:
     """
     Execute end-to-end research workflow via the compiled LangGraph StateGraph.
 
     Uses LangGraph streaming to emit live progress updates during node transitions.
+    If the Verifier scores the report < 8/10, the workflow iteratively routes to
+    an Improver node up to max_revisions times before finalizing.
 
     Args:
         query: Research topic or question.
         max_papers: Maximum ArXiv papers per sub-query.
         max_web: Maximum web search results per sub-query.
+        max_revisions: Maximum critique-refine iterations if score < 8 (default 2).
         on_progress: Optional callback(status, detail) for UI/CLI updates.
 
     Returns:
@@ -71,6 +102,8 @@ def run_research(
         "query": query,
         "max_papers": max_papers,
         "max_web": max_web,
+        "max_revisions": max_revisions,
+        "revision_count": 0,
         "plan": None,
         "sources": [],
         "synthesis": [],
@@ -105,13 +138,24 @@ def run_research(
 
             elif node_name == "verifier":
                 verification = final_state.get("verification")
+                rev_count = final_state.get("revision_count", 0)
                 if verification:
+                    iteration_label = f" (Iteration {rev_count})" if rev_count > 0 else ""
                     notify(
                         "verified",
-                        f"Score: {verification.overall_score}/10 — "
+                        f"Score: {verification.overall_score}/10{iteration_label} — "
                         f"{'✅ Approved' if verification.is_approved else '⚠️ Flagged'} "
                         f"({len(verification.issues)} issues)"
                     )
+                    if verification.overall_score < 8 and rev_count < max_revisions:
+                        notify(
+                            "improving",
+                            f"Score {verification.overall_score}/10 < 8 — refining report based on reviewer feedback (Revision {rev_count + 1}/{max_revisions})..."
+                        )
+
+            elif node_name == "improver":
+                rev_count = final_state.get("revision_count", 1)
+                notify("improved", f"Report refined (Revision {rev_count}). Re-verifying...")
 
     duration = round(time.time() - start_time, 2)
     notify("complete", f"Research finished in {duration}s")
