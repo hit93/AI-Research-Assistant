@@ -10,52 +10,94 @@ A step-by-step, checkpoint-driven blueprint for building a modular, production-r
 
 ```mermaid
 flowchart TD
-    UserQuery["User Topic / Query"] --> SemanticCache{"Semantic Cache Check\n(Similarity >= 85%)"}
-    SemanticCache -- "Cache Hit" --> CachedResult["⚡ Instant 0-Token Return"]
-    SemanticCache -- "Cache Miss" --> Planner["1. Query Planner & Decomposer"]
+    User([User Query / Request]) --> UI[Streamlit UI / CLI / REST API]
+    UI --> CacheCheck{"Semantic Cache Check\n(Similarity >= 0.85)"}
 
-    Planner --> SearchTools["2. Research & Retrieval Tools"]
+    CacheCheck -- "Cache Hit (0 tokens)" --> UI
+    CacheCheck -- "Cache Miss" --> Orchestrator[Graph Orchestrator]
 
-    subgraph RetrievalLayer ["Data Retrieval Layer (Phase 2)"]
-        SearchTools --> Arxiv["ArXiv Tool (Academic Papers)"]
-        SearchTools --> WebSearch["Web Search (Tavily / DuckDuckGo)"]
-        SearchTools --> DocParser["Document & HTML Normalizer"]
+    subgraph LangGraphCore ["LangGraph StateGraph Execution Engine"]
+        direction TB
+        START((START)) --> PlanNode["plan_node\n(Decompose query into 3-5 sub-queries)"]
+        PlanNode --> RetrieveNode["retrieve_node\n(Parallel ArXiv + Web retrieval)"]
+        RetrieveNode --> SynthNode["synthesize_node\n(Structured 6-section synthesis)"]
+        SynthNode --> VerifyNode["verify_node\n(LLM-as-Judge audit via 120B MoE)"]
+
+        VerifyNode --> Decision{"route_after_verifier\n(Score < 8 & Revisions < Max?)"}
+        Decision -- "Yes (< 8/10)" --> ImproveNode["improver (improve_node)\n(Refine flagged report sections)"]
+        ImproveNode --> VerifyNode
+        Decision -- "No (Approved / Max Reached)" --> END((END))
     end
-
-    RetrievalLayer --> Synthesizer["3. Synthesis Engine"]
-    Synthesizer --> Verifier["4. Verify Agent (LLM-as-Judge)"]
-
-    subgraph RefinementLoop ["Closed-Loop Self-Correction"]
-        Verifier -- "Score < 8 & Revisions < Max" --> Improver["5. Refiner / Improver Agent"]
-        Improver --> Verifier
-    end
-
-    Verifier -- "Score >= 8 or Max Revisions" --> Exporter["6. Multi-Format Exporter (PDF / MD / JSON)"]
 
     subgraph GatewayMemory ["Phase 4: Gateway, Layered Memory & Observability"]
-        Gateway["LLM Gateway (Circuit Breaker & Fallback)"]
-        STM["Redis Short-Term Memory (Session State)"]
-        LTM["PostgreSQL + pgvector / SQLite Long-Term Memory"]
-        Trace["LangSmith Tracing (US / EU Multi-Region)"]
+        Gateway["LLM Gateway\n(CircuitBreaker & Fallback Routing)"]
+        STM["Redis Short-Term Memory\n(Session state & node transitions)"]
+        LTM["SQLite / pgvector Long-Term Memory\n(Research archive & semantic vector search)"]
+        LangSmith["LangSmith Tracing & Evaluation\n(US & EU Multi-Region Support)"]
     end
 
-    subgraph VisualExt ["Phase 5: Visual LLM Extension"]
+    subgraph RetrievalLayer ["Phase 2: Retrieval & Ingestion Layer"]
+        ArxivAPI["arXiv Search API (Academic Papers)"]
+        TavilyAPI["Tavily Search API (Primary Web)"]
+        DDG["DuckDuckGo (Zero-config Fallback)"]
+        Cleaner["Text Normalizer & URL Deduplication"]
+    end
+
+    subgraph Exporters ["Phase 3: Multi-Format Export Engine"]
+        PDF["Publication-Ready PDF (ReportLab Two-Pass)"]
+        MD["GitHub-Flavored Markdown"]
+        JSON["Structured JSON Report"]
+    end
+
+    subgraph VisualExt ["Phase 5: Visual LLM Extension (Next Up)"]
         VLM["Visual Analyst Agent (VLM)"]
         VisualVerify["Visual Verification vs. Source Figures"]
     end
 
     subgraph SecurityLayer ["Phase 6: Security & Red Teaming"]
-        Guardrails["AWS Bedrock Guardrails"]
+        Guardrails["AWS Bedrock Guardrails (I/O Filtering)"]
         RedTeam["PyRIT Red-Team Dashboard (Prompt Injection & XPIA)"]
     end
 
     subgraph ServerLayer ["Phase 7: Infrastructure & Deployment"]
-        Exporter --> APIServer["FastAPI Server / Background Workers"]
-        APIServer --> Terraform["Terraform: ECS, RDS, ElastiCache, ALB, Secrets Manager"]
-        Terraform --> CICD["GitHub Actions CI/CD (Build, Test, Deploy)"]
-        CICD --> WebUI["Streamlit Web UI / Dashboard"]
+        APIServer["FastAPI Server / Background Workers"]
+        Terraform["Terraform IaC: ECS, RDS, ElastiCache, ALB, Secrets Manager"]
+        CICD["GitHub Actions CI/CD (Build, Test, Deploy)"]
     end
+
+    Orchestrator --> START
+    PlanNode -.-> Gateway
+    RetrieveNode --> ArxivAPI & TavilyAPI & DDG
+    ArxivAPI & TavilyAPI & DDG --> Cleaner --> RetrieveNode
+    SynthNode -.-> Gateway
+    VerifyNode -.-> Gateway
+    ImproveNode -.-> Gateway
+    END --> Exporters --> UI
+    END --> LTM
+    END --> CacheCheck
+    Exporters --> APIServer
+    APIServer --> Terraform --> CICD
 ```
+
+### 🏛️ Subsystem Architecture & Responsibilities
+
+| Layer | Subsystem | Components / Technologies | Primary Responsibility |
+| :--- | :--- | :--- | :--- |
+| **Reasoning Core** | Multi-Agent StateGraph | LangGraph, LangChain LCEL, Pydantic | Orchestrates `plan_node`, `retrieve_node`, `synthesize_node`, `verify_node`, and `improve_node`. |
+| **Evaluation Loop** | Closed-Loop Self-Correction | `src/chains/refiner.py`, `route_after_verifier` | Automatically iterates on reports scoring $<8/10$ until approved or revision limit is reached. |
+| **Resilience** | LLM Gateway | `src/chains/gateway.py`, CircuitBreaker | Manages retries, provider failure thresholds, cooldowns, and automatic failover to fallback models. |
+| **Ingestion** | Multi-Channel Retrieval | ArXiv API, Tavily API, DuckDuckGo, Text Cleaner | Parallel paper & web queries, HTML stripping, metadata extraction, and URL/title deduplication. |
+| **Memory & Cache** | Layered Memory Hierarchy | Redis (STM), SQLite/pgvector (LTM), Semantic Cache | 0-token instant cache hits ($\ge 0.85$ similarity), session tracking, and cross-session knowledge archive. |
+| **Observability** | Multi-Region Tracing | LangSmith (`@traceable`), Settings Validator | End-to-end trace collection across US (`api.smith`) and EU (`eu.api.smith`) endpoints with auto-disable safety. |
+| **Presentation** | Multi-Format Export | ReportLab, Jinja/Markdown, Streamlit UI | Publication-ready two-pass PDF, Markdown, JSON export, and responsive 4-tab interactive web UI. |
+
+### 🤖 Multi-Tier Model Strategy
+
+| Agent / Role | Env Variable | Default Model | Architecture & Rationale |
+| :--- | :--- | :--- | :--- |
+| **Planner & Synthesizer** | `GROQ_MODEL` | `llama-3.3-70b-versatile` | High throughput (~300 tok/s), strong structural Pydantic schema adherence. |
+| **Verifier (LLM-as-Judge)** | `VERIFIER_MODEL` | `openai/gpt-oss-120b` | 120B MoE model (131K context). Independent evaluation model avoids self-synthesis bias. |
+| **Gateway Fallback** | `FALLBACK_MODEL` | `llama-3.1-8b-instant` | Lightweight ultra-fast model guaranteeing high-availability uptime during provider outages. |
 
 ---
 
