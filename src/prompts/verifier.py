@@ -23,12 +23,15 @@ For each issue found, provide:
 - A suggestion for improvement
 
 Then provide:
-- is_approved: true if the report is acceptable (score >= 6 and no high-severity issues), false otherwise
-- overall_score: 1-10 rating (1=unusable, 5=mediocre, 7=good, 10=excellent)
-- summary: 2-3 sentence overall assessment
+- is_approved: true if overall_score >= 8 and no high-severity issues, false otherwise
+- overall_score: 1-10 rating based on the following standard:
+  * 9-10 (Publication Grade): Comprehensive, multi-paragraph depth, frequent inline citations for every key claim, specific empirical figures/metrics cited, and faithful grounding.
+  * 7-8 (Strong): Well-structured, good technical coverage, solid citations, only minor gaps.
+  * 5-6 (Average / Brief): Surface-level or overly brief summaries, few quantitative metrics, or missed opportunities from sources.
+  * 1-4 (Substandard): Major hallucinations, fabricated claims, or severe distortion.
+- summary: 2-3 sentence overall assessment highlighting key strengths and areas improved.
 
-Be fair but thorough. A report can be approved even with minor issues.
-If sources are limited, judge the report on how well it uses what's available.
+Be fair, constructive, and objective. Reward reports that demonstrate depth, technical precision, and strong citation density.
 """
 
 verifier_prompt = ChatPromptTemplate.from_messages([

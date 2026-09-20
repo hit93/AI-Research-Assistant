@@ -185,14 +185,15 @@ research_assistant/
 - [x] **LLM Gateway** (`src/chains/gateway.py`) — Resilient model routing with exponential retries, circuit breaker (failure tracking & cooldown), and automatic fallback model failover.
 - [x] **Redis Short-Term Memory (STM)** (`src/memory/stm.py`) — Session state, node transition tracking, TTL expiry, with seamless in-memory fallback.
 - [x] **Long-Term Memory (LTM)** (`src/memory/ltm.py`) — Persistent SQLite/pgvector archive tracking research runs, synthesis summaries, sources, and verification scores.
-- [x] **Semantic Caching** (`src/memory/semantic_cache.py`) — Zero-token, instant short-circuit for near-duplicate topics via blended token overlap and sequence similarity matching.
-- [x] **LangSmith Tracing + LLM-as-Judge Scoring** — Configured via `LANGCHAIN_TRACING_V2` & `LANGCHAIN_PROJECT` with full multi-region (US / EU endpoint) and workspace ID support.
-- [x] **Streamlit UI Integration** — Cache hit banner, memory inspector, and sidebar controls for Gateway & Memory stack.
-- [x] **Complete Test Suite** — **54 unit, mock, and integration tests passing** across all modules.
+- [x] **Hybrid RAG Engine** (`src/tools/hybrid_rag.py`) — Multi-stage RAG integrating BM25 sparse keyword search and dense vector cosine similarity with Reciprocal Rank Fusion (RRF) across `synthesize_node`, `verify_node`, and `improve_node`.
+- [x] **Complete Test Suite** — **57 unit, mock, and integration tests passing** across all modules.
 
 > ### 🏁 Checkpoint 4: Gateway, Memory & Evaluation Verification (PASSED)
 > - [x] Gateway fails over automatically with CircuitBreaker when primary provider errors or times out.
 > - [x] STM persists session state; LTM archives completed research runs and supports history queries.
+> - [x] Semantic cache correctly short-circuits near-duplicate queries (>0.85 similarity) with zero token spend.
+> - [x] Hybrid RAG chunks sources and ranks evidence passages via BM25 + Vector RRF.
+> - [x] 57/57 automated tests passing in CI/CD pipeline.
 > - [x] Semantic cache correctly short-circuits near-duplicate queries (>0.85 similarity) with zero token spend.
 > - [x] LangSmith health check and trace logging support custom & EU endpoints.
 > - [x] 54/54 automated tests passing in CI/CD pipeline.

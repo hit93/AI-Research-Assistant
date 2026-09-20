@@ -27,7 +27,7 @@ def _format_sources_for_refiner(sources: list[ResearchSource]) -> str:
     for i, s in enumerate(sources):
         source_label = "📘 ArXiv Paper" if s.source_type == "arxiv" else "🌐 Web Source"
         authors_str = f" by {', '.join(s.authors)}" if s.authors else ""
-        content_preview = s.content[:600] + ("..." if len(s.content) > 600 else "")
+        content_preview = s.content[:2500] + ("..." if len(s.content) > 2500 else "")
         lines.append(
             f"[{i}] {source_label}: \"{s.title}\"{authors_str}\n"
             f"    Source: {s.url_or_id}\n"
@@ -68,6 +68,7 @@ def refine_synthesis(
     sources: list[ResearchSource],
     synthesis: list[SynthesisSection],
     verification: VerificationResult,
+    hybrid_rag: list | None = None,
 ) -> list[SynthesisSection]:
     """
     Revise and improve synthesis sections to address reviewer feedback.
@@ -77,6 +78,7 @@ def refine_synthesis(
         sources:      Available retrieved sources.
         synthesis:    Current synthesis sections.
         verification: Evaluator's verdict containing score, issues, and suggestions.
+        hybrid_rag:   Optional HybridRAG instance for targeted gap retrieval.
 
     Returns:
         Revised list of SynthesisSection objects.
@@ -91,6 +93,18 @@ def refine_synthesis(
     )
 
     formatted_sources = _format_sources_for_refiner(sources)
+
+    if hybrid_rag and hasattr(hybrid_rag, "search"):
+        try:
+            critique_text = f"{query} " + " ".join(i.issue for i in verification.issues)
+            rag_chunks = hybrid_rag.search(critique_text, top_k=5)
+            if rag_chunks:
+                from src.tools.hybrid_rag import format_rag_chunks_for_prompt
+                rag_block = format_rag_chunks_for_prompt(rag_chunks)
+                formatted_sources += f"\n\n=== REVISION GAP RAG EVIDENCE (BM25 + VECTOR RRF) ===\n{rag_block}"
+                logger.info(f"[Refiner RAG] Injected {len(rag_chunks)} targeted gap evidence passages.")
+        except Exception as e:
+            logger.warning(f"Failed to inject RAG passages into refiner: {e}")
     formatted_synthesis = _format_synthesis_for_refiner(synthesis)
     feedback_issues = _format_issues_for_refiner(verification)
 

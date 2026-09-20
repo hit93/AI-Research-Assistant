@@ -28,7 +28,7 @@ def _format_sources_for_prompt(sources: list[ResearchSource]) -> str:
     for i, s in enumerate(sources):
         source_label = "📘 ArXiv Paper" if s.source_type == "arxiv" else "🌐 Web Source"
         authors_str = f" by {', '.join(s.authors)}" if s.authors else ""
-        content_preview = s.content[:600] + ("..." if len(s.content) > 600 else "")
+        content_preview = s.content[:2500] + ("..." if len(s.content) > 2500 else "")
         lines.append(
             f"[{i}] {source_label}: \"{s.title}\"{authors_str}\n"
             f"    Source: {s.url_or_id}\n"
@@ -40,13 +40,15 @@ def _format_sources_for_prompt(sources: list[ResearchSource]) -> str:
 def synthesize_sources(
     query: str,
     sources: list[ResearchSource],
+    hybrid_rag: list | None = None,
 ) -> list[SynthesisSection]:
     """
     Synthesize retrieved sources into structured research findings via LangChain LCEL.
 
     Args:
-        query:   The original research question.
-        sources: All retrieved and deduplicated ResearchSource items.
+        query:      The original research question.
+        sources:    All retrieved and deduplicated ResearchSource items.
+        hybrid_rag: Optional HybridRAG instance for targeted passage retrieval.
 
     Returns:
         A list of SynthesisSection objects with findings and source references.
@@ -65,6 +67,17 @@ def synthesize_sources(
     logger.info(f"Synthesizing {len(sources)} sources via LangChain for: '{query}'")
 
     formatted_sources = _format_sources_for_prompt(sources)
+
+    if hybrid_rag and hasattr(hybrid_rag, "search"):
+        try:
+            rag_chunks = hybrid_rag.search(query, top_k=6)
+            if rag_chunks:
+                from src.tools.hybrid_rag import format_rag_chunks_for_prompt
+                rag_block = format_rag_chunks_for_prompt(rag_chunks)
+                formatted_sources += f"\n\n=== RELEVANT HYBRID RAG PASSAGES (BM25 + VECTOR RRF) ===\n{rag_block}"
+                logger.info(f"[Synthesizer RAG] Injected {len(rag_chunks)} hybrid RAG passages into synthesis context.")
+        except Exception as e:
+            logger.warning(f"Failed to inject RAG passages into synthesis: {e}")
 
     try:
         chain = get_synthesizer_chain(temperature=0.3, max_tokens=4096)

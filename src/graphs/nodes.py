@@ -10,6 +10,7 @@ from src.chains.refiner import refine_synthesis
 from src.tools.arxiv_tool import search_arxiv, papers_to_sources
 from src.tools.web_search_tool import search_web, web_results_to_sources
 from src.tools.text_cleaner import deduplicate_sources
+from src.tools.hybrid_rag import HybridRAG
 from src.models.schemas import ResearchSource
 from src.utils.logger import get_logger
 
@@ -28,7 +29,7 @@ def plan_node(state: ResearchGraphState) -> dict:
 
 
 def retrieve_node(state: ResearchGraphState) -> dict:
-    """Graph Node: Execute multi-source retrieval across all decomposed sub-queries."""
+    """Graph Node: Execute multi-source retrieval across all decomposed sub-queries and build Hybrid RAG index."""
     plan = state.get("plan")
     max_papers = state.get("max_papers", 3)
     max_web = state.get("max_web", 3)
@@ -64,20 +65,27 @@ def retrieve_node(state: ResearchGraphState) -> dict:
     deduped = deduplicate_sources(all_sources)
     logger.info(f"[Node: Retriever] Total unique sources retrieved: {len(deduped)}")
 
+    # Build Hybrid RAG Index (BM25 + Vector Cosine Similarity)
+    hybrid_rag = HybridRAG(deduped) if deduped else None
+    if hybrid_rag and hybrid_rag.chunks:
+        logger.info(f"[Node: Retriever] Hybrid RAG index built with {len(hybrid_rag.chunks)} chunks.")
+
     return {
         "sources": deduped,
+        "hybrid_rag": hybrid_rag,
         "status": "retrieved",
         "errors": errors,
     }
 
 
 def synthesize_node(state: ResearchGraphState) -> dict:
-    """Graph Node: Synthesize all gathered sources into a multi-section report."""
+    """Graph Node: Synthesize all gathered sources into a multi-section report using Hybrid RAG."""
     query = state.get("query", "")
     sources = state.get("sources", [])
+    hybrid_rag = state.get("hybrid_rag")
     logger.info(f"[Node: Synthesizer] Synthesizing {len(sources)} sources for: '{query}'")
 
-    synthesis = synthesize_sources(query, sources)
+    synthesis = synthesize_sources(query, sources, hybrid_rag=hybrid_rag)
     return {
         "synthesis": synthesis,
         "status": "synthesized",
@@ -85,16 +93,17 @@ def synthesize_node(state: ResearchGraphState) -> dict:
 
 
 def verify_node(state: ResearchGraphState) -> dict:
-    """Graph Node: Verify the synthesized report against sources (LLM-as-judge)."""
+    """Graph Node: Verify the synthesized report against sources (LLM-as-judge with Hybrid RAG audit)."""
     query = state.get("query", "")
     sources = state.get("sources", [])
     synthesis = state.get("synthesis", [])
+    hybrid_rag = state.get("hybrid_rag")
     logger.info(
         f"[Node: Verifier] Verifying {len(synthesis)} sections "
         f"against {len(sources)} sources for: '{query}'"
     )
 
-    verification = verify_synthesis(query, sources, synthesis)
+    verification = verify_synthesis(query, sources, synthesis, hybrid_rag=hybrid_rag)
     return {
         "verification": verification,
         "status": "verified",
@@ -102,11 +111,12 @@ def verify_node(state: ResearchGraphState) -> dict:
 
 
 def improve_node(state: ResearchGraphState) -> dict:
-    """Graph Node: Refine and elevate synthesis sections when verifier score < 8."""
+    """Graph Node: Refine and elevate synthesis sections using targeted Hybrid RAG evidence when score < 8."""
     query = state.get("query", "")
     sources = state.get("sources", [])
     synthesis = state.get("synthesis", [])
     verification = state.get("verification")
+    hybrid_rag = state.get("hybrid_rag")
     revision_count = state.get("revision_count", 0)
 
     if not verification:
@@ -123,6 +133,7 @@ def improve_node(state: ResearchGraphState) -> dict:
         sources=sources,
         synthesis=synthesis,
         verification=verification,
+        hybrid_rag=hybrid_rag,
     )
 
     return {
