@@ -4,6 +4,7 @@ from .exporter import (
     export_to_pdf,
     export_to_json,
     save_report,
+    _extract_mermaid_blocks,
 )
 
 __all__ = [
@@ -12,4 +13,5 @@ __all__ = [
     "export_to_pdf",
     "export_to_json",
     "save_report",
+    "_extract_mermaid_blocks",
 ]

@@ -45,6 +45,10 @@ class SynthesisSection(BaseModel):
     heading: str = Field(description="Section heading (e.g., 'Key Findings', 'Research Gaps')")
     content: str = Field(description="Synthesized narrative for this section")
     source_indices: list[int] = Field(default_factory=list, description="Indices into the source list")
+    figures: list[str] = Field(
+        default_factory=list,
+        description="Extracted figure strings (Mermaid blocks, ASCII diagrams, tables) for explicit rendering",
+    )
 
 
 class SynthesisReport(BaseModel):
@@ -67,10 +71,14 @@ class VerificationIssue(BaseModel):
 
 class VerificationResult(BaseModel):
     """The Verify agent's verdict on the synthesized report."""
-    is_approved: bool = Field(default=True, description="Whether the report passes quality review")
-    overall_score: int = Field(default=7, ge=1, le=10, description="Quality score from 1 (poor) to 10 (excellent)")
+    is_approved: bool = Field(default=False, description="Whether the report passes quality review")
+    overall_score: int = Field(default=1, ge=1, le=10, description="Quality score from 1 (poor) to 10 (excellent)")
     issues: list[VerificationIssue] = Field(default_factory=list, description="Specific issues found")
     summary: str = Field(default="", description="Brief overall assessment of the report quality")
+    judge_ran: bool = Field(
+        default=True,
+        description="False when the LLM judge did not complete; report must not be approved",
+    )
 
 
 class ResearchResult(BaseModel):
@@ -82,6 +90,7 @@ class ResearchResult(BaseModel):
     verification: VerificationResult | None = None
     duration_seconds: float = 0.0
     is_cache_hit: bool = False
+    errors: list[str] = Field(default_factory=list)
 
 
 

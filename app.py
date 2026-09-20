@@ -14,6 +14,7 @@ from src.utils import (
     export_to_pdf,
     export_to_json,
     save_report,
+    _extract_mermaid_blocks,
 )
 from src.memory.ltm import get_ltm
 
@@ -66,12 +67,8 @@ def fetch_available_groq_models() -> list[str]:
         "openai/gpt-oss-120b",
         "qwen/qwen3.8-27b",
         "openai/gpt-oss-20b",
-        "llama-3.3-70b-versatile",
-        "llama-3.1-8b-instant",
-        "deepseek-r1-distill-llama-70b",
         "groq/compound",
         "groq/compound-mini",
-        "gemma2-9b-it",
     ]
     if not settings.GROQ_API_KEY:
         return default_models
@@ -266,6 +263,11 @@ if "🧠" in mode:
                 f"✅ Research complete in **{result.duration_seconds}s** — "
                 f"{len(result.sources)} sources, {len(result.synthesis)} sections{score_info}"
             )
+            if getattr(result, "errors", None):
+                st.error("Pipeline errors were recorded; see Verification for the approval status.")
+                with st.expander("Pipeline errors"):
+                    for err in result.errors:
+                        st.write(f"- {err}")
 
 
             # ── Multi-Format Report Export & Download Row ────────
@@ -315,11 +317,47 @@ if "🧠" in mode:
             ])
 
 
-            # ── Research Report Tab ───────────────────────────
+            # ── Research Report Tab ───────────────────────────────────
             with tab_report:
-                for section in result.synthesis:
-                    st.markdown(f"### {section.heading}")
-                    st.markdown(section.content)
+                # Table of Contents expander at the top
+                with st.expander("📑 Table of Contents", expanded=True):
+                    for i, section in enumerate(result.synthesis, 1):
+                        st.caption(f"{i}. {section.heading}")
+
+                st.divider()
+
+                for sec_idx, section in enumerate(result.synthesis, 1):
+                    # Section header with blue left-border accent
+                    st.markdown(
+                        f"""<div style="border-left: 4px solid #2563eb; padding-left: 12px;
+                        margin-bottom: 6px; margin-top: 12px;">
+                        <h3 style="margin: 0; color: #0f172a;">
+                            {sec_idx}. {section.heading}
+                        </h3></div>""",
+                        unsafe_allow_html=True,
+                    )
+
+                    # Extract Mermaid blocks from section content
+                    mermaid_blocks = _extract_mermaid_blocks(section.content)
+
+                    if mermaid_blocks:
+                        for pre_text, mermaid_src, post_text in mermaid_blocks:
+                            if pre_text.strip():
+                                st.markdown(pre_text)
+                            inner_src = mermaid_src
+                            inner_src = inner_src.replace("```mermaid", "").replace("```", "").strip()
+                            with st.expander("🔷 Architecture / Flow Diagram (Mermaid)", expanded=False):
+                                st.code(inner_src, language="mermaid")
+                                st.caption(
+                                    "💡 Copy this code into "
+                                    "[mermaid.live](https://mermaid.live) to render interactively."
+                                )
+                            if post_text.strip():
+                                st.markdown(post_text)
+                    else:
+                        st.markdown(section.content)
+
+                    # Referenced sources
                     if section.source_indices:
                         refs = []
                         for idx in section.source_indices:
@@ -330,6 +368,7 @@ if "🧠" in mode:
                             with st.expander("📎 Referenced Sources"):
                                 for ref in refs:
                                     st.caption(ref)
+
                     st.divider()
 
             # ── Query Plan Tab ────────────────────────────────

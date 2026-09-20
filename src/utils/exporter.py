@@ -71,7 +71,7 @@ class NumberedCanvas(canvas.Canvas):
         self.line(40, 35, letter[0] - 40, 35)
 
         # Left footer: Document info
-        self.drawString(40, 22, "AI Research Assistant | Verified Academic Report")
+        self.drawString(40, 22, "Technical Research Report | AI Research Assistant")
 
         # Right footer: Page numbers
         page_str = f"Page {self._pageNumber} of {page_count}"
@@ -96,6 +96,17 @@ def export_to_markdown(result: ResearchResult) -> str:
             md.append(f"> **Evaluator Assessment:** {v.summary}")
 
     md.extend(["", "---", ""])
+
+    # Table of Contents
+    if result.synthesis:
+        md.append("## 📑 Table of Contents")
+        md.append("")
+        for i, section in enumerate(result.synthesis, 1):
+            anchor = section.heading.lower()
+            anchor = re.sub(r"[^\w\s-]", "", anchor)
+            anchor = re.sub(r"[\s]+", "-", anchor).strip("-")
+            md.append(f"{i}. [{section.heading}](#{anchor})")
+        md.extend(["", "---", ""])
 
     # Executive Plan Section
     if result.plan and result.plan.sub_queries:
@@ -151,9 +162,9 @@ def export_to_markdown(result: ResearchResult) -> str:
         md.append(
             f"**[{idx}] [{badge}] [{source.title}]({source.url_or_id})**{authors_str}{pub_str}"
         )
-        # Excerpt
+        # Excerpt — extended to 450 chars for richer bibliography
         clean_content = source.content.replace("\n", " ").strip()
-        excerpt = clean_content[:280] + ("..." if len(clean_content) > 280 else "")
+        excerpt = clean_content[:450] + ("..." if len(clean_content) > 450 else "")
         md.append(f"> {excerpt}")
         md.append("")
 
@@ -165,18 +176,142 @@ def export_to_json(result: ResearchResult) -> str:
     return result.model_dump_json(indent=2)
 
 
+def _clean_math_text(text: str) -> str:
+    """Clean up inline math / LaTeX markup like $S \\times S$ -> S × S for ReportLab compatibility."""
+    text = re.sub(r"\$\\times\$", "×", text)
+    text = re.sub(r"\\times", "×", text)
+    text = re.sub(r"\$([^$]+)\$", r"\1", text)
+    return text
+
+
+def _extract_mermaid_blocks(text: str) -> list[tuple[str, str, str]]:
+    """Extract Mermaid code blocks from text.
+
+    Returns a list of (pre_text, mermaid_source, post_text) tuples.
+    Each tuple contains:
+    - pre_text: text from the previous block end (or string start) up to this block
+    - mermaid_source: the raw fenced block including ```mermaid ... ``` delimiters
+    - post_text: text from this block end up to the next block start (or string end)
+
+    If no Mermaid blocks are found, returns an empty list.
+    """
+    pattern = re.compile(r"```mermaid\n.*?```", re.DOTALL)
+    matches = list(pattern.finditer(text))
+    if not matches:
+        return []
+
+    results: list[tuple[str, str, str]] = []
+    for i, match in enumerate(matches):
+        pre_start = matches[i - 1].end() if i > 0 else 0
+        pre_text = text[pre_start:match.start()]
+        mermaid_src = match.group(0)
+        post_end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        post_text = text[match.end():post_end]
+        results.append((pre_text, mermaid_src, post_text))
+    return results
+
+
+def _parse_markdown_table_to_flowable(table_block: str, body_style: ParagraphStyle) -> Table | None:
+    """Convert a Markdown table string into a styled ReportLab Table flowable."""
+    lines = [l.strip() for l in table_block.strip().split("\n") if l.strip()]
+    if len(lines) < 2:
+        return None
+
+    rows: list[list[str]] = []
+    for line in lines:
+        if line.startswith("|") and line.endswith("|"):
+            cells = [c.strip() for c in line.split("|")[1:-1]]
+            # Skip separator line like |---|---|
+            if all(re.match(r"^:?-+:?$", c) for c in cells):
+                continue
+            rows.append(cells)
+
+    if not rows:
+        return None
+
+    header_style = ParagraphStyle(
+        "TableHeader",
+        parent=body_style,
+        fontName="Helvetica-Bold",
+        fontSize=8.5,
+        leading=11,
+        textColor=colors.white,
+    )
+    cell_style = ParagraphStyle(
+        "TableCell",
+        parent=body_style,
+        fontSize=8.0,
+        leading=11,
+        textColor=colors.HexColor("#334155"),
+    )
+
+    table_data = []
+    for row_idx, row in enumerate(rows):
+        formatted_row = []
+        for cell in row:
+            clean_cell = _clean_math_text(html.escape(cell))
+            clean_cell = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", clean_cell)
+            clean_cell = re.sub(r"\*(.*?)\*", r"<i>\1</i>", clean_cell)
+            style = header_style if row_idx == 0 else cell_style
+            formatted_row.append(Paragraph(clean_cell, style))
+        table_data.append(formatted_row)
+
+    num_cols = max(len(r) for r in table_data)
+    col_width = 532 / max(num_cols, 1)
+
+    t = Table(table_data, colWidths=[col_width] * num_cols)
+    t.setStyle(
+        TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1e40af")),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("ALIGN", (0, 0), (-1, -1), "LEFT"),
+            ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+            ("TOPPADDING", (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+            ("LEFTPADDING", (0, 0), (-1, -1), 5),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 5),
+            ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#cbd5e1")),
+            ("INNERGRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#e2e8f0")),
+            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f8fafc")]),
+        ])
+    )
+    return t
+
+
+def _build_callout_box(text: str, callout_style: ParagraphStyle) -> Table:
+    """Build a highlighted callout box with green fill and left accent border."""
+    box_style = ParagraphStyle(
+        "CalloutBoxText",
+        parent=callout_style,
+        fontName="Helvetica",
+        fontSize=9.0,
+        leading=13,
+        textColor=colors.HexColor("#15803d"),
+    )
+    clean_text = _clean_math_text(html.escape(text.lstrip(">").strip()))
+    clean_text = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", clean_text)
+    clean_text = re.sub(r"\*(.*?)\*", r"<i>\1</i>", clean_text)
+
+    p = Paragraph(clean_text, box_style)
+    t = Table([[p]], colWidths=[532])
+    t.setStyle(
+        TableStyle([
+            ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#f0fdf4")),
+            ("LINEBEFORE", (0, 0), (0, 0), 3.5, colors.HexColor("#22c55e")),
+            ("TOPPADDING", (0, 0), (-1, -1), 6),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+            ("LEFTPADDING", (0, 0), (-1, -1), 10),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+            ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#dcfce7")),
+        ])
+    )
+    return t
+
+
 def export_to_pdf(
     result: ResearchResult, output_path: str | Path | None = None
 ) -> bytes:
-    """Export a ResearchResult into a styled, publication-ready PDF document.
-
-    Args:
-        result: The research result data model.
-        output_path: Optional path to save the generated PDF file.
-
-    Returns:
-        The raw bytes of the generated PDF.
-    """
+    """Export a ResearchResult into a styled, publication-ready PDF document."""
     buffer = io.BytesIO()
     doc = SimpleDocTemplate(
         buffer,
@@ -196,27 +331,6 @@ def export_to_pdf(
     c_muted = colors.HexColor("#64748b")  # Slate 500
     c_bg_box = colors.HexColor("#f8fafc")  # Slate 50
     c_border = colors.HexColor("#cbd5e1")  # Slate 300
-
-    title_style = ParagraphStyle(
-        "DocTitle",
-        parent=base_styles["Title"],
-        fontName="Helvetica-Bold",
-        fontSize=20,
-        leading=24,
-        textColor=c_primary,
-        alignment=0,
-        spaceAfter=6,
-    )
-
-    subtitle_style = ParagraphStyle(
-        "DocSubtitle",
-        parent=base_styles["Normal"],
-        fontName="Helvetica",
-        fontSize=9,
-        leading=13,
-        textColor=c_muted,
-        spaceAfter=12,
-    )
 
     h1_style = ParagraphStyle(
         "SectionH1",
@@ -266,27 +380,99 @@ def export_to_pdf(
         "SourceTitle",
         parent=base_styles["Normal"],
         fontName="Helvetica-Bold",
-        fontSize=9,
+        fontSize=9.5,
         leading=13,
         textColor=c_primary,
+        spaceAfter=2,
+    )
+
+    code_style = ParagraphStyle(
+        "MermaidCode",
+        parent=base_styles["Normal"],
+        fontName="Courier",
+        fontSize=7.5,
+        leading=10,
+        textColor=colors.HexColor("#1e293b"),
+        spaceAfter=2,
+    )
+
+    caption_style_fig = ParagraphStyle(
+        "FigureCaption",
+        parent=base_styles["Normal"],
+        fontName="Helvetica-Oblique",
+        fontSize=8.0,
+        leading=11,
+        textColor=colors.HexColor("#64748b"),
+        alignment=1,  # center
+        spaceAfter=8,
     )
 
     story: list[Any] = []
+    _figure_counter = 0  # tracks figure number across all sections
 
-    # 1. Header / Title Block
+    # 1. Header / Title Banner Card
     safe_query = html.escape(result.query)
-    story.append(Paragraph(f"Research Report: {safe_query}", title_style))
-
-    now_str = datetime.now().strftime("%B %d, %Y - %H:%M UTC")
-    meta_text = (
-        f"<b>Generated:</b> {now_str} &nbsp;|&nbsp; "
-        f"<b>Duration:</b> {result.duration_seconds:.1f}s &nbsp;|&nbsp; "
-        f"<b>Sources:</b> {len(result.sources)}"
+    banner_title_style = ParagraphStyle(
+        "BannerTitle",
+        parent=base_styles["Title"],
+        fontName="Helvetica-Bold",
+        fontSize=18,
+        leading=22,
+        textColor=colors.white,
+        alignment=0,
     )
-    story.append(Paragraph(meta_text, subtitle_style))
-    story.append(HRFlowable(width="100%", thickness=1.5, color=c_secondary, spaceAfter=10))
+    banner_sub_style = ParagraphStyle(
+        "BannerSub",
+        parent=base_styles["Normal"],
+        fontName="Helvetica",
+        fontSize=9.5,
+        leading=13,
+        textColor=colors.HexColor("#93c5fd"),
+    )
 
-    # 2. Executive Summary / Quality Score Badge
+    banner_content = [
+        Paragraph(f"<b>{safe_query}</b>", banner_title_style),
+        Spacer(1, 4),
+        Paragraph("A Comprehensive Technical Review & Synthesis Report", banner_sub_style),
+    ]
+    banner_table = Table([[banner_content]], colWidths=[532])
+    banner_table.setStyle(
+        TableStyle([
+            ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#1e40af")),
+            ("TOPPADDING", (0, 0), (-1, -1), 12),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 12),
+            ("LEFTPADDING", (0, 0), (-1, -1), 14),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 14),
+        ])
+    )
+    story.append(banner_table)
+    story.append(Spacer(1, 8))
+
+    # 2. Metadata Bar
+    status_verdict = "APPROVED" if (result.verification and result.verification.is_approved) else "PUBLISHED REVIEW"
+    meta_data = [
+        [
+            Paragraph(f"<b>Author:</b> AI Research Assistant", body_style),
+            Paragraph(f"<b>Domain:</b> Technical Review", body_style),
+            Paragraph(f"<b>Status:</b> {status_verdict}", body_style),
+        ]
+    ]
+    meta_table = Table(meta_data, colWidths=[180, 180, 172])
+    meta_table.setStyle(
+        TableStyle([
+            ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#f8fafc")),
+            ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#e2e8f0")),
+            ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+            ("TOPPADDING", (0, 0), (-1, -1), 5),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+            ("LEFTPADDING", (0, 0), (-1, -1), 8),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+        ])
+    )
+    story.append(meta_table)
+    story.append(Spacer(1, 10))
+
+    # 3. Executive Summary / Quality Score Badge
     if result.verification:
         v = result.verification
         status_text = "APPROVED" if v.is_approved else "REVIEW RECOMMENDED"
@@ -300,7 +486,7 @@ def export_to_pdf(
                 Paragraph(f"<b>{v.overall_score} / 10</b>", body_style),
             ]
         ]
-        score_table = Table(score_data, colWidths=[110, 150, 90, 80])
+        score_table = Table(score_data, colWidths=[110, 150, 90, 82])
         score_table.setStyle(
             TableStyle([
                 ("BACKGROUND", (0, 0), (-1, -1), c_bg_box),
@@ -318,25 +504,93 @@ def export_to_pdf(
             story.append(Paragraph(f"<b>Evaluator Note:</b> {safe_summary}", callout_style))
         story.append(Spacer(1, 10))
 
-    # 3. Synthesized Findings
+    # 4. Synthesized Findings
     story.append(Paragraph("Synthesized Findings", h1_style))
-    story.append(HRFlowable(width="100%", thickness=0.6, color=c_border, spaceAfter=6))
+    story.append(HRFlowable(width="100%", thickness=1.0, color=c_secondary, spaceAfter=8))
+
+    def _render_text_chunk(chunk: str) -> None:
+        """Render a single text chunk (paragraph or table or callout) into story."""
+        chunk = chunk.strip()
+        if not chunk:
+            return
+        if chunk.startswith(">"):
+            story.append(_build_callout_box(chunk, callout_style))
+            return
+        # Check for markdown table
+        table_matches = list(re.finditer(r"((?:\|[^\n]+\|\n?)+)", chunk))
+        if table_matches:
+            last_idx = 0
+            for match in table_matches:
+                pre = chunk[last_idx:match.start()].strip()
+                if pre:
+                    safe_text = _clean_math_text(html.escape(pre))
+                    safe_text = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", safe_text)
+                    safe_text = re.sub(r"\*(.*?)\*", r"<i>\1</i>", safe_text)
+                    story.append(Paragraph(safe_text, body_style))
+                tbl = _parse_markdown_table_to_flowable(match.group(1), body_style)
+                if tbl:
+                    story.append(Spacer(1, 4))
+                    story.append(tbl)
+                    story.append(Spacer(1, 6))
+                last_idx = match.end()
+            post = chunk[last_idx:].strip()
+            if post:
+                safe_text = _clean_math_text(html.escape(post))
+                safe_text = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", safe_text)
+                safe_text = re.sub(r"\*(.*?)\*", r"<i>\1</i>", safe_text)
+                story.append(Paragraph(safe_text, body_style))
+        else:
+            safe_text = _clean_math_text(html.escape(chunk))
+            safe_text = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", safe_text)
+            safe_text = re.sub(r"\*(.*?)\*", r"<i>\1</i>", safe_text)
+            story.append(Paragraph(safe_text, body_style))
 
     for section in result.synthesis:
         safe_heading = html.escape(section.heading)
         story.append(Paragraph(safe_heading, h2_style))
 
-        # Split content into paragraphs for clean typography
-        paragraphs = section.content.split("\n\n")
-        for p_text in paragraphs:
-            cleaned = p_text.strip()
-            if not cleaned:
-                continue
-            safe_text = html.escape(cleaned)
-            # Support bold markup from markdown
-            safe_text = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", safe_text)
-            safe_text = re.sub(r"\*(.*?)\*", r"<i>\1</i>", safe_text)
-            story.append(Paragraph(safe_text, body_style))
+        raw_content = section.content.strip()
+        mermaid_blocks = _extract_mermaid_blocks(raw_content)
+
+        if mermaid_blocks:
+            for pre_text, mermaid_src, post_text in mermaid_blocks:
+                # Render pre-text
+                for chunk in pre_text.split("\n\n"):
+                    _render_text_chunk(chunk)
+
+                # Render Mermaid block as styled monospace code box
+                _figure_counter += 1
+                inner_src = mermaid_src
+                inner_src = inner_src.lstrip("```mermaid").rstrip("```").strip()
+                # Escape and convert newlines for ReportLab XML
+                safe_src = html.escape(inner_src).replace("\n", "<br/>")
+                mermaid_table = Table(
+                    [[Paragraph(safe_src, code_style)]],
+                    colWidths=[532],
+                )
+                mermaid_table.setStyle(TableStyle([
+                    ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#f1f5f9")),
+                    ("BOX", (0, 0), (-1, -1), 0.8, colors.HexColor("#94a3b8")),
+                    ("TOPPADDING", (0, 0), (-1, -1), 8),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 8),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 10),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+                ]))
+                story.append(Spacer(1, 6))
+                story.append(mermaid_table)
+                story.append(Paragraph(
+                    f"Figure {_figure_counter}: Architecture / Flow Diagram (Mermaid)",
+                    caption_style_fig,
+                ))
+                story.append(Spacer(1, 4))
+
+                # Render post-text
+                for chunk in post_text.split("\n\n"):
+                    _render_text_chunk(chunk)
+        else:
+            # No Mermaid blocks — use original text/table rendering
+            for chunk in raw_content.split("\n\n"):
+                _render_text_chunk(chunk)
 
         # Cited source indices
         if section.source_indices:
@@ -389,7 +643,7 @@ def export_to_pdf(
             Paragraph(f"<b>Authors:</b> {authors_info} &nbsp;|&nbsp; <b>URL/ID:</b> {safe_url}", callout_style),
         ]
         if source.content:
-            clean_snippet = html.escape(source.content.replace("\n", " ").strip()[:200])
+            clean_snippet = html.escape(source.content.replace("\n", " ").strip()[:400])
             source_elements.append(Paragraph(f'"{clean_snippet}..."', callout_style))
 
         story.append(KeepTogether(source_elements))
