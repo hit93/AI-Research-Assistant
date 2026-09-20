@@ -10,13 +10,20 @@ from src.models.schemas import (
     VerificationResult,
 )
 from src.utils.logger import get_logger
+from config.settings import settings
 
 logger = get_logger("chains.refiner")
 
 
-def get_refiner_chain(temperature: float = 0.3, max_tokens: int = 4096) -> Runnable:
-    """Return an LCEL chain for structured report refinement."""
-    llm = get_chat_llm(temperature=temperature, max_tokens=max_tokens)
+def get_refiner_chain(
+    temperature: float = 0.3,
+    max_tokens: int = 8192,
+    model: str | None = None,
+) -> Runnable:
+    """Return an LCEL chain for structured report refinement using GPT-OSS-120B."""
+    refine_model = model or getattr(settings, "SYNTHESIZER_MODEL", "openai/gpt-oss-120b")
+    logger.debug(f"Creating refiner chain with model: {refine_model}")
+    llm = get_chat_llm(temperature=temperature, max_tokens=max_tokens, model=refine_model)
     structured_llm = llm.with_structured_output(SynthesisReport)
     return refiner_prompt | structured_llm
 
@@ -69,6 +76,7 @@ def refine_synthesis(
     synthesis: list[SynthesisSection],
     verification: VerificationResult,
     hybrid_rag: list | None = None,
+    model: str | None = None,
 ) -> list[SynthesisSection]:
     """
     Revise and improve synthesis sections to address reviewer feedback.
@@ -79,6 +87,7 @@ def refine_synthesis(
         synthesis:    Current synthesis sections.
         verification: Evaluator's verdict containing score, issues, and suggestions.
         hybrid_rag:   Optional HybridRAG instance for targeted gap retrieval.
+        model:        Optional model override (defaults to settings.GROQ_MODEL / GPT-OSS-120B).
 
     Returns:
         Revised list of SynthesisSection objects.
@@ -109,7 +118,7 @@ def refine_synthesis(
     feedback_issues = _format_issues_for_refiner(verification)
 
     try:
-        chain = get_refiner_chain(temperature=0.3, max_tokens=4096)
+        chain = get_refiner_chain(temperature=0.3, max_tokens=8192, model=model)
         result = chain.invoke({
             "query": query,
             "source_count": len(sources),

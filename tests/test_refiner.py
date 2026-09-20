@@ -151,6 +151,7 @@ def test_improve_node_increments_revision_count():
             synthesis=synthesis,
             verification=verification,
             hybrid_rag=None,
+            model=None,
         )
         assert result["revision_count"] == 1
         assert result["status"] == "improved"

@@ -11,19 +11,20 @@ from src.utils.logger import get_logger
 logger = get_logger("chains.planner")
 
 
-def get_planner_chain(temperature: float = 0.3) -> Runnable:
+def get_planner_chain(temperature: float = 0.3, model: str | None = None) -> Runnable:
     """Return an LCEL chain for structured query planning."""
-    llm = get_chat_llm(temperature=temperature)
+    llm = get_chat_llm(temperature=temperature, model=model)
     structured_llm = llm.with_structured_output(QueryPlan)
     return planner_prompt | structured_llm
 
 
-def plan_research(query: str) -> QueryPlan:
+def plan_research(query: str, model: str | None = None) -> QueryPlan:
     """
     Decompose a user query into a structured research plan via LangChain LCEL.
 
     Args:
         query: The user's broad research topic or question.
+        model: Optional model override (defaults to settings.GROQ_MODEL).
 
     Returns:
         A QueryPlan containing the original query and decomposed sub-queries.
@@ -34,7 +35,7 @@ def plan_research(query: str) -> QueryPlan:
     logger.info(f"Planning research via LangChain for: '{query}'")
 
     try:
-        chain = get_planner_chain(temperature=0.3)
+        chain = get_planner_chain(temperature=0.3, model=model)
         plan = chain.invoke({"query": query})
 
         if isinstance(plan, QueryPlan):

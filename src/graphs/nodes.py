@@ -20,8 +20,9 @@ logger = get_logger("graphs.nodes")
 def plan_node(state: ResearchGraphState) -> dict:
     """Graph Node: Decompose user query into structured sub-queries."""
     query = state.get("query", "")
-    logger.info(f"[Node: Planner] Processing query: '{query}'")
-    plan = plan_research(query)
+    planner_model = state.get("planner_model")
+    logger.info(f"[Node: Planner] Processing query: '{query}' (model: {planner_model or 'default'})")
+    plan = plan_research(query, model=planner_model)
     return {
         "plan": plan,
         "status": "planned",
@@ -83,9 +84,10 @@ def synthesize_node(state: ResearchGraphState) -> dict:
     query = state.get("query", "")
     sources = state.get("sources", [])
     hybrid_rag = state.get("hybrid_rag")
-    logger.info(f"[Node: Synthesizer] Synthesizing {len(sources)} sources for: '{query}'")
+    synthesizer_model = state.get("synthesizer_model")
+    logger.info(f"[Node: Synthesizer] Synthesizing {len(sources)} sources for: '{query}' (model: {synthesizer_model or 'default'})")
 
-    synthesis = synthesize_sources(query, sources, hybrid_rag=hybrid_rag)
+    synthesis = synthesize_sources(query, sources, hybrid_rag=hybrid_rag, model=synthesizer_model)
     return {
         "synthesis": synthesis,
         "status": "synthesized",
@@ -98,12 +100,13 @@ def verify_node(state: ResearchGraphState) -> dict:
     sources = state.get("sources", [])
     synthesis = state.get("synthesis", [])
     hybrid_rag = state.get("hybrid_rag")
+    verifier_model = state.get("verifier_model")
     logger.info(
         f"[Node: Verifier] Verifying {len(synthesis)} sections "
-        f"against {len(sources)} sources for: '{query}'"
+        f"against {len(sources)} sources for: '{query}' (model: {verifier_model or 'default'})"
     )
 
-    verification = verify_synthesis(query, sources, synthesis, hybrid_rag=hybrid_rag)
+    verification = verify_synthesis(query, sources, synthesis, model=verifier_model, hybrid_rag=hybrid_rag)
     return {
         "verification": verification,
         "status": "verified",
@@ -117,6 +120,7 @@ def improve_node(state: ResearchGraphState) -> dict:
     synthesis = state.get("synthesis", [])
     verification = state.get("verification")
     hybrid_rag = state.get("hybrid_rag")
+    improver_model = state.get("improver_model") or state.get("synthesizer_model")
     revision_count = state.get("revision_count", 0)
 
     if not verification:
@@ -125,7 +129,7 @@ def improve_node(state: ResearchGraphState) -> dict:
 
     logger.info(
         f"[Node: Improver] Refining report (Revision {revision_count + 1}) "
-        f"for: '{query}' (Verifier Score: {verification.overall_score}/10)"
+        f"for: '{query}' (Verifier Score: {verification.overall_score}/10, model: {improver_model or 'default'})"
     )
 
     improved_synthesis = refine_synthesis(
@@ -134,6 +138,7 @@ def improve_node(state: ResearchGraphState) -> dict:
         synthesis=synthesis,
         verification=verification,
         hybrid_rag=hybrid_rag,
+        model=improver_model,
     )
 
     return {

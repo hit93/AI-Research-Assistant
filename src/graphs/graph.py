@@ -84,6 +84,10 @@ def run_research(
     max_revisions: int = 2,
     on_progress: Optional[Callable[[str, str], None]] = None,
     use_cache: bool = True,
+    planner_model: Optional[str] = None,
+    synthesizer_model: Optional[str] = None,
+    verifier_model: Optional[str] = None,
+    improver_model: Optional[str] = None,
 ) -> ResearchResult:
     """
     Execute end-to-end research workflow via the compiled LangGraph StateGraph.
@@ -127,6 +131,10 @@ def run_research(
         "sources": [],
         "synthesis": [],
         "verification": None,
+        "planner_model": planner_model,
+        "synthesizer_model": synthesizer_model,
+        "verifier_model": verifier_model,
+        "improver_model": improver_model,
         "status": "initialized",
         "errors": [],
     }

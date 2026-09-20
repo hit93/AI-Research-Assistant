@@ -11,13 +11,20 @@ from src.models.schemas import (
     SynthesisReport,
 )
 from src.utils.logger import get_logger
+from config.settings import settings
 
 logger = get_logger("chains.synthesizer")
 
 
-def get_synthesizer_chain(temperature: float = 0.3, max_tokens: int = 4096) -> Runnable:
-    """Return an LCEL chain for structured source synthesis."""
-    llm = get_chat_llm(temperature=temperature, max_tokens=max_tokens)
+def get_synthesizer_chain(
+    temperature: float = 0.3,
+    max_tokens: int = 8192,
+    model: str | None = None,
+) -> Runnable:
+    """Return an LCEL chain for structured source synthesis using GPT-OSS-120B."""
+    synth_model = model or getattr(settings, "SYNTHESIZER_MODEL", "openai/gpt-oss-120b")
+    logger.debug(f"Creating synthesizer chain with model: {synth_model}")
+    llm = get_chat_llm(temperature=temperature, max_tokens=max_tokens, model=synth_model)
     structured_llm = llm.with_structured_output(SynthesisReport)
     return synthesizer_prompt | structured_llm
 
@@ -41,6 +48,7 @@ def synthesize_sources(
     query: str,
     sources: list[ResearchSource],
     hybrid_rag: list | None = None,
+    model: str | None = None,
 ) -> list[SynthesisSection]:
     """
     Synthesize retrieved sources into structured research findings via LangChain LCEL.
@@ -49,6 +57,7 @@ def synthesize_sources(
         query:      The original research question.
         sources:    All retrieved and deduplicated ResearchSource items.
         hybrid_rag: Optional HybridRAG instance for targeted passage retrieval.
+        model:      Optional model override (defaults to settings.GROQ_MODEL / GPT-OSS-120B).
 
     Returns:
         A list of SynthesisSection objects with findings and source references.
@@ -80,7 +89,7 @@ def synthesize_sources(
             logger.warning(f"Failed to inject RAG passages into synthesis: {e}")
 
     try:
-        chain = get_synthesizer_chain(temperature=0.3, max_tokens=4096)
+        chain = get_synthesizer_chain(temperature=0.3, max_tokens=8192, model=model)
         result = chain.invoke({
             "query": query,
             "source_count": len(sources),

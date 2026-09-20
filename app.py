@@ -59,17 +59,50 @@ st.markdown("""
 st.markdown('<div class="main-header">🔬 AI Research Assistant</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-header">Phase 4: Resilient LLM Gateway, Layered Memory & Semantic Caching</div>', unsafe_allow_html=True)
 
+@st.cache_data(ttl=3600)
+def fetch_available_groq_models() -> list[str]:
+    """Fetch available models from Groq API or return curated fallback list."""
+    default_models = [
+        "openai/gpt-oss-120b",
+        "qwen/qwen3.8-27b",
+        "openai/gpt-oss-20b",
+        "llama-3.3-70b-versatile",
+        "llama-3.1-8b-instant",
+        "deepseek-r1-distill-llama-70b",
+        "groq/compound",
+        "groq/compound-mini",
+        "gemma2-9b-it",
+    ]
+    if not settings.GROQ_API_KEY:
+        return default_models
+
+    try:
+        from groq import Groq
+        client = Groq(api_key=settings.GROQ_API_KEY)
+        live_models = [
+            m.id for m in client.models.list().data
+            if not any(sub in m.id for sub in ("whisper", "guard", "safeguard", "vision", "orpheus"))
+        ]
+        preferred = ["openai/gpt-oss-120b", "qwen/qwen3.8-27b", "openai/gpt-oss-20b", "groq/compound", "groq/compound-mini"]
+        models_set = set(live_models)
+        ordered_list = [m for m in preferred if m in models_set]
+        remainder = sorted(list(models_set - set(ordered_list)))
+        final_list = ordered_list + remainder
+        return final_list if final_list else default_models
+    except Exception:
+        return default_models
+
+
 # Sidebar
 with st.sidebar:
-    st.header("⚙️ Configuration")
+    st.image("https://img.icons8.com/fluency/96/artificial-intelligence.png", width=64)
+    st.title("Research Engine")
     
     # Environment Status
     keys = settings.validate_keys()
     st.markdown("### 🔑 API Status")
     if keys["groq"]:
         st.success("Groq API: Connected")
-        st.caption(f"🤖 **Synthesizer:** `{settings.GROQ_MODEL}`")
-        st.caption(f"⚖️ **Verifier:** `{settings.VERIFIER_MODEL}`")
     else:
         st.error("Groq API: Missing — Add GROQ_API_KEY to .env")
 
@@ -84,6 +117,44 @@ with st.sidebar:
         st.warning(f"LangSmith: {keys.get('langsmith_msg', 'Invalid Key')} — Tracing Auto-Disabled")
     else:
         st.caption("LangSmith: Disabled")
+
+    st.divider()
+
+    # 🤖 Model Selection (Per Agent)
+    st.subheader("🤖 Model Selection (Per Agent)")
+    groq_models = fetch_available_groq_models()
+
+    planner_def_idx = groq_models.index("qwen/qwen3.8-27b") if "qwen/qwen3.8-27b" in groq_models else 0
+    selected_planner_model = st.selectbox(
+        "🧠 Planner Agent",
+        groq_models,
+        index=planner_def_idx,
+        help="Decomposes research topic into targeted academic and web sub-queries.",
+    )
+
+    synth_def_idx = groq_models.index("openai/gpt-oss-120b") if "openai/gpt-oss-120b" in groq_models else 0
+    selected_synth_model = st.selectbox(
+        "⚗️ Synthesizer Agent",
+        groq_models,
+        index=synth_def_idx,
+        help="Generates comprehensive, multi-paragraph research findings grounded in RAG passages.",
+    )
+
+    verifier_def_idx = groq_models.index("openai/gpt-oss-120b") if "openai/gpt-oss-120b" in groq_models else 0
+    selected_verifier_model = st.selectbox(
+        "⚖️ Verifier (Judge) Agent",
+        groq_models,
+        index=verifier_def_idx,
+        help="Independent LLM-as-judge that audits claims, checks citations, and assigns the quality score.",
+    )
+
+    improver_def_idx = groq_models.index("openai/gpt-oss-120b") if "openai/gpt-oss-120b" in groq_models else 0
+    selected_improver_model = st.selectbox(
+        "🛠️ Refiner / Improver Agent",
+        groq_models,
+        index=improver_def_idx,
+        help="Iteratively rewrites and elevates report sections when score is below 8/10.",
+    )
 
     st.divider()
 
@@ -169,6 +240,10 @@ if "🧠" in mode:
                         max_papers=arxiv_max,
                         max_web=web_max,
                         on_progress=on_progress,
+                        planner_model=selected_planner_model,
+                        synthesizer_model=selected_synth_model,
+                        verifier_model=selected_verifier_model,
+                        improver_model=selected_improver_model,
                     )
 
                 progress_container.empty()

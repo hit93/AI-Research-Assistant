@@ -21,6 +21,10 @@ class ResearchGraphState(TypedDict, total=False):
     is_cache_hit: Optional[bool]
     cache_similarity: Optional[float]
     hybrid_rag: Optional[Any]
+    planner_model: Optional[str]
+    synthesizer_model: Optional[str]
+    verifier_model: Optional[str]
+    improver_model: Optional[str]
     status: str
     errors: list[str]
 
