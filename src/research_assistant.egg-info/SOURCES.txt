@@ -10,6 +10,7 @@ src/agents/planner.py
 src/agents/synthesizer.py
 src/agents/verifier.py
 src/chains/__init__.py
+src/chains/gateway.py
 src/chains/llm.py
 src/chains/planner.py
 src/chains/refiner.py
@@ -19,6 +20,10 @@ src/graphs/__init__.py
 src/graphs/graph.py
 src/graphs/nodes.py
 src/graphs/state.py
+src/memory/__init__.py
+src/memory/ltm.py
+src/memory/semantic_cache.py
+src/memory/stm.py
 src/models/__init__.py
 src/models/schemas.py
 src/prompts/__init__.py
@@ -34,6 +39,7 @@ src/research_assistant.egg-info/top_level.txt
 src/server/__init__.py
 src/tools/__init__.py
 src/tools/arxiv_tool.py
+src/tools/hybrid_rag.py
 src/tools/langchain_tools.py
 src/tools/text_cleaner.py
 src/tools/web_search_tool.py
@@ -44,5 +50,8 @@ tests/test_agents.py
 tests/test_config.py
 tests/test_exporter.py
 tests/test_graphs.py
+tests/test_hybrid_rag.py
+tests/test_phase4.py
+tests/test_prompts.py
 tests/test_refiner.py
 tests/test_tools.py

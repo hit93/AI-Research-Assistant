@@ -667,18 +667,18 @@ def save_report(
     output_dir: Path | str = "data/reports",
     formats: list[str] | None = None,
 ) -> dict[str, Path]:
-    """Auto-save research report to disk in markdown, PDF, and/or JSON formats.
+    """Auto-save research report to disk in markdown, HTML, PDF, and/or JSON formats.
 
     Args:
         result: The ResearchResult instance.
         output_dir: Target directory path (defaults to 'data/reports').
-        formats: List of formats to export ('md', 'pdf', 'json'). Defaults to all 3.
+        formats: List of formats to export ('md', 'html', 'pdf', 'json'). Defaults to all 4.
 
     Returns:
         Dictionary mapping format string to generated Path.
     """
     if formats is None:
-        formats = ["md", "pdf", "json"]
+        formats = ["md", "html", "pdf", "json"]
 
     out_dir = Path(output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -695,6 +695,12 @@ def save_report(
         md_path.write_text(md_content, encoding="utf-8")
         saved_paths["md"] = md_path
 
+    if "html" in formats:
+        from src.utils.html_exporter import export_to_html
+        html_path = out_dir / f"{base_name}.html"
+        export_to_html(result, output_path=html_path)
+        saved_paths["html"] = html_path
+
     if "json" in formats:
         json_path = out_dir / f"{base_name}.json"
         json_content = export_to_json(result)
@@ -703,7 +709,13 @@ def save_report(
 
     if "pdf" in formats:
         pdf_path = out_dir / f"{base_name}.pdf"
-        export_to_pdf(result, output_path=pdf_path)
+        # Try headless HTML-to-PDF conversion first if HTML is generated
+        pdf_done = False
+        if "html" in saved_paths:
+            from src.utils.pdf_converter import convert_html_to_pdf
+            pdf_done = convert_html_to_pdf(saved_paths["html"], pdf_path)
+        if not pdf_done:
+            export_to_pdf(result, output_path=pdf_path)
         saved_paths["pdf"] = pdf_path
 
     return saved_paths

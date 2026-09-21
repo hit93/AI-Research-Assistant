@@ -87,6 +87,22 @@ def test_route_after_verifier_no_verification():
     assert next_node == END
 
 
+def test_route_after_verifier_judge_did_not_run():
+    state: ResearchGraphState = {
+        "query": "AI in Medicine",
+        "verification": VerificationResult(
+            is_approved=False,
+            overall_score=1,
+            issues=[],
+            summary="Verification could not be completed.",
+            judge_ran=False,
+        ),
+        "revision_count": 0,
+        "max_revisions": 2,
+    }
+    assert route_after_verifier(state) == END
+
+
 def test_graph_structure_includes_improver():
     graph = build_research_graph()
     nodes = graph.nodes

@@ -76,7 +76,7 @@ class TestLLMClient:
 class TestPlanner:
     """Tests for the Planner facade delegating to src.chains.planner."""
 
-    @patch("src.chains.planner.get_chat_llm")
+    @patch("src.chains.gateway.get_chat_llm")
     def test_plan_research_parses_subqueries(self, mock_get_llm):
         """plan_research() should return a QueryPlan with parsed sub-queries."""
         expected_plan = QueryPlan(
@@ -116,7 +116,7 @@ class TestPlanner:
         plan = plan_research("")
         assert len(plan.sub_queries) == 0
 
-    @patch("src.chains.planner.get_chat_llm")
+    @patch("src.chains.gateway.get_chat_llm")
     def test_plan_research_fallback_on_error(self, mock_get_llm):
         """plan_research() should fallback to direct query on LangChain error."""
         mock_get_llm.side_effect = RuntimeError("Groq Connection Refused")
@@ -136,7 +136,7 @@ class TestPlanner:
 class TestSynthesizer:
     """Tests for the Synthesizer facade delegating to src.chains.synthesizer."""
 
-    @patch("src.chains.synthesizer.get_chat_llm")
+    @patch("src.chains.gateway.get_chat_llm")
     def test_synthesize_returns_sections(self, mock_get_llm):
         """synthesize_sources() should return structured SynthesisSection list."""
         mock_report = SynthesisReport(
@@ -178,7 +178,7 @@ class TestSynthesizer:
         assert len(sections) == 1
         assert "No Sources" in sections[0].heading
 
-    @patch("src.chains.synthesizer.get_chat_llm")
+    @patch("src.chains.gateway.get_chat_llm")
     def test_synthesize_fallback_on_error(self, mock_get_llm):
         """synthesize_sources() should return raw summary on LangChain error."""
         mock_get_llm.side_effect = RuntimeError("Synthesis model timeout")
@@ -201,8 +201,8 @@ class TestSynthesizer:
 class TestVerifier:
     """Tests for the Verifier facade delegating to src.chains.verifier."""
 
-    @patch("src.chains.verifier.get_verifier_chain")
-    def test_verify_returns_verification_result(self, mock_get_chain):
+    @patch("src.chains.gateway.get_chat_llm")
+    def test_verify_returns_verification_result(self, mock_get_llm):
         """verify_synthesis() should return a VerificationResult."""
         mock_result = VerificationResult(
             is_approved=True,
@@ -216,10 +216,11 @@ class TestVerifier:
                 )
             ],
             summary="Report is well-structured with minor citation gaps.",
+            judge_ran=True,
         )
-        mock_chain = MagicMock()
-        mock_chain.invoke.return_value = mock_result
-        mock_get_chain.return_value = mock_chain
+        mock_structured = MagicMock()
+        mock_structured.invoke.return_value = mock_result
+        mock_get_llm.return_value.with_structured_output.return_value = mock_structured
 
         sources = [
             ResearchSource(title="Paper A", url_or_id="http://a.com", content="Content A", source_type="arxiv"),
@@ -245,18 +246,19 @@ class TestVerifier:
         assert result.overall_score == 1
 
     def test_verify_no_sources(self):
-        """verify_synthesis() with no sources should auto-approve with low confidence."""
+        """verify_synthesis() with no sources should reject the report."""
         from src.agents.verifier import verify_synthesis
         synthesis = [
             SynthesisSection(heading="Summary", content="Content", source_indices=[]),
         ]
         result = verify_synthesis("test", [], synthesis)
-        assert result.is_approved is True
+        assert result.is_approved is False
         assert result.overall_score == 3
+        assert result.judge_ran is False
 
-    @patch("src.chains.verifier.get_chat_llm")
+    @patch("src.chains.gateway.get_chat_llm")
     def test_verify_fallback_on_error(self, mock_get_llm):
-        """verify_synthesis() should return auto-approved result on LangChain error."""
+        """verify_synthesis() should reject the report when the judge LLM fails."""
         mock_get_llm.side_effect = RuntimeError("Verifier model timeout")
 
         sources = [
@@ -270,8 +272,46 @@ class TestVerifier:
         result = verify_synthesis("test", sources, synthesis)
 
         assert isinstance(result, VerificationResult)
-        assert result.is_approved is True
-        assert result.overall_score == 5
+        assert result.is_approved is False
+        assert result.overall_score == 1
+        assert result.judge_ran is False
+        assert "not approved" in result.summary.lower()
+
+    def test_verify_rejects_synthesis_fallback(self):
+        """Raw synthesis fallback must not be approved."""
+        from src.chains.synthesizer import SYNTHESIS_FALLBACK_HEADING
+        from src.agents.verifier import verify_synthesis
+        sources = [
+            ResearchSource(title="Paper A", url_or_id="http://a.com", content="Content A", source_type="arxiv"),
+        ]
+        synthesis = [
+            SynthesisSection(heading=SYNTHESIS_FALLBACK_HEADING, content="excerpts", source_indices=[0]),
+        ]
+        result = verify_synthesis("test", sources, synthesis)
+        assert result.is_approved is False
+        assert result.judge_ran is False
+
+    def test_approval_policy_overrides_llm_flag(self):
+        from src.chains.verifier import apply_approval_policy
+
+        inflated = VerificationResult(
+            is_approved=True, overall_score=5, issues=[], summary="ok", judge_ran=True
+        )
+        assert apply_approval_policy(inflated).is_approved is False
+
+        high_issue = VerificationResult(
+            is_approved=True,
+            overall_score=9,
+            issues=[VerificationIssue(section_heading="A", issue="bad", severity="high")],
+            summary="ok",
+            judge_ran=True,
+        )
+        assert apply_approval_policy(high_issue).is_approved is False
+
+        solid = VerificationResult(
+            is_approved=False, overall_score=8, issues=[], summary="ok", judge_ran=True
+        )
+        assert apply_approval_policy(solid).is_approved is True
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -399,6 +439,14 @@ class TestPhase3Schemas:
         data = result.model_dump()
         assert data["query"] == "test"
         assert data["duration_seconds"] == 1.5
+        assert data["errors"] == []
+
+
+    def test_verification_result_defaults_are_not_approved(self):
+        result = VerificationResult()
+        assert result.is_approved is False
+        assert result.overall_score == 1
+        assert result.judge_ran is True
 
 
 # ═══════════════════════════════════════════════════════════════

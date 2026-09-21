@@ -35,18 +35,19 @@ def get_synthesizer_chain(
 def _source_preview_chars(model: str) -> int:
     """Return max characters per source to include in the prompt.
 
-    Small-context models (e.g. gpt-oss-20b, 8k tokens) need shorter
-    source previews so the prompt + completion fits in the context window.
-    Large models get a generous 2500-char preview.
+    Enforces safe character budgets so that prompt + completion easily stay
+    below Groq free/on-demand tier TPM limits (7000 ITPM for Qwen, 8000 TPM for GPT-OSS).
     """
-    limit = MODEL_CONTEXT_LIMITS.get(model)
-    if limit is not None and limit <= 8000:
-        return 800   # ~200-250 tokens per source for small models
-    return 2500      # full preview for large-context models
+    model_lower = model.lower()
+    if "20b" in model_lower:
+        return 500
+    if "qwen" in model_lower:
+        return 700
+    return 900
 
 
 def _format_sources_for_prompt(sources: list[ResearchSource], model: str = "") -> str:
-    """Format the source list as a numbered reference for the LLM."""
+    """Format all provided sources as a numbered reference for the LLM with token budgeting."""
     preview_chars = _source_preview_chars(model)
     lines = []
     for i, s in enumerate(sources):
@@ -59,6 +60,24 @@ def _format_sources_for_prompt(sources: list[ResearchSource], model: str = "") -
             f"    Content: {content_preview}\n"
         )
     return "\n".join(lines)
+
+
+def _sync_section_citations(sections: list[SynthesisSection], num_sources: int) -> list[SynthesisSection]:
+    """Ensure declared source_indices reflect all valid in-text [N] citations."""
+    import re
+    for sec in sections:
+        cited_indices: set[int] = set(sec.source_indices or [])
+        matches = re.findall(r"\[(\d+(?:\s*,\s*\d+)*)\]", sec.content)
+        for match in matches:
+            for num_str in match.split(","):
+                num_str = num_str.strip()
+                if num_str.isdigit():
+                    val = int(num_str)
+                    if 0 <= val < num_sources:
+                        cited_indices.add(val)
+        sec.source_indices = sorted(list(cited_indices))
+    return sections
+
 
 
 def synthesize_sources(
@@ -133,11 +152,14 @@ def synthesize_sources(
         if not sections:
             raise ValueError("LLM returned empty synthesis sections.")
 
-        logger.info(f"Synthesis complete: {len(sections)} sections generated")
+        # Synchronize declared source_indices with any inline text citations [N]
+        sections = _sync_section_citations(sections, len(sources))
+
+        logger.info(f"Synthesis complete: {len(sections)} sections generated and citations synchronized.")
         return sections
 
     except Exception as e:
-        logger.error(f"LangChain synthesizer encountered an error: {e}")
+        logger.error(f"LangChain synthesizer encountered an error: {e}", exc_info=True)
         raw_summary = "\n\n".join(
             f"**{s.title}** ({s.source_type}): {s.content[:200]}"
             for s in sources[:5]

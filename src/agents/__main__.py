@@ -127,9 +127,18 @@ def main():
                 if issue.suggestion:
                     print(f"      → Suggestion: {issue.suggestion}")
         else:
-            print("\n  No issues found. ✨")
+            print("\n  No issues found.")
+        if not v.judge_ran:
+            print("\n  Judge did not complete — report is not approved.")
     else:
         print("\n  Verification was not performed.")
+
+    if result.errors:
+        print("\n" + "=" * 70)
+        print("PIPELINE ERRORS")
+        print("=" * 70)
+        for err in result.errors:
+            print(f"  - {err}")
 
     # ── Footer ────────────────────────────────────────────────
     print("\n" + "=" * 70)

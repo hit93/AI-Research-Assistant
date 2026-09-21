@@ -83,7 +83,7 @@ flowchart TD
   - Conditional edge in the graph (`route_after_verifier`): If the judge score is `< 8/10` and max revisions are not reached, routes to the `improver` node.
   - Specifically rewrites sections flagged by the judge to fix hallucinations or missing evidence, then feeds back to the verifier.
 - **🛡️ Resilient LLM Gateway with Circuit Breaker (`src/chains/gateway.py`)**:
-  - Automatic model failover from primary model (`GROQ_MODEL`) to fallback model (`FALLBACK_MODEL`, `llama-3.1-8b-instant`).
+  - Automatic model failover from each agent's primary model to `FALLBACK_MODEL` (`openai/gpt-oss-20b`) on failures.
   - Circuit Breaker tracks provider failure thresholds and applies cooldowns to prevent cascading timeouts.
 - **⚡ Semantic Caching (`src/memory/semantic_cache.py`)**:
   - Blended token overlap and sequence similarity matching to detect near-duplicate research queries.
@@ -144,9 +144,10 @@ Open [.env](.env) and configure your keys:
 ```ini
 # Primary LLM (Free tier: https://console.groq.com)
 GROQ_API_KEY=your_groq_api_key_here
-GROQ_MODEL=llama-3.3-70b-versatile         # Planner & Synthesizer model
-VERIFIER_MODEL=openai/gpt-oss-120b         # Dedicated LLM-as-judge model
-FALLBACK_MODEL=llama-3.1-8b-instant        # Gateway fallback model
+GROQ_MODEL=qwen/qwen3.8-27b                 # Planner model
+SYNTHESIZER_MODEL=openai/gpt-oss-120b       # Synthesizer & refiner model
+VERIFIER_MODEL=openai/gpt-oss-120b          # Dedicated LLM-as-judge model
+FALLBACK_MODEL=openai/gpt-oss-20b           # Gateway fallback model
 
 # Web Search (Free tier: https://tavily.com - fallback is DuckDuckGo)
 TAVILY_API_KEY=your_tavily_api_key_here

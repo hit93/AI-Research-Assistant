@@ -34,7 +34,7 @@ class Settings:
     CACHE_DIR: Path = field(default_factory=lambda: BASE_DIR / os.getenv("CACHE_DIR", "data/cache"))
 
     # Phase 4: Gateway, Memory & Semantic Cache
-    FALLBACK_MODEL: str = field(default_factory=lambda: os.getenv("FALLBACK_MODEL", "llama-3.1-8b-instant"))
+    FALLBACK_MODEL: str = field(default_factory=lambda: os.getenv("FALLBACK_MODEL", "openai/gpt-oss-20b"))
     REDIS_URL: str = field(default_factory=lambda: os.getenv("REDIS_URL", "redis://localhost:6379/0"))
     DATABASE_URL: str = field(default_factory=lambda: os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/research_memory"))
     SEMANTIC_CACHE_ENABLED: bool = field(default_factory=lambda: os.getenv("SEMANTIC_CACHE_ENABLED", "true").lower() in ("true", "1", "yes"))

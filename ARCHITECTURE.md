@@ -120,7 +120,7 @@ Defined in [`src/graphs/state.py`](file:///src/graphs/state.py):
 ## 3. Gateway, Memory & Caching Architecture (Phase 4)
 
 ### 3.1 LLM Gateway (`src/chains/gateway.py`)
-- **Resilient Fallback**: Automatically routes requests from primary model (`GROQ_MODEL`) to fallback model (`FALLBACK_MODEL`, default: `llama-3.1-8b-instant`) on failures.
+- **Resilient Fallback**: Automatically routes requests from each agent's primary model to fallback model (`FALLBACK_MODEL`, default: `openai/gpt-oss-20b`) on failures.
 - **Circuit Breaker**: Tracks consecutive failures per provider. Automatically trips to OPEN state after 3 failures, preventing cascading timeouts with a configurable cooldown period (60s).
 - **Exponential Backoff**: Built-in retries for transient HTTP errors and rate limits.
 
@@ -148,9 +148,10 @@ Defined in [`src/graphs/state.py`](file:///src/graphs/state.py):
 
 | Role | Environment Variable | Default Model | Specs & Rationale |
 | :--- | :--- | :--- | :--- |
-| **Planner & Synthesizer** | `GROQ_MODEL` | `llama-3.3-70b-versatile` | High throughput (~300 tok/s), strong structural schema adherence. |
-| **Verification Judge** | `VERIFIER_MODEL` | `openai/gpt-oss-120b` | 120B MoE model with 131K context window. Independent model prevents self-bias. |
-| **Gateway Fallback** | `FALLBACK_MODEL` | `llama-3.1-8b-instant` | Ultra-fast lightweight model ensuring 100% uptime during provider outages. |
+| **Planner** | `GROQ_MODEL` | `qwen/qwen3.8-27b` | Fast structured planning on Groq's current Qwen 3.8 27B ID. |
+| **Synthesizer & Refiner** | `SYNTHESIZER_MODEL` | `openai/gpt-oss-120b` | 120B MoE for long-form grounded synthesis. |
+| **Verification Judge** | `VERIFIER_MODEL` | `openai/gpt-oss-120b` | Independent judge model prevents self-bias. |
+| **Gateway Fallback** | `FALLBACK_MODEL` | `openai/gpt-oss-20b` | Lightweight Groq model used when the primary ID fails. |
 
 ---
 

@@ -5,8 +5,10 @@ Planner Chain — LCEL chain for decomposing a research query into targeted sub-
 from langchain_core.runnables import Runnable
 from src.prompts.planner import planner_prompt
 from src.chains.llm import get_chat_llm
+from src.chains.gateway import run_structured
 from src.models.schemas import SubQuery, QueryPlan
 from src.utils.logger import get_logger
+from config.settings import settings
 
 logger = get_logger("chains.planner")
 
@@ -35,8 +37,13 @@ def plan_research(query: str, model: str | None = None) -> QueryPlan:
     logger.info(f"Planning research via LangChain for: '{query}'")
 
     try:
-        chain = get_planner_chain(temperature=0.3, model=model)
-        plan = chain.invoke({"query": query})
+        prompt_value = planner_prompt.invoke({"query": query})
+        plan = run_structured(
+            QueryPlan,
+            prompt_value,
+            model=model or settings.GROQ_MODEL,
+            temperature=0.3,
+        )
 
         if isinstance(plan, QueryPlan):
             if not plan.original_query:

@@ -40,6 +40,18 @@ class QueryPlan(BaseModel):
     reasoning: str = Field(default="", description="Planner's rationale for the decomposition")
 
 
+class TableRow(BaseModel):
+    """A row in a structured comparative table."""
+    cells: list[str] = Field(default_factory=list, description="Cell contents for each column")
+
+
+class ComparativeTable(BaseModel):
+    """Structured Pydantic schema for empirical comparison tables."""
+    headers: list[str] = Field(default_factory=list, description="Column header titles")
+    rows: list[TableRow] = Field(default_factory=list, description="Data rows")
+    caption: str = Field(default="", description="Table caption or empirical benchmark description")
+
+
 class SynthesisSection(BaseModel):
     """One section of the synthesized research report."""
     heading: str = Field(description="Section heading (e.g., 'Key Findings', 'Research Gaps')")
@@ -48,6 +60,10 @@ class SynthesisSection(BaseModel):
     figures: list[str] = Field(
         default_factory=list,
         description="Extracted figure strings (Mermaid blocks, ASCII diagrams, tables) for explicit rendering",
+    )
+    comparative_table: ComparativeTable | None = Field(
+        default=None,
+        description="Optional structured comparison table. Omitted if empirical data is absent.",
     )
 
 

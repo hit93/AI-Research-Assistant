@@ -3,6 +3,7 @@
 from langchain_core.runnables import Runnable
 from src.prompts.refiner import refiner_prompt
 from src.chains.llm import get_chat_llm
+from src.chains.gateway import run_structured
 from src.models.schemas import (
     ResearchSource,
     SynthesisReport,
@@ -29,12 +30,12 @@ def get_refiner_chain(
 
 
 def _format_sources_for_refiner(sources: list[ResearchSource]) -> str:
-    """Format sources as a numbered reference for the refiner."""
+    """Format all provided sources as a numbered reference for the refiner with safe token budgeting."""
     lines = []
     for i, s in enumerate(sources):
         source_label = "📘 ArXiv Paper" if s.source_type == "arxiv" else "🌐 Web Source"
         authors_str = f" by {', '.join(s.authors)}" if s.authors else ""
-        content_preview = s.content[:2500] + ("..." if len(s.content) > 2500 else "")
+        content_preview = s.content[:700] + ("..." if len(s.content) > 700 else "")
         lines.append(
             f"[{i}] {source_label}: \"{s.title}\"{authors_str}\n"
             f"    Source: {s.url_or_id}\n"
@@ -118,8 +119,8 @@ def refine_synthesis(
     feedback_issues = _format_issues_for_refiner(verification)
 
     try:
-        chain = get_refiner_chain(temperature=0.3, max_tokens=8192, model=model)
-        result = chain.invoke({
+        refine_model = model or getattr(settings, "SYNTHESIZER_MODEL", "openai/gpt-oss-120b")
+        prompt_value = refiner_prompt.invoke({
             "query": query,
             "source_count": len(sources),
             "formatted_sources": formatted_sources,
@@ -128,6 +129,13 @@ def refine_synthesis(
             "evaluator_summary": verification.summary or "Score below 8. Requires improvement.",
             "feedback_issues": feedback_issues,
         })
+        result = run_structured(
+            SynthesisReport,
+            prompt_value,
+            model=refine_model,
+            temperature=0.3,
+            max_tokens=8192,
+        )
 
         if isinstance(result, SynthesisReport):
             sections = result.sections
@@ -142,7 +150,10 @@ def refine_synthesis(
         if not sections:
             raise ValueError("Refiner returned empty sections.")
 
-        logger.info(f"Refinement complete: {len(sections)} revised sections generated")
+        from src.chains.synthesizer import _sync_section_citations
+        sections = _sync_section_citations(sections, len(sources))
+
+        logger.info(f"Refinement complete: {len(sections)} revised sections generated and citations synchronized.")
         return sections
 
     except Exception as e:

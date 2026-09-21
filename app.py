@@ -61,33 +61,42 @@ st.markdown('<div class="main-header">🔬 AI Research Assistant</div>', unsafe_
 st.markdown('<div class="sub-header">Phase 4: Resilient LLM Gateway, Layered Memory & Semantic Caching</div>', unsafe_allow_html=True)
 
 @st.cache_data(ttl=3600)
-def fetch_available_groq_models() -> list[str]:
-    """Fetch available models from Groq API or return curated fallback list."""
-    default_models = [
+def fetch_available_models() -> list[str]:
+    """Fetch available models from Google AI Studio and Groq API."""
+    gemini_models = [
+        "gemini-3.5-flash-lite",
+        "gemini-3.6-flash",
+        "gemini-3.5-flash",
+        "gemini-3.8-flash",
+    ]
+    groq_models = [
         "openai/gpt-oss-120b",
         "qwen/qwen3.8-27b",
         "openai/gpt-oss-20b",
         "groq/compound",
         "groq/compound-mini",
     ]
-    if not settings.GROQ_API_KEY:
-        return default_models
 
-    try:
-        from groq import Groq
-        client = Groq(api_key=settings.GROQ_API_KEY)
-        live_models = [
-            m.id for m in client.models.list().data
-            if not any(sub in m.id for sub in ("whisper", "guard", "safeguard", "vision", "orpheus"))
-        ]
-        preferred = ["openai/gpt-oss-120b", "qwen/qwen3.8-27b", "openai/gpt-oss-20b", "groq/compound", "groq/compound-mini"]
-        models_set = set(live_models)
-        ordered_list = [m for m in preferred if m in models_set]
-        remainder = sorted(list(models_set - set(ordered_list)))
-        final_list = ordered_list + remainder
-        return final_list if final_list else default_models
-    except Exception:
-        return default_models
+    if settings.GROQ_API_KEY:
+        try:
+            from groq import Groq
+            client = Groq(api_key=settings.GROQ_API_KEY)
+            live_models = [
+                m.id for m in client.models.list().data
+                if not any(sub in m.id for sub in ("whisper", "guard", "safeguard", "vision", "orpheus"))
+            ]
+            preferred = ["openai/gpt-oss-120b", "qwen/qwen3.8-27b", "openai/gpt-oss-20b", "groq/compound", "groq/compound-mini"]
+            models_set = set(live_models)
+            ordered_list = [m for m in preferred if m in models_set]
+            remainder = sorted(list(models_set - set(ordered_list)))
+            groq_models = ordered_list + remainder
+        except Exception:
+            pass
+
+    # If user has Gemini key configured, prioritize Gemini models at the top
+    if settings.GEMINI_API_KEY:
+        return gemini_models + groq_models
+    return groq_models + gemini_models
 
 
 # Sidebar
@@ -98,6 +107,11 @@ with st.sidebar:
     # Environment Status
     keys = settings.validate_keys()
     st.markdown("### 🔑 API Status")
+    if keys.get("gemini"):
+        st.success("Google AI Studio: Connected")
+    else:
+        st.info("Google AI Studio: Not Set (Add GEMINI_API_KEY to .env)")
+
     if keys["groq"]:
         st.success("Groq API: Connected")
     else:
@@ -119,36 +133,40 @@ with st.sidebar:
 
     # 🤖 Model Selection (Per Agent)
     st.subheader("🤖 Model Selection (Per Agent)")
-    groq_models = fetch_available_groq_models()
+    available_models = fetch_available_models()
 
-    planner_def_idx = groq_models.index("qwen/qwen3.8-27b") if "qwen/qwen3.8-27b" in groq_models else 0
+    planner_default = "gemini-3.5-flash-lite" if "gemini-3.5-flash-lite" in available_models and settings.GEMINI_API_KEY else ("qwen/qwen3.8-27b" if "qwen/qwen3.8-27b" in available_models else available_models[0])
+    planner_def_idx = available_models.index(planner_default) if planner_default in available_models else 0
     selected_planner_model = st.selectbox(
         "🧠 Planner Agent",
-        groq_models,
+        available_models,
         index=planner_def_idx,
         help="Decomposes research topic into targeted academic and web sub-queries.",
     )
 
-    synth_def_idx = groq_models.index("openai/gpt-oss-120b") if "openai/gpt-oss-120b" in groq_models else 0
+    synth_default = "gemini-3.5-flash-lite" if "gemini-3.5-flash-lite" in available_models and settings.GEMINI_API_KEY else ("openai/gpt-oss-120b" if "openai/gpt-oss-120b" in available_models else available_models[0])
+    synth_def_idx = available_models.index(synth_default) if synth_default in available_models else 0
     selected_synth_model = st.selectbox(
         "⚗️ Synthesizer Agent",
-        groq_models,
+        available_models,
         index=synth_def_idx,
         help="Generates comprehensive, multi-paragraph research findings grounded in RAG passages.",
     )
 
-    verifier_def_idx = groq_models.index("openai/gpt-oss-120b") if "openai/gpt-oss-120b" in groq_models else 0
+    verifier_default = "gemini-3.5-flash-lite" if "gemini-3.5-flash-lite" in available_models and settings.GEMINI_API_KEY else ("openai/gpt-oss-120b" if "openai/gpt-oss-120b" in available_models else available_models[0])
+    verifier_def_idx = available_models.index(verifier_default) if verifier_default in available_models else 0
     selected_verifier_model = st.selectbox(
         "⚖️ Verifier (Judge) Agent",
-        groq_models,
+        available_models,
         index=verifier_def_idx,
         help="Independent LLM-as-judge that audits claims, checks citations, and assigns the quality score.",
     )
 
-    improver_def_idx = groq_models.index("openai/gpt-oss-120b") if "openai/gpt-oss-120b" in groq_models else 0
+    improver_default = "gemini-3.5-flash-lite" if "gemini-3.5-flash-lite" in available_models and settings.GEMINI_API_KEY else ("openai/gpt-oss-120b" if "openai/gpt-oss-120b" in available_models else available_models[0])
+    improver_def_idx = available_models.index(improver_default) if improver_default in available_models else 0
     selected_improver_model = st.selectbox(
         "🛠️ Refiner / Improver Agent",
-        groq_models,
+        available_models,
         index=improver_def_idx,
         help="Iteratively rewrites and elevates report sections when score is below 8/10.",
     )

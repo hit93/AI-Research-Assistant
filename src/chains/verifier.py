@@ -2,14 +2,83 @@ from langchain_core.runnables import Runnable
 from config.settings import settings
 from src.prompts.verifier import verifier_prompt
 from src.chains.llm import get_chat_llm
+from src.chains.gateway import run_structured
+from src.chains.synthesizer import SYNTHESIS_FALLBACK_HEADING
 from src.models.schemas import (
     ResearchSource,
     SynthesisSection,
+    VerificationIssue,
     VerificationResult,
 )
 from src.utils.logger import get_logger
 
 logger = get_logger("chains.verifier")
+
+APPROVAL_SCORE_THRESHOLD = 8
+
+
+def audit_citations(
+    synthesis: list[SynthesisSection],
+    sources: list[ResearchSource],
+) -> list[VerificationIssue]:
+    """
+    Deterministically verify all in-text citations [N] against available sources.
+    Flags out-of-bounds citation indices, missing references, and mismatch errors.
+    """
+    import re
+    issues: list[VerificationIssue] = []
+    num_sources = len(sources)
+
+    for section in synthesis:
+        # Extract all [N] or [N, M] citations
+        cited_indices: set[int] = set()
+        matches = re.findall(r"\[(\d+(?:\s*,\s*\d+)*)\]", section.content)
+        for match in matches:
+            for num_str in match.split(","):
+                num_str = num_str.strip()
+                if num_str.isdigit():
+                    cited_indices.add(int(num_str))
+
+        # Check for out-of-bounds citations
+        for idx in cited_indices:
+            if idx < 0 or idx >= num_sources:
+                issues.append(
+                    VerificationIssue(
+                        section_heading=section.heading,
+                        issue=f"Citation index [{idx}] is out of bounds (only {num_sources} sources available: [0..{num_sources-1}]).",
+                        severity="high",
+                        suggestion=f"Remove or re-map [{idx}] to a valid retrieved source index.",
+                    )
+                )
+
+        # Check declared source_indices vs in-text citations
+        declared_indices = set(section.source_indices)
+        undeclared = cited_indices - declared_indices
+        if undeclared and num_sources > 0:
+            issues.append(
+                VerificationIssue(
+                    section_heading=section.heading,
+                    issue=f"Section text cites sources {sorted(list(undeclared))} but they are omitted in declared source_indices.",
+                    severity="low",
+                    suggestion="Synchronize section.source_indices with inline text citations.",
+                )
+            )
+
+    return issues
+
+
+def apply_approval_policy(verification: VerificationResult) -> VerificationResult:
+    """Enforce approval from score and issue severity; never trust the LLM flag alone."""
+    if not verification.judge_ran:
+        verification.is_approved = False
+        return verification
+    has_high = any(issue.severity == "high" for issue in verification.issues)
+    verification.is_approved = verification.overall_score >= APPROVAL_SCORE_THRESHOLD and not has_high
+    return verification
+
+
+def _is_synthesis_fallback(synthesis: list[SynthesisSection]) -> bool:
+    return any(section.heading == SYNTHESIS_FALLBACK_HEADING for section in synthesis)
 
 
 def get_verifier_chain(temperature: float = 0.2, model: str | None = None) -> Runnable:
@@ -22,12 +91,12 @@ def get_verifier_chain(temperature: float = 0.2, model: str | None = None) -> Ru
 
 
 def _format_sources_for_verification(sources: list[ResearchSource]) -> str:
-    """Format sources as a numbered reference for the verification LLM."""
+    """Format all provided sources as a numbered reference for the verification LLM with safe token budgeting."""
     lines = []
     for i, s in enumerate(sources):
         source_label = "📘 ArXiv Paper" if s.source_type == "arxiv" else "🌐 Web Source"
         authors_str = f" by {', '.join(s.authors)}" if s.authors else ""
-        content_preview = s.content[:2500] + ("..." if len(s.content) > 2500 else "")
+        content_preview = s.content[:700] + ("..." if len(s.content) > 700 else "")
         lines.append(
             f"[{i}] {source_label}: \"{s.title}\"{authors_str}\n"
             f"    Source: {s.url_or_id}\n"
@@ -76,15 +145,27 @@ def verify_synthesis(
             overall_score=1,
             issues=[],
             summary="No synthesis sections were provided for verification.",
+            judge_ran=False,
         )
 
     if not sources:
-        logger.warning("No sources to verify against — auto-approving with low score.")
+        logger.warning("No sources to verify against — rejecting with low score.")
         return VerificationResult(
-            is_approved=True,
+            is_approved=False,
             overall_score=3,
             issues=[],
-            summary="No sources available for cross-referencing. Report accepted with low confidence.",
+            summary="No sources available for cross-referencing. Report not approved.",
+            judge_ran=False,
+        )
+
+    if _is_synthesis_fallback(synthesis):
+        logger.warning("Synthesis fallback detected — skipping judge and rejecting report.")
+        return VerificationResult(
+            is_approved=False,
+            overall_score=1,
+            issues=[],
+            summary="Synthesis failed and returned raw source excerpts. Report not approved.",
+            judge_ran=False,
         )
 
     logger.info(
@@ -106,13 +187,19 @@ def verify_synthesis(
     formatted_synthesis = _format_synthesis_for_verification(synthesis)
 
     try:
-        chain = get_verifier_chain(temperature=0.2, model=model)
-        result = chain.invoke({
+        verifier_model = model or settings.VERIFIER_MODEL
+        prompt_value = verifier_prompt.invoke({
             "query": query,
             "source_count": len(sources),
             "formatted_sources": formatted_sources,
             "formatted_synthesis": formatted_synthesis,
         })
+        result = run_structured(
+            VerificationResult,
+            prompt_value,
+            model=verifier_model,
+            temperature=0.2,
+        )
 
         if isinstance(result, VerificationResult):
             verification = result
@@ -120,6 +207,17 @@ def verify_synthesis(
             verification = VerificationResult(**result)
         else:
             raise ValueError(f"Unexpected verifier output type: {type(result)}")
+
+        # Merge deterministic citation issues
+        citation_issues = audit_citations(synthesis, sources)
+        if citation_issues:
+            verification.issues.extend(citation_issues)
+            if any(ci.severity == "high" for ci in citation_issues):
+                verification.overall_score = min(verification.overall_score, 6)
+                logger.warning(f"[Verifier Audit] Downgrading score to {verification.overall_score} due to high severity citation errors.")
+
+        verification.judge_ran = True
+        verification = apply_approval_policy(verification)
 
         logger.info(
             f"Verification complete: score={verification.overall_score}/10, "
@@ -130,8 +228,9 @@ def verify_synthesis(
     except Exception as e:
         logger.error(f"LangChain verifier encountered an error: {e}")
         return VerificationResult(
-            is_approved=True,
-            overall_score=5,
+            is_approved=False,
+            overall_score=1,
             issues=[],
-            summary=f"Verification could not be completed ({e}). Report auto-approved with reduced confidence.",
+            summary=f"Verification could not be completed ({e}). Report not approved.",
+            judge_ran=False,
         )

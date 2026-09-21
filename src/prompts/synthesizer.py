@@ -61,9 +61,12 @@ MANDATORY REPORT STRUCTURE (produce ALL 7 sections, in order)
    - Close with a forward-looking paragraph on expected progress in the next 3-5 years.
 
 ═══════════════════════════════════════════════════════════════
-STRICT RULES
+STRICT RULES & FACTUAL GROUNDING CONSTRAINTS
 ═══════════════════════════════════════════════════════════════
 
+- STRICT NEGATIVE CONSTRAINT: Absolutely DO NOT invent, estimate, or hallucinate numerical figures, percentages, efficiency gains, or ROI benchmarks unless explicitly present in the source text verbatim.
+- Frame diagnostic tools (e.g., coverage checkers, linters, static analyzers) strictly as decision-support diagnostic aids rather than deterministic outcome predictors.
+- COMPARATIVE TABLE FALLBACK: Only populate comparative tables when empirical comparison data exists across sources. If no empirical comparative data exists in context, omit the comparison table instead of generating blank headers or synthetic rows.
 - EVERY section (except Abstract) must contain at least one of: Markdown table, Mermaid block, or ASCII diagram.
 - Use numbered subsections (N.M format, e.g. **3.1**, **4.2**) throughout sections 3-7.
 - Minimum 300 words per section (except Abstract: 150-200 words).

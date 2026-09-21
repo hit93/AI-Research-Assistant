@@ -43,6 +43,7 @@ class LongTermMemory:
 
     def save_research(self, topic: str, result: ResearchResult) -> int:
         """Archive a completed research result."""
+        self._init_sqlite()
         score = result.verification.overall_score if result.verification else None
         approved = result.verification.is_approved if result.verification else True
         sources_count = len(result.sources)
@@ -53,7 +54,6 @@ class LongTermMemory:
         else:
             synthesis_summary = ""
         raw_json = result.model_dump_json()
-
 
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()

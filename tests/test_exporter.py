@@ -1,4 +1,4 @@
-﻿"""Tests for exporter TOC generation, Mermaid block extraction, and extended excerpts."""
+"""Tests for exporter TOC generation, Mermaid block extraction, and extended excerpts."""
 import pytest
 from src.utils.exporter import export_to_markdown, _extract_mermaid_blocks
 from src.models.schemas import (
@@ -86,4 +86,45 @@ def test_markdown_toc_single_section_no_crash():
     ])
     md = export_to_markdown(result)
     assert "Table of Contents" in md
+
+
+def test_html_export_renders_mermaid_and_citations(tmp_path):
+    from src.utils.html_exporter import export_to_html
+    from src.models.schemas import ComparativeTable, TableRow
+
+    table = ComparativeTable(
+        headers=["System", "Accuracy"],
+        rows=[TableRow(cells=["Model A", "95%"])],
+        caption="Empirical Results"
+    )
+    sections = [
+        SynthesisSection(
+            heading="Methodology",
+            content="We base our model on Transformer architectures [0].\n\n```mermaid\ngraph LR\n   In --> Out\n```",
+            source_indices=[0],
+            comparative_table=table,
+        )
+    ]
+    result = _make_result(sections=sections)
+    out_file = tmp_path / "test_report.html"
+    html_content = export_to_html(result, output_path=out_file)
+
+    assert "<!DOCTYPE html>" in html_content
+    assert "mermaid" in html_content
+    assert 'href="#ref-0"' in html_content
+    assert "Model A" in html_content
+    assert "Empirical Results" in html_content
+    assert out_file.exists()
+
+
+def test_audit_citations_detects_out_of_bounds():
+    from src.chains.verifier import audit_citations
+    sources = [ResearchSource(title="Paper 0", url_or_id="p0", content="c0", source_type="arxiv")]
+    synthesis = [
+        SynthesisSection(heading="Test", content="Valid [0] and invalid [5].", source_indices=[0])
+    ]
+    issues = audit_citations(synthesis, sources)
+    assert len(issues) >= 1
+    assert any("out of bounds" in issue.issue and "[5]" in issue.issue for issue in issues)
+
 

@@ -1,4 +1,5 @@
 from pathlib import Path
+from unittest.mock import patch
 from config.settings import settings
 from src.utils.logger import get_logger
 
@@ -9,6 +10,16 @@ def test_settings_initialization():
     assert settings.GROQ_MODEL != ""
     assert settings.VERIFIER_MODEL != ""
     assert settings.SEARCH_ENGINE == "tavily"
+
+
+def test_deprecated_groq_model_is_remapped():
+    with patch("src.chains.llm.ChatGroq") as mock_chat, patch("src.chains.llm.settings") as mock_settings:
+        mock_settings.GROQ_API_KEY = "test-key"
+        mock_settings.GROQ_MODEL = "llama-3.1-8b-instant"
+        from src.chains.llm import get_chat_llm
+        get_chat_llm(model="llama-3.1-8b-instant")
+        assert mock_chat.call_args.kwargs["model"] == "openai/gpt-oss-20b"
+
 
 def test_key_validation():
     keys = settings.validate_keys()

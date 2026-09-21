@@ -3,7 +3,7 @@ Unit tests for Phase 4: LLM Gateway, STM, LTM, and Semantic Caching.
 """
 
 from unittest.mock import MagicMock, patch
-from src.chains.gateway import CircuitBreaker, LLMGateway
+from src.chains.gateway import CircuitBreaker, LLMGateway, reset_breakers
 from src.memory.stm import ShortTermMemory
 from src.memory.ltm import LongTermMemory
 from src.memory.semantic_cache import SemanticCache, compute_query_similarity
@@ -27,6 +27,7 @@ def test_circuit_breaker_logic():
 
 
 def test_gateway_fallback_on_primary_failure():
+    reset_breakers()
     gateway = LLMGateway(primary_model="fake-primary", fallback_model="fake-fallback", max_retries=1)
 
     mock_fallback_response = MagicMock(content="Fallback response")
@@ -44,6 +45,24 @@ def test_gateway_fallback_on_primary_failure():
         res = gateway.invoke([MagicMock()])
         assert res.content == "Fallback response"
         assert gateway.circuit_breaker.failure_count == 1
+
+
+def test_gateway_structured_fallback_on_primary_failure():
+    reset_breakers()
+    gateway = LLMGateway(primary_model="fake-primary", fallback_model="fake-fallback", max_retries=1)
+
+    class DummySchema:
+        pass
+
+    with patch("src.chains.gateway.get_chat_llm") as mock_get_llm:
+        primary_llm = MagicMock()
+        primary_llm.with_structured_output.return_value.invoke.side_effect = RuntimeError("primary down")
+        fallback_llm = MagicMock()
+        fallback_llm.with_structured_output.return_value.invoke.return_value = {"ok": True}
+        mock_get_llm.side_effect = [primary_llm, fallback_llm]
+
+        res = gateway.invoke_structured(DummySchema, ["msg"])
+        assert res == {"ok": True}
 
 
 def test_stm_session_lifecycle(tmp_path):

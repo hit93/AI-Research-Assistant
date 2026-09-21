@@ -18,12 +18,16 @@ logger = get_logger("graphs.workflow")
 
 
 def route_after_verifier(state: ResearchGraphState) -> str:
-    """Route to improver if score < 8 and revision limit not reached; else finish."""
+    """Route to improver if a real judge scored below 8 and revisions remain; else finish."""
     verification = state.get("verification")
     revision_count = state.get("revision_count", 0)
     max_revisions = state.get("max_revisions", 2)
 
-    if verification and verification.overall_score < 8 and revision_count < max_revisions:
+    if not verification or not verification.judge_ran:
+        logger.info("[Router] Judge did not complete. Ending without refinement.")
+        return END
+
+    if verification.overall_score < 8 and revision_count < max_revisions:
         logger.info(
             f"[Router] Score {verification.overall_score}/10 < 8. "
             f"Routing to improver (Revision {revision_count + 1}/{max_revisions})."
@@ -175,7 +179,7 @@ def run_research(
                         f"{'✅ Approved' if verification.is_approved else '⚠️ Flagged'} "
                         f"({len(verification.issues)} issues)"
                     )
-                    if verification.overall_score < 8 and rev_count < max_revisions:
+                    if verification.judge_ran and verification.overall_score < 8 and rev_count < max_revisions:
                         notify(
                             "improving",
                             f"Score {verification.overall_score}/10 < 8 — refining report based on reviewer feedback (Revision {rev_count + 1}/{max_revisions})..."
@@ -196,6 +200,7 @@ def run_research(
         verification=final_state.get("verification"),
         duration_seconds=duration,
         is_cache_hit=False,
+        errors=list(final_state.get("errors") or []),
     )
 
     # 2. Persist to Semantic Cache and LTM Archive
