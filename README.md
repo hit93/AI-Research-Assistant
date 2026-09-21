@@ -3,6 +3,8 @@
 An autonomous, production-grade AI Research Platform built with a **100% textbook LangChain & LangGraph** architecture, featuring an **LLM Gateway with Circuit Breakers**, **Layered Memory (Redis STM + SQLite/pgvector LTM)**, **Semantic Caching**, **Closed-Loop Self-Refinement**, **Automated LLM-as-Judge Evaluation**, **Publication-Ready PDF/Markdown/JSON Exporters**, and **Multi-Region LangSmith Observability**.
 
 > **Base Project:** Krish Naik — Multi-Agent AI Research Platform with AWS Guardrails, LLM Gateway, Red Teaming, STM/LTM & Semantic Caching, extended with a Visual LLM agent
+> 
+> 📖 **New to the project?** Read [**HOW_THE_AGENT_WORKS.md**](HOW_THE_AGENT_WORKS.md) for a comprehensive, beginner-friendly walkthrough of the multi-agent research lifecycle, claim auditing, and resilience engine.
 
 ---
 

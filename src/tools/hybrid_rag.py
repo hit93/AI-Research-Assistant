@@ -30,6 +30,7 @@ class HybridRAGChunk:
     url_or_id: str
     source_type: str
     score: float = 0.0
+    has_full_text: bool = False
 
 
 def _tokenize(text: str) -> List[str]:
@@ -68,11 +69,12 @@ def chunk_source(
     chunk_size: int = 500,
     chunk_overlap: int = 100,
 ) -> List[HybridRAGChunk]:
-    """Split a ResearchSource content into overlapping passages."""
-    text = source.content
-    if not text or not text.strip():
-        text = f"{source.title}. {source.abstract}"
+    """Split a ResearchSource (full text if available, else content) into overlapping passages."""
+    text = (source.full_text if getattr(source, "has_full_text", False) and source.full_text else source.content) or ""
+    if not text.strip():
+        text = f"{source.title}. {source.content or ''}"
 
+    has_full = bool(getattr(source, "has_full_text", False))
     chunks: List[HybridRAGChunk] = []
     text_len = len(text)
     start = 0
@@ -86,6 +88,7 @@ def chunk_source(
                 title=source.title,
                 url_or_id=source.url_or_id,
                 source_type=source.source_type,
+                has_full_text=has_full,
             )
         ]
 
@@ -102,6 +105,7 @@ def chunk_source(
                     title=source.title,
                     url_or_id=source.url_or_id,
                     source_type=source.source_type,
+                    has_full_text=has_full,
                 )
             )
             chunk_count += 1
@@ -233,6 +237,30 @@ class HybridRAG:
 
         logger.debug(f"[HybridRAG] Query '{query[:40]}...' returned {len(results)} chunks")
         return results
+
+    def search_in_source(self, source_index: int, query: str, top_k: int = 3) -> List[HybridRAGChunk]:
+        """
+        Search strictly within chunks belonging to a specific source index.
+        Used for claim-level verification against cited sources.
+        """
+        source_chunks = [c for c in self.chunks if c.source_index == source_index]
+        if not source_chunks or not query.strip():
+            return []
+
+        query_tokens = set(_tokenize(query))
+        query_vec = _text_to_tf_vector(query)
+
+        scored = []
+        for chk in source_chunks:
+            chk_tokens = set(_tokenize(chk.text))
+            overlap = len(query_tokens & chk_tokens)
+            chk_vec = _text_to_tf_vector(chk.text)
+            cos_sim = _cosine_similarity(query_vec, chk_vec)
+            combined_score = (overlap * 0.4) + (cos_sim * 0.6)
+            scored.append((combined_score, chk))
+
+        scored.sort(key=lambda x: x[0], reverse=True)
+        return [chk for _, chk in scored[:top_k]]
 
 
 def format_rag_chunks_for_prompt(chunks: List[HybridRAGChunk]) -> str:

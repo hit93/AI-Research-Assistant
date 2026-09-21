@@ -64,9 +64,13 @@ st.markdown('<div class="sub-header">Phase 4: Resilient LLM Gateway, Layered Mem
 def fetch_available_models() -> list[str]:
     """Fetch available models from Google AI Studio and Groq API."""
     gemini_models = [
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite",
+        "gemini-2.5-pro",
+        "gemini-3.5-flash",
         "gemini-3.5-flash-lite",
         "gemini-3.6-flash",
-        "gemini-3.5-flash",
+        "gemini-3.7-flash",
         "gemini-3.8-flash",
     ]
     groq_models = [
@@ -135,7 +139,10 @@ with st.sidebar:
     st.subheader("🤖 Model Selection (Per Agent)")
     available_models = fetch_available_models()
 
-    planner_default = "gemini-3.5-flash-lite" if "gemini-3.5-flash-lite" in available_models and settings.GEMINI_API_KEY else ("qwen/qwen3.8-27b" if "qwen/qwen3.8-27b" in available_models else available_models[0])
+    planner_default = next(
+        (m for m in ["gemini-3.5-flash", "gemini-3.6-flash", "gemini-2.5-flash"] if m in available_models and settings.GEMINI_API_KEY),
+        next((m for m in ["qwen/qwen3.8-27b", "openai/gpt-oss-120b"] if m in available_models), available_models[0])
+    )
     planner_def_idx = available_models.index(planner_default) if planner_default in available_models else 0
     selected_planner_model = st.selectbox(
         "🧠 Planner Agent",
@@ -144,7 +151,10 @@ with st.sidebar:
         help="Decomposes research topic into targeted academic and web sub-queries.",
     )
 
-    synth_default = "gemini-3.5-flash-lite" if "gemini-3.5-flash-lite" in available_models and settings.GEMINI_API_KEY else ("openai/gpt-oss-120b" if "openai/gpt-oss-120b" in available_models else available_models[0])
+    synth_default = next(
+        (m for m in ["gemini-3.5-flash", "gemini-3.6-flash", "gemini-2.5-flash"] if m in available_models and settings.GEMINI_API_KEY),
+        next((m for m in ["openai/gpt-oss-120b", "qwen/qwen3.8-27b"] if m in available_models), available_models[0])
+    )
     synth_def_idx = available_models.index(synth_default) if synth_default in available_models else 0
     selected_synth_model = st.selectbox(
         "⚗️ Synthesizer Agent",
@@ -153,7 +163,10 @@ with st.sidebar:
         help="Generates comprehensive, multi-paragraph research findings grounded in RAG passages.",
     )
 
-    verifier_default = "gemini-3.5-flash-lite" if "gemini-3.5-flash-lite" in available_models and settings.GEMINI_API_KEY else ("openai/gpt-oss-120b" if "openai/gpt-oss-120b" in available_models else available_models[0])
+    verifier_default = next(
+        (m for m in ["gemini-3.6-flash", "gemini-3.5-flash", "gemini-2.5-flash"] if m in available_models and settings.GEMINI_API_KEY),
+        next((m for m in ["openai/gpt-oss-120b", "qwen/qwen3.8-27b"] if m in available_models), available_models[0])
+    )
     verifier_def_idx = available_models.index(verifier_default) if verifier_default in available_models else 0
     selected_verifier_model = st.selectbox(
         "⚖️ Verifier (Judge) Agent",
@@ -162,7 +175,10 @@ with st.sidebar:
         help="Independent LLM-as-judge that audits claims, checks citations, and assigns the quality score.",
     )
 
-    improver_default = "gemini-3.5-flash-lite" if "gemini-3.5-flash-lite" in available_models and settings.GEMINI_API_KEY else ("openai/gpt-oss-120b" if "openai/gpt-oss-120b" in available_models else available_models[0])
+    improver_default = next(
+        (m for m in ["gemini-3.6-flash", "gemini-3.5-flash", "gemini-2.5-flash"] if m in available_models and settings.GEMINI_API_KEY),
+        next((m for m in ["openai/gpt-oss-120b", "qwen/qwen3.8-27b"] if m in available_models), available_models[0])
+    )
     improver_def_idx = available_models.index(improver_default) if improver_default in available_models else 0
     selected_improver_model = st.selectbox(
         "🛠️ Refiner / Improver Agent",
@@ -179,9 +195,22 @@ with st.sidebar:
     st.caption(f"🧠 **STM / LTM:** `Redis & SQLite Active`")
 
     st.divider()
+    st.subheader("⚡ Research Depth")
+    depth_choice = st.radio(
+        "Execution Mode",
+        ["⚡ Quick Briefing (~15s, Lean)", "🔬 Deep Academic (Full Audit, ~60s)"],
+        index=0,
+        help="⚡ Quick Briefing: 3 targeted sub-queries, top 3 full-text sources, 1 fast verification pass (conserves API calls).\n🔬 Deep Academic: 5-7 sub-queries, selective full-text scraping, retry passes, multi-round claim audit."
+    )
+    is_quick_mode = "Quick" in depth_choice
+    selected_research_mode = "quick" if is_quick_mode else "deep"
+
+    st.divider()
     st.subheader("Search Parameters")
-    arxiv_max = st.slider("Max ArXiv Papers (per sub-query)", min_value=1, max_value=10, value=3)
-    web_max = st.slider("Max Web Results (per sub-query)", min_value=1, max_value=10, value=3)
+    def_papers = 2 if is_quick_mode else 3
+    def_web = 2 if is_quick_mode else 3
+    arxiv_max = st.slider("Max ArXiv Papers (per sub-query)", min_value=1, max_value=10, value=def_papers)
+    web_max = st.slider("Max Web Results (per sub-query)", min_value=1, max_value=10, value=def_web)
     
     st.divider()
 
@@ -220,8 +249,8 @@ if "🧠" in mode:
     if search_clicked or has_cached:
         if not query.strip():
             st.warning("Please enter a search topic first.")
-        elif not keys["groq"]:
-            st.error("🔑 Groq API key required for Full Research mode. Add `GROQ_API_KEY` to your `.env` file.")
+        elif not (keys.get("gemini") or keys["groq"]):
+            st.error("🔑 A Gemini or Groq API key is required. Add `GEMINI_API_KEY` or `GROQ_API_KEY` to your `.env` file.")
         else:
             if search_clicked or not has_cached:
                 st.session_state.last_full_query = query
@@ -259,6 +288,7 @@ if "🧠" in mode:
                         synthesizer_model=selected_synth_model,
                         verifier_model=selected_verifier_model,
                         improver_model=selected_improver_model,
+                        research_mode=selected_research_mode,
                     )
 
                 progress_container.empty()

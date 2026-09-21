@@ -1,0 +1,3088 @@
+{
+  "query": "quantum computing",
+  "timestamp": "20260921_211356",
+  "stages": {
+    "plan": {
+      "recorded_at": "2026-09-21T21:14:08.032088",
+      "duration_from_start": 11.16,
+      "data": {
+        "original_query": "quantum computing",
+        "sub_queries": [
+          {
+            "question": "What are the leading architectures, technical foundations, and hardware modalities in quantum computing as of September 2026?",
+            "search_keywords": [
+              "quantum computing",
+              "architectures",
+              "foundations",
+              "hardware platforms"
+            ],
+            "source_type": "both"
+          },
+          {
+            "question": "What are the empirical performance benchmarks, quantitative metrics, and comparative evaluations in quantum computing?",
+            "search_keywords": [
+              "quantum computing",
+              "benchmarks",
+              "performance metrics",
+              "evaluation"
+            ],
+            "source_type": "arxiv"
+          },
+          {
+            "question": "What are the primary commercial deployments, industrial use cases, and key market players in quantum computing?",
+            "search_keywords": [
+              "quantum computing",
+              "industry deployments",
+              "commercial applications",
+              "key players"
+            ],
+            "source_type": "web"
+          }
+        ],
+        "reasoning": "Robust orthogonal decomposition generated for 'quantum computing' as of September 2026."
+      }
+    },
+    "retrieval": {
+      "recorded_at": "2026-09-21T21:14:18.250526",
+      "duration_from_start": 21.38,
+      "data": {
+        "total_sources_retrieved": 6,
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the leading architectures, technical foundations, and hardware modalities in quantum computing as of September 2026?",
+              "search_keywords": [
+                "quantum computing",
+                "architectures",
+                "foundations",
+                "hardware platforms"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Tierkreis",
+              "SEALSQ"
+            ],
+            "notes": "Partial coverage. Covered entities: Tierkreis, SEALSQ"
+          },
+          {
+            "sub_query": {
+              "question": "What are the empirical performance benchmarks, quantitative metrics, and comparative evaluations in quantum computing?",
+              "search_keywords": [
+                "quantum computing",
+                "benchmarks",
+                "performance metrics",
+                "evaluation"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Tierkreis"
+            ],
+            "notes": "Partial coverage. Covered entities: Tierkreis"
+          },
+          {
+            "sub_query": {
+              "question": "What are the primary commercial deployments, industrial use cases, and key market players in quantum computing?",
+              "search_keywords": [
+                "quantum computing",
+                "industry deployments",
+                "commercial applications",
+                "key players"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": true,
+            "status": "Answered",
+            "covered_entities": [
+              "JPMorgan Chase & Co.",
+              "HSBC",
+              "Goldman Sachs",
+              "Morgan Stanley",
+              "D-Wave",
+              "Volkswagen",
+              "Denso"
+            ],
+            "notes": "Answered. Covered entities: JPMorgan Chase & Co., HSBC, Goldman Sachs, Morgan Stanley, D-Wave, Volkswagen, Denso"
+          }
+        ],
+        "full_text_count": 3,
+        "abstract_only_count": 3
+      }
+    },
+    "synthesis": {
+      "recorded_at": "2026-09-21T21:14:26.765814",
+      "duration_from_start": 29.9,
+      "data": [
+        {
+          "heading": "Abstract",
+          "content": "Quantum computing represents a paradigm shift rooted in the foundational principles of quantum mechanics, aiming to model natural phenomena that challenge classical architectures [0, 3]. Current research investigates hardware modalities, hybrid quantum-classical dataflow frameworks, and security integrations like post-quantum cryptography [0, 1, 3]. While noisy intermediate-scale quantum (NISQ) systems demonstrate proof-of-principle capabilities and early demonstrations of quantum advantage, scalable fault-tolerant execution remains constrained by physical bottlenecks [0]. This synthesis examines architectural foundations, hybrid system representations, and prevailing research gaps in the field.",
+          "source_indices": [
+            0,
+            1,
+            3
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Executive Summary & Core Insights",
+          "content": "> **Core Insight:** Quantum computing research is transitioning from theoretical formulations toward hybrid architectures and hardware-aware compilation, though scaling remains fundamentally limited by physical noise and interconnect constraints.\n\nThe development of quantum computing traces back to early theoretical propositions suggesting that simulating quantum mechanical systems requires hardware operating under identical physical laws [0]. Contemporary work spans diverse paradigms, including measurement-based quantum computing, adiabatic quantum computing (implemented as quantum annealing), and the dominant quantum circuit framework [0]. \n\n```\n+-------------------------------------------------------------+\n|               Hybrid Quantum-Classical System               | \n|  +--------------------+             +--------------------+  |\n|  | Classical Control  |<----------->| Higher-Order       |  |\n|  | & Compute Layer    |  Dataflow   | Dataflow Graph     |  |\n|  +--------------------+  Framework  | (e.g., Tierkreis)  |  |\n|           ^                         +--------------------+  |\n|           |                                   |             |\n|           v                                   v             |\n|  +-------------------------------------------------------+  |\n|  |         Quantum Hardware Processing Unit (QPU)        |  |\n|  +-------------------------------------------------------+  |\n+-------------------------------------------------------------+\n```\n\nTo bridge the gap between theoretical algorithms and physical hardware, modern research focuses on hybrid quantum-classical integration and compiler toolchains [1, 4]. These frameworks manage distributed architectures and dataflow dependencies, balancing the limitations of current-generation processors with application requirements [1, 2].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "figures": [
+            "+-------------------------------------------------------------+\n|               Hybrid Quantum-Classical System               | \n|  +--------------------+             +--------------------+  |\n|  | Classical Control  |<----------->| Higher-Order       |  |\n|  | & Compute Layer    |  Dataflow   | Dataflow Graph     |  |\n|  +--------------------+  Framework  | (e.g., Tierkreis)  |  |\n|           ^                         +--------------------+  |\n|           |                                   |             |\n|           v                                   v             |\n|  +-------------------------------------------------------+  |\n|  |         Quantum Hardware Processing Unit (QPU)        |  |\n|  +-------------------------------------------------------+  |\n+-------------------------------------------------------------+"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Architectural Evolution, Hardware Modalities & Key Players",
+          "content": "3.1 Architectural Paradigms and Modalities\n\nQuantum computing architectures encompass multiple operational paradigms [0]. The quantum circuit model stands out as an exceptionally flexible option due to its reprogrammability for specific problem domains [0]. Alternative paradigms include measurement-based (one-way) quantum computing and adiabatic quantum computing, the latter typically practiced via quantum annealing [0]. \n\n> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding comprehensive quantitative benchmarks for leading hardware modalities (such as specific superconducting or trapped-ion qubit counts and gate fidelities as of September 2026).\n\n3.2 Hardware Integration and Security Frameworks\n\nAs silicon-manufactured and CMOS-compatible quantum hardware platforms advance, system security becomes a critical architectural requirement [3]. Industry initiatives, such as those reported by SEALSQ, emphasize integrating post-quantum cryptography (PQC) and hardware-based trust mechanisms directly into secure silicon control architectures [3]. These measures aim to protect control systems, calibration data, firmware updates, and interconnect communications from potential quantum-enabled attacks [3].",
+          "source_indices": [
+            0,
+            3
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Technical Architecture & Methodologies",
+          "content": "4.1 Hybrid Quantum-Classical Frameworks\n\nTo execute complex quantum algorithms, software frameworks must support compositional, hybrid quantum-classical paradigms [1]. Higher-order dataflow graph representations, such as Tierkreis developed by Quantinuum and academic collaborators, provide runtimes designed to manage data dependencies and control flow across heterogeneous quantum and classical compute resources [1]. \n\n4.2 Hardware-Aware Compilation and Optimization\n\nBridging multi-qubit hardware processors with theoretical algorithms requires specialized compilation [4]. Research centers, including the U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation, focus on compilers that optimize quantum circuits for distinct physical platforms, including neutral atom arrays and trapped ions [4]. These compilation strategies incorporate connectivity-constrained mapping, native gate synthesis, and layout-aware scheduling [4].\n\n```mermaid\ngraph TD\n    A[High-Level Quantum Algorithm] --> B[Hardware-Aware Compiler]\n    B --> C[Layout-Aware Scheduling & Native Gate Synthesis]\n    C --> D[Hybrid Dataflow Runtime e.g., Tierkreis]\n    D --> E[Physical Quantum Hardware Execution]\n```",
+          "source_indices": [
+            1,
+            4
+          ],
+          "figures": [
+            "graph TD\n    A[High-Level Quantum Algorithm] --> B[Hardware-Aware Compiler]\n    B --> C[Layout-Aware Scheduling & Native Gate Synthesis]\n    C --> D[Hybrid Dataflow Runtime e.g., Tierkreis]\n    D --> E[Physical Quantum Hardware Execution]"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Comparative Performance Benchmarks & Empirical Data",
+          "content": "> **Evidence Gap:** Insufficient empirical performance benchmark data or quantitative comparative evaluations were retrieved from the available sources to populate a standardized performance comparison table.",
+          "source_indices": [],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Practical Applications & Industrial Impact",
+          "content": "6.1 Quantum Artificial Intelligence (QAI)\n\nWhen applied to classical data, quantum computing holds the potential to accelerate machine intelligence techniques [0]. Research studies have investigated quantum neural networks, quantum support vector machines, and quantum principal component evaluation [0]. However, current literature notes that it remains unproven whether quantum neural networks will consistently provide superior computing efficiency compared to traditional machine learning methods [0].\n\n6.2 Commercial and Industrial Engagement\n\n> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding verified production-grade commercial deployments. Nevertheless, industry partners\u2014including financial institutions (JPMorgan Chase, HSBC, Goldman Sachs, Morgan Stanley) and pharmaceutical organizations (AstraZeneca, Johnson & Johnson)\u2014are actively engaging by providing pragmatic use cases and data to foster commercial application development [5].",
+          "source_indices": [
+            0,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Research Gaps, Limitations & Future Horizons",
+          "content": "7.1 Physical Bottlenecks and Scalability Challenges\n\nA primary challenge in realizing scalable quantum computing lies in the physical requirement for strong couplings between qubits while mitigating decoherence and environmental noise [0]. While early noisy intermediate-scale quantum (NISQ) systems and proofs of quantum supremacy indicate progress, transitioning to fault-tolerant architectures requires overcoming severe physical error accumulation [0].\n\n7.2 Algorithmic and Architectural Uncertainty\n\nSignificant uncertainties persist regarding the practical advantages of quantum machine learning models over classical counterparts [0]. Reconciling theoretical algorithmic potential with hardware limitations necessitates continued co-design across hardware-aware compilers, hybrid dataflow runtimes, and secure control plane integration [1, 3, 4].",
+          "source_indices": [
+            0,
+            1,
+            3,
+            4
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_0": {
+      "recorded_at": "2026-09-21T21:14:37.344892",
+      "duration_from_start": 40.48,
+      "data": {
+        "is_approved": false,
+        "overall_score": 2,
+        "issues": [
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'Quantum computing represents a paradigm shift rooted in the foundational princip...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'Current research investigates hardware modalities, hybrid quantum-classical data...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNCITED] Claim 'This synthesis examines architectural foundations, hybrid system representations...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNCITED] Claim 'prevailing research gaps in the field....' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNCITED] Claim '> **Core Insight:** Quantum computing research is transitioning from theoretical...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNVERIFIED] Claim 'The development of quantum computing traces back to early theoretical propositio...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNVERIFIED] Claim 'Contemporary work spans diverse paradigms, including measurement-based quantum c...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNVERIFIED] Claim 'the dominant quantum circuit framework ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNVERIFIED] Claim 'To bridge the gap between theoretical algorithms and physical hardware, modern r...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNVERIFIED] Claim 'These frameworks manage distributed architectures and dataflow dependencies, bal...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "issue": "[UNCITED] Claim '3.1 Architectural Paradigms and Modalities...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "issue": "[UNVERIFIED] Claim 'Quantum computing architectures encompass multiple operational paradigms ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "issue": "[UNVERIFIED] Claim 'The quantum circuit model stands out as an exceptionally flexible option due to ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "issue": "[UNVERIFIED] Claim 'Alternative paradigms include measurement-based (one-way) quantum computing and ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "issue": "[UNCITED] Claim '> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding comp...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "issue": "[UNCITED] Claim '3.2 Hardware Integration and Security Frameworks...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "issue": "[UNVERIFIED] Claim 'As silicon-manufactured and CMOS-compatible quantum hardware platforms advance, ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "issue": "[PARTIAL] Claim 'These measures aim to protect control systems, calibration data, firmware update...' - Source explicitly mentions distributed quantum systems protecting data exchanges, but does not explicitly detail 'calibration data, firmware updates' as separate specific entries.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.1 Hybrid Quantum-Classical Frameworks...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'To execute complex quantum algorithms, software frameworks must support composit...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Higher-order dataflow graph representations, such as Tierkreis developed by Quan...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.2 Hardware-Aware Compilation and Optimization...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Bridging multi-qubit hardware processors with theoretical algorithms requires sp...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim 'Research centers, including the U.S....' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "issue": "[UNCITED] Claim '> **Evidence Gap:** Insufficient empirical performance benchmark data or quantit...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.1 Quantum Artificial Intelligence (QAI)...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Research studies have investigated quantum neural networks, quantum support vect...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'quantum principal component evaluation ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'current literature notes that it remains unproven whether quantum neural network...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.2 Commercial and Industrial Engagement...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding veri...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'including financial institutions (JPMorgan Chase, HSBC, Goldman Sachs, Morgan St...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'are actively engaging by providing pragmatic use cases and data to foster commer...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNCITED] Claim '7.1 Physical Bottlenecks and Scalability Challenges...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'A primary challenge in realizing scalable quantum computing lies in the physical...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNCITED] Claim '7.2 Algorithmic and Architectural Uncertainty...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'Significant uncertainties persist regarding the practical advantages of quantum ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'Reconciling theoretical algorithmic potential with hardware limitations necessit...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'secure control plane integration ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          }
+        ],
+        "summary": "Claim-level audit verified 49 claims: 10/49 supported (20.4%). 39 flagged issues, 0 overclaims, 0 cross-section contradictions.",
+        "judge_ran": true,
+        "claims": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Quantum computing represents a paradigm shift rooted in the foundational principles of quantum mechanics, aiming to model natural phenomena that challenge classical architectures .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Many experts regard Richard Feynman\u2019s 1982 talk as among the first ideas for quantum computing [1, 2]. Feynman imagined a quantum machine that could imitate quantum physics by using the principles of quantum mechanics.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "Current research investigates hardware modalities, hybrid quantum-classical dataflow frameworks",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We present Tierkreis, a high-performance dataflow framework and runtime designed for compositional, quantum-classical hybrid algorithms.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "security integrations like post-quantum cryptography .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "At the same time, alongside its work on CMOS-compatible quantum hardware, SEALSQ recognizes that quantum computers must rely on strong security systems and is therefore integrating post-quantum cryptography (PQC) and hardware-based trust mechanisms directly into the system architecture.",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "noisy intermediate-scale quantum (NISQ) systems demonstrate proof-of-principle capabilities and early demonstrations of quantum advantage, scalable fault-tolerant execution remains constrained by physical bottlenecks .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Assuming the unavoidable presence of environmental noise, \u201cNoisy Intermediate Scale Quantum (NISQ)\u201d devices, try to deal with imperfections and losses driven by decoherence. Reducing the probability of decoherence and creating effective error correction procedures to ov",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "This synthesis examines architectural foundations, hybrid system representations",
+            "section_heading": "Abstract",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "prevailing research gaps in the field.",
+            "section_heading": "Abstract",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "> **Core Insight:** Quantum computing research is transitioning from theoretical formulations toward hybrid architectures and hardware-aware compilation, though scaling remains fundamentally limited by physical noise and interconnect constraints.",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "The development of quantum computing traces back to early theoretical propositions suggesting that simulating quantum mechanical systems requires hardware operating under identical physical laws .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "ssary to mimic natural occurrences, as Nature is fundamentally quantum mechanical [3] . The advent of quantum computers has opened up new avenues for this kind of thinking...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "Contemporary work spans diverse paradigms, including measurement-based quantum computing, adiabatic quantum computing (implemented as quantum annealing)",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "The most popular ones are measurement-based or one-way quantum computing [26], adiabatic quantum computing (usually implemented in practice as quantum annealing) [27]",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "the dominant quantum circuit framework .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "and the quantum circuit framework for gate-based general quantum computing [7].",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "To bridge the gap between theoretical algorithms and physical hardware, modern research focuses on hybrid quantum-classical integration and compiler toolchains .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              1,
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Fault-tolerant algorithms also often interleave quantum and classical steps [3] ... Hardware-aware compilation: U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers that optimize quantum circuits...",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "These frameworks manage distributed architectures and dataflow dependencies, balancing the limitations of current-generation processors with application requirements .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              1,
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "The representation is a directed dataflow graph as it specifies only data dependencies... Here, we study the performance of two possible architectures for interfacing a quantum processor with a quantum network.",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "3.1 Architectural Paradigms and Modalities",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "Quantum computing architectures encompass multiple operational paradigms .",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "The second big problem with modern quantum devices is to identify approaches to effectively engineer and interconnect (entangle) qubits [13].",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "The quantum circuit model stands out as an exceptionally flexible option due to its reprogrammability for specific problem domains .",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Currently, some high-level programming languages specific to quantum computing, such as Qiskit [28], Cirq [29], PennyLane [30], and other libraries and packages, are available to program quantum computers...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "Alternative paradigms include measurement-based (one-way) quantum computing and adiabatic quantum computing, the latter typically practiced via quantum annealing .",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "The most popular ones are measurement-based or one-way quantum computing [26], adiabatic quantum computing (usually implemented in practice as quantum annealing) [27]",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding comprehensive quantitative benchmarks for leading hardware modalities (such as specific superconducting or trapped-ion qubit counts and gate fidelities as of September 2026).",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "3.2 Hardware Integration and Security Frameworks",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "As silicon-manufactured and CMOS-compatible quantum hardware platforms advance, system security becomes a critical architectural requirement .",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "At the same time, alongside its work on CMOS-compatible quantum hardware, SEALSQ recognizes that quantum computers must rely on strong security systems...",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "Industry initiatives, such as those reported by SEALSQ, emphasize integrating post-quantum cryptography (PQC) and hardware-based trust mechanisms directly into secure silicon control architectures .",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "SEALSQ recognizes that quantum computers must rely on strong security systems and is therefore integrating post-quantum cryptography (PQC) and hardware-based trust mechanisms directly into the system architecture.",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "These measures aim to protect control systems, calibration data, firmware updates",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "This is especially critical in distributed quantum [...] distributed quantum systems, where control electronics, cryogenic interfaces, and cloud-connected orchestration layers must exchange sensitive data securely.",
+            "matched_source_index": 3,
+            "issues": [
+              "Source explicitly mentions distributed quantum systems protecting data exchanges, but does not explicitly detail 'calibration data, firmware updates' as separate specific entries."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "interconnect communications from potential quantum-enabled attacks .",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "nd interconnect communications remain resilient against both classical and quantum-enabled attacks.",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "4.1 Hybrid Quantum-Classical Frameworks",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "To execute complex quantum algorithms, software frameworks must support compositional, hybrid quantum-classical paradigms .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We present Tierkreis, a high-performance dataflow framework and runtime designed for compositional, quantum-classical hybrid algorithms.",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "Higher-order dataflow graph representations, such as Tierkreis developed by Quantinuum and academic collaborators, provide runtimes designed to manage data dependencies and control flow across heterogeneous quantum and classical compute resources .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We present Tierkreis, a high-performance dataflow framework and runtime designed for compositional, quantum-classical hybrid algorithms. The design of the system is motivated by the remote nature of quantum computers...",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "4.2 Hardware-Aware Compilation and Optimization",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "Bridging multi-qubit hardware processors with theoretical algorithms requires specialized compilation .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Hardware-aware compilation: U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers that optimize quantum circuits for specific physical platforms...",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "Research centers, including the U.S.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "National Science Foundation Quantum Leap Challenge Institute for Quantum Computation, focus on compilers that optimize quantum circuits for distinct physical platforms, including neutral atom arrays and trapped ions .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers that optimize quantum circuits for specific physical platforms such as neutral atom arrays and trapped ions.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "These compilation strategies incorporate connectivity-constrained mapping, native gate synthesis",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This includes layout-aware scheduling, native gate synthesis, and connectivity-constrained mapping.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "layout-aware scheduling .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This includes layout-aware scheduling, native gate synthesis, and connectivity-constrained mapping.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical performance benchmark data or quantitative comparative evaluations were retrieved from the available sources to populate a standardized performance comparison table.",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "6.1 Quantum Artificial Intelligence (QAI)",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "When applied to classical data, quantum computing holds the potential to accelerate machine intelligence techniques .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "When applied to classical data, QAI has the potential to greatly accelerate machine intelligence technique",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "Research studies have investigated quantum neural networks, quantum support vector machines",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "quantum support vector machines, and quantum principle component evaluation have been studied [23, 24]",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "quantum principal component evaluation .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "quantum support vector machines, and quantum principle component evaluation have been studied [23, 24]",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "current literature notes that it remains unproven whether quantum neural networks will consistently provide superior computing efficiency compared to traditional machine learning methods .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "...although it is still not completely known if quantum neural networks will provide better computing efficiency than traditional machine learning techniques.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "6.2 Commercial and Industrial Engagement",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding verified production-grade commercial deployments.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "Nevertheless, industry partners",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In addition to the computing companies, industry partners are also a key part of the quantum world.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "including financial institutions (JPMorgan Chase, HSBC, Goldman Sachs, Morgan Stanley) and pharmaceutical organizations (AstraZeneca, Johnson & Johnson)",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Banks like JPMorgan Chase & Co., HSBC, Goldman Sachs, and Morgan Stanley, and pharmaceuticals like AstraZeneca and Johnson & Johnson are all pushing quantum computing forward...",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "are actively engaging by providing pragmatic use cases and data to foster commercial application development .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "...by providing the pragmatic use cases and the data to develop commercial app",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "7.1 Physical Bottlenecks and Scalability Challenges",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "A primary challenge in realizing scalable quantum computing lies in the physical requirement for strong couplings between qubits while mitigating decoherence and environmental noise .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "...cessitate strong couplings between qubits [14].",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "early noisy intermediate-scale quantum (NISQ) systems and proofs of quantum supremacy indicate progress, transitioning to fault-tolerant architectures requires overcoming severe physical error accumulation .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Assuming the unavoidable presence of environmental noise, \u201cNoisy Intermediate Scale Quantum (NISQ)\u201d devices, try to deal with imperfections and losses driven by decoherence.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "7.2 Algorithmic and Architectural Uncertainty",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "Significant uncertainties persist regarding the practical advantages of quantum machine learning models over classical counterparts .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "...although it is still not completely known if quantum neural networks will provide better computing efficiency than traditional machine learning techniques.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_48",
+            "claim_text": "Reconciling theoretical algorithmic potential with hardware limitations necessitates continued co-design across hardware-aware compilers, hybrid dataflow runtimes",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              1,
+              3,
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "This structure is a dataflow graph as it specifies only data dependencies... Hardware-aware compilation: U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers...",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_49",
+            "claim_text": "secure control plane integration .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              1,
+              3,
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Securing these platforms involves i [...] nd interconnect communications remain resilient against both classical and quantum-enabled attacks.",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          }
+        ],
+        "total_claims": 49,
+        "supported_count": 10,
+        "supported_ratio": 0.204,
+        "revisions_made": 0,
+        "unresolved_flags": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Quantum computing represents a paradigm shift rooted in the foundational principles of quantum mechanics, aiming to model natural phenomena that challenge classical architectures .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Many experts regard Richard Feynman\u2019s 1982 talk as among the first ideas for quantum computing [1, 2]. Feynman imagined a quantum machine that could imitate quantum physics by using the principles of quantum mechanics.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "Current research investigates hardware modalities, hybrid quantum-classical dataflow frameworks",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We present Tierkreis, a high-performance dataflow framework and runtime designed for compositional, quantum-classical hybrid algorithms.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "This synthesis examines architectural foundations, hybrid system representations",
+            "section_heading": "Abstract",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "prevailing research gaps in the field.",
+            "section_heading": "Abstract",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "> **Core Insight:** Quantum computing research is transitioning from theoretical formulations toward hybrid architectures and hardware-aware compilation, though scaling remains fundamentally limited by physical noise and interconnect constraints.",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "The development of quantum computing traces back to early theoretical propositions suggesting that simulating quantum mechanical systems requires hardware operating under identical physical laws .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "ssary to mimic natural occurrences, as Nature is fundamentally quantum mechanical [3] . The advent of quantum computers has opened up new avenues for this kind of thinking...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "Contemporary work spans diverse paradigms, including measurement-based quantum computing, adiabatic quantum computing (implemented as quantum annealing)",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "The most popular ones are measurement-based or one-way quantum computing [26], adiabatic quantum computing (usually implemented in practice as quantum annealing) [27]",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "the dominant quantum circuit framework .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "and the quantum circuit framework for gate-based general quantum computing [7].",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "To bridge the gap between theoretical algorithms and physical hardware, modern research focuses on hybrid quantum-classical integration and compiler toolchains .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              1,
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Fault-tolerant algorithms also often interleave quantum and classical steps [3] ... Hardware-aware compilation: U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers that optimize quantum circuits...",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "These frameworks manage distributed architectures and dataflow dependencies, balancing the limitations of current-generation processors with application requirements .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              1,
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "The representation is a directed dataflow graph as it specifies only data dependencies... Here, we study the performance of two possible architectures for interfacing a quantum processor with a quantum network.",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "3.1 Architectural Paradigms and Modalities",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "Quantum computing architectures encompass multiple operational paradigms .",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "The second big problem with modern quantum devices is to identify approaches to effectively engineer and interconnect (entangle) qubits [13].",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "The quantum circuit model stands out as an exceptionally flexible option due to its reprogrammability for specific problem domains .",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Currently, some high-level programming languages specific to quantum computing, such as Qiskit [28], Cirq [29], PennyLane [30], and other libraries and packages, are available to program quantum computers...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "Alternative paradigms include measurement-based (one-way) quantum computing and adiabatic quantum computing, the latter typically practiced via quantum annealing .",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "The most popular ones are measurement-based or one-way quantum computing [26], adiabatic quantum computing (usually implemented in practice as quantum annealing) [27]",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding comprehensive quantitative benchmarks for leading hardware modalities (such as specific superconducting or trapped-ion qubit counts and gate fidelities as of September 2026).",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "3.2 Hardware Integration and Security Frameworks",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "As silicon-manufactured and CMOS-compatible quantum hardware platforms advance, system security becomes a critical architectural requirement .",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "At the same time, alongside its work on CMOS-compatible quantum hardware, SEALSQ recognizes that quantum computers must rely on strong security systems...",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "These measures aim to protect control systems, calibration data, firmware updates",
+            "section_heading": "Architectural Evolution, Hardware Modalities & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "This is especially critical in distributed quantum [...] distributed quantum systems, where control electronics, cryogenic interfaces, and cloud-connected orchestration layers must exchange sensitive data securely.",
+            "matched_source_index": 3,
+            "issues": [
+              "Source explicitly mentions distributed quantum systems protecting data exchanges, but does not explicitly detail 'calibration data, firmware updates' as separate specific entries."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "4.1 Hybrid Quantum-Classical Frameworks",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "To execute complex quantum algorithms, software frameworks must support compositional, hybrid quantum-classical paradigms .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We present Tierkreis, a high-performance dataflow framework and runtime designed for compositional, quantum-classical hybrid algorithms.",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "Higher-order dataflow graph representations, such as Tierkreis developed by Quantinuum and academic collaborators, provide runtimes designed to manage data dependencies and control flow across heterogeneous quantum and classical compute resources .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We present Tierkreis, a high-performance dataflow framework and runtime designed for compositional, quantum-classical hybrid algorithms. The design of the system is motivated by the remote nature of quantum computers...",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "4.2 Hardware-Aware Compilation and Optimization",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "Bridging multi-qubit hardware processors with theoretical algorithms requires specialized compilation .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Hardware-aware compilation: U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers that optimize quantum circuits for specific physical platforms...",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "Research centers, including the U.S.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical performance benchmark data or quantitative comparative evaluations were retrieved from the available sources to populate a standardized performance comparison table.",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "6.1 Quantum Artificial Intelligence (QAI)",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "Research studies have investigated quantum neural networks, quantum support vector machines",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "quantum support vector machines, and quantum principle component evaluation have been studied [23, 24]",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "quantum principal component evaluation .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "quantum support vector machines, and quantum principle component evaluation have been studied [23, 24]",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "current literature notes that it remains unproven whether quantum neural networks will consistently provide superior computing efficiency compared to traditional machine learning methods .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "...although it is still not completely known if quantum neural networks will provide better computing efficiency than traditional machine learning techniques.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "6.2 Commercial and Industrial Engagement",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding verified production-grade commercial deployments.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "including financial institutions (JPMorgan Chase, HSBC, Goldman Sachs, Morgan Stanley) and pharmaceutical organizations (AstraZeneca, Johnson & Johnson)",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Banks like JPMorgan Chase & Co., HSBC, Goldman Sachs, and Morgan Stanley, and pharmaceuticals like AstraZeneca and Johnson & Johnson are all pushing quantum computing forward...",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "are actively engaging by providing pragmatic use cases and data to foster commercial application development .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "...by providing the pragmatic use cases and the data to develop commercial app",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "7.1 Physical Bottlenecks and Scalability Challenges",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "A primary challenge in realizing scalable quantum computing lies in the physical requirement for strong couplings between qubits while mitigating decoherence and environmental noise .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "...cessitate strong couplings between qubits [14].",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "7.2 Algorithmic and Architectural Uncertainty",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "Significant uncertainties persist regarding the practical advantages of quantum machine learning models over classical counterparts .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "...although it is still not completely known if quantum neural networks will provide better computing efficiency than traditional machine learning techniques.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_48",
+            "claim_text": "Reconciling theoretical algorithmic potential with hardware limitations necessitates continued co-design across hardware-aware compilers, hybrid dataflow runtimes",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              1,
+              3,
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "This structure is a dataflow graph as it specifies only data dependencies... Hardware-aware compilation: U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers...",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_49",
+            "claim_text": "secure control plane integration .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              1,
+              3,
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Securing these platforms involves i [...] nd interconnect communications remain resilient against both classical and quantum-enabled attacks.",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          }
+        ],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the leading architectures, technical foundations, and hardware modalities in quantum computing as of September 2026?",
+              "search_keywords": [
+                "quantum computing",
+                "architectures",
+                "foundations",
+                "hardware platforms"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Tierkreis",
+              "SEALSQ"
+            ],
+            "notes": "Partial coverage. Covered entities: Tierkreis, SEALSQ"
+          },
+          {
+            "sub_query": {
+              "question": "What are the empirical performance benchmarks, quantitative metrics, and comparative evaluations in quantum computing?",
+              "search_keywords": [
+                "quantum computing",
+                "benchmarks",
+                "performance metrics",
+                "evaluation"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Tierkreis"
+            ],
+            "notes": "Partial coverage. Covered entities: Tierkreis"
+          },
+          {
+            "sub_query": {
+              "question": "What are the primary commercial deployments, industrial use cases, and key market players in quantum computing?",
+              "search_keywords": [
+                "quantum computing",
+                "industry deployments",
+                "commercial applications",
+                "key players"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": true,
+            "status": "Answered",
+            "covered_entities": [
+              "JPMorgan Chase & Co.",
+              "HSBC",
+              "Goldman Sachs",
+              "Morgan Stanley",
+              "D-Wave",
+              "Volkswagen",
+              "Denso"
+            ],
+            "notes": "Answered. Covered entities: JPMorgan Chase & Co., HSBC, Goldman Sachs, Morgan Stanley, D-Wave, Volkswagen, Denso"
+          }
+        ],
+        "full_text_source_count": 3,
+        "abstract_only_source_count": 3
+      }
+    },
+    "refinement_round_1": {
+      "recorded_at": "2026-09-21T21:14:47.893833",
+      "duration_from_start": 51.02,
+      "data": [
+        {
+          "heading": "Abstract",
+          "content": "Background: Quantum computing utilizes quantum bits or qubits that can exist in superpositions of states, departing from classical bit limitations [0, 5]. Methods: Current investigations explore architectural paradigms, hybrid quantum-classical dataflow frameworks such as Tierkreis, and hardware-aware compilation strategies [0, 1, 4]. Results: While silicon-compatible quantum platforms and multi-qubit processors advance alongside post-quantum cryptography integration, physical bottlenecks and noise continue to constrain large-scale execution [0, 3, 4]. Conclusion: This synthesis examines architectural foundations, hybrid system representations, and prevailing research gaps in quantum computing based on available literature [0, 1, 2, 3, 4, 5].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Executive Summary & Paradigm Shift",
+          "content": "> **Core Insight:** Quantum computing research is transitioning from theoretical formulations toward hybrid architectures and hardware-aware compilation, though scaling remains fundamentally limited by physical noise and interconnect constraints [0, 1, 2, 4].\n\nClassical computing relies on bits limited to two possible values, '0' or '1', whereas quantum computing utilizes quantum bits (qubits) that may exist in a superposition of both states simultaneously [0, 5]. Contemporary work spans diverse hardware modalities and control frameworks designed to bridge multi-qubit processors with theoretical algorithms [0, 4]. To manage data dependencies and control flow across heterogeneous compute resources, advanced software runtimes and compilers are deployed [1, 4]. These frameworks optimize quantum circuits and balance the limitations of current-generation processors with application requirements [1, 2, 4].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            4,
+            5
+          ],
+          "figures": [
+            "+-------------------------------------------------------------+\n|               Hybrid Quantum-Classical System               | \n|  +--------------------+             +--------------------+  |\n|  | Classical Control  |<----------->| Higher-Order       |  |\n|  | & Compute Layer    |  Dataflow   | Dataflow Graph     |  |\n|  +--------------------+  Framework  | (e.g., Tierkreis)  |  |\n|           ^                         +--------------------+  |\n|           |                                   |             |\n|           v                                   v             |\n|  +-------------------------------------------------------+  |\n|  |         Quantum Hardware Processing Unit (QPU)        |  |\n|  +-------------------------------------------------------+  |\n+-------------------------------------------------------------+"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Architectural Evolution & Key Milestones",
+          "content": "3.1 Architectural Paradigms and Modalities\n\nQuantum computing architectures encompass multiple operational models and foundational frameworks as analyzed in recent literature [0]. The quantum circuit model serves as a flexible paradigm for executing quantum algorithms through sequences of quantum gates [2]. Alternative frameworks and distributed architectures are continuously evaluated for performance modeling and hardware integration [0, 2].\n\n3.2 Hardware Integration and Security Frameworks\n\nAs quantum processors advance toward large-scale silicon-manufactured platforms, system security becomes a foundational architectural requirement [3]. Industry initiatives, such as those by SEALSQ, integrate post-quantum cryptography (PQC) and hardware-based trust mechanisms directly into secure silicon control architectures [3]. These measures protect quantum control systems, firmware updates, calibration data, and interconnect communications against potential quantum-enabled attacks [3].",
+          "source_indices": [
+            0,
+            2,
+            3
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Architecture/Paradigm",
+              "Primary Mechanism",
+              "Key Focus Area",
+              "Source Reference"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Quantum Circuit Model",
+                  "Quantum gates and qubit measurement",
+                  "General-purpose quantum algorithms",
+                  "[0, 2]"
+                ]
+              },
+              {
+                "cells": [
+                  "Distributed Quantum Architecture",
+                  "Interconnected quantum network nodes",
+                  "Performance modeling and scalability",
+                  "[2]"
+                ]
+              },
+              {
+                "cells": [
+                  "Silicon-Compatible Hardware",
+                  "CMOS-compatible quantum processors",
+                  "Security and PQC integration",
+                  "[3]"
+                ]
+              }
+            ],
+            "caption": "Table 1: Overview of Quantum Architectural Paradigms and Security Integrations"
+          }
+        },
+        {
+          "heading": "Technical Architecture & Methodologies",
+          "content": "4.1 Hybrid Quantum-Classical Frameworks\n\nExecuting complex quantum algorithms requires software frameworks that support compositional, hybrid quantum-classical paradigms [1]. Higher-order dataflow graph representations, such as Tierkreis developed by Quantinuum and academic collaborators, provide runtimes designed to manage data dependencies and control flow across heterogeneous quantum and classical compute resources [1]. These frameworks facilitate modular software development and integration across diverse execution environments [1].\n\n4.2 Hardware-Aware Compilation and Optimization\n\nBridging multi-qubit hardware processors with theoretical algorithms requires specialized compilation strategies [4]. Research centers, including the U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation, focus on compilers that optimize quantum circuits for distinct physical platforms, including neutral atom arrays and trapped ions [4]. These compilation approaches incorporate connectivity-constrained mapping, native gate synthesis, and layout-aware scheduling [4].",
+          "source_indices": [
+            1,
+            4
+          ],
+          "figures": [
+            "graph TD\n    A[High-Level Quantum Algorithm] --> B[Hardware-Aware Compiler]\n    B --> C[Layout-Aware Scheduling & Native Gate Synthesis]\n    C --> D[Hybrid Dataflow Runtime e.g., Tierkreis]\n    D --> E[Physical Quantum Hardware Execution]"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Comparative Performance Benchmarks",
+          "content": "5.1 Performance Modeling of Distributed Systems\n\nEvaluating distributed quantum architectures requires rigorous performance modeling of quantum communication hardware, interfaces, and network protocols [2]. Research into distributed quantum systems analyzes how contention for resources and processing time affects overall fidelity during joint operations [2]. \n\n5.2 Comparative Analysis of Hardware Constraints\n\nWhile empirical benchmarks vary across platforms, hardware-aware compilation and dataflow execution frameworks provide systematic ways to evaluate execution efficiency [1, 4]. The table below outlines key comparative dimensions of hybrid quantum frameworks and architectural components described in the literature [1, 2, 4].",
+          "source_indices": [
+            1,
+            2,
+            4
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Framework / Architecture",
+              "Target Platform / Domain",
+              "Optimization Strategy",
+              "Source Reference"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Tierkreis Framework",
+                  "Hybrid quantum-classical systems",
+                  "Higher-order dataflow graphs",
+                  "[1]"
+                ]
+              },
+              {
+                "cells": [
+                  "Challenge Institute Compilers",
+                  "Neutral atoms and trapped ions",
+                  "Connectivity-constrained mapping & scheduling",
+                  "[4]"
+                ]
+              },
+              {
+                "cells": [
+                  "Distributed Quantum Networks",
+                  "Distributed quantum architectures",
+                  "Network performance modeling & fidelity analysis",
+                  "[2]"
+                ]
+              }
+            ],
+            "caption": "Table 2: Comparison of Quantum Software Frameworks and Architectural Approaches"
+          }
+        },
+        {
+          "heading": "Practical Applications & Industrial Impact",
+          "content": "6.1 Quantum Artificial Intelligence and Machine Learning\n\nWhen applied to classical data, quantum computing holds the potential to accelerate machine intelligence techniques [0]. Research studies have investigated quantum neural networks, quantum support vector machines, and quantum principal component evaluation [0]. However, current literature notes that it remains unproven whether quantum neural networks will consistently provide superior computing efficiency compared to traditional machine learning methods [0].\n\n6.2 Commercial and Industrial Engagement\n\nIndustry partners play a critical role in advancing quantum computing by providing pragmatic use cases and domain-specific data [5]. Financial institutions\u2014including JPMorgan Chase, HSBC, Goldman Sachs, and Morgan Stanley\u2014alongside pharmaceutical organizations such as AstraZeneca and Johnson & Johnson, are actively engaging with quantum technology developers to foster commercial application development [5].",
+          "source_indices": [
+            0,
+            5
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Industry Sector",
+              "Key Organizations",
+              "Engagement Focus",
+              "Source Reference"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Financial Services",
+                  "JPMorgan Chase, HSBC, Goldman Sachs, Morgan Stanley",
+                  "Pragmatic use cases and commercial data",
+                  "[5]"
+                ]
+              },
+              {
+                "cells": [
+                  "Pharmaceuticals",
+                  "AstraZeneca, Johnson & Johnson",
+                  "Domain-specific application development",
+                  "[5]"
+                ]
+              },
+              {
+                "cells": [
+                  "Research & Academic",
+                  "National Science Foundation Quantum Institutes",
+                  "Hardware-aware compilation and algorithm testing",
+                  "[4]"
+                ]
+              }
+            ],
+            "caption": "Table 3: Industrial Impact and Domain Engagement in Quantum Computing"
+          }
+        },
+        {
+          "heading": "Research Gaps & Future Horizons",
+          "content": "7.1 Physical Bottlenecks and Scalability Challenges\n\nA primary challenge in realizing scalable quantum computing lies in the physical requirement for strong couplings between qubits while mitigating decoherence and environmental noise [0]. While early noisy intermediate-scale quantum (NISQ) systems and proofs of quantum supremacy indicate progress, transitioning to fault-tolerant architectures requires overcoming severe physical error accumulation [0].\n\n7.2 Algorithmic and Architectural Uncertainty\n\nSignificant uncertainties persist regarding the practical advantages of quantum machine learning models over classical counterparts [0]. Reconciling theoretical algorithmic potential with hardware limitations necessitates continued co-design across hardware-aware compilers, hybrid dataflow runtimes, and secure control plane integration [1, 3, 4].",
+          "source_indices": [
+            0,
+            1,
+            3,
+            4
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_1": {
+      "recorded_at": "2026-09-21T21:15:07.047984",
+      "duration_from_start": 70.18,
+      "data": {
+        "is_approved": false,
+        "overall_score": 6,
+        "issues": [
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim '3.1 Architectural Paradigms and Modalities...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'Quantum computing architectures encompass multiple operational models and founda...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNSUPPORTED] Claim 'The quantum circuit model serves as a flexible paradigm for executing quantum al...' - Source 2 discusses performance evaluation of two distributed quantum architectures and networking performance modeling, but does not explicitly detail the circuit model serving as a flexible paradigm through sequences of gates.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'Alternative frameworks and distributed architectures are continuously evaluated ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim '3.2 Hardware Integration and Security Frameworks...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.1 Hybrid Quantum-Classical Frameworks...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Executing complex quantum algorithms requires software frameworks that support c...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Higher-order dataflow graph representations, such as Tierkreis developed by Quan...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.2 Hardware-Aware Compilation and Optimization...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim 'Research centers, including the U.S....' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNCITED] Claim '5.1 Performance Modeling of Distributed Systems...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNCITED] Claim '5.2 Comparative Analysis of Hardware Constraints...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNVERIFIED] Claim 'The table below outlines key comparative dimensions of hybrid quantum frameworks...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.1 Quantum Artificial Intelligence and Machine Learning...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.2 Commercial and Industrial Engagement...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Industry partners play a critical role in advancing quantum computing by providi...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Financial institutions...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNCITED] Claim '7.1 Physical Bottlenecks and Scalability Challenges...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'A primary challenge in realizing scalable quantum computing lies in the physical...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNCITED] Claim '7.2 Algorithmic and Architectural Uncertainty...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          }
+        ],
+        "summary": "Claim-level audit verified 55 claims: 35/55 supported (63.6%). 20 flagged issues, 0 overclaims, 0 cross-section contradictions.",
+        "judge_ran": true,
+        "claims": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Background: Quantum computing utilizes quantum bits or qubits that can exist in superpositions of states, departing from classical bit limitations .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Quantum Computation and Information uses qubits as fundamental unit of information and, differently from classical bits, they can not only acquire either value \u20180\u2019 or \u20181\u2019, but even \u20180\u2019 and \u20181\u2019 at the same time.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "Methods: Current investigations explore architectural paradigms, hybrid quantum-classical dataflow frameworks such as Tierkreis",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "We present Tierkreis, a hig",
+            "matched_source_index": 1,
+            "issues": []
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "hardware-aware compilation strategies .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Hardware-aware compilation: U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers that optimize quantum circuits for specific physical platforms such as neutral atom arrays and trapped ions.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "Results: While silicon-compatible quantum platforms and multi-qubit processors advance alongside post-quantum cryptography integration, physical bottlenecks and noise continue to constrain large-scale execution .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              3,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Assuming the unavoidable presence of environmental noise, \u201cNoisy Intermediate Scale Quantum (NISQ)\u201d devices, try to deal with imperfections and losses driven by decoherence.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "Conclusion: This synthesis examines architectural foundations, hybrid system representations",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "um computing, this paper examines the foundations and vision based on current research in this area.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "prevailing research gaps in quantum computing based on available literature .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "It would be helpful to have comprehensive literature research on this area to grasp the current status and find outstanding problems that require considerable attention",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "> **Core Insight:** Quantum computing research is transitioning from theoretical formulations toward hybrid architectures and hardware-aware compilation, though scaling remains fundamentally limited by physical noise and interconnect constraints .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              1,
+              2,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Research on quantum computing is blossoming, with regular exciting new advances in several areas of application and quantum engineering",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "Classical computing relies on bits limited to two possible values, '0' or '1'",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "traditional digital computing relies on bits that are limited to two possible values\u2014\u20180\u2019 or \u20181\u2019\u2014to store and process data.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "quantum computing utilizes quantum bits (qubits) that may exist in a superposition of both states simultaneously .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "they can not only acquire either value \u20180\u2019 or \u20181\u2019, but even \u20180\u2019 and \u20181\u2019 at the same time.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "Contemporary work spans diverse hardware modalities and control frameworks designed to bridge multi-qubit processors with theoretical algorithms .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Hardware-aware compilation: U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers that optimize quantum circuits for specific physical platforms such as neutral atom arrays and trapped ions.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "To manage data dependencies and control flow across heterogeneous compute resources, advanced software runtimes and compilers are deployed .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              1,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Tierkreis has a strong static type system and supports higher-order functions which allow flexible control flow and compositional structures.",
+            "matched_source_index": 1,
+            "issues": []
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "These frameworks optimize quantum circuits and balance the limitations of current-generation processors with application requirements .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              1,
+              2,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Hardware-aware compilation: U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers that optimize quantum circuits for specific physical platforms such as neutral atom arrays and trapped ions.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "3.1 Architectural Paradigms and Modalities",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "Quantum computing architectures encompass multiple operational models and foundational frameworks as analyzed in recent literature .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "From a foundational point of view, all software-related aspects are based on two different computational models, which determine some differences in the programming paradigms as well as in applications and technical aspects: the quantum gate and quantum annealing models",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "The quantum circuit model serves as a flexible paradigm for executing quantum algorithms through sequences of quantum gates .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNSUPPORTED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Source 2 discusses performance evaluation of two distributed quantum architectures and networking performance modeling, but does not explicitly detail the circuit model serving as a flexible paradigm through sequences of gates."
+            ]
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "Alternative frameworks and distributed architectures are continuously evaluated for performance modeling and hardware integration .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Instead, our goal is to abstract these details in the form of configurable modeling parameters, e.g., the demand for entanglement, or the rate at which it is successfully generated.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "3.2 Hardware Integration and Security Frameworks",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "As quantum processors advance toward large-scale silicon-manufactured platforms, system security becomes a foundational architectural requirement .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Post-quantum cryptography (PQC) plays a foundational role in this architecture. As quantum computing advances and increases the risk to classical public-key cryptography, SEALSQ is integrating PQC algorithms and hardware-based trust mechanisms in secure silicon",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "Industry initiatives, such as those by SEALSQ, integrate post-quantum cryptography (PQC) and hardware-based trust mechanisms directly into secure silicon control architectures .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "SEALSQ recognizes that quantum computers must rely on strong security systems and is therefore integrating post-quantum cryptography (PQC) and hardware-based trust mechanisms directly into the system architecture.",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "These measures protect quantum control systems, firmware updates, calibration data",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "nd interconnect communications remain resilient against both classical and quantum-enabled attacks.",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "interconnect communications against potential quantum-enabled attacks .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "interconnect communications remain resilient against both classical and quantum-enabled attacks.",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "4.1 Hybrid Quantum-Classical Frameworks",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "Executing complex quantum algorithms requires software frameworks that support compositional, hybrid quantum-classical paradigms .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We present Tierkreis, a hig... runtime designed for compositional, quantum-classical hybrid algorithms.",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "Higher-order dataflow graph representations, such as Tierkreis developed by Quantinuum and academic collaborators, provide runtimes designed to manage data dependencies and control flow across heterogeneous quantum and classical compute resources .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We present Tierkreis, a hig... runtime designed for compositional, quantum-classical hybrid algorithms.",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "These frameworks facilitate modular software development and integration across diverse execution environments .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Our contribution in Tierkreis is to define a semantics and execution model suitable for hybrid quantum-classical computing, and which accommodates existing quantum workflows",
+            "matched_source_index": 1,
+            "issues": []
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "4.2 Hardware-Aware Compilation and Optimization",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "Bridging multi-qubit hardware processors with theoretical algorithms requires specialized compilation strategies .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Hardware-aware compilation: U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers that optimize quantum circuits for specific physical platforms such as neutral atom arrays and trapped ions.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "Research centers, including the U.S.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "National Science Foundation Quantum Leap Challenge Institute for Quantum Computation, focus on compilers that optimize quantum circuits for distinct physical platforms, including neutral atom arrays and trapped ions .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers that optimize quantum circuits for specific physical platforms such as neutral atom arrays and trapped ions.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "These compilation approaches incorporate connectivity-constrained mapping, native gate synthesis",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This includes layout-aware scheduling, native gate synthesis, and connectivity-constrained mapping.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "layout-aware scheduling .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "layout-aware scheduling",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "5.1 Performance Modeling of Distributed Systems",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "Evaluating distributed quantum architectures requires rigorous performance modeling of quantum communication hardware, interfaces",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "CCS: Networks Network performance modeling CCS: Hardware Networking hardware CCS: Networks Network architectures CCS: Hardware Quantum technologies",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "network protocols .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "omputing component/device), network operations (entanglement generation), and movement (state transfer) of generated entanglement into the processor for further processing.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "Research into distributed quantum systems analyzes how contention for resources and processing time affects overall fidelity during joint operations .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "how contention for resources and processing time affects fidelity.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "5.2 Comparative Analysis of Hardware Constraints",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "empirical benchmarks vary across platforms, hardware-aware compilation and dataflow execution frameworks provide systematic ways to evaluate execution efficiency .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              1,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Hardware-aware compilation: U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers that optimize quantum circuits for specific physical platforms such as neutral atom arrays and trapped ions.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "The table below outlines key comparative dimensions of hybrid quantum frameworks and architectural components described in the literature .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              1,
+              2,
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "In quantum networked systems, fundamental tradeoffs exist between the quality of the quant...",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "6.1 Quantum Artificial Intelligence and Machine Learning",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "When applied to classical data, quantum computing holds the potential to accelerate machine intelligence techniques .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "When applied to classical data, QAI has the potential to greatly accelerate machine intelligence technique",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "Research studies have investigated quantum neural networks, quantum support vector machines",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "quantum support vector machines, and quantum principle component evaluation have been studied",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "quantum principal component evaluation .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "quantum principle component evaluation have been studied",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "current literature notes that it remains unproven whether quantum neural networks will consistently provide superior computing efficiency compared to traditional machine learning methods .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "although it is still not completely known if quantum neural networks will provide better computing efficiency than traditional machine learning techniques.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "6.2 Commercial and Industrial Engagement",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "Industry partners play a critical role in advancing quantum computing by providing pragmatic use cases and domain-specific data .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "In addition to the computing companies, industry partners are also a key part of the quantum world... pushing quantum computing forward by providing the pragmatic use cases and the data to develop commercial app",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "Financial institutions",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Banks like JPMorgan Chase & Co., HSBC, Goldman Sachs, and Morgan Stanley... are all pushing quantum computing forward",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "including JPMorgan Chase, HSBC, Goldman Sachs, Morgan Stanley",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Banks like JPMorgan Chase & Co., HSBC, Goldman Sachs, and Morgan Stanley",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_48",
+            "claim_text": "alongside pharmaceutical organizations such as AstraZeneca and Johnson & Johnson, are actively engaging with quantum technology developers to foster commercial application development .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "and pharmaceuticals like AstraZeneca and Johnson & Johnson are all pushing quantum computing forward by providing the pragmatic use cases and the data to develop commercial app",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_49",
+            "claim_text": "7.1 Physical Bottlenecks and Scalability Challenges",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_50",
+            "claim_text": "A primary challenge in realizing scalable quantum computing lies in the physical requirement for strong couplings between qubits while mitigating decoherence and environmental noise .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "cessitate strong couplings between qubits... it is necessary to reduce the probability of the decoherence of qubits drastically through improvements in quantum hardware",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_51",
+            "claim_text": "early noisy intermediate-scale quantum (NISQ) systems and proofs of quantum supremacy indicate progress, transitioning to fault-tolerant architectures requires overcoming severe physical error accumulation .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Assuming the unavoidable presence of environmental noise, \u201cNoisy Intermediate Scale Quantum (NISQ)\u201d devices, try to deal with imperfections and losses driven by decoherence.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_52",
+            "claim_text": "7.2 Algorithmic and Architectural Uncertainty",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_53",
+            "claim_text": "Significant uncertainties persist regarding the practical advantages of quantum machine learning models over classical counterparts .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "although it is still not completely known if quantum neural networks will provide better computing efficiency than traditional machine learning techniques.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_54",
+            "claim_text": "Reconciling theoretical algorithmic potential with hardware limitations necessitates continued co-design across hardware-aware compilers, hybrid dataflow runtimes",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              1,
+              3,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Hardware-aware compilation: U.S. National Science Foundation Quantum Leap Challenge Institute for Quantum Computation teams develop compilers that optimize quantum circuits for specific physical platforms such as neutral atom arrays and trapped ions.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_55",
+            "claim_text": "secure control plane integration .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              1,
+              3,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "nd interconnect communications remain resilient against both classical and quantum-enabled attacks. This is especially critical in distributed quantum [...] distributed quantum systems, where control electronics, cryogenic interfaces, and cloud-connected orchestration layers must exchange sensitive data securely.",
+            "matched_source_index": 3,
+            "issues": []
+          }
+        ],
+        "total_claims": 55,
+        "supported_count": 35,
+        "supported_ratio": 0.636,
+        "revisions_made": 1,
+        "unresolved_flags": [
+          {
+            "claim_id": "c_13",
+            "claim_text": "3.1 Architectural Paradigms and Modalities",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "Quantum computing architectures encompass multiple operational models and foundational frameworks as analyzed in recent literature .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "From a foundational point of view, all software-related aspects are based on two different computational models, which determine some differences in the programming paradigms as well as in applications and technical aspects: the quantum gate and quantum annealing models",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "The quantum circuit model serves as a flexible paradigm for executing quantum algorithms through sequences of quantum gates .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNSUPPORTED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Source 2 discusses performance evaluation of two distributed quantum architectures and networking performance modeling, but does not explicitly detail the circuit model serving as a flexible paradigm through sequences of gates."
+            ]
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "Alternative frameworks and distributed architectures are continuously evaluated for performance modeling and hardware integration .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Instead, our goal is to abstract these details in the form of configurable modeling parameters, e.g., the demand for entanglement, or the rate at which it is successfully generated.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "3.2 Hardware Integration and Security Frameworks",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "4.1 Hybrid Quantum-Classical Frameworks",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "Executing complex quantum algorithms requires software frameworks that support compositional, hybrid quantum-classical paradigms .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We present Tierkreis, a hig... runtime designed for compositional, quantum-classical hybrid algorithms.",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "Higher-order dataflow graph representations, such as Tierkreis developed by Quantinuum and academic collaborators, provide runtimes designed to manage data dependencies and control flow across heterogeneous quantum and classical compute resources .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We present Tierkreis, a hig... runtime designed for compositional, quantum-classical hybrid algorithms.",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "4.2 Hardware-Aware Compilation and Optimization",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "Research centers, including the U.S.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "5.1 Performance Modeling of Distributed Systems",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "5.2 Comparative Analysis of Hardware Constraints",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "The table below outlines key comparative dimensions of hybrid quantum frameworks and architectural components described in the literature .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              1,
+              2,
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "In quantum networked systems, fundamental tradeoffs exist between the quality of the quant...",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "6.1 Quantum Artificial Intelligence and Machine Learning",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "6.2 Commercial and Industrial Engagement",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "Industry partners play a critical role in advancing quantum computing by providing pragmatic use cases and domain-specific data .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "In addition to the computing companies, industry partners are also a key part of the quantum world... pushing quantum computing forward by providing the pragmatic use cases and the data to develop commercial app",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "Financial institutions",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Banks like JPMorgan Chase & Co., HSBC, Goldman Sachs, and Morgan Stanley... are all pushing quantum computing forward",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_49",
+            "claim_text": "7.1 Physical Bottlenecks and Scalability Challenges",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_50",
+            "claim_text": "A primary challenge in realizing scalable quantum computing lies in the physical requirement for strong couplings between qubits while mitigating decoherence and environmental noise .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "cessitate strong couplings between qubits... it is necessary to reduce the probability of the decoherence of qubits drastically through improvements in quantum hardware",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_52",
+            "claim_text": "7.2 Algorithmic and Architectural Uncertainty",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          }
+        ],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the leading architectures, technical foundations, and hardware modalities in quantum computing as of September 2026?",
+              "search_keywords": [
+                "quantum computing",
+                "architectures",
+                "foundations",
+                "hardware platforms"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Tierkreis",
+              "SEALSQ"
+            ],
+            "notes": "Partial coverage. Covered entities: Tierkreis, SEALSQ"
+          },
+          {
+            "sub_query": {
+              "question": "What are the empirical performance benchmarks, quantitative metrics, and comparative evaluations in quantum computing?",
+              "search_keywords": [
+                "quantum computing",
+                "benchmarks",
+                "performance metrics",
+                "evaluation"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Tierkreis"
+            ],
+            "notes": "Partial coverage. Covered entities: Tierkreis"
+          },
+          {
+            "sub_query": {
+              "question": "What are the primary commercial deployments, industrial use cases, and key market players in quantum computing?",
+              "search_keywords": [
+                "quantum computing",
+                "industry deployments",
+                "commercial applications",
+                "key players"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": true,
+            "status": "Answered",
+            "covered_entities": [
+              "JPMorgan Chase & Co.",
+              "HSBC",
+              "Goldman Sachs",
+              "Morgan Stanley",
+              "D-Wave",
+              "Volkswagen",
+              "Denso"
+            ],
+            "notes": "Answered. Covered entities: JPMorgan Chase & Co., HSBC, Goldman Sachs, Morgan Stanley, D-Wave, Volkswagen, Denso"
+          }
+        ],
+        "full_text_source_count": 3,
+        "abstract_only_source_count": 3
+      }
+    }
+  },
+  "metrics": {},
+  "total_duration_seconds": 70.18
+}

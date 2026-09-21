@@ -18,9 +18,11 @@ except ImportError:
 class Settings:
     # LLM & Search
     GROQ_API_KEY: str = field(default_factory=lambda: os.getenv("GROQ_API_KEY", ""))
-    GROQ_MODEL: str = field(default_factory=lambda: os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b"))
-    SYNTHESIZER_MODEL: str = field(default_factory=lambda: os.getenv("SYNTHESIZER_MODEL", "openai/gpt-oss-120b"))
-    VERIFIER_MODEL: str = field(default_factory=lambda: os.getenv("VERIFIER_MODEL", "openai/gpt-oss-120b"))
+    GROQ_MODEL: str = field(default_factory=lambda: os.getenv("GROQ_MODEL", "gemini-3.5-flash"))
+    PLANNER_MODEL: str = field(default_factory=lambda: os.getenv("PLANNER_MODEL", "gemini-3.5-flash"))
+    SYNTHESIZER_MODEL: str = field(default_factory=lambda: os.getenv("SYNTHESIZER_MODEL", "gemini-3.5-flash"))
+    VERIFIER_MODEL: str = field(default_factory=lambda: os.getenv("VERIFIER_MODEL", "gemini-3.6-flash"))
+    REFINER_MODEL: str = field(default_factory=lambda: os.getenv("REFINER_MODEL", "gemini-3.6-flash"))
     SEARCH_ENGINE: str = field(default_factory=lambda: os.getenv("SEARCH_ENGINE", "tavily"))
     
     # Optional fallback keys
@@ -32,9 +34,18 @@ class Settings:
     LOG_LEVEL: str = field(default_factory=lambda: os.getenv("LOG_LEVEL", "INFO"))
     REPORTS_DIR: Path = field(default_factory=lambda: BASE_DIR / os.getenv("REPORTS_DIR", "data/reports"))
     CACHE_DIR: Path = field(default_factory=lambda: BASE_DIR / os.getenv("CACHE_DIR", "data/cache"))
+    RUNS_LOG_DIR: Path = field(default_factory=lambda: BASE_DIR / os.getenv("RUNS_LOG_DIR", "data/runs"))
+
+    # Research Quality, Gating & Search Depth
+    VERIFICATION_PASS_THRESHOLD: float = field(default_factory=lambda: float(os.getenv("VERIFICATION_PASS_THRESHOLD", "0.95")))
+    MAX_REVISIONS: int = field(default_factory=lambda: int(os.getenv("MAX_REVISIONS", "3")))
+    SEARCH_DEPTH: str = field(default_factory=lambda: os.getenv("SEARCH_DEPTH", "standard"))
+    MAX_SEARCH_RETRIES: int = field(default_factory=lambda: int(os.getenv("MAX_SEARCH_RETRIES", "2")))
+    MIN_RECENT_SOURCE_SHARE: float = field(default_factory=lambda: float(os.getenv("MIN_RECENT_SOURCE_SHARE", "0.30")))
+    FULL_TEXT_FETCH_TIMEOUT: float = field(default_factory=lambda: float(os.getenv("FULL_TEXT_FETCH_TIMEOUT", "8.0")))
 
     # Phase 4: Gateway, Memory & Semantic Cache
-    FALLBACK_MODEL: str = field(default_factory=lambda: os.getenv("FALLBACK_MODEL", "openai/gpt-oss-20b"))
+    FALLBACK_MODEL: str = field(default_factory=lambda: os.getenv("FALLBACK_MODEL", "gemini-3.5-flash-lite"))
     REDIS_URL: str = field(default_factory=lambda: os.getenv("REDIS_URL", "redis://localhost:6379/0"))
     DATABASE_URL: str = field(default_factory=lambda: os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/research_memory"))
     SEMANTIC_CACHE_ENABLED: bool = field(default_factory=lambda: os.getenv("SEMANTIC_CACHE_ENABLED", "true").lower() in ("true", "1", "yes"))

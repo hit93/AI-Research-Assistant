@@ -45,6 +45,7 @@ def get_chat_llm(
             google_api_key=gemini_api_key,
             temperature=temperature,
             max_output_tokens=max_tokens,
+            max_retries=0,  # Hand off retries and quota failovers to LLMGateway
         )
 
     if not settings.GROQ_API_KEY:

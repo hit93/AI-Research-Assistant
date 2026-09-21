@@ -70,16 +70,34 @@ def is_low_authority_or_sponsored(source: ResearchSource) -> bool:
 
 
 def _compute_relevance_score(source: ResearchSource, query_tokens: set[str]) -> float:
-    """Compute lexical domain-relevance score against query keywords."""
+    """Compute lexical domain-relevance score with tiering, full-text, and recency bonuses."""
     if not query_tokens:
         return 1.0
 
-    text_tokens = set(re.findall(r"\w+", (source.title + " " + source.content).lower()))
+    text_to_check = (source.title + " " + (source.full_text[:3000] if source.has_full_text else source.content)).lower()
+    text_tokens = set(re.findall(r"\w+", text_to_check))
     overlap = len(query_tokens & text_tokens)
 
     base_score = float(overlap)
-    if source.source_type == "arxiv":
-        base_score += 2.5
+
+    # Source tier ranking: tier 1 (primary/paper/standards/tech blogs) > tier 2 > tier 3 (aggregators)
+    tier = getattr(source, "source_tier", 2)
+    if tier == 1:
+        base_score += 3.0
+    elif tier == 3:
+        base_score -= 2.0  # Wikipedia relegated to background
+
+    # Full-text availability bonus
+    if getattr(source, "has_full_text", False):
+        base_score += 2.0
+
+    # Recency bonus for fast-moving topics (recent years get boost)
+    pub = (getattr(source, "published", "") or getattr(source, "published_date", "")).strip()
+    if pub:
+        for year in ["2026", "2025", "2024"]:
+            if year in pub:
+                base_score += 1.5
+                break
 
     if is_low_authority_or_sponsored(source):
         base_score -= 10.0
@@ -93,8 +111,8 @@ def filter_and_rank_sources(
     top_k: int = 12,
 ) -> list[ResearchSource]:
     """
-    Filter out low-authority or off-topic sources and rank by domain relevance.
-    Ensures the synthesizer receives a clean, prioritized, authoritative source list.
+    Filter out low-authority sources, rank by domain relevance, quality tier, and recency,
+    and enforce source diversity (capping any single source type to guarantee a balanced mix).
     """
     if not sources:
         return []
@@ -114,6 +132,38 @@ def filter_and_rank_sources(
         scored_sources.append((score, s))
 
     scored_sources.sort(key=lambda x: x[0], reverse=True)
-    ranked = [s for _, s in scored_sources]
-    return ranked[:top_k]
+
+    # Diversity enforcement: cap any single source type (max 70% of top_k)
+    max_per_type = max(1, int(top_k * 0.70))
+    wiki_count = 0
+    type_counts: dict[str, int] = {}
+    ranked: list[ResearchSource] = []
+
+    # First pass: authoritative and diverse
+    for _, s in scored_sources:
+        stype = s.source_type
+        # Cap Wikipedia to at most 1 (background only)
+        if "wikipedia.org" in s.url_or_id.lower():
+            if wiki_count >= 1:
+                continue
+            wiki_count += 1
+
+        if type_counts.get(stype, 0) < max_per_type:
+            ranked.append(s)
+            type_counts[stype] = type_counts.get(stype, 0) + 1
+            if len(ranked) >= top_k:
+                break
+
+    # Second pass: fill remaining slots if needed
+    if len(ranked) < top_k:
+        for _, s in scored_sources:
+            if s not in ranked:
+                if "wikipedia.org" in s.url_or_id.lower() and wiki_count >= 1:
+                    continue
+                ranked.append(s)
+                if len(ranked) >= top_k:
+                    break
+
+    return ranked
+
 

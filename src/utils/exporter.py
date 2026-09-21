@@ -80,20 +80,33 @@ class NumberedCanvas(canvas.Canvas):
 
 
 def export_to_markdown(result: ResearchResult) -> str:
-    """Export a ResearchResult to GitHub-Flavored Markdown."""
+    """Export a ResearchResult to GitHub-Flavored Markdown with claim-level verification audit and transparency header."""
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    # Transparency header metrics
+    full_text_count = sum(1 for s in result.sources if getattr(s, "has_full_text", False))
+    abstract_only_count = len(result.sources) - full_text_count
+    subquery_count = len(result.plan.sub_queries) if result.plan else 0
+
+    v = result.verification
+    claims_verified = len(v.claims) if (v and v.claims) else (v.total_claims if v else 0)
+    supported_pct = f"{v.supported_ratio:.1%}" if v else "N/A"
+    revisions_performed = v.revisions_made if v else 0
+    unresolved_count = len(v.unresolved_flags) if v else 0
+    verdict_badge = "✅ PASSED (≥95% Grounded)" if (v and v.is_approved) else "⚠️ UNRESOLVED ISSUES REMAIN"
+
     md: list[str] = [
         f"# 🔬 Research Report: {result.query}",
         "",
-        f"> **Generated:** {now_str} | **Duration:** {result.duration_seconds}s | **Sources Analyzed:** {len(result.sources)}",
+        f"> **Generated:** {now_str} | **Duration:** {result.duration_seconds}s",
+        f"> **Sources Analyzed:** {len(result.sources)} total ({full_text_count} full-text body, {abstract_only_count} abstract/snippet-only)",
+        f"> **Sub-Queries Covered:** {subquery_count} | **Claims Verified:** {claims_verified} ({supported_pct} supported)",
+        f"> **Revisions Performed:** {revisions_performed} | **Unresolved Flags:** {unresolved_count}",
+        f"> **Verification Status:** {verdict_badge}",
     ]
 
-    if result.verification:
-        v = result.verification
-        badge = "✅ Approved" if v.is_approved else "⚠️ Flagged for Review"
-        md.append(f"> **Verification Verdict:** {badge} (Score: {v.overall_score}/10)")
-        if v.summary:
-            md.append(f"> **Evaluator Assessment:** {v.summary}")
+    if v and v.summary:
+        md.append(f"> **Evaluator Assessment:** {v.summary}")
 
     md.extend(["", "---", ""])
 
@@ -108,15 +121,27 @@ def export_to_markdown(result: ResearchResult) -> str:
             md.append(f"{i}. [{section.heading}](#{anchor})")
         md.extend(["", "---", ""])
 
-    # Executive Plan Section
-    if result.plan and result.plan.sub_queries:
-        md.append("## 📋 Query Decomposition & Research Strategy")
-        if result.plan.reasoning:
-            md.append(f"*{result.plan.reasoning}*\n")
-        for i, sq in enumerate(result.plan.sub_queries, 1):
-            keywords = ", ".join(sq.search_keywords) if sq.search_keywords else "N/A"
-            md.append(f"- **Sub-Query {i}**: {sq.question}")
-            md.append(f"  - *Target*: `{sq.source_type}` | *Keywords*: {keywords}")
+    # Plan vs Coverage Table
+    coverage_items = result.plan_coverage or (v.plan_coverage if v else [])
+    if coverage_items:
+        md.append("## 📋 Research Strategy & Sub-Query Coverage")
+        md.append("")
+        md.append("| # | Sub-Query | Target | Sources Found | Full-Text Available | Status | Notes |")
+        md.append("| :--- | :--- | :--- | :--- | :--- | :--- | :--- |")
+        for idx, cov in enumerate(coverage_items, 1):
+            sq = cov.sub_query
+            stype = getattr(sq, "source_type", "both")
+            q_text = getattr(sq, "question", str(sq))
+            status_emoji = (
+                "✅ Answered" if cov.status in ("sufficient", "Answered")
+                else ("⚠️ Partial" if cov.status in ("partial", "Partial") else "❌ Gap")
+            )
+            entities_str = f" [Covered: {', '.join(cov.covered_entities)}]" if getattr(cov, "covered_entities", None) else ""
+            notes = (cov.notes or ("Answered" if cov.status in ("sufficient", "Answered") else "Evidence gap")) + entities_str
+            notes = notes.replace("|", "\\|")
+            md.append(
+                f"| {idx} | {q_text} | `{stype}` | {cov.sources_found_count} | {cov.full_text_count} | {status_emoji} | {notes} |"
+            )
         md.extend(["", "---", ""])
 
     # Synthesized Sections
@@ -127,48 +152,80 @@ def export_to_markdown(result: ResearchResult) -> str:
         md.append("")
         md.append(section.content)
         md.append("")
-        if section.source_indices:
+
+        # Dynamically calculate referenced sources from actual in-text citations [N]
+        cited_indices: set[int] = set()
+        matches = re.findall(r"\[(\d+(?:\s*,\s*\d+)*)\]", section.content)
+        for match in matches:
+            for num_str in match.split(","):
+                if num_str.strip().isdigit():
+                    val = int(num_str.strip())
+                    if 0 <= val < len(result.sources):
+                        cited_indices.add(val)
+
+        if cited_indices:
             refs = []
-            for idx in section.source_indices:
-                if 0 <= idx < len(result.sources):
-                    s = result.sources[idx]
-                    refs.append(f"[[{idx}] {s.title}]({s.url_or_id})")
-            if refs:
-                md.append(f"**Referenced Sources:** {', '.join(refs)}")
-                md.append("")
+            for idx in sorted(list(cited_indices)):
+                s = result.sources[idx]
+                badge = "Full Text" if getattr(s, "has_full_text", False) else "Abstract"
+                refs.append(f"[[{idx}] {s.title} ({badge})]({s.url_or_id})")
+            md.append(f"**Referenced Sources:** {', '.join(refs)}")
+            md.append("")
         md.append("")
 
     md.extend(["---", ""])
 
-    # Verification / Critique Section
-    if result.verification and result.verification.issues:
-        md.append("## 🔎 Evaluation & Fact-Check Notes")
+    # Claim-Level Verification Audit Table (Never single score badge)
+    if v and v.claims:
+        md.append("## 🔎 Claim-Level Verification Audit Table")
         md.append("")
-        for issue in result.verification.issues:
-            md.append(
-                f"- **[{issue.severity.upper()}]** `{issue.section_heading}`: {issue.issue}"
-            )
-            if issue.suggestion:
-                md.append(f"  - *Suggestion*: {issue.suggestion}")
+        md.append("| Claim # | Section | Claim Statement | Status | Cited Source(s) | Verbatim Evidence Quote / Issue |")
+        md.append("| :--- | :--- | :--- | :--- | :--- | :--- |")
+        for c in v.claims:  # Print every claim, matching header row count
+            c_text = c.claim_text.replace("|", "\\|")[:90] + ("..." if len(c.claim_text) > 90 else "")
+            c_status = c.verification_status
+            status_icon = "✅" if c_status == "SUPPORTED" else ("⚠️" if c_status == "PARTIAL" else ("🔍" if c_status == "UNVERIFIED" else "❌"))
+            cited_str = ", ".join(f"[{i}]" for i in c.cited_source_indices) if c.cited_source_indices else "None"
+            ev_quote = (
+                f"\"{c.evidence_quote[:80]}...\"" if c.evidence_quote
+                else ("; ".join(c.issues)[:80] if c.issues else "No verbatim evidence")
+            ).replace("|", "\\|")
+            md.append(f"| {c.claim_id} | {c.section_heading} | {c_text} | {status_icon} `{c_status}` | {cited_str} | {ev_quote} |")
+
         md.extend(["", "---", ""])
 
-    # Bibliography / Sources Section
+    # Explicit Unresolved Issues Section
+    if v and v.unresolved_flags:
+        md.append("## ⚠️ Unresolved Verification Issues")
+        md.append("")
+        md.append("> The following claims were flagged during adversarial verification and could not be fully grounded in retrieved source passages:")
+        md.append("")
+        for issue_claim in v.unresolved_flags:
+            issue_detail = "; ".join(issue_claim.issues) if issue_claim.issues else "Unsupported by cited source text"
+            cited_str = ", ".join(f"[{i}]" for i in issue_claim.cited_source_indices) if issue_claim.cited_source_indices else "UNCITED"
+            md.append(f"- **[{issue_claim.verification_status}]** in `{issue_claim.section_heading}`: \"{issue_claim.claim_text}\"")
+            md.append(f"  - *Cited*: {cited_str} | *Audit Issue*: {issue_detail}")
+        md.extend(["", "---", ""])
+
+    # Sources & Citations Section
     md.append("## 📚 Sources & Citations")
     md.append("")
     for idx, source in enumerate(result.sources):
-        badge = "ArXiv" if source.source_type == "arxiv" else "Web"
+        badge = "ArXiv Paper" if source.source_type == "arxiv" else "Web Source"
+        full_text_flag = "Full Text Indexed" if getattr(source, "has_full_text", False) else "Abstract / Snippet Only"
         authors_str = f" | Authors: {', '.join(source.authors)}" if source.authors else ""
         pub_str = f" | Published: {source.published}" if source.published else ""
+        tier_str = f" | Quality Tier: {getattr(source, 'source_tier', 2)}"
         md.append(
-            f"**[{idx}] [{badge}] [{source.title}]({source.url_or_id})**{authors_str}{pub_str}"
+            f"**[{idx}] [{badge} - {full_text_flag}] [{source.title}]({source.url_or_id})**{authors_str}{pub_str}{tier_str}"
         )
-        # Excerpt — extended to 450 chars for richer bibliography
         clean_content = source.content.replace("\n", " ").strip()
-        excerpt = clean_content[:450] + ("..." if len(clean_content) > 450 else "")
+        excerpt = clean_content[:400] + ("..." if len(clean_content) > 400 else "")
         md.append(f"> {excerpt}")
         md.append("")
 
     return "\n".join(md)
+
 
 
 def export_to_json(result: ResearchResult) -> str:

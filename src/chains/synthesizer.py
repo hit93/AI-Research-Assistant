@@ -46,18 +46,28 @@ def _source_preview_chars(model: str) -> int:
     return 900
 
 
+from datetime import datetime
+
+
 def _format_sources_for_prompt(sources: list[ResearchSource], model: str = "") -> str:
-    """Format all provided sources as a numbered reference for the LLM with token budgeting."""
+    """Format all provided sources as a numbered reference for the LLM with token budgeting and full-text metadata."""
     preview_chars = _source_preview_chars(model)
     lines = []
     for i, s in enumerate(sources):
         source_label = "📘 ArXiv Paper" if s.source_type == "arxiv" else "🌐 Web Source"
         authors_str = f" by {', '.join(s.authors)}" if s.authors else ""
+        pub_str = f" ({s.published})" if s.published else ""
+        full_text_label = (
+            f"[FULL TEXT AVAILABLE - {len(s.full_text)} chars indexed]"
+            if getattr(s, "has_full_text", False)
+            else "[ABSTRACT / SNIPPET ONLY - HEDGE CONSERVATIVELY]"
+        )
         content_preview = s.content[:preview_chars] + ("..." if len(s.content) > preview_chars else "")
         lines.append(
-            f"[{i}] {source_label}: \"{s.title}\"{authors_str}\n"
+            f"[{i}] {source_label}: \"{s.title}\"{authors_str}{pub_str}\n"
+            f"    Status: {full_text_label}\n"
             f"    Source: {s.url_or_id}\n"
-            f"    Content: {content_preview}\n"
+            f"    Content Excerpt: {content_preview}\n"
         )
     return "\n".join(lines)
 
@@ -84,16 +94,18 @@ def synthesize_sources(
     query: str,
     sources: list[ResearchSource],
     hybrid_rag: list | None = None,
+    plan_coverage: list | None = None,
     model: str | None = None,
 ) -> list[SynthesisSection]:
     """
     Synthesize retrieved sources into structured research findings via LangChain LCEL.
 
     Args:
-        query:      The original research question.
-        sources:    All retrieved and deduplicated ResearchSource items.
-        hybrid_rag: Optional HybridRAG instance for targeted passage retrieval.
-        model:      Optional model override (defaults to settings.GROQ_MODEL / GPT-OSS-120B).
+        query:         The original research question.
+        sources:       All retrieved and deduplicated ResearchSource items.
+        hybrid_rag:    Optional HybridRAG instance for targeted passage retrieval.
+        plan_coverage: Optional list of SubQueryCoverage objects.
+        model:         Optional model override (defaults to settings.GROQ_MODEL / GPT-OSS-120B).
 
     Returns:
         A list of SynthesisSection objects with findings and source references.
@@ -113,6 +125,15 @@ def synthesize_sources(
 
     synth_model = model or getattr(settings, "SYNTHESIZER_MODEL", "openai/gpt-oss-120b")
     formatted_sources = _format_sources_for_prompt(sources, model=synth_model)
+    current_date = datetime.now().strftime("%B %Y")
+
+    coverage_lines = []
+    if plan_coverage:
+        for c in plan_coverage:
+            status_tag = "✅ Sufficient" if getattr(c, "status", "") == "sufficient" else "⚠️ Insufficient Evidence (Emit Gap Note, Do Not Pad)"
+            q_text = c.sub_query.question if hasattr(c, "sub_query") else str(c)
+            coverage_lines.append(f"- Sub-Query: {q_text} -> {status_tag}")
+    coverage_summary = "\n".join(coverage_lines) if coverage_lines else "Standard query decomposition; verify all sections against evidence."
 
     if hybrid_rag and hasattr(hybrid_rag, "search"):
         try:
@@ -128,6 +149,8 @@ def synthesize_sources(
     try:
         prompt_value = synthesizer_prompt.invoke({
             "query": query,
+            "current_date": current_date,
+            "coverage_summary": coverage_summary,
             "source_count": len(sources),
             "formatted_sources": formatted_sources,
         })
@@ -139,7 +162,8 @@ def synthesize_sources(
             max_tokens=_safe_max_tokens(synth_model, 8192),
         )
 
-        if isinstance(result, SynthesisReport):
+
+        if hasattr(result, "sections"):
             sections = result.sections
         elif isinstance(result, dict):
             sections = [

@@ -20,24 +20,35 @@ def get_planner_chain(temperature: float = 0.3, model: str | None = None) -> Run
     return planner_prompt | structured_llm
 
 
+from datetime import datetime
+from src.tools.web_search_tool import search_web
+
+
 def plan_research(query: str, model: str | None = None) -> QueryPlan:
     """
-    Decompose a user query into a structured research plan via LangChain LCEL.
-
-    Args:
-        query: The user's broad research topic or question.
-        model: Optional model override (defaults to settings.GROQ_MODEL).
-
-    Returns:
-        A QueryPlan containing the original query and decomposed sub-queries.
+    Decompose a user query into a structured research plan via LangChain LCEL,
+    informed by an upfront landscape search and current date injection.
     """
     if not query.strip():
         return QueryPlan(original_query=query, sub_queries=[], reasoning="Empty query")
 
     logger.info(f"Planning research via LangChain for: '{query}'")
 
+    current_date = datetime.now().strftime("%B %Y")
+    landscape_context = "No landscape pre-search available."
     try:
-        prompt_value = planner_prompt.invoke({"query": query})
+        landscape_results = search_web(f"{query} key players recent developments", max_results=3)
+        if landscape_results:
+            landscape_context = "\n".join(f"- {r.title}: {r.snippet[:250]}" for r in landscape_results)
+    except Exception as e:
+        logger.debug(f"Landscape search skipped: {e}")
+
+    try:
+        prompt_value = planner_prompt.invoke({
+            "query": query,
+            "current_date": current_date,
+            "landscape_context": landscape_context,
+        })
         plan = run_structured(
             QueryPlan,
             prompt_value,
@@ -57,6 +68,35 @@ def plan_research(query: str, model: str | None = None) -> QueryPlan:
                 original_query=query,
                 sub_queries=sub_queries,
                 reasoning=plan.get("reasoning", ""),
+            )
+
+        if not plan or not plan.sub_queries:
+            logger.warning(f"Planner LLM returned 0 sub-queries for '{query}'. Generating robust orthogonal sub-queries.")
+            plan = QueryPlan(
+                original_query=query,
+                sub_queries=[
+                    SubQuery(
+                        question=f"What are the leading architectures, technical foundations, and hardware modalities in {query} as of {current_date}?",
+                        search_keywords=[query, "architectures", "foundations", "hardware platforms"],
+                        source_type="both",
+                    ),
+                    SubQuery(
+                        question=f"What are the empirical performance benchmarks, quantitative metrics, and comparative evaluations in {query}?",
+                        search_keywords=[query, "benchmarks", "performance metrics", "evaluation"],
+                        source_type="arxiv",
+                    ),
+                    SubQuery(
+                        question=f"What are the primary commercial deployments, industrial use cases, and key market players in {query}?",
+                        search_keywords=[query, "industry deployments", "commercial applications", "key players"],
+                        source_type="web",
+                    ),
+                    SubQuery(
+                        question=f"What are the primary technical bottlenecks, failure modes, and scalability challenges in {query}?",
+                        search_keywords=[query, "bottlenecks", "scaling challenges", "limitations"],
+                        source_type="both",
+                    ),
+                ],
+                reasoning=f"Robust orthogonal decomposition generated for '{query}' as of {current_date}.",
             )
 
         logger.info(

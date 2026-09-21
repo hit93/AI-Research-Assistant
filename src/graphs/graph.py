@@ -13,23 +13,25 @@ from src.memory.semantic_cache import get_semantic_cache
 from src.memory.stm import get_stm
 from src.memory.ltm import get_ltm
 from src.utils.logger import get_logger
+from config.settings import settings
 
 logger = get_logger("graphs.workflow")
 
 
+
 def route_after_verifier(state: ResearchGraphState) -> str:
-    """Route to improver if a real judge scored below 8 and revisions remain; else finish."""
+    """Route to improver if claim-level verification is not approved and revisions remain; else finish."""
     verification = state.get("verification")
     revision_count = state.get("revision_count", 0)
-    max_revisions = state.get("max_revisions", 2)
+    max_revisions = state.get("max_revisions", settings.MAX_REVISIONS)
 
     if not verification or not verification.judge_ran:
         logger.info("[Router] Judge did not complete. Ending without refinement.")
         return END
 
-    if verification.overall_score < 8 and revision_count < max_revisions:
+    if (not verification.is_approved or verification.overall_score < 8) and revision_count < max_revisions:
         logger.info(
-            f"[Router] Score {verification.overall_score}/10 < 8. "
+            f"[Router] Verification flagged (Supported: {getattr(verification, 'supported_ratio', 0.0):.1%}, Score: {verification.overall_score}/10). "
             f"Routing to improver (Revision {revision_count + 1}/{max_revisions})."
         )
         return "improver"
@@ -80,18 +82,22 @@ except ImportError:
         return decorator
 
 
+from src.utils.run_logger import RunLogger
+
+
 @traceable(name="research_assistant_workflow", run_type="chain")
 def run_research(
     query: str,
     max_papers: int = 3,
     max_web: int = 3,
-    max_revisions: int = 2,
+    max_revisions: int = 3,
     on_progress: Optional[Callable[[str, str], None]] = None,
     use_cache: bool = True,
     planner_model: Optional[str] = None,
     synthesizer_model: Optional[str] = None,
     verifier_model: Optional[str] = None,
     improver_model: Optional[str] = None,
+    research_mode: str = "deep",
 ) -> ResearchResult:
     """
     Execute end-to-end research workflow via the compiled LangGraph StateGraph.
@@ -102,6 +108,9 @@ def run_research(
     """
 
     start_time = time.time()
+    run_log = RunLogger(query)
+    if research_mode == "quick":
+        max_revisions = min(max_revisions, 1)
 
     def notify(status: str, detail: str = ""):
         logger.info(f"[{status}] {detail}")
@@ -117,7 +126,7 @@ def run_research(
             return cached_result
 
 
-    notify("planning", f"Decomposing query: '{query}'")
+    notify("planning", f"Decomposing query: '{query}' ({'Quick Mode' if research_mode == 'quick' else 'Deep Mode'})")
 
     session_id = f"session_{int(time.time() * 1000)}"
     stm = get_stm()
@@ -135,10 +144,13 @@ def run_research(
         "sources": [],
         "synthesis": [],
         "verification": None,
+        "plan_coverage": [],
+        "run_logger": run_log,
         "planner_model": planner_model,
         "synthesizer_model": synthesizer_model,
         "verifier_model": verifier_model,
         "improver_model": improver_model,
+        "research_mode": research_mode,
         "status": "initialized",
         "errors": [],
     }
@@ -159,35 +171,36 @@ def run_research(
 
             elif node_name == "retriever":
                 sources = final_state.get("sources", [])
-                notify("retrieved", f"Retrieved {len(sources)} sources")
-                notify("deduplicated", f"Unified into {len(sources)} unique sources")
+                full_count = sum(1 for s in sources if getattr(s, "has_full_text", False))
+                notify("retrieved", f"Retrieved {len(sources)} sources ({full_count} with full text)")
+                notify("deduplicated", f"Unified into {len(sources)} unique authoritative sources")
                 notify("synthesizing", "Synthesizing research report via LangChain...")
 
             elif node_name == "synthesizer":
                 sections = final_state.get("synthesis", [])
                 notify("synthesized", f"{len(sections)} sections generated")
-                notify("verifying", "Verifying report against sources (LLM-as-judge)...")
+                notify("verifying", "Auditing claim-level factual grounding against full-text passages...")
 
             elif node_name == "verifier":
                 verification = final_state.get("verification")
                 rev_count = final_state.get("revision_count", 0)
                 if verification:
                     iteration_label = f" (Iteration {rev_count})" if rev_count > 0 else ""
+                    approval_txt = "Approved" if verification.is_approved else "Revision Needed"
                     notify(
                         "verified",
-                        f"Score: {verification.overall_score}/10{iteration_label} — "
-                        f"{'✅ Approved' if verification.is_approved else '⚠️ Flagged'} "
-                        f"({len(verification.issues)} issues)"
+                        f"Supported: {verification.supported_ratio:.1%} ({verification.supported_count}/{verification.total_claims} claims){iteration_label} - "
+                        f"[{approval_txt}] ({len(verification.issues)} flags)"
                     )
-                    if verification.judge_ran and verification.overall_score < 8 and rev_count < max_revisions:
+                    if not verification.is_approved and rev_count < max_revisions:
                         notify(
                             "improving",
-                            f"Score {verification.overall_score}/10 < 8 — refining report based on reviewer feedback (Revision {rev_count + 1}/{max_revisions})..."
+                            f"Supported {verification.supported_ratio:.1%} < 95% threshold - refining ungrounded claims (Revision {rev_count + 1}/{max_revisions})..."
                         )
 
             elif node_name == "improver":
                 rev_count = final_state.get("revision_count", 1)
-                notify("improved", f"Report refined (Revision {rev_count}). Re-verifying...")
+                notify("improved", f"Report refined (Revision {rev_count}). Re-auditing claims...")
 
     duration = round(time.time() - start_time, 2)
     notify("complete", f"Research finished in {duration}s")
@@ -198,10 +211,12 @@ def run_research(
         sources=final_state.get("sources", []),
         synthesis=final_state.get("synthesis", []),
         verification=final_state.get("verification"),
+        plan_coverage=final_state.get("plan_coverage") or [],
         duration_seconds=duration,
         is_cache_hit=False,
         errors=list(final_state.get("errors") or []),
     )
+
 
     # 2. Persist to Semantic Cache and LTM Archive
     get_semantic_cache().set(query, result)

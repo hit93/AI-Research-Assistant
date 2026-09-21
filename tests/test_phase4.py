@@ -58,11 +58,37 @@ def test_gateway_structured_fallback_on_primary_failure():
         primary_llm = MagicMock()
         primary_llm.with_structured_output.return_value.invoke.side_effect = RuntimeError("primary down")
         fallback_llm = MagicMock()
-        fallback_llm.with_structured_output.return_value.invoke.return_value = {"ok": True}
+        fallback_llm.with_structured_output.return_value.invoke.return_value = DummySchema()
+
         mock_get_llm.side_effect = [primary_llm, fallback_llm]
 
-        res = gateway.invoke_structured(DummySchema, ["msg"])
-        assert res == {"ok": True}
+        res = gateway.invoke_structured(DummySchema, "prompt")
+        assert isinstance(res, DummySchema)
+
+
+def test_gateway_daily_quota_fast_failover():
+    reset_breakers()
+    # Ensure with max_retries=3, it immediately trips and does NOT retry 3 times
+    gateway = LLMGateway(primary_model="fake-preview-model", fallback_model="fake-fallback", max_retries=3)
+
+    with patch("src.chains.gateway.get_chat_llm") as mock_get_llm, patch("src.chains.gateway.time.sleep") as mock_sleep:
+        primary_llm = MagicMock()
+        daily_err = RuntimeError("429 RESOURCE_EXHAUSTED: GenerateRequestsPerDayPerProjectPerModel-FreeTier limit: 20")
+        primary_llm.invoke.side_effect = daily_err
+
+        fallback_llm = MagicMock()
+        fallback_llm.invoke.return_value = MagicMock(content="Fast failover output")
+
+        mock_get_llm.side_effect = [primary_llm, fallback_llm]
+
+        res = gateway.invoke([MagicMock()])
+        assert res.content == "Fast failover output"
+        # Must have only called primary ONCE despite max_retries=3
+        assert primary_llm.invoke.call_count == 1
+        # No retry sleep should have been executed
+        mock_sleep.assert_not_called()
+        # Circuit breaker should have been tripped open
+        assert gateway.circuit_breaker.is_open
 
 
 def test_stm_session_lifecycle(tmp_path):

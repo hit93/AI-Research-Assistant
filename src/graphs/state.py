@@ -25,6 +25,9 @@ class ResearchGraphState(TypedDict, total=False):
     synthesizer_model: Optional[str]
     verifier_model: Optional[str]
     improver_model: Optional[str]
+    plan_coverage: Optional[list[Any]]
+    run_logger: Optional[Any]
+    research_mode: Optional[str]
     status: str
     errors: list[str]
 

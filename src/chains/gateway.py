@@ -16,10 +16,12 @@ logger = get_logger("chains.gateway")
 T = TypeVar("T", bound=BaseModel)
 
 # Per-model context-window limits (total tokens in + out).
-# If a model is not listed it is assumed to have a large enough context.
+# Gemini models have very large context windows; no cap needed (return None = uncapped).
+# Groq free-tier models are capped at 8 000 TPM on the on-demand tier.
 MODEL_CONTEXT_LIMITS: dict[str, int] = {
-    "openai/gpt-oss-20b": 8000,
-    "openai/gpt-oss-120b": 32768,
+    "openai/gpt-oss-20b":  8_000,
+    "openai/gpt-oss-120b": 8_000,   # Groq on-demand TPM cap (not true context window)
+    # Gemini models are uncapped here; their context is 1M+ tokens
 }
 
 # Base retry wait (seconds) per model family.
@@ -44,6 +46,21 @@ def _base_wait_for(model: str) -> float:
         if model_lower.startswith(prefix):
             return wait
     return _DEFAULT_RETRY_BASE_WAIT
+
+
+def is_daily_quota_exhausted(error: Exception) -> bool:
+    """Check if the error is a permanent daily quota exhaustion (waiting seconds won't help)."""
+    err_str = str(error).lower()
+    return any(
+        term in err_str
+        for term in (
+            "generaterequestsperday",
+            "daily quota",
+            "per day",
+            "per project per model",
+            "free_tier_requests",
+        )
+    )
 
 
 def _retry_wait(model: str, attempt: int, error: Exception) -> float:
@@ -182,6 +199,12 @@ class CircuitBreaker:
         self.last_failure_time = time.time()
         logger.warning(f"CircuitBreaker failure recorded ({self.failure_count}/{self.threshold})")
 
+    def trip(self) -> None:
+        """Immediately trip the circuit breaker open without waiting for threshold."""
+        self.failure_count = self.threshold
+        self.last_failure_time = time.time()
+        logger.warning(f"CircuitBreaker immediately tripped open ({self.failure_count}/{self.threshold})")
+
     def reset(self) -> None:
         self.failure_count = 0
         self.last_failure_time = 0.0
@@ -239,6 +262,12 @@ class LLMGateway:
                 except Exception as e:
                     last_error = e
                     logger.warning(f"Gateway primary ({target_model}) attempt {attempt} failed: {e}")
+                    if is_daily_quota_exhausted(e):
+                        logger.warning(
+                            f"Daily quota exhausted for '{target_model}'. Bypassing retries and tripping circuit breaker immediately."
+                        )
+                        breaker.trip()
+                        break
                     if attempt < self.max_retries:
                         _retry_wait(target_model, attempt, e)
                     else:
@@ -330,6 +359,12 @@ class LLMGateway:
                     logger.warning(
                         f"Gateway structured primary ({target_model}) attempt {attempt} failed: {e}"
                     )
+                    if is_daily_quota_exhausted(e):
+                        logger.warning(
+                            f"Daily quota exhausted for '{target_model}'. Bypassing retries and tripping circuit breaker immediately."
+                        )
+                        breaker.trip()
+                        break
                     if attempt < self.max_retries:
                         _retry_wait(target_model, attempt, e)
                     else:

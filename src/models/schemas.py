@@ -22,6 +22,10 @@ class ResearchSource(BaseModel):
     source_type: Literal["arxiv", "web"]
     authors: list[str] = Field(default_factory=list)
     published: str = ""
+    has_full_text: bool = False
+    full_text: str = ""
+    source_tier: int = 2
+    published_date: str = ""
 
 
 # ── Phase 3: Agentic Pipeline Models ──────────────────────────
@@ -31,6 +35,17 @@ class SubQuery(BaseModel):
     question: str = Field(description="Focused research sub-question")
     search_keywords: list[str] = Field(default_factory=list, description="Targeted search terms")
     source_type: Literal["arxiv", "web", "both"] = Field(default="both", description="Where to search")
+
+
+class SubQueryCoverage(BaseModel):
+    """Tracking evidence coverage for a planned sub-query."""
+    sub_query: SubQuery
+    sources_found_count: int = 0
+    full_text_count: int = 0
+    evidence_extracted: bool = False
+    status: Literal["sufficient", "partial", "insufficient", "Answered", "Partial", "Gap"] = "Gap"
+    covered_entities: list[str] = Field(default_factory=list, description="Vendors, frameworks, benchmarks, models covered")
+    notes: str = ""
 
 
 class QueryPlan(BaseModel):
@@ -85,6 +100,18 @@ class VerificationIssue(BaseModel):
     suggestion: str = Field(default="", description="How to fix or improve")
 
 
+class AtomicClaim(BaseModel):
+    """An individual atomic factual claim extracted from the synthesis for passage-level verification."""
+    claim_id: str
+    claim_text: str
+    section_heading: str = ""
+    cited_source_indices: list[int] = Field(default_factory=list)
+    verification_status: Literal["SUPPORTED", "PARTIAL", "UNSUPPORTED", "CONTRADICTED", "UNCITED", "UNVERIFIED"] = "UNCITED"
+    evidence_quote: str = ""
+    matched_source_index: int | None = None
+    issues: list[str] = Field(default_factory=list)
+
+
 class VerificationResult(BaseModel):
     """The Verify agent's verdict on the synthesized report."""
     is_approved: bool = Field(default=False, description="Whether the report passes quality review")
@@ -95,6 +122,18 @@ class VerificationResult(BaseModel):
         default=True,
         description="False when the LLM judge did not complete; report must not be approved",
     )
+    claims: list[AtomicClaim] = Field(default_factory=list, description="Claim-level verification results")
+    total_claims: int = 0
+    supported_count: int = 0
+    supported_ratio: float = 0.0
+    revisions_made: int = 0
+    unresolved_flags: list[AtomicClaim] = Field(default_factory=list)
+    overclaiming_flags: list[str] = Field(default_factory=list)
+    scope_creep_flags: list[str] = Field(default_factory=list)
+    internal_contradictions: list[str] = Field(default_factory=list)
+    plan_coverage: list[SubQueryCoverage] = Field(default_factory=list)
+    full_text_source_count: int = 0
+    abstract_only_source_count: int = 0
 
 
 class ResearchResult(BaseModel):
@@ -104,6 +143,7 @@ class ResearchResult(BaseModel):
     sources: list[ResearchSource] = Field(default_factory=list)
     synthesis: list[SynthesisSection] = Field(default_factory=list)
     verification: VerificationResult | None = None
+    plan_coverage: list[SubQueryCoverage] = Field(default_factory=list)
     duration_seconds: float = 0.0
     is_cache_hit: bool = False
     errors: list[str] = Field(default_factory=list)
@@ -118,3 +158,4 @@ class ResearchState(BaseModel):
     synthesis: list[SynthesisSection] = Field(default_factory=list)
     status: str = "initialized"
     errors: list[str] = Field(default_factory=list)
+

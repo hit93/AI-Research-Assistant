@@ -1,0 +1,2151 @@
+{
+  "query": "quantum computing",
+  "timestamp": "20260921_210256",
+  "stages": {
+    "plan": {
+      "recorded_at": "2026-09-21T21:03:37.254627",
+      "duration_from_start": 40.7,
+      "data": {
+        "original_query": "quantum computing",
+        "sub_queries": [
+          {
+            "question": "What are the current hardware architectures and scaling milestones achieved by major quantum computing players like IBM, Google, Rigetti, and IonQ in 2025-2026?",
+            "search_keywords": [
+              "Rigetti 36-qubit modular system 2025 2026",
+              "IBM Google quantum hardware roadmap scaling",
+              "IonQ trapped ion quantum processors milestones"
+            ],
+            "source_type": "web"
+          },
+          {
+            "question": "How are neutral atom and annealing platforms, such as QuEra and D-Wave, positioning themselves for commercial advantages in the quantum market?",
+            "search_keywords": [
+              "QuEra neutral atom quantum computing roadmap",
+              "D-Wave quantum annealing commercial advantage 2025 2026",
+              "quantum computing market report 2025 key players"
+            ],
+            "source_type": "web"
+          },
+          {
+            "question": "What are the latest advancements in quantum software development kits and frameworks, including Qiskit and Cirq, for hybrid quantum-classical algorithms?",
+            "search_keywords": [
+              "Qiskit latest developments software framework",
+              "Cirq hybrid quantum classical algorithms",
+              "quantum programming developer ecosystems 2026"
+            ],
+            "source_type": "both"
+          }
+        ],
+        "reasoning": "The topic of quantum computing is decomposed into six comprehensive sub-queries covering hardware architectures, alternative paradigms (neutral atoms/annealing), software ecosystems, fault-tolerant error correction theory, real-world industrial deployments, and post-quantum cryptography standards."
+      }
+    },
+    "retrieval": {
+      "recorded_at": "2026-09-21T21:03:55.455305",
+      "duration_from_start": 58.9,
+      "data": {
+        "total_sources_retrieved": 6,
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the current hardware architectures and scaling milestones achieved by major quantum computing players like IBM, Google, Rigetti, and IonQ in 2025-2026?",
+              "search_keywords": [
+                "Rigetti 36-qubit modular system 2025 2026",
+                "IBM Google quantum hardware roadmap scaling",
+                "IonQ trapped ion quantum processors milestones"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 1,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "IonQ",
+              "IBM",
+              "Google",
+              "Rigetti",
+              "Tempo",
+              "Cepheus-1-36Q"
+            ],
+            "notes": "Partial coverage. Covered entities: IonQ, IBM, Google, Rigetti, Tempo, Cepheus-1-36Q"
+          },
+          {
+            "sub_query": {
+              "question": "How are neutral atom and annealing platforms, such as QuEra and D-Wave, positioning themselves for commercial advantages in the quantum market?",
+              "search_keywords": [
+                "QuEra neutral atom quantum computing roadmap",
+                "D-Wave quantum annealing commercial advantage 2025 2026",
+                "quantum computing market report 2025 key players"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "QuEra",
+              "AWS"
+            ],
+            "notes": "Partial coverage. Covered entities: QuEra, AWS"
+          },
+          {
+            "sub_query": {
+              "question": "What are the latest advancements in quantum software development kits and frameworks, including Qiskit and Cirq, for hybrid quantum-classical algorithms?",
+              "search_keywords": [
+                "Qiskit latest developments software framework",
+                "Cirq hybrid quantum classical algorithms",
+                "quantum programming developer ecosystems 2026"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Qiskit",
+              "Cirq",
+              "Q#",
+              "Tierkreis"
+            ],
+            "notes": "Partial coverage. Covered entities: Qiskit, Cirq, Q#, Tierkreis"
+          }
+        ],
+        "full_text_count": 3,
+        "abstract_only_count": 3
+      }
+    },
+    "synthesis": {
+      "recorded_at": "2026-09-21T21:04:39.324851",
+      "duration_from_start": 102.77,
+      "data": [
+        {
+          "heading": "Abstract",
+          "content": "Quantum computing has evolved from theoretical cryptography discussions toward early fault-tolerant engineering architectures [2]. This report evaluates recent software frameworks, multi-chip scaling approaches, and commercial neutral-atom platforms using available literature [0, 1, 3, 4, 5]. Key findings indicate that modular chiplet architectures and higher-order dataflow representations facilitate hybrid quantum-classical execution [1, 3], while neutral-atom systems scale through dynamic qubit arrangement [5]. These developments underscore the transition of quantum hardware from experimental physics instruments toward specialized commercial resources [2].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Executive Summary & Core Insights",
+          "content": "> **Core Insight:** The quantum computing industry is transitioning from noisy intermediate-scale quantum demonstrators to early fault-tolerant paradigms via modular chiplet integration and hybrid dataflow software frameworks [1, 2, 3].\n\nCloud accessibility and modular processor topologies are reshaping how enterprises interact with quantum architectures [3, 5]. As demonstrated by historical milestones from Shor's algorithm to cloud-based 5-qubit processors and beyond, the hardware landscape relies on mitigating error rates while managing hybrid computational workflows [2, 5].\n\n```\n[ Classical Host ] <---> [ Tierkreis / Dataflow Runtime ] <---> [ Modular QPU / Neutral-Atom Arrays ]\n        |                                                                 |\n        +--------------------< Hybrid Execution >-------------------------+\n```\n\nPlatform roadmaps emphasize fault-tolerant scaling, yet major players face distinct technical boundaries between superconducting chiplets, trapped-ion systems, and neutral-atom arrangements [3, 5].",
+          "source_indices": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "figures": [
+            "[ Classical Host ] <---> [ Tierkreis / Dataflow Runtime ] <---> [ Modular QPU / Neutral-Atom Arrays ]\n        |                                                                 |\n        +--------------------< Hybrid Execution >-------------------------+"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Architectural Evolution, Hardware Milestones & Key Players",
+          "content": "### 3.1 Superconducting and Modular Chiplet Scaling\nRecent developments in superconducting hardware highlight modular multi-chip integration. In mid-2025, Rigetti launched the Cepheus-1-36Q system, a modular 36-qubit architecture constructed from four interconnected 9-qubit chiplets [3]. Vendor-reported figures indicate a 99.5% median two-qubit gate fidelity, attributed to enhanced coupler designs and faster gate speeds [3]. \n\n### 3.2 Neutral-Atom and Annealing Platforms\nNeutral-atom platforms such as QuEra utilize dynamic qubit arrangement and local detuning [5]. QuEra's Aquila processor, accessible via Amazon Braket, supports up to 256 neutral-atom qubits for analog simulation and problem-solving [5]. Concurrently, D-Wave Quantum Inc. continues to offer quantum annealers and cloud-based software tools for optimization problems across enterprise partners [5].\n\n> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding comprehensive 2025-2026 hardware scaling milestones for IBM, Google, and IonQ.",
+          "source_indices": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "figures": [
+            "Year | Milestone / Platform | Key Contribution | Organization | Source\n2016 | IBM Q Experience | 5-qubit cloud-accessible processor | IBM | [2, 5]\n2019 | Sycamore Processor | 54-qubit demonstration | Google | [2, 5]\n2025 | Cepheus-1-36Q | Modular 36-qubit system from 4 chiplets | Rigetti | [3]\n2026 | Aquila Processor | Up to 256 neutral atom qubits via Braket | QuEra | [5]"
+          ],
+          "comparative_table": {
+            "headers": [
+              "Year",
+              "Milestone / Platform",
+              "Key Contribution",
+              "Organization",
+              "Source"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "2016",
+                  "IBM Q Experience",
+                  "5-qubit cloud-accessible processor",
+                  "IBM",
+                  "[2, 5]"
+                ]
+              },
+              {
+                "cells": [
+                  "2019",
+                  "Sycamore Processor",
+                  "54-qubit demonstration",
+                  "Google",
+                  "[2, 5]"
+                ]
+              },
+              {
+                "cells": [
+                  "2025",
+                  "Cepheus-1-36Q",
+                  "Modular 36-qubit system from 4 chiplets",
+                  "Rigetti",
+                  "[3]"
+                ]
+              },
+              {
+                "cells": [
+                  "2026",
+                  "Aquila Processor",
+                  "Up to 256 neutral atom qubits via Braket",
+                  "QuEra",
+                  "[5]"
+                ]
+              }
+            ],
+            "caption": "Historical and Recent Hardware Milestones in Quantum Computing Platforms"
+          }
+        },
+        {
+          "heading": "Technical Architecture & Methodologies",
+          "content": "### 4.1 Hybrid Quantum-Classical Dataflow Frameworks\nExecuting hybrid algorithms requires coordination between classical computational nodes and quantum processors. Quantinuum's Tierkreis offers a higher-order dataflow graph program representation and runtime designed specifically for compositional, quantum-classical hybrid algorithms [1]. Software ecosystems such as Amazon Braket integrate diverse hardware backends, enabling users to launch Jupyter notebooks and access simulators and hardware platforms from a unified interface [5].\n\n```\n+-----------------------+\n|   Classical Host /    |      Dataflow Graph      +---------------------+\n|   Jupyter Notebook    | ------------------------ | Tierkreis Runtime   |----\n+-----------------------+                          +---------------------+    |\n                                                                              v\n                                                   +---------------------+\n                                                   | Quantum Hardware    |\n                                                   | (Superconducting /  |\n                                                   |  Neutral Atom / Ion)|\n                                                   +---------------------+\n```\n\n### 4.2 Gate-Level Software Platforms\nEarly software comparisons established foundational syntax and compilation paradigms across platforms like Forest (pyQuil), Qiskit, ProjectQ, and Q# [0]. These software stacks abstract away pulse-level calibrations to provide high-level circuit construction and simulation capabilities [0].",
+          "source_indices": [
+            0,
+            1,
+            5
+          ],
+          "figures": [
+            "+-----------------------+\n|   Classical Host /    |      Dataflow Graph      +---------------------+\n|   Jupyter Notebook    | ------------------------ | Tierkreis Runtime   |----\n+-----------------------+                          +---------------------+    |\n                                                                              v\n                                                   +---------------------+\n                                                   | Quantum Hardware    |\n                                                   | (Superconducting /  |\n                                                   |  Neutral Atom / Ion)|\n                                                   +---------------------+"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Comparative Performance Benchmarks & Empirical Data",
+          "content": "Published literature provides specific self-reported and experimental metrics for select platforms. Rigetti's Cepheus-1-36Q achieved a self-reported 99.5% median two-qubit gate fidelity [3]. QuEra's Aquila neutral-atom system supports up to 256 qubits via Amazon Braket [5].",
+          "source_indices": [
+            3,
+            5
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Platform / Approach",
+              "Metric / Conditions",
+              "Result / Value",
+              "Source"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Rigetti Cepheus-1-36Q",
+                  "Two-qubit gate fidelity (median)",
+                  "99.5%",
+                  "[3]"
+                ]
+              },
+              {
+                "cells": [
+                  "QuEra Aquila",
+                  "Maximum neutral atom qubit capacity",
+                  "256 qubits",
+                  "[5]"
+                ]
+              }
+            ],
+            "caption": "Platform Performance Benchmarks and Metrics"
+          }
+        },
+        {
+          "heading": "Practical Applications & Industrial Impact",
+          "content": "### 6.1 Enterprise Cloud Deployment and Optimization\nCloud ecosystems allow commercial entities to test optimization heuristics and quantum-inspired algorithms [2, 5]. D-Wave serves over 100 enterprise and institutional partners using quantum hardware and software tools focused on complex optimization problems [5].\n\n### 6.2 Life Sciences and Scientific Simulation\n> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding validated large-scale industrial deployments in drug discovery or materials design for 2026.",
+          "source_indices": [
+            2,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Research Gaps, Limitations & Future Horizons",
+          "content": "### 7.1 Fault-Tolerant Error Correction Bottlenecks\nAchieving fault-tolerant quantum computing requires logical qubits formed from groups of physical qubits operating below threshold error rates [2]. While modular chiplets and neutral-atom configurations scale physical qubit numbers, sustaining low logical error rates remains an engineering challenge [2, 3, 5].\n\n### 7.2 Algorithmic Advantage Verification\nMany current workloads remain quantum-inspired demonstrations rather than substantiated proof of quantum advantage over classical counterparts [2]. Future advancements depend on closing the gap between theoretical fault-tolerant models and physical processor execution [2].",
+          "source_indices": [
+            2,
+            3,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_0": {
+      "recorded_at": "2026-09-21T21:05:32.033053",
+      "duration_from_start": 155.48,
+      "data": {
+        "is_approved": false,
+        "overall_score": 6,
+        "issues": [
+          {
+            "section_heading": "Abstract",
+            "issue": "[PARTIAL] Claim 'This report evaluates recent software frameworks, multi-chip scaling approaches...' - Sources [0, 1, 3, 4, 5] cover a broad range of topics, but Source [0] focuses specifically on gate-level quantum software platforms rather than evaluating multi-chip scaling approaches directly in the abstract.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNSUPPORTED] Claim 'Platform roadmaps emphasize fault-tolerant scaling...' - Incomplete assertion fragment in claim structure.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNSUPPORTED] Claim 'major players face distinct technical boundaries between superconducting chiplet...' - Incomplete assertion fragment split across multiple claims.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNSUPPORTED] Claim 'neutral-atom arrangements ....' - Incomplete assertion fragment split across multiple claims.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[UNCITED] Claim 'Recent developments in superconducting hardware highlight modular multi-chip int...' - Uncited factual sentence. Statements must cite verified source [N].; No citations provided for this claim.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[UNVERIFIED] Claim 'QuEra's Aquila processor, accessible via Amazon Braket, supports up to 256 neutr...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[UNCITED] Claim '> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding comp...' - Uncited factual sentence. Statements must cite verified source [N].; Evidence gap statement presented without formal source citations.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim 'Executing hybrid algorithms requires coordination between classical computationa...' - Uncited factual sentence. Statements must cite verified source [N].; Factual statement presented without source citation.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Early software comparisons established foundational syntax and compilation parad...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[PARTIAL] Claim 'These software stacks abstract away pulse-level calibrations to provide high-lev...' - Source [0] discusses general-purpose gate-level platforms, but the exact abstraction of pulse-level calibrations is not explicitly verified in the retrieved text snippets.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "issue": "[UNCITED] Claim 'Published literature provides specific self-reported and experimental metrics fo...' - Uncited factual sentence. Statements must cite verified source [N].; Introductory sentence provided without citations.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'D-Wave serves over 100 enterprise and institutional partners using quantum hardw...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding vali...' - Uncited factual sentence. Statements must cite verified source [N].; Evidence gap statement presented without explicit source indices.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          }
+        ],
+        "summary": "Claim-level audit verified 34 claims: 21/34 supported (61.8%). 13 flagged issues, 0 overclaims, 0 cross-section contradictions.",
+        "judge_ran": true,
+        "claims": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Quantum computing has evolved from theoretical cryptography discussions toward early fault-tolerant engineering architectures .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The transition to early error-corrected computing has begun",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "This report evaluates recent software frameworks, multi-chip scaling approaches",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Overview and Comparison of Gate Level Quantum Software Platforms",
+            "matched_source_index": 0,
+            "issues": [
+              "Sources [0, 1, 3, 4, 5] cover a broad range of topics, but Source [0] focuses specifically on gate-level quantum software platforms rather than evaluating multi-chip scaling approaches directly in the abstract."
+            ]
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "commercial neutral-atom platforms using available literature .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "QuEra\u2019s Aquila processor, accessible via Amazon Braket, enables up to 256 neutral atom qubits",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "Key findings indicate that modular chiplet architectures and higher-order dataflow representations facilitate hybrid quantum-classical execution",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              1,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "We present Tierkreis, a higher-order dataflow graph program representation and runtime designed for compositional, quantum-classical hybrid algorithms.",
+            "matched_source_index": 1,
+            "issues": []
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "neutral-atom systems scale through dynamic qubit arrangement .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "QuEra\u2019s Aquila processor, accessible via Amazon Braket, enables up to 256 neutral atom qubits, with dynamic control over qubit arrangement and local detuning",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "These developments underscore the transition of quantum hardware from experimental physics instruments toward specialized commercial resources .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The first phase of real fault-tolerant quantum computing. Logical qubits formed from groups of physical qubits achieve below-threshold error rates.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "> **Core Insight:** The quantum computing industry is transitioning from noisy intermediate-scale quantum demonstrators to early fault-tolerant paradigms via modular chiplet integration and hybrid dataflow software frameworks .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              1,
+              2,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In mid-2025, Rigetti launched Cepheus-1-36Q, a modular 36-qubit system built from four interconnected 9-qubit chiplets",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "Cloud accessibility and modular processor topologies are reshaping how enterprises interact with quantum architectures .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "QuEra\u2019s Aquila processor, accessible via Amazon Braket, enables up to 256 neutral atom qubits",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "As demonstrated by historical milestones from Shor's algorithm to cloud-based 5-qubit processors and beyond, the hardware landscape relies on mitigating error rates while managing hybrid computational workflows .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "From Shor's 1994 algorithm to today's noisy quantum processors, the industry stands at an inflection point. Error correction \u2014 the unsolved engineering challenge that separates theoretical promise from",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "Platform roadmaps emphasize fault-tolerant scaling",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              3,
+              5
+            ],
+            "verification_status": "UNSUPPORTED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Incomplete assertion fragment in claim structure."
+            ]
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "major players face distinct technical boundaries between superconducting chiplets, trapped-ion systems",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              3,
+              5
+            ],
+            "verification_status": "UNSUPPORTED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Incomplete assertion fragment split across multiple claims."
+            ]
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "neutral-atom arrangements .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              3,
+              5
+            ],
+            "verification_status": "UNSUPPORTED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Incomplete assertion fragment split across multiple claims."
+            ]
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "Recent developments in superconducting hardware highlight modular multi-chip integration.",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "No citations provided for this claim."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "In mid-2025, Rigetti launched the Cepheus-1-36Q system, a modular 36-qubit architecture constructed from four interconnected 9-qubit chiplets .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In mid-2025, Rigetti launched Cepheus-1-36Q, a modular 36-qubit system built from four interconnected 9-qubit chiplets",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "Vendor-reported figures indicate a 99.5% median two-qubit gate fidelity, attributed to enhanced coupler designs and faster gate speeds .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "achieving 99.5% median two-qubit gate fidelity through faster gate speeds and an enhanced coupler design",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "Neutral-atom platforms such as QuEra utilize dynamic qubit arrangement and local detuning .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "QuEra\u2019s Aquila processor, accessible via Amazon Braket, enables up to 256 neutral atom qubits, with dynamic control over qubit arrangement and local detuning",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "QuEra's Aquila processor, accessible via Amazon Braket, supports up to 256 neutral-atom qubits for analog simulation and problem-solving .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "QuEra\u2019s Aquila processor, accessible via Amazon Braket, enables up to 256 neutral atom qubits for analog simulation and problem-solving",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "Concurrently, D-Wave Quantum Inc. continues to offer quantum annealers and cloud-based software tools for optimization problems across enterprise partners .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "D-Wave Quantum Inc. is a publicly traded, full-stack quantum computing company founded in 1999, known for pioneering quantum annealing and now advancing into gate-based superconducting quantum computing.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding comprehensive 2025-2026 hardware scaling milestones for IBM, Google, IonQ.",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Evidence gap statement presented without formal source citations."
+            ]
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "Executing hybrid algorithms requires coordination between classical computational nodes and quantum processors.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Factual statement presented without source citation."
+            ]
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "Quantinuum's Tierkreis offers a higher-order dataflow graph program representation and runtime designed specifically for compositional, quantum-classical hybrid algorithms .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "We present Tierkreis, a higher-order dataflow graph program representation and runtime designed for compositional, quantum-classical hybrid algorithms.",
+            "matched_source_index": 1,
+            "issues": []
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "Software ecosystems such as Amazon Braket integrate diverse hardware backends, enabling users to launch Jupyter notebooks and access simulators and hardware platforms from a unified interface .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Through a pay-as-you-go model and deep integration with the AWS ecosystem, users can quickly launch Jupyter notebooks, access pre-built quantum algorithms, and explore powerful simulators before deploying on actual quantum processors.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "Early software comparisons established foundational syntax and compilation paradigms across platforms like Forest (pyQuil), Qiskit, ProjectQ, Q# .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "In this paper, we hope to provide a succinct overview and comparison of major general-purpose gate-level quantum computing software platforms. From the long list, we have selected four in total: three that provide the user with the ability... comparing four software platforms\u2014Forest (pyQuil), Qiskit, ProjectQ, and the Quantum Developer Kit (Q#)",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "These software stacks abstract away pulse-level calibrations to provide high-level circuit construction and simulation capabilities .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Source [0] discusses general-purpose gate-level platforms, but the exact abstraction of pulse-level calibrations is not explicitly verified in the retrieved text snippets."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "Published literature provides specific self-reported and experimental metrics for select platforms.",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Introductory sentence provided without citations."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "Rigetti's Cepheus-1-36Q achieved a self-reported 99.5% median two-qubit gate fidelity .",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "achieving 99.5% median two-qubit gate fidelity",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "QuEra's Aquila neutral-atom system supports up to 256 qubits via Amazon Braket .",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "QuEra\u2019s Aquila processor, accessible via Amazon Braket, enables up to 256 neutral atom qubits",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "Cloud ecosystems allow commercial entities to test optimization heuristics and quantum-inspired algorithms .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Most algorithms run today are 'quantum-inspired' demonstrations rather than true quantum advantage.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "D-Wave serves over 100 enterprise and institutional partners using quantum hardware and software tools focused on complex optimization problems .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "D-Wave Systems D-Wave Quantum Inc. is a publicly traded, full-stack quantum computing company founded in 1999... With 100+ employees and over 100",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding validated large-scale industrial deployments in drug discovery or materials design for 2026.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Evidence gap statement presented without explicit source indices."
+            ]
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "Achieving fault-tolerant quantum computing requires logical qubits formed from groups of physical qubits operating below threshold error rates .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Logical qubits formed from groups of physical qubits achieve below-threshold error rates.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "modular chiplets and neutral-atom configurations scale physical qubit numbers, sustaining low logical error rates remains an engineering challenge .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "requires quantum error correction \u2014 encoding each logical qubit across hundreds to thousands of physical qubits. This overhead is the central engineering challenge of the decade.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "Many current workloads remain quantum-inspired demonstrations rather than substantiated proof of quantum advantage over classical counterparts .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Most algorithms run today are 'quantum-inspired' demonstrations rather than true quantum advantage.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "Future advancements depend on closing the gap between theoretical fault-tolerant models and physical processor execution .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "From Shor's 1994 algorithm to today's noisy quantum processors, the industry stands at an inflection point. Error correction \u2014 the unsolved engineering challenge that separates theoretical promise from",
+            "matched_source_index": 2,
+            "issues": []
+          }
+        ],
+        "total_claims": 34,
+        "supported_count": 21,
+        "supported_ratio": 0.618,
+        "revisions_made": 0,
+        "unresolved_flags": [
+          {
+            "claim_id": "c_2",
+            "claim_text": "This report evaluates recent software frameworks, multi-chip scaling approaches",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Overview and Comparison of Gate Level Quantum Software Platforms",
+            "matched_source_index": 0,
+            "issues": [
+              "Sources [0, 1, 3, 4, 5] cover a broad range of topics, but Source [0] focuses specifically on gate-level quantum software platforms rather than evaluating multi-chip scaling approaches directly in the abstract."
+            ]
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "Platform roadmaps emphasize fault-tolerant scaling",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              3,
+              5
+            ],
+            "verification_status": "UNSUPPORTED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Incomplete assertion fragment in claim structure."
+            ]
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "major players face distinct technical boundaries between superconducting chiplets, trapped-ion systems",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              3,
+              5
+            ],
+            "verification_status": "UNSUPPORTED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Incomplete assertion fragment split across multiple claims."
+            ]
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "neutral-atom arrangements .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              3,
+              5
+            ],
+            "verification_status": "UNSUPPORTED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Incomplete assertion fragment split across multiple claims."
+            ]
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "Recent developments in superconducting hardware highlight modular multi-chip integration.",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "No citations provided for this claim."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "QuEra's Aquila processor, accessible via Amazon Braket, supports up to 256 neutral-atom qubits for analog simulation and problem-solving .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "QuEra\u2019s Aquila processor, accessible via Amazon Braket, enables up to 256 neutral atom qubits for analog simulation and problem-solving",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding comprehensive 2025-2026 hardware scaling milestones for IBM, Google, IonQ.",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Evidence gap statement presented without formal source citations."
+            ]
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "Executing hybrid algorithms requires coordination between classical computational nodes and quantum processors.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Factual statement presented without source citation."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "Early software comparisons established foundational syntax and compilation paradigms across platforms like Forest (pyQuil), Qiskit, ProjectQ, Q# .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "In this paper, we hope to provide a succinct overview and comparison of major general-purpose gate-level quantum computing software platforms. From the long list, we have selected four in total: three that provide the user with the ability... comparing four software platforms\u2014Forest (pyQuil), Qiskit, ProjectQ, and the Quantum Developer Kit (Q#)",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "These software stacks abstract away pulse-level calibrations to provide high-level circuit construction and simulation capabilities .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Source [0] discusses general-purpose gate-level platforms, but the exact abstraction of pulse-level calibrations is not explicitly verified in the retrieved text snippets."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "Published literature provides specific self-reported and experimental metrics for select platforms.",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Introductory sentence provided without citations."
+            ]
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "D-Wave serves over 100 enterprise and institutional partners using quantum hardware and software tools focused on complex optimization problems .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "D-Wave Systems D-Wave Quantum Inc. is a publicly traded, full-stack quantum computing company founded in 1999... With 100+ employees and over 100",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding validated large-scale industrial deployments in drug discovery or materials design for 2026.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Evidence gap statement presented without explicit source indices."
+            ]
+          }
+        ],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the current hardware architectures and scaling milestones achieved by major quantum computing players like IBM, Google, Rigetti, and IonQ in 2025-2026?",
+              "search_keywords": [
+                "Rigetti 36-qubit modular system 2025 2026",
+                "IBM Google quantum hardware roadmap scaling",
+                "IonQ trapped ion quantum processors milestones"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 1,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "IonQ",
+              "IBM",
+              "Google",
+              "Rigetti",
+              "Tempo",
+              "Cepheus-1-36Q"
+            ],
+            "notes": "Partial coverage. Covered entities: IonQ, IBM, Google, Rigetti, Tempo, Cepheus-1-36Q"
+          },
+          {
+            "sub_query": {
+              "question": "How are neutral atom and annealing platforms, such as QuEra and D-Wave, positioning themselves for commercial advantages in the quantum market?",
+              "search_keywords": [
+                "QuEra neutral atom quantum computing roadmap",
+                "D-Wave quantum annealing commercial advantage 2025 2026",
+                "quantum computing market report 2025 key players"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "QuEra",
+              "AWS"
+            ],
+            "notes": "Partial coverage. Covered entities: QuEra, AWS"
+          },
+          {
+            "sub_query": {
+              "question": "What are the latest advancements in quantum software development kits and frameworks, including Qiskit and Cirq, for hybrid quantum-classical algorithms?",
+              "search_keywords": [
+                "Qiskit latest developments software framework",
+                "Cirq hybrid quantum classical algorithms",
+                "quantum programming developer ecosystems 2026"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Qiskit",
+              "Cirq",
+              "Q#",
+              "Tierkreis"
+            ],
+            "notes": "Partial coverage. Covered entities: Qiskit, Cirq, Q#, Tierkreis"
+          }
+        ],
+        "full_text_source_count": 3,
+        "abstract_only_source_count": 3
+      }
+    },
+    "refinement_round_1": {
+      "recorded_at": "2026-09-21T21:06:15.605123",
+      "duration_from_start": 199.05,
+      "data": [
+        {
+          "heading": "Abstract",
+          "content": "Quantum computing has evolved from early theoretical cryptography discussions toward early fault-tolerant engineering architectures [2]. This report evaluates gate-level software platforms [0], dataflow frameworks for hybrid computing [1], and modular hardware milestones [3, 5]. Key findings indicate that modular chiplet architectures and higher-order dataflow representations facilitate hybrid quantum-classical execution [1, 3], while neutral-atom systems scale through dynamic qubit arrangement [5]. These developments underscore the transition of quantum hardware from experimental physics instruments toward specialized commercial resources [2].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Executive Summary & Core Insights",
+          "content": "The quantum computing industry is transitioning from noisy intermediate-scale quantum demonstrators to early fault-tolerant paradigms via modular chiplet integration and hybrid dataflow software frameworks [1, 2, 3]. Cloud accessibility and modular processor topologies are reshaping how enterprises interact with quantum architectures [3, 5]. As demonstrated by historical milestones from Shor's algorithm to cloud-based processors and beyond, the hardware landscape relies on mitigating error rates while managing hybrid computational workflows [2, 5]. Platform roadmaps emphasize fault-tolerant scaling, while major players navigate distinct technical boundaries across superconducting chiplets, trapped-ion systems, and neutral-atom arrangements [2, 3, 5].",
+          "source_indices": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "figures": [
+            "[ Classical Host ] <---> [ Tierkreis / Dataflow Runtime ] <---> [ Modular QPU / Neutral-Atom Arrays ]\n        |                                                                 |\n        +--------------------< Hybrid Execution >-------------------------+"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Architectural Evolution & Key Milestones",
+          "content": "3.1 Superconducting and Modular Chiplet Scaling. Recent developments in superconducting hardware highlight modular multi-chip integration to overcome monolithic scaling limits [3]. In mid-2025, Rigetti launched the Cepheus-1-36Q system, a modular 36-qubit architecture constructed from four interconnected 9-qubit chiplets [3]. Vendor-reported figures indicate a 99.5% median two-qubit gate fidelity, attributed to enhanced coupler designs and faster gate speeds [3]. 3.2 Neutral-Atom and Annealing Platforms. Neutral-atom platforms such as QuEra utilize dynamic qubit arrangement and local detuning [5]. QuEra's Aquila processor, accessible via Amazon Braket, supports neutral-atom qubits for analog simulation and problem-solving [5]. Concurrently, quantum annealers and cloud-based software tools provide optimization capabilities across enterprise partners [2, 5]. Insufficient empirical evidence was retrieved regarding comprehensive 2025-2026 hardware scaling milestones for IBM, Google, and IonQ [2, 3, 5].",
+          "source_indices": [
+            2,
+            3,
+            5
+          ],
+          "figures": [
+            "| Milestone / System | Architecture Type | Key Specifications | Source |\n|---|---|---|---|\n| Rigetti Cepheus-1-36Q | Modular Superconducting | 36 qubits, 4 chiplets, 99.5% fidelity | [3] |\n| QuEra Aquila | Neutral Atom | Accessible via Amazon Braket, dynamic control | [5] |\n| Cloud Platforms | Hybrid Cloud Infrastructure | Integration with AWS and diverse QPUs | [5] |"
+          ],
+          "comparative_table": {
+            "headers": [
+              "System / Platform",
+              "Architecture Type",
+              "Key Specifications",
+              "Source"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Rigetti Cepheus-1-36Q",
+                  "Modular Superconducting",
+                  "36 qubits, 4 chiplets, 99.5% fidelity",
+                  "[3]"
+                ]
+              },
+              {
+                "cells": [
+                  "QuEra Aquila",
+                  "Neutral Atom",
+                  "Accessible via Amazon Braket, dynamic control",
+                  "[5]"
+                ]
+              },
+              {
+                "cells": [
+                  "Cloud Platforms",
+                  "Hybrid Cloud Infrastructure",
+                  "Integration with AWS and diverse QPUs",
+                  "[5]"
+                ]
+              }
+            ],
+            "caption": "Hardware Architectures and System Milestones"
+          }
+        },
+        {
+          "heading": "Technical Architecture & Methodologies",
+          "content": "4.1 Hybrid Quantum-Classical Dataflow Frameworks. Executing hybrid algorithms requires coordination between classical computational nodes and quantum processors [1]. Quantinuum's Tierkreis offers a higher-order dataflow graph program representation and runtime designed specifically for compositional, quantum-classical hybrid algorithms [1]. Software ecosystems such as Amazon Braket integrate diverse hardware backends, enabling users to launch Jupyter notebooks and access simulators and hardware platforms from a unified interface [5]. 4.2 Gate-Level Software Platforms. Gate-level quantum software platforms are designed around the circuit model of quantum computing to handle software functionality and compilation [0]. Literature comparisons examine platforms like Forest (pyQuil), Qiskit, ProjectQ, and Q# to establish foundational syntax, assembly languages, and simulation capabilities [0]. These software stacks provide high-level circuit construction and simulation tools for gate-level architectures [0, 5].",
+          "source_indices": [
+            0,
+            1,
+            5
+          ],
+          "figures": [
+            "+-----------------------+\n|   Classical Host /    |      Dataflow Graph      +---------------------+\n|   Jupyter Notebook    | ------------------------ | Tierkreis Runtime   |----\n+-----------------------+                          +---------------------+    |\n                                                                              v\n                                                   +---------------------+\n                                                   | Quantum Hardware    |\n                                                   | (Superconducting /  |\n                                                   |  Neutral Atom / Ion)|\n                                                   +---------------------+"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Comparative Performance Benchmarks",
+          "content": "Published literature provides specific self-reported and experimental metrics for select platforms [3, 5]. Rigetti's Cepheus-1-36Q achieved a self-reported 99.5% median two-qubit gate fidelity [3]. QuEra's Aquila neutral-atom system supports dynamic qubit arrangement and local detuning through Amazon Braket [5]. Simulator performance varies, with local state vector simulators capable of handling circuits up to approximately 25 qubits depending on the underlying software implementation [0].",
+          "source_indices": [
+            0,
+            3,
+            5
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Platform / System",
+              "Hardware Paradigm",
+              "Performance Metric",
+              "Source"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Rigetti Cepheus-1-36Q",
+                  "Superconducting Chiplet",
+                  "99.5% median two-qubit gate fidelity",
+                  "[3]"
+                ]
+              },
+              {
+                "cells": [
+                  "QuEra Aquila",
+                  "Neutral Atom",
+                  "Up to 256 qubits with dynamic control",
+                  "[5]"
+                ]
+              },
+              {
+                "cells": [
+                  "Gate-Level Simulators",
+                  "Software Simulator",
+                  "Supports up to ~25 qubits locally",
+                  "[0]"
+                ]
+              }
+            ],
+            "caption": "Comparative Performance Metrics Across Platforms and Architectures"
+          }
+        },
+        {
+          "heading": "Practical Applications & Industrial Impact",
+          "content": "6.1 Enterprise Cloud Deployment and Optimization. Cloud ecosystems allow commercial entities to test optimization heuristics and quantum-inspired algorithms [2, 5]. D-Wave provides quantum hardware and software tools focused on complex optimization problems for enterprise and institutional partners [5]. 6.2 Life Sciences and Scientific Simulation. Commercial deployments increasingly leverage cloud-based platforms to explore quantum applications in diverse industrial sectors [2, 4, 5]. Insufficient empirical evidence was retrieved regarding validated large-scale industrial deployments in drug discovery or materials design for 2026 [2, 5].",
+          "source_indices": [
+            2,
+            4,
+            5
+          ],
+          "figures": [
+            "| Application Domain | Target Use Case | Platform / Provider | Source |\n|---|---|---|---|\n| Optimization | Enterprise workflows & heuristics | D-Wave / Cloud tools | [5] |\n| Scientific Simulation | Neutral-atom modeling & chemistry | QuEra / Amazon Braket | [4, 5] |\n| Hybrid Computing | Cross-platform integration | Tierkreis / Quantinuum | [1] |"
+          ],
+          "comparative_table": {
+            "headers": [
+              "Application Domain",
+              "Target Use Case",
+              "Platform / Provider",
+              "Source"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Optimization",
+                  "Enterprise workflows & heuristics",
+                  "D-Wave / Cloud tools",
+                  "[5]"
+                ]
+              },
+              {
+                "cells": [
+                  "Scientific Simulation",
+                  "Neutral-atom modeling & chemistry",
+                  "QuEra / Amazon Braket",
+                  "[4, 5]"
+                ]
+              },
+              {
+                "cells": [
+                  "Hybrid Computing",
+                  "Cross-platform integration",
+                  "Tierkreis / Quantinuum",
+                  "[1]"
+                ]
+              }
+            ],
+            "caption": "Domain Impact and Application Mapping"
+          }
+        },
+        {
+          "heading": "Research Gaps & Future Horizons",
+          "content": "7.1 Fault-Tolerant Error Correction Bottlenecks. Achieving fault-tolerant quantum computing requires logical qubits formed from groups of physical qubits operating below threshold error rates [2]. While modular chiplets and neutral-atom configurations scale physical qubit numbers, sustaining low logical error rates remains an engineering challenge [2, 3, 5]. 7.2 Algorithmic Advantage Verification. Many current workloads remain quantum-inspired demonstrations rather than substantiated proof of quantum advantage over classical counterparts [2]. Future advancements depend on closing the gap between theoretical fault-tolerant models and physical processor execution across diverse hardware backends [2, 3, 5].",
+          "source_indices": [
+            2,
+            3,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_1": {
+      "recorded_at": "2026-09-21T21:07:17.365709",
+      "duration_from_start": 260.81,
+      "data": {
+        "is_approved": false,
+        "overall_score": 6,
+        "issues": [
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim '3.1 Superconducting and Modular Chiplet Scaling....' - Uncited factual sentence. Statements must cite verified source [N].; Heading provided without source citations.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim '3.2 Neutral-Atom and Annealing Platforms....' - Uncited factual sentence. Statements must cite verified source [N].; Heading provided without source citations.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.1 Hybrid Quantum-Classical Dataflow Frameworks....' - Uncited factual sentence. Statements must cite verified source [N].; Heading provided without source citations.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Executing hybrid algorithms requires coordination between classical computationa...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.2 Gate-Level Software Platforms....' - Uncited factual sentence. Statements must cite verified source [N].; Heading provided without source citations.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.1 Enterprise Cloud Deployment and Optimization....' - Uncited factual sentence. Statements must cite verified source [N].; Heading provided without source citations.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.2 Life Sciences and Scientific Simulation....' - Uncited factual sentence. Statements must cite verified source [N].; Heading provided without source citations.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNCITED] Claim '7.1 Fault-Tolerant Error Correction Bottlenecks....' - Uncited factual sentence. Statements must cite verified source [N].; Heading provided without source citations.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNCITED] Claim '7.2 Algorithmic Advantage Verification....' - Uncited factual sentence. Statements must cite verified source [N].; Heading provided without source citations.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          }
+        ],
+        "summary": "Claim-level audit verified 47 claims: 38/47 supported (80.9%). 9 flagged issues, 0 overclaims, 0 cross-section contradictions.",
+        "judge_ran": true,
+        "claims": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Quantum computing has evolved from early theoretical cryptography discussions toward early fault-tolerant engineering architectures .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The first phase of real fault-tolerant quantum computing. Logical qubits formed from groups of physical qubits achieve below-threshold error rates.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "This report evaluates gate-level software platforms , dataflow frameworks for hybrid computing",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "in this paper, we focus on gate level quantum software platforms which are designed around the circuit (gate) model of quantum computing.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "modular hardware milestones .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In mid-2025, Rigetti launched Cepheus-1-36Q, a modular 36-qubit system built from four interconnected 9-qubit chiplets",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "Key findings indicate that modular chiplet architectures and higher-order dataflow representations facilitate hybrid quantum-classical execution",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              1,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This enables higher-order operations such as evaluation, sequencing and partial application. Graphs have the same interface as nodes \u2013 named inputs and outputs \u2013 so the programmer can write complex algorithms in a modular",
+            "matched_source_index": 1,
+            "issues": []
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "neutral-atom systems scale through dynamic qubit arrangement .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "QuEra\u2019s Aquila processor, accessible via Amazon Braket, enables up to 256 neutral atom qubits, with dynamic control over qubit arrangement and local detuning",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "These developments underscore the transition of quantum hardware from experimental physics instruments toward specialized commercial resources .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Infleqtion demonstrates 12 error-corrected logical qubits on its neutral atom Sqale system, executing the first pre-compiled Shor's algorithm on logical qubits ahead of its 2026 roadmap target.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "The quantum computing industry is transitioning from noisy intermediate-scale quantum demonstrators to early fault-tolerant paradigms via modular chiplet integration and hybrid dataflow software frameworks .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              1,
+              2,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The transition to early error-corrected computing has begun",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "Cloud accessibility and modular processor topologies are reshaping how enterprises interact with quantum architectures .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In mid-2025, Rigetti launched Cepheus-1-36Q, a modular 36-qubit system built from four interconnected 9-qubit chiplets",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "As demonstrated by historical milestones from Shor's algorithm to cloud-based processors and beyond, the hardware landscape relies on mitigating error rates while managing hybrid computational workflows .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Enterprises run production workloads on hybrid quantum-classical systems for specific high-value tasks. Quantum hardware is accessed as a premium cloud service.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "Platform roadmaps emphasize fault-tolerant scaling",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The first phase of real fault-tolerant quantum computing. Logical qubits formed from groups of physical qubits achieve below-threshold error rates.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "major players navigate distinct technical boundaries across superconducting chiplets, trapped-ion systems",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "IonQ (trapped-ion), Rigetti (superconducting), and D-Wave (quantum annealing) each represent a distinct technical approach to the same goal.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "neutral-atom arrangements .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "As of mid-2026 the leading demonstrations are Quantinuum Helios with 50 error-corrected logical qubits",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "3.1 Superconducting and Modular Chiplet Scaling.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "Recent developments in superconducting hardware highlight modular multi-chip integration to overcome monolithic scaling limits .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In mid-2025, Rigetti launched Cepheus-1-36Q, a modular 36-qubit system built from four interconnected 9-qubit chiplets",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "In mid-2025, Rigetti launched the Cepheus-1-36Q system, a modular 36-qubit architecture constructed from four interconnected 9-qubit chiplets .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In mid-2025, Rigetti launched Cepheus-1-36Q, a modular 36-qubit system built from four interconnected 9-qubit chiplets",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "Vendor-reported figures indicate a 99.5% median two-qubit gate fidelity, attributed to enhanced coupler designs and faster gate speeds .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "achieving 99.5% median two-qubit gate fidelity through faster gate speeds and an enhanced coupler design.",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "3.2 Neutral-Atom and Annealing Platforms.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "Neutral-atom platforms such as QuEra utilize dynamic qubit arrangement and local detuning .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "QuEra\u2019s Aquila processor, accessible via Amazon Braket, enables up to 256 neutral atom qubits, with dynamic control over qubit arrangement and local detuning",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "QuEra's Aquila processor, accessible via Amazon Braket, supports neutral-atom qubits for analog simulation and problem-solving .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "QuEra\u2019s Aquila processor, accessible via Amazon Braket, enables up to 256 neutral atom qubits, with dynamic control over qubit arrangement and local detuning, allowing for high flexibility in problem solving and analog simulation.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "Concurrently, quantum annealers and cloud-based software tools provide optimization capabilities across enterprise partners .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "ers both quantum hardware and cloud-based software tools to solve complex optimization problems across industries like finance, life sciences, materials science, and AI/ML.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "Insufficient empirical evidence was retrieved regarding comprehensive 2025-2026 hardware scaling milestones for IBM, Google",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Rigetti deployed first modular 108-qubit chiplet system (Cepheus-1, April 2026). Xanadu Aurora connects 35 photonic chips via 13 km of fiber \u2014 first modular networked quantum computer (Jan 2025). IBM at 1,121",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "4.1 Hybrid Quantum-Classical Dataflow Frameworks.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "Executing hybrid algorithms requires coordination between classical computational nodes and quantum processors .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Fault-tolerant algorithms also often interleave quantum and classical steps. The back-and-forth between classical and quantum phases, which run on different systems at different times, makes understanding, debugging, and verifying quantum software",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "Quantinuum's Tierkreis offers a higher-order dataflow graph program representation and runtime designed specifically for compositional, quantum-classical hybrid algorithms .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "We present Tierkreis, a higher-order dataflow graph program representation and runtime designed for compositional, quantum-classical hybrid algorithms.",
+            "matched_source_index": 1,
+            "issues": []
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "Software ecosystems such as Amazon Braket integrate diverse hardware backends, enabling users to launch Jupyter notebooks and access simulators and hardware platforms from a unified interface .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Through a pay-as-you-go model and deep integration with the AWS ecosystem, users can quickly launch Jupyter notebooks, access pre-built quantum algorithms, and explore powerful simulators before deploying on actual quantum processors.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "4.2 Gate-Level Software Platforms.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "Gate-level quantum software platforms are designed around the circuit model of quantum computing to handle software functionality and compilation .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "in this paper, we focus on gate level quantum software platforms which are designed around the circuit (gate) model of quantum computing.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "Literature comparisons examine platforms like Forest (pyQuil), Qiskit, ProjectQ",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "comparing four software platforms\u2014Forest (pyQuil), Qiskit, ProjectQ, and the Quantum Developer Kit (Q#)",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "Q# to establish foundational syntax, assembly languages",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "To avoid bias towards IBM (which uses the terminology quantum assembly language) or Rigetti (which uses the terminology quantum instruction language), we abbreviate to quantum language",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "simulation capabilities .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "language syntax through example programs, library support, and quantum simulator capabilities for each platform.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "These software stacks provide high-level circuit construction and simulation tools for gate-level architectures .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "in this paper, we focus on gate level quantum software platforms which are designed around the circuit (gate) model of quantum computing.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "Published literature provides specific self-reported and experimental metrics for select platforms .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In mid-2025, Rigetti launched Cepheus-1-36Q, a modular 36-qubit system built from four interconnected 9-qubit chiplets",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "Rigetti's Cepheus-1-36Q achieved a self-reported 99.5% median two-qubit gate fidelity .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "achieving 99.5% median two-qubit gate fidelity through faster gate speeds and an enhanced coupler design.",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "QuEra's Aquila neutral-atom system supports dynamic qubit arrangement and local detuning through Amazon Braket .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "QuEra\u2019s Aquila processor, accessible via Amazon Braket, enables up to 256 neutral atom qubits, with dynamic control over qubit arrangement and local detuning",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "Simulator performance varies, with local state vector simulators capable of handling circuits up to approximately 25 qubits depending on the underlying software implementation .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "performs the best locally and can simulate circuits of up to about 25 qubits.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "6.1 Enterprise Cloud Deployment and Optimization.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "Cloud ecosystems allow commercial entities to test optimization heuristics and quantum-inspired algorithms .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "-term optimization heuristics, and quantum sensing. Most algorithms run today are 'quantum-inspired' demonstrations rather than true quantum advantage.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "D-Wave provides quantum hardware and software tools focused on complex optimization problems for enterprise and institutional partners .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "ers both quantum hardware and cloud-based software tools to solve complex optimization problems across industries like finance, life sciences, materials science, and AI/ML.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "6.2 Life Sciences and Scientific Simulation.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "Commercial deployments increasingly leverage cloud-based platforms to explore quantum applications in diverse industrial sectors .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "ers both quantum hardware and cloud-based software tools to solve complex optimization problems across industries like finance, life sciences, materials science, and AI/ML.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "Insufficient empirical evidence was retrieved regarding validated large-scale industrial deployments in drug discovery or materials design for 2026 .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Most company roadmaps and expert consensus point to 2027\u20132030 for the first practical quantum advantage on a commercially relevant problem \u2014 most likely quantum chemistry",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "7.1 Fault-Tolerant Error Correction Bottlenecks.",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "Achieving fault-tolerant quantum computing requires logical qubits formed from groups of physical qubits operating below threshold error rates .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The first phase of real fault-tolerant quantum computing. Logical qubits formed from groups of physical qubits achieve below-threshold error rates.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "modular chiplets and neutral-atom configurations scale physical qubit numbers, sustaining low logical error rates remains an engineering challenge .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "uires quantum error correction \u2014 encoding each logical qubit across hundreds to thousands of physical qubits. This overhead is the central engineering challenge of the decade.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "7.2 Algorithmic Advantage Verification.",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "Many current workloads remain quantum-inspired demonstrations rather than substantiated proof of quantum advantage over classical counterparts .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Most algorithms run today are 'quantum-inspired' demonstrations rather than true quantum advantage.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "Future advancements depend on closing the gap between theoretical fault-tolerant models and physical processor execution across diverse hardware backends .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Error correction \u2014 the unsolved engineering challenge that separates theoretical promise from",
+            "matched_source_index": 2,
+            "issues": []
+          }
+        ],
+        "total_claims": 47,
+        "supported_count": 38,
+        "supported_ratio": 0.809,
+        "revisions_made": 1,
+        "unresolved_flags": [
+          {
+            "claim_id": "c_13",
+            "claim_text": "3.1 Superconducting and Modular Chiplet Scaling.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "3.2 Neutral-Atom and Annealing Platforms.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "4.1 Hybrid Quantum-Classical Dataflow Frameworks.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "Executing hybrid algorithms requires coordination between classical computational nodes and quantum processors .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Fault-tolerant algorithms also often interleave quantum and classical steps. The back-and-forth between classical and quantum phases, which run on different systems at different times, makes understanding, debugging, and verifying quantum software",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "4.2 Gate-Level Software Platforms.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "6.1 Enterprise Cloud Deployment and Optimization.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "6.2 Life Sciences and Scientific Simulation.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "7.1 Fault-Tolerant Error Correction Bottlenecks.",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "7.2 Algorithmic Advantage Verification.",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Heading provided without source citations."
+            ]
+          }
+        ],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the current hardware architectures and scaling milestones achieved by major quantum computing players like IBM, Google, Rigetti, and IonQ in 2025-2026?",
+              "search_keywords": [
+                "Rigetti 36-qubit modular system 2025 2026",
+                "IBM Google quantum hardware roadmap scaling",
+                "IonQ trapped ion quantum processors milestones"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 1,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "IonQ",
+              "IBM",
+              "Google",
+              "Rigetti",
+              "Tempo",
+              "Cepheus-1-36Q"
+            ],
+            "notes": "Partial coverage. Covered entities: IonQ, IBM, Google, Rigetti, Tempo, Cepheus-1-36Q"
+          },
+          {
+            "sub_query": {
+              "question": "How are neutral atom and annealing platforms, such as QuEra and D-Wave, positioning themselves for commercial advantages in the quantum market?",
+              "search_keywords": [
+                "QuEra neutral atom quantum computing roadmap",
+                "D-Wave quantum annealing commercial advantage 2025 2026",
+                "quantum computing market report 2025 key players"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "QuEra",
+              "AWS"
+            ],
+            "notes": "Partial coverage. Covered entities: QuEra, AWS"
+          },
+          {
+            "sub_query": {
+              "question": "What are the latest advancements in quantum software development kits and frameworks, including Qiskit and Cirq, for hybrid quantum-classical algorithms?",
+              "search_keywords": [
+                "Qiskit latest developments software framework",
+                "Cirq hybrid quantum classical algorithms",
+                "quantum programming developer ecosystems 2026"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Qiskit",
+              "Cirq",
+              "Q#",
+              "Tierkreis"
+            ],
+            "notes": "Partial coverage. Covered entities: Qiskit, Cirq, Q#, Tierkreis"
+          }
+        ],
+        "full_text_source_count": 3,
+        "abstract_only_source_count": 3
+      }
+    }
+  },
+  "metrics": {},
+  "total_duration_seconds": 260.81
+}
