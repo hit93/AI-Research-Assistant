@@ -97,7 +97,17 @@ flowchart TD
 - **📄 Publication-Ready Multi-Format Exporter (`src/utils/exporter.py`)**:
   - **PDF (ReportLab)**: Two-pass dynamic page numbering ("Page X of Y"), evaluator score badges, citation tables, and clean typography.
   - **Markdown & JSON**: GitHub-Flavored Markdown and structured JSON with automated local archival to `data/reports/`.
-- **🧪 54 Automated Unit & Integration Tests**: 100% passing test suite across graph state machines, chains, tools, memory, exporters, and edge cases.
+- **🛡️ Factual Grounding & Citation Integrity Engine (Phase 4.5)**:
+  - **Authority & Domain Filtering**: Suppresses social media (`linkedin.com`, `reddit.com`) and sponsored ads; filters out off-topic domain collisions with +2.5 boost to arXiv peer-reviewed literature.
+  - **Context-Aligned Retrieval**: Caps top 12 authoritative sources to ensure 100% 1-to-1 parity between prompt lists and memory state without slicing desynchronization.
+  - **Automated In-Text Citation Sync**: Regex parser synchronizes inline citations (`[N]`) directly to Pydantic `source_indices` schema attributes.
+  - **Claim-Level Entailment & Quantitative Verifier**: Audits every percentage, multiplier, and numerical metric against retrieved text; flags domain misattributions.
+- **🤖 Multi-Provider LLM Support (Groq & Google AI Studio Gemini)**:
+  - Seamless integration with **Gemini 3.5 Flash / Flash-Lite / 3.6 Flash** and **Groq** models (`gpt-oss-120b`, `qwen3.8-27b`).
+- **🧪 91 Automated Unit & Integration Tests**: 100% passing test suite across graph state machines, chains, tools, memory, exporters, prompts, and edge cases.
+- **📚 Architectural Deep-Dives**:
+  - [Pipeline Architecture & Quality Guarantees (PIPELINE_ARCHITECTURE.md)](PIPELINE_ARCHITECTURE.md)
+  - [Core LLM Research Findings Demo (CORE_LLM_RESEARCH.md)](CORE_LLM_RESEARCH.md)
 
 ---
 

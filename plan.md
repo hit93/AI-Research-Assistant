@@ -162,7 +162,43 @@ Fix root causes of 5/10 audit failures: synthetic metrics, citation mismatches, 
 * [x] **Long-Term Memory (LTM)**: SQLite/pgvector persistent run archive.
 * [x] **Semantic Cache**: Cosine similarity caching ($\ge 0.85$ threshold) for 0-token instant queries.
 * [x] **Hybrid RAG Engine**: BM25 + dense vector cosine similarity with Reciprocal Rank Fusion (RRF).
-* [x] **Automated Test Suite**: 57 unit, mock, and integration tests passing.
+* [x] **Automated Test Suite**: 91 unit, mock, and integration tests passing.
+
+---
+
+### 🔹 Phase 4.5: Factual Grounding & Citation Integrity Remediation (COMPLETED)
+
+* [x] **Step 4.5.1: Source Authority & Domain Relevance Filtering (`src/tools/text_cleaner.py`)**
+  * Auto-suppression of social media domains (`linkedin.com`, `twitter.com`, `reddit.com`) and sponsored links (`/sponsored/`, `/native-ad/`).
+  * Domain keyword overlap scoring against the query to prune off-topic papers.
+  * Peer-reviewed primary literature boost (+2.5 for arXiv preprints).
+  * 1-to-1 context alignment: capped at top 12 authoritative sources to eliminate prompt slicing desynchronization (`sources[:10]`).
+
+* [x] **Step 4.5.2: In-Text Citation Synchronization (`src/chains/synthesizer.py`, `src/chains/refiner.py`)**
+  * Implemented `_sync_section_citations()` to automatically bind regex in-text `[N]` citations to the structured Pydantic `source_indices` list.
+  * Eliminated empty `source_indices: []` issues on sections containing inline citations.
+
+* [x] **Step 4.5.3: Claim-Level & Quantitative Fact-Checker (`src/prompts/verifier.py`, `src/chains/verifier.py`)**
+  * Refocused LLM-as-judge prompt on claim-level entailment and quantitative checking.
+  * Mandatory verification of every number, percentage, and baseline multiplier against source text.
+  * High-severity penalty for off-domain misattributions or unbacked metrics.
+
+* [x] **Step 4.5.4: Grounding-Enforcing Refiner (`src/prompts/refiner.py`, `src/chains/refiner.py`)**
+  * Injects targeted Hybrid RAG audit passages to bridge evidence gaps.
+  * Explicit instructions to delete or qualify claims flagged as unbacked or hallucinated.
+
+* [x] **Step 4.5.5: Gemini 3.x Provider Integration & Model Catalog Update**
+  * Integrated `langchain-google-genai` into `.venv` and `requirements.txt`.
+  * Updated active models in `app.py` to `gemini-3.5-flash-lite`, `gemini-3.6-flash`, `gemini-3.5-flash`, and `gemini-3.8-flash` (retiring deprecated `gemini-2.5-*`).
+  * Supported list response text parsing in `src/chains/llm.py`.
+
+> ### 🏁 Checkpoint 4.5: Audit & Integrity Verification (PASSED)
+> 
+> * [x] 91/91 unit & integration tests passing (`pytest tests/`).
+> * [x] Cleaned source pool free of social media / promotional links.
+> * [x] Published documentation: `PIPELINE_ARCHITECTURE.md` and `CORE_LLM_RESEARCH.md`.
+
+---
 
 > ### 🏁 Checkpoint 4: Memory & Gateway Verification (PASSED)
 > 
