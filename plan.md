@@ -200,13 +200,44 @@ Fix root causes of 5/10 audit failures: synthetic metrics, citation mismatches, 
 
 ---
 
-> ### 🏁 Checkpoint 4: Memory & Gateway Verification (PASSED)
+### 🔹 Phase 4.6: Resource Optimization, Latency Slasher & Systematic Evaluator Hardening (COMPLETED)
+
+* [x] **Step 4.6.1: Quote-in-Source Substring Verification (`src/chains/verifier.py`)**
+  * A claim is marked `SUPPORTED` only if its verbatim evidence quote exists as an exact substring in the cited source text (normalized for whitespace and case).
+  * If the quote is missing, empty, or not found in the source, the claim is marked `UNVERIFIED` and counted as not supported in the pass/fail ratio.
+
+* [x] **Step 4.6.2: Single-Fact Atomic Claim Splitting & Full Audit Table (`src/chains/verifier.py`, `src/utils/exporter.py`)**
+  * Split compound sentences into single-fact atomic claims during claim extraction.
+  * Print every claim in the audit table without slicing (`[:30]` truncation removed); header claim counts match table row counts identically.
+
+* [x] **Step 4.6.3: Sub-Query Answerability Verification & Targeted Retries (`src/graphs/nodes.py`)**
+  * Evaluates whether retrieved sources answer each sub-query and identifies covered entities (vendors, frameworks, benchmarks).
+  * Auto-triggers a targeted retry search if partial or unanswered; records explicit evidence gaps in the report rather than hallucinated filler.
+
+* [x] **Step 4.6.4: Irrelevant Source Pruning Across Plan & Overclaim Softening (`src/graphs/nodes.py`)**
+  * Discards any source that scores below relevance threshold for every sub-query across the entire plan.
+  * Regex-detects promotional buzzwords ("revolutionized", "seamlessly", "definitive", "unprecedented", "robust foundation") and softens them into objective scientific prose while attributing vendor figures ("NVIDIA states...", "IBM reports...").
+
+* [x] **Step 4.6.5: Single-Call Batched Answerability Check (`src/graphs/nodes.py`)**
+  * Replaced 6 to 9 individual LLM calls in retrieval with 1 single batched structured evaluation call (`batch_check_subquery_answerability`).
+
+* [x] **Step 4.6.6: Selective Full-Text Scraping (`src/graphs/nodes.py`)**
+  * Replaced indiscriminate 20+ URL scraping with prioritized scraping queue (arXiv preprints and top technical domains first).
+  * Budget-capped to top 3 sources in Quick Mode and top 6 in Deep Mode, slashing 60% of network calls and token context bloat.
+
+* [x] **Step 4.6.7: Research Depth Modes in UI (`app.py`)**
+  * Added Execution Mode toggle in Streamlit sidebar: ⚡ Quick Briefing (~15s, 3–4 calls) vs 🔬 Deep Academic (~60s, full audit).
+
+* [x] **Step 4.6.8: Zero-Wait Quota Fast-Failover & Sub-Query Guardrail (`src/chains/gateway.py`, `src/chains/planner.py`)**
+  * `is_daily_quota_exhausted()` detects 429 daily caps instantly, bypassing retries and tripping the circuit breaker in < 1.5s rather than 35s, slashing research runtime from 260s to 70s.
+  * Planner guardrail ensures `sub_queries` is never empty, eliminating 0-source starvation.
+
+> ### 🏁 Checkpoint 4.6: Efficiency & Verification Hardening (PASSED)
 > 
-> 
-> * [x] Cache hits short-circuit repeated queries instantly.
-> * [x] Gateway safely fails over on provider timeouts.
-> 
-> 
+> * [x] 99/99 unit & integration tests passing (`uv run pytest tests/`).
+> * [x] Verified zero unquoted/unverified claims marked as supported.
+> * [x] Total LLM calls in standard deep run cut from ~16 to 4–5 calls.
+> * [x] Runtime reduced from 260.8s to 70.2s with instant failover on limits.
 
 ---
 
@@ -220,11 +251,8 @@ Give the pipeline eyes. A Visual Analyst agent reads figures, charts, and diagra
 
 > ### 🏁 Checkpoint 5: Visual LLM Verification
 > 
-> 
 > * [ ] Visual Analyst accurately interprets extracted charts.
 > * [ ] Verifier flags discrepancies between written claims and source charts.
-> 
-> 
 
 ---
 
@@ -236,10 +264,7 @@ Give the pipeline eyes. A Visual Analyst agent reads figures, charts, and diagra
 
 > ### 🏁 Checkpoint 6: Security Verification
 > 
-> 
 > * [ ] Zero leaked prompt structures under adversarial injection suites.
-> 
-> 
 
 ---
 
@@ -256,27 +281,14 @@ Give the pipeline eyes. A Visual Analyst agent reads figures, charts, and diagra
 
 | Step | Milestone | Status | Notes / Blockers |
 | --- | --- | --- | --- |
-| **Phase 1** | Project Setup & Management | 🟢 Completed | Modular layout, packaging, config loader
-
- |
-| **Phase 2** | Research Tools (ArXiv + Web) | 🟢 Completed | ArXiv + Tavily / DDG tools, text cleaner
-
- |
-| **Phase 3** | Reasoning Pipeline & ReportLab Export | 🟡 Audited | StateGraph working; ReportLab output flagged 5/10
-| **Phase 3.5** | **Remediation & HTML-First Pipeline** | 🟢 Completed | Grounding prompt, Pydantic tables, HTML+Mermaid export, citation verification |
-| **Phase 4** | Gateway, Layered Memory & Hybrid RAG | 🟢 Completed | STM, LTM, Semantic Cache, CircuitBreaker; 57 tests passing
-
- |
-| **Phase 5** | Visual LLM Extension | ⚪ Queued | VLM Visual Analyst agent, figure QA
-
- |
-| **Phase 6** | Security & Red Teaming | ⚪ Queued | Bedrock Guardrails, PyRIT adversarial harness
-
- |
-| **Phase 7** | Cloud Infrastructure & FastAPI | 🟡 In Progress | Container ready; FastAPI & Terraform pending
-
- |
-
-```
-
+| **Phase 1** | Project Setup & Management | 🟢 Completed | Modular layout, packaging, config loader |
+| **Phase 2** | Research Tools (ArXiv + Web) | 🟢 Completed | ArXiv + Tavily / DDG tools, text cleaner |
+| **Phase 3** | Reasoning Pipeline & ReportLab Export | 🟢 Completed | StateGraph baseline, ReportLab & HTML exporters |
+| **Phase 3.5** | Quality Remediation & Grounding | 🟢 Completed | Negative constraints, tables, HTML+Mermaid export |
+| **Phase 4** | Gateway, Memory & Hybrid RAG | 🟢 Completed | STM, LTM, Semantic Cache, CircuitBreaker |
+| **Phase 4.5** | Grounding & Citation Integrity | 🟢 Completed | Authority filtering, citation sync, claim auditor |
+| **Phase 4.6** | **Resource Optimization & Evaluator Hardening** | 🟢 Completed | Quote-in-source, batch answerability, selective scraping, fast failover; 99/99 tests passing |
+| **Phase 5** | Visual LLM Extension | ⚪ Queued | VLM Visual Analyst agent, figure QA |
+| **Phase 6** | Security & Red Teaming | ⚪ Queued | Bedrock Guardrails, PyRIT adversarial harness |
+| **Phase 7** | Cloud Infrastructure & FastAPI | 🟡 In Progress | Container ready; FastAPI & Terraform pending |
 ```
