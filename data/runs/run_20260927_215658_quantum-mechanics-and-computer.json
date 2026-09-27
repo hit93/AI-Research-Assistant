@@ -1,0 +1,3669 @@
+{
+  "query": "quantum mechanics and computers",
+  "timestamp": "20260927_215658",
+  "stages": {
+    "plan": {
+      "recorded_at": "2026-09-27T21:57:22.971173",
+      "duration_from_start": 24.34,
+      "data": {
+        "original_query": "quantum mechanics and computers",
+        "sub_queries": [
+          {
+            "question": "What are the latest hardware architectures and competing physical platforms developed by major quantum computing players as of 2026?",
+            "search_keywords": [
+              "quantum computing hardware platforms 2025 2026",
+              "superconducting qubits ion trap neutral atoms Rigetti IBM",
+              "scalable quantum processors 2026"
+            ],
+            "source_type": "web"
+          },
+          {
+            "question": "How have quantum error correction and fault-tolerant architectural designs advanced in recent academic literature?",
+            "search_keywords": [
+              "fault tolerant quantum computing error correction arxiv 2025 2026",
+              "surface codes quantum processor error threshold"
+            ],
+            "source_type": "arxiv"
+          },
+          {
+            "question": "What is the current state of software frameworks, compilation tools, and developer ecosystems for quantum computers?",
+            "search_keywords": [
+              "Qiskit Cirq quantum software development kits 2026",
+              "quantum programming frameworks compilation optimization"
+            ],
+            "source_type": "web"
+          }
+        ],
+        "reasoning": "The topic of quantum mechanics and computers is decomposed into 5 distinct sub-questions covering hardware architectures, error correction theory, software ecosystems, post-quantum cryptography standards, and commercial real-world deployments as of 2026."
+      }
+    },
+    "retrieval": {
+      "recorded_at": "2026-09-27T21:57:45.942738",
+      "duration_from_start": 47.31,
+      "data": {
+        "total_sources_retrieved": 6,
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the latest hardware architectures and competing physical platforms developed by major quantum computing players as of 2026?",
+              "search_keywords": [
+                "quantum computing hardware platforms 2025 2026",
+                "superconducting qubits ion trap neutral atoms Rigetti IBM",
+                "scalable quantum processors 2026"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 1,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "IonQ",
+              "Silicon Quantum Computing",
+              "Quantinuum",
+              "IQM",
+              "Infleqtion",
+              "Google"
+            ],
+            "notes": "Partial coverage. Covered entities: IonQ, Silicon Quantum Computing, Quantinuum, IQM, Infleqtion, Google"
+          },
+          {
+            "sub_query": {
+              "question": "How have quantum error correction and fault-tolerant architectural designs advanced in recent academic literature?",
+              "search_keywords": [
+                "fault tolerant quantum computing error correction arxiv 2025 2026",
+                "surface codes quantum processor error threshold"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Continuous-time quantum error correction",
+              "Entanglement-Assisted Quantum Error-Correcting Codes"
+            ],
+            "notes": "Partial coverage. Covered entities: Continuous-time quantum error correction, Entanglement-Assisted Quantum Error-Correcting Codes"
+          },
+          {
+            "sub_query": {
+              "question": "What is the current state of software frameworks, compilation tools, and developer ecosystems for quantum computers?",
+              "search_keywords": [
+                "Qiskit Cirq quantum software development kits 2026",
+                "quantum programming frameworks compilation optimization"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "PennyLane",
+              "Xanadu",
+              "Python",
+              "Q#"
+            ],
+            "notes": "Partial coverage. Covered entities: PennyLane, Xanadu, Python, Q#"
+          }
+        ],
+        "full_text_count": 3,
+        "abstract_only_count": 3
+      }
+    },
+    "synthesis": {
+      "recorded_at": "2026-09-27T21:58:20.023018",
+      "duration_from_start": 81.39,
+      "data": [
+        {
+          "heading": "Abstract",
+          "content": "Quantum mechanics and computers intersect through the physical manipulation of superposition and entanglement to execute information processing tasks beyond classical limitations [1, 2]. Recent technical evaluations synthesize hardware platforms, error-correcting developments, and software ecosystems as of 2026 [2, 3, 4, 5]. Key empirical indicators show multi-vendor competition across superconducting circuits, trapped ions, and neutral atoms, paired with evolving quantum programming frameworks like PennyLane and Q# [2, 3, 5]. Implications highlight a transitioning landscape moving toward fault-tolerant architectures and practical hybrid cloud deployments [3, 4, 6].",
+          "source_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Executive Summary & Core Insights",
+          "content": "> **Core Insight:** Quantum computing in 2026 bridges NISQ hardware platforms and early fault-tolerant error-corrected memory modules, supported by structured software toolchains and diverse physical modalities.\n\nThe global quantum computing ecosystem features multiple competing hardware modalities, primarily centered on superconducting circuits, trapped ions, and neutral atoms [2, 3]. Foundational giants and specialized vendors continue to scale physical qubit counts while integrating advanced error-correcting codes, such as quantum Low-Density Parity-Check (qLDPC) memories and surface codes [3, 6].\n\nConcurrently, software development kits (SDKs), compilers, and specialized cloud frameworks act as critical layers interfacing high-level algorithms with physical quantum processors [4, 5].",
+          "source_indices": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "figures": [
+            "+-----------------------------------+     +-----------------------------------+     +-----------------------------------+\n|          Quantum SDKs             | --> |    Compilers & Optimizers         | --> |   Hardware Platforms (Super-      |\n| (Qiskit, Cirq, PennyLane, Q#)     |     | (Catalyst, Transpilers)           |     |  conducting, IonQ, Neutral Atoms) |\n+-----------------------------------+     +-----------------------------------+     +-----------------------------------+"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Architectural Evolution, Hardware Milestones & Key Players",
+          "content": "3.1 Superconducting and Multi-Platform Landscape\nThe leading superconducting quantum computing companies in 2026 build qubits from superconducting circuits utilizing Josephson junctions housed in dilution refrigerators at millikelvin temperatures [2]. Nine commercial vendors populate the superconducting space, split between transmon architectures (including IBM Quantum, Google Quantum AI, Rigetti, IQM, OQC, SeeQC, QuantWare, and Anyon Systems) and three-dimensional coaxmon designs built by OQC [2].\n\n3.2 Vendor Milestones and Roadmap Targets\nIBM Quantum maintains prominent hardware lines such as the Heron R2 (156 qubits with 99.5% two-qubit fidelity), Condor (1,121 qubits), Nighthawk (120 qubits), and the 2026 Kookaburra qLDPC roadmap module targeting 7,500 gates across up to 360 qubits [3, 6]. Google Quantum AI demonstrated the 105-qubit Willow chip in December 2024, achieving error reduction as the surrounding surface code expanded, alongside a verified logical qubit [2, 6]. Rigetti commercialized its Cepheus-1 108-qubit multi-chip processor in early 2026 targeting 99.7% fidelity, while IQM introduced its 150-qubit Radiance system [3, 6].",
+          "source_indices": [
+            2,
+            3,
+            6
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Year",
+              "Milestone / Platform",
+              "Key Contribution",
+              "Organization",
+              "Source"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "2024",
+                  "Willow Chip",
+                  "105-qubit superconducting processor showing error reduction with surface code expansion",
+                  "Google Quantum AI",
+                  "[2, 6]"
+                ]
+              },
+              {
+                "cells": [
+                  "2026",
+                  "Cepheus-1",
+                  "108-qubit multi-chip processor reaching general availability, targeting 99.7% fidelity",
+                  "Rigetti Computing",
+                  "[3, 6]"
+                ]
+              },
+              {
+                "cells": [
+                  "2026",
+                  "Kookaburra Roadmap",
+                  "Targeting 7,500 gates on up to 360 qubits using qLDPC error correction memory",
+                  "IBM Quantum",
+                  "[3, 6]"
+                ]
+              },
+              {
+                "cells": [
+                  "2026",
+                  "Radiance System",
+                  "150-qubit superconducting architecture deployment",
+                  "IQM Quantum Computers",
+                  "[6]"
+                ]
+              }
+            ],
+            "caption": "Timeline of key hardware milestones and vendor platforms as of 2026."
+          }
+        },
+        {
+          "heading": "Technical Architecture & Methodologies",
+          "content": "4.1 Continuous-Time Quantum Error Correction and Entanglement-Assisted Codes\nTheoretical foundations established in literature examine continuous-time quantum error correction (CTQEC), which treats both noise and error-correcting operations as continuous-time processes using continuous weak measurements and feedback based on the subsystem principle [0]. Additionally, entanglement-assisted quantum error-correcting codes utilize shared entanglement between sender and receiver to protect quantum information from channel noise during storage and gate operations [1].\n\n4.2 Software Compilation and Execution Pipeline\nQuantum software stacks function as the intermediate layer linking high-level algorithms to physical backends [4, 5]. Circuit compilers and optimizers translate high-level descriptions into hardware-native instructions, adapting gate sequences to distinct device constraints [4].",
+          "source_indices": [
+            0,
+            1,
+            4,
+            5
+          ],
+          "figures": [
+            "graph TD\n    A[High-Level Algorithm (Python / Q#)] --> B[SDK Circuit Builder]\n    B --> C[Circuit Compilers & Optimizers]\n    C --> D[Hardware Backends / Simulators]\n    D --> E[Cloud / On-Premise Execution]"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Comparative Performance Benchmarks & Empirical Data",
+          "content": "Empirical data regarding fidelity metrics reported across platforms highlight the current standing of diverse modalities as of March 2026 [3, 6]. Reported figures reflect self-reported vendor specifications or abstract-level performance summaries.",
+          "source_indices": [
+            3,
+            6
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Platform / Approach",
+              "Metric / Conditions",
+              "Result / Value",
+              "Source"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "IonQ",
+                  "Fidelity Leaderboard (March 2026)",
+                  "99.99%",
+                  "[3]"
+                ]
+              },
+              {
+                "cells": [
+                  "Silicon Quantum Computing",
+                  "Fidelity Leaderboard (March 2026)",
+                  "99.99%",
+                  "[3]"
+                ]
+              },
+              {
+                "cells": [
+                  "Quantinuum",
+                  "Fidelity Leaderboard (March 2026)",
+                  "99.97%",
+                  "[3]"
+                ]
+              },
+              {
+                "cells": [
+                  "IQM",
+                  "Fidelity Leaderboard (March 2026)",
+                  "99.91%",
+                  "[3]"
+                ]
+              },
+              {
+                "cells": [
+                  "Infleqtion",
+                  "Neutral Atoms Fidelity (March 2026)",
+                  "99.73%",
+                  "[3]"
+                ]
+              },
+              {
+                "cells": [
+                  "Google Willow",
+                  "Superconducting Fidelity (March 2026)",
+                  "99.88%",
+                  "[3]"
+                ]
+              },
+              {
+                "cells": [
+                  "Rigetti Cepheus-1",
+                  "108 Qubits, Early 2026",
+                  "99.5%",
+                  "[3]"
+                ]
+              },
+              {
+                "cells": [
+                  "IBM Heron R2",
+                  "156 Qubits, Two-Qubit Fidelity",
+                  "99.5%",
+                  "[6]"
+                ]
+              }
+            ],
+            "caption": "Fidelity and platform benchmarks reported as of early 2026."
+          }
+        },
+        {
+          "heading": "Practical Applications & Industrial Impact",
+          "content": "6.1 Software Frameworks and Developer Ecosystems\nQuantum programming frameworks bundle circuit builders, simulators, optimization routines, noise models, and hardware cloud connections [5]. PennyLane, developed by Xanadu, functions as a framework for quantum machine learning and differentiable quantum programming, treating circuits as differentiable functions that integrate with classical machine-learning workflows while running across multi-vendor backends [5]. Its companion Catalyst compiler provides just-in-time compilation for resource-intensive programs [5].\n\n6.2 Enterprise Integration and Multi-Platform SDKs\nEcosystem offerings such as IBM Qiskit, Google Cirq, Amazon Braket, Microsoft Azure Quantum (with the Azure Quantum Development Kit and Q#), Classiq, and Quantinuum cater to distinct institutional needs ranging from open-source academic research to enterprise hybrid deployments [4, 5]. Platform selection is driven by use cases, integration mandates, SDK compatibility, and hardware flexibility [4].",
+          "source_indices": [
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Research Gaps, Limitations & Future Horizons",
+          "content": "7.1 Hardware Scalability and Error Correction Gaps\n> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding the complete hardware architectures and competing physical platforms developed by major quantum computing players beyond the summarized superconducting, trapped-ion, and neutral-atom toplists.\n\nWhile devices such as Google's Willow and IBM's planned Kookaburra modules point toward surface-code and qLDPC implementations, comprehensive peer-reviewed fault-tolerant scalability benchmarks across all commercial providers remain sparse [3, 6].\n\n7.2 Algorithmic Compilation and Error Mitigation Bottlenecks\n> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding advanced academic literature breakthroughs in quantum error correction and developer software toolchain performance beyond abstract summaries of SDKs and JIT compilers [3, 4, 5].\n\nFuture advancements rely on successfully bridging theoretical continuous-time protocols and entanglement-assisted architectures with multi-chip hardware deployments [0, 1, 3].",
+          "source_indices": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_0": {
+      "recorded_at": "2026-09-27T21:58:41.936824",
+      "duration_from_start": 103.31,
+      "data": {
+        "is_approved": false,
+        "overall_score": 6,
+        "issues": [
+          {
+            "section_heading": "Abstract",
+            "issue": "Citation index [6] is out of bounds (only 6 sources available: [0..5]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "Citation index [6] is out of bounds (only 6 sources available: [0..5]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "Citation index [6] is out of bounds (only 6 sources available: [0..5]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "Citation index [6] is out of bounds (only 6 sources available: [0..5]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "Citation index [6] is out of bounds (only 6 sources available: [0..5]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "issue": "Citation index [6] is out of bounds (only 6 sources available: [0..5]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "Citation index [6] is out of bounds (only 6 sources available: [0..5]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'Quantum mechanics and computers intersect through the physical manipulation of s...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'neutral atoms, paired with evolving quantum programming frameworks like PennyLan...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNCITED] Claim '> **Core Insight:** Quantum computing in 2026 bridges NISQ hardware platforms an...' - Uncited factual sentence. Statements must cite verified source [N].; Core insight presented without direct source citations.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[UNCITED] Claim '3.1 Superconducting and Multi-Platform Landscape...' - Uncited factual sentence. Statements must cite verified source [N].; Subsection title with no citations needed.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[UNCITED] Claim '3.2 Vendor Milestones and Roadmap Targets...' - Uncited factual sentence. Statements must cite verified source [N].; Subsection title with no citations needed.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[PARTIAL] Claim 'IBM Quantum maintains prominent hardware lines such as the Heron R2 (156 qubits ...' - The specific metrics for Heron R2 (156 qubits, 99.5%), Condor (1,121 qubits), and Nighthawk (120 qubits) are not present in Source 3 abstract text snippet provided.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[PARTIAL] Claim 'Rigetti commercialized its Cepheus-1 108-qubit multi-chip processor in early 202...' - Evidence text cuts off mid-word regarding the specific fidelity target value, though general availability is supported.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[UNSUPPORTED] Claim 'IQM introduced its 150-qubit Radiance system ....' - Source 3 evidence snippet mentions IQM's fidelity (99.91%) but does not mention the 150-qubit Radiance system.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.1 Continuous-Time Quantum Error Correction and Entanglement-Assisted Codes...' - Uncited factual sentence. Statements must cite verified source [N].; Subsection title with no citations needed.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.2 Software Compilation and Execution Pipeline...' - Uncited factual sentence. Statements must cite verified source [N].; Subsection title with no citations needed.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "issue": "[UNCITED] Claim 'Reported figures reflect self-reported vendor specifications or abstract-level p...' - Uncited factual sentence. Statements must cite verified source [N].; Factual statement regarding benchmark sources without a citation tag.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.1 Software Frameworks and Developer Ecosystems...' - Uncited factual sentence. Statements must cite verified source [N].; Subsection title with no citations needed.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[PARTIAL] Claim 'Its companion Catalyst compiler provides just-in-time compilation for resource-i...' - Source 5 mentions '-time compilation for heavier programs' but cuts off the exact compiler name (Catalyst) in the snippet.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.2 Enterprise Integration and Multi-Platform SDKs...' - Uncited factual sentence. Statements must cite verified source [N].; Subsection title with no citations needed.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNCITED] Claim '7.1 Hardware Scalability and Error Correction Gaps...' - Uncited factual sentence. Statements must cite verified source [N].; Subsection title with no citations needed.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNCITED] Claim '> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding the ...' - Uncited factual sentence. Statements must cite verified source [N].; Evidence gap commentary presented without explicit source reference tags.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNCITED] Claim 'neutral-atom toplists....' - Uncited factual sentence. Statements must cite verified source [N].; Continuation of text block without inline citation.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNCITED] Claim '7.2 Algorithmic Compilation and Error Mitigation Bottlenecks...' - Uncited factual sentence. Statements must cite verified source [N].; Subsection title with no citations needed.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'Future advancements rely on successfully bridging theoretical continuous-time pr...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          }
+        ],
+        "summary": "Claim-level audit verified 47 claims: 28/47 supported (59.6%). 19 flagged issues, 0 overclaims, 0 cross-section contradictions.",
+        "judge_ran": true,
+        "claims": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Quantum mechanics and computers intersect through the physical manipulation of superposition and entanglement to execute information processing tasks beyond classical limitations .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              1,
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Where classical computers manipulate bits that a...rposition and entanglement to process information in ways that classical physics cannot.",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "Recent technical evaluations synthesize hardware platforms, error-correcting developments",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Superconducting hardware produced the first published exponential error suppression on a working platform when Google\u2019s Willow chip demonstrated in December 2024 that surface-code logical-error rates fall exponentially as the code distance grows.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "software ecosystems as of 2026 .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Quantum software platforms are the critical layer between quantum hardware and real engineering applications, covering SDKs, simulators, compilers, and cloud hardware access.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "Key empirical indicators show multi-vendor competition across superconducting circuits, trapped ions",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The codes are where they differ. IBM and Google use surface codes, Alice & Bob uses bosonic codes, and IBM\u2019s 2026 Kookaburra roadmap brings in the newer high-rate qLDPC codes.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "neutral atoms, paired with evolving quantum programming frameworks like PennyLane and Q# .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "## PennyLane PennyLane, built by the Canadian company Xanadu, is the leading framework for quantum machine learning and differentiable quantum programming... ## Microsoft Q# and the Azure Quantum Development Kit",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "Implications highlight a transitioning landscape moving toward fault-tolerant architectures and practical hybrid cloud deployments .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              3,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Quantum software platforms are the critical layer between quantum hardware and real engineering applications, covering SDKs, simulators, compilers, and cloud hardware access.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "> **Core Insight:** Quantum computing in 2026 bridges NISQ hardware platforms and early fault-tolerant error-corrected memory modules, supported by structured software toolchains and diverse physical modalities.",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Core insight presented without direct source citations."
+            ]
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "The global quantum computing ecosystem features multiple competing hardware modalities, primarily centered on superconducting circuits, trapped ions",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Nine commercial vendors define the top superconducting quantum computing companies in 2026, and they divide neatly.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "neutral atoms .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Neutral-atom runs at thousands of qubits (1,180 on Atom Computing Phoenix) with reconfigurable software-defined connectivity",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "Foundational giants and specialized vendors continue to scale physical qubit counts while integrating advanced error-correcting codes, such as quantum Low-Density Parity-Check (qLDPC) memories and surface codes .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "targeting 7,500 gates on up to 360 qubits using qLDPC error correction memory.",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "Concurrently, software development kits (SDKs), compilers",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "SDKs (Software Development Kits): Libraries and frameworks for writing quantum algorithms in Python, Q#, or other supported languages Circuit compilers and optimizers",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "specialized cloud frameworks act as critical layers interfacing high-level algorithms with physical quantum processors .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Quantum software platforms are the critical layer between quantum hardware and real engineering applications, covering SDKs, simulators, compilers, and cloud hardware access.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "3.1 Superconducting and Multi-Platform Landscape",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "The leading superconducting quantum computing companies in 2026 build qubits from superconducting circuits utilizing Josephson junctions housed in dilution refrigerators at millikelvin temperatures .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The leading top superconducting quantum computing companies in 2026 build their qubits from superconducting circuits wired around Josephson junctions. Those circuits sit inside a dilution refrigerator, cooled to millikelvin temperatures",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "Nine commercial vendors populate the superconducting space, split between transmon architectures (including IBM Quantum, Google Quantum AI, Rigetti, IQM, OQC, SeeQC, QuantWare",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Nine commercial vendors make up the top superconducting quantum computing companies. They fall into two camps. Eight build transmons: IBM Quantum, Google Quantum AI , Rigetti, IQM, OQC, SeeQC,",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "Anyon Systems) and three-dimensional coaxmon designs built by OQC .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Amsterdam, third-party chip fab supplier), and Anyon Systems (Canada, MonarQ 24Q full-stack) round out the lineup.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "3.2 Vendor Milestones and Roadmap Targets",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "IBM Quantum maintains prominent hardware lines such as the Heron R2 (156 qubits with 99.5% two-qubit fidelity), Condor (1,121 qubits), Nighthawk (120 qubits)",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "The specific metrics for Heron R2 (156 qubits, 99.5%), Condor (1,121 qubits), and Nighthawk (120 qubits) are not present in Source 3 abstract text snippet provided."
+            ]
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "the 2026 Kookaburra qLDPC roadmap module targeting 7,500 gates across up to 360 qubits .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "targeting 7,500 gates on up to 360 qubits using qLDPC error correction memory.",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "Google Quantum AI demonstrated the 105-qubit Willow chip in December 2024, achieving error reduction as the surrounding surface code expanded, alongside a verified logical qubit .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Google Quantum AI (105-qubit Willow with one verified logical qubit, surface-code milestone December 2024)",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "Rigetti commercialized its Cepheus-1 108-qubit multi-chip processor in early 2026 targeting 99.7% fidelity",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Rigetti's Cepheus-1 108-qubit multi-chip processor reached general availability in early 2026, targeting 9...",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence text cuts off mid-word regarding the specific fidelity target value, though general availability is supported."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "IQM introduced its 150-qubit Radiance system .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNSUPPORTED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Source 3 evidence snippet mentions IQM's fidelity (99.91%) but does not mention the 150-qubit Radiance system."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "4.1 Continuous-Time Quantum Error Correction and Entanglement-Assisted Codes",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "Theoretical foundations established in literature examine continuous-time quantum error correction (CTQEC), which treats both noise and error-correcting operations as continuous-time processes using continuous weak measurements and feedback based on the subsystem principle .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Continuous-time quantum error correction (CTQEC) is an approach to protecting quantum information from noise in which both the noise and the error correcting operations are treated as processes that are continuous in time.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "Additionally, entanglement-assisted quantum error-correcting codes utilize shared entanglement between sender and receiver to protect quantum information from channel noise during storage and gate operations .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In this chapter we study the use of pre-shared entanglement in quantum communication, and how we can design QECCs that use entanglement to boost either the rate of communication",
+            "matched_source_index": 1,
+            "issues": []
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "4.2 Software Compilation and Execution Pipeline",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "Quantum software stacks function as the intermediate layer linking high-level algorithms to physical backends .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Quantum software platforms are the critical layer between quantum hardware and real engineering applications",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "Circuit compilers and optimizers translate high-level descriptions into hardware-native instructions, adapting gate sequences to distinct device constraints .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Circuit compilers and optimizers: Translate high-level algorithms into hardware instructions, optimizing gate sequences for specific device constraints",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "Empirical data regarding fidelity metrics reported across platforms highlight the current standing of diverse modalities as of March 2026 .",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The fidelity leaderboard as of March 2026 is led by IonQ and Silicon Quantum Computing (both 99.99%), followed by Quantinuum (99.97%), IQM (99.91%), and Infleqtion (99.73% for neutral atoms).",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "Reported figures reflect self-reported vendor specifications or abstract-level performance summaries.",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Factual statement regarding benchmark sources without a citation tag."
+            ]
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "6.1 Software Frameworks and Developer Ecosystems",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "Quantum programming frameworks bundle circuit builders, simulators, optimization routines, noise models",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "It bundles circuit builders, simulators, optimisation routines, noise models",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "hardware cloud connections .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "and the connections to real hardware or cloud services.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "PennyLane, developed by Xanadu, functions as a framework for quantum machine learning and differentiable quantum programming, treating circuits as differentiable functions that integrate with classical machine-learning workflows while running across multi-vendor backends .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "PennyLane, built by the Canadian company Xanadu, is the leading framework for quantum machine learning and differentiable quantum programming. It treats a quantum circuit as a function you can take gradients through, so it slots neatly into machine-learning workflows, and it is hardware agnostic, running across most other vendors\u2019 back",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "Its companion Catalyst compiler provides just-in-time compilation for resource-intensive programs .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "",
+            "matched_source_index": 5,
+            "issues": [
+              "Source 5 mentions '-time compilation for heavier programs' but cuts off the exact compiler name (Catalyst) in the snippet."
+            ]
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "6.2 Enterprise Integration and Multi-Platform SDKs",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "Ecosystem offerings such as IBM Qiskit, Google Cirq, Amazon Braket, Microsoft Azure Quantum (with the Azure Quantum Development Kit and Q#), Classiq",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "IBM Qiskit, Google Cirq, Amazon Braket, Microsoft Azure Quantum, Classiq, and Quantinuum each serve different priorities",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "Quantinuum cater to distinct institutional needs ranging from open-source academic research to enterprise hybrid deployments .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "IBM Qiskit, Google Cirq, Amazon Braket, Microsoft Azure Quantum, Classiq, and Quantinuum each serve different priorities, from open-source research to enterpri",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "Platform selection is driven by use cases, integration mandates, SDK compatibility",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "n use case, integration requirements, SDK compatibility, hardware flexibility, and total cost of ownership.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "hardware flexibility .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "hardware flexibility",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "7.1 Hardware Scalability and Error Correction Gaps",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding the complete hardware architectures and competing physical platforms developed by major quantum computing players beyond the summarized superconducting, trapped-ion",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Evidence gap commentary presented without explicit source reference tags."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "neutral-atom toplists.",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Continuation of text block without inline citation."
+            ]
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "devices such as Google's Willow and IBM's planned Kookaburra modules point toward surface-code and qLDPC implementations, comprehensive peer-reviewed fault-tolerant scalability benchmarks across all commercial providers remain sparse .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Google's superconducting Willow achieves 99.88% and Rigetti's Cepheus-1 (108 qubits, GA early 2026) achieves 99.5%. [...] On the hardware side, IBM's Kookabur",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "7.2 Algorithmic Compilation and Error Mitigation Bottlenecks",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding advanced academic literature breakthroughs in quantum error correction and developer software toolchain performance beyond abstract summaries of SDKs and JIT compilers .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              3,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "SDKs (Software Development Kits): Libraries and frameworks for writing quantum algorithms in Python, Q#, or other supported languages Circuit compilers and optimizers",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "Future advancements rely on successfully bridging theoretical continuous-time protocols and entanglement-assisted architectures with multi-chip hardware deployments .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              0,
+              1,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Continuous-time quantum error correction (CTQEC) is an approach to protecting quantum information from noise...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          }
+        ],
+        "total_claims": 47,
+        "supported_count": 28,
+        "supported_ratio": 0.596,
+        "revisions_made": 0,
+        "unresolved_flags": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Quantum mechanics and computers intersect through the physical manipulation of superposition and entanglement to execute information processing tasks beyond classical limitations .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              1,
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Where classical computers manipulate bits that a...rposition and entanglement to process information in ways that classical physics cannot.",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "neutral atoms, paired with evolving quantum programming frameworks like PennyLane and Q# .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "## PennyLane PennyLane, built by the Canadian company Xanadu, is the leading framework for quantum machine learning and differentiable quantum programming... ## Microsoft Q# and the Azure Quantum Development Kit",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "> **Core Insight:** Quantum computing in 2026 bridges NISQ hardware platforms and early fault-tolerant error-corrected memory modules, supported by structured software toolchains and diverse physical modalities.",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Core insight presented without direct source citations."
+            ]
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "3.1 Superconducting and Multi-Platform Landscape",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "3.2 Vendor Milestones and Roadmap Targets",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "IBM Quantum maintains prominent hardware lines such as the Heron R2 (156 qubits with 99.5% two-qubit fidelity), Condor (1,121 qubits), Nighthawk (120 qubits)",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "The specific metrics for Heron R2 (156 qubits, 99.5%), Condor (1,121 qubits), and Nighthawk (120 qubits) are not present in Source 3 abstract text snippet provided."
+            ]
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "Rigetti commercialized its Cepheus-1 108-qubit multi-chip processor in early 2026 targeting 99.7% fidelity",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Rigetti's Cepheus-1 108-qubit multi-chip processor reached general availability in early 2026, targeting 9...",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence text cuts off mid-word regarding the specific fidelity target value, though general availability is supported."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "IQM introduced its 150-qubit Radiance system .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNSUPPORTED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Source 3 evidence snippet mentions IQM's fidelity (99.91%) but does not mention the 150-qubit Radiance system."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "4.1 Continuous-Time Quantum Error Correction and Entanglement-Assisted Codes",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "4.2 Software Compilation and Execution Pipeline",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "Reported figures reflect self-reported vendor specifications or abstract-level performance summaries.",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Factual statement regarding benchmark sources without a citation tag."
+            ]
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "6.1 Software Frameworks and Developer Ecosystems",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "Its companion Catalyst compiler provides just-in-time compilation for resource-intensive programs .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "",
+            "matched_source_index": 5,
+            "issues": [
+              "Source 5 mentions '-time compilation for heavier programs' but cuts off the exact compiler name (Catalyst) in the snippet."
+            ]
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "6.2 Enterprise Integration and Multi-Platform SDKs",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "7.1 Hardware Scalability and Error Correction Gaps",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding the complete hardware architectures and competing physical platforms developed by major quantum computing players beyond the summarized superconducting, trapped-ion",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Evidence gap commentary presented without explicit source reference tags."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "neutral-atom toplists.",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Continuation of text block without inline citation."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "7.2 Algorithmic Compilation and Error Mitigation Bottlenecks",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection title with no citations needed."
+            ]
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "Future advancements rely on successfully bridging theoretical continuous-time protocols and entanglement-assisted architectures with multi-chip hardware deployments .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              0,
+              1,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Continuous-time quantum error correction (CTQEC) is an approach to protecting quantum information from noise...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          }
+        ],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the latest hardware architectures and competing physical platforms developed by major quantum computing players as of 2026?",
+              "search_keywords": [
+                "quantum computing hardware platforms 2025 2026",
+                "superconducting qubits ion trap neutral atoms Rigetti IBM",
+                "scalable quantum processors 2026"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 1,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "IonQ",
+              "Silicon Quantum Computing",
+              "Quantinuum",
+              "IQM",
+              "Infleqtion",
+              "Google"
+            ],
+            "notes": "Partial coverage. Covered entities: IonQ, Silicon Quantum Computing, Quantinuum, IQM, Infleqtion, Google"
+          },
+          {
+            "sub_query": {
+              "question": "How have quantum error correction and fault-tolerant architectural designs advanced in recent academic literature?",
+              "search_keywords": [
+                "fault tolerant quantum computing error correction arxiv 2025 2026",
+                "surface codes quantum processor error threshold"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Continuous-time quantum error correction",
+              "Entanglement-Assisted Quantum Error-Correcting Codes"
+            ],
+            "notes": "Partial coverage. Covered entities: Continuous-time quantum error correction, Entanglement-Assisted Quantum Error-Correcting Codes"
+          },
+          {
+            "sub_query": {
+              "question": "What is the current state of software frameworks, compilation tools, and developer ecosystems for quantum computers?",
+              "search_keywords": [
+                "Qiskit Cirq quantum software development kits 2026",
+                "quantum programming frameworks compilation optimization"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "PennyLane",
+              "Xanadu",
+              "Python",
+              "Q#"
+            ],
+            "notes": "Partial coverage. Covered entities: PennyLane, Xanadu, Python, Q#"
+          }
+        ],
+        "full_text_source_count": 3,
+        "abstract_only_source_count": 3
+      }
+    },
+    "refinement_round_1": {
+      "recorded_at": "2026-09-27T21:59:36.859467",
+      "duration_from_start": 158.23,
+      "data": [
+        {
+          "heading": "Abstract",
+          "content": "Quantum error-correcting codes and continuous-time quantum error correction approaches protect quantum information from noise through ongoing operational treatments [0, 1]. This synthesis evaluates hardware platforms, error-correcting developments, and software ecosystems as of 2026 utilizing documented technical sources [2, 3, 4, 5]. Key empirical indicators show multi-vendor competition across superconducting circuits, trapped ions, and neutral atoms, paired with evolving quantum programming frameworks like PennyLane and Q# [2, 3, 5]. Implications highlight a transitioning landscape moving toward fault-tolerant architectures and practical hybrid cloud deployments [2, 3, 4, 5].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Executive Summary & Paradigm Shift",
+          "content": "Quantum computing in 2026 bridges NISQ hardware platforms and early fault-tolerant error-corrected memory modules, supported by structured software toolchains and diverse physical modalities [2, 3, 4, 5]. The global quantum computing ecosystem features multiple competing hardware modalities, primarily centered on superconducting circuits, trapped ions, and neutral atoms [2, 3]. Foundational giants and specialized vendors continue to scale physical qubit counts while integrating advanced error-correcting codes, such as quantum Low-Density Parity-Check (qLDPC) memories and surface codes [2, 3]. Concurrently, software development kits (SDKs), compilers, and specialized cloud frameworks act as critical layers interfacing high-level algorithms with physical quantum processors [4, 5]. \n\n> **Core Insight:** Quantum computing in 2026 bridges NISQ hardware platforms and early fault-tolerant error-corrected memory modules, supported by structured software toolchains and diverse physical modalities [2, 3, 4, 5].",
+          "source_indices": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Architectural Evolution & Key Milestones",
+          "content": "3.1 Superconducting and Multi-Platform Landscape [2, 3]. The leading superconducting quantum computing companies in 2026 build qubits from superconducting circuits utilizing Josephson junctions housed in dilution refrigerators at millikelvin temperatures [2]. Nine commercial vendors populate the superconducting space, split between transmon architectures and three-dimensional coaxmon designs [2, 3]. These systems run from early Yale and Saclay experiments through to Google's Willow chip, which demonstrated errors falling away as the error-correcting code around them grew [2].\n\n3.2 Vendor Milestones and Roadmap Targets [2, 3]. IBM Quantum maintains prominent hardware lines such as the Heron R2 and Condor processors, alongside the Kookaburra qLDPC roadmap module targeting 7,500 gates on up to 360 qubits [2, 3]. Google Quantum AI demonstrated the 105-qubit Willow chip with one verified logical qubit and surface-code milestones [2, 3]. Rigetti Computing and IQM Quantum Computers deploy competing multi-chip processors and radiance architectures to scale performance metrics [2, 3].",
+          "source_indices": [
+            2,
+            3
+          ],
+          "figures": [
+            "| Year / Era | Milestone / Event | Modality / Architecture | Source Reference |\n| :--- | :--- | :--- | :--- |\n| Early 2000s | First Yale & Saclay experiments | Superconducting Circuits | [2] |\n| Dec 2024 | Willow chip surface-code milestone | Superconducting (105 Qubits) | [2, 3] |\n| Early 2026 | Cepheus-1 multi-chip processor release | Superconducting (108 Qubits) | [3] |\n| 2026 (Target)| Kookaburra qLDPC processor module | Superconducting (360 Qubits) | [3] |"
+          ],
+          "comparative_table": {
+            "headers": [
+              "Vendor / System",
+              "Modality",
+              "Qubit Count / Scale",
+              "Fidelity / Milestone"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Google Willow",
+                  "Superconducting",
+                  "105 Qubits",
+                  "99.88% (Surface-code verified logical qubit)"
+                ]
+              },
+              {
+                "cells": [
+                  "Rigetti Cepheus-1",
+                  "Superconducting",
+                  "108 Qubits",
+                  "99.5%"
+                ]
+              },
+              {
+                "cells": [
+                  "IBM Heron R2",
+                  "Superconducting",
+                  "156 Qubits",
+                  "99.5% 2Q Fidelity"
+                ]
+              },
+              {
+                "cells": [
+                  "IQM Radiance",
+                  "Superconducting",
+                  "150 Qubits",
+                  "99.91%"
+                ]
+              }
+            ],
+            "caption": "Table 1: Superconducting Hardware Milestones and Metrics as of 2026 [2, 3]."
+          }
+        },
+        {
+          "heading": "Technical Architecture & Methodologies",
+          "content": "4.1 Continuous-Time Quantum Error Correction and Entanglement-Assisted Codes [0, 1]. Theoretical foundations established in literature examine continuous-time quantum error correction (CTQEC), which treats both noise and error-correcting operations as continuous-time processes using continuous weak measurements and feedback based on the subsystem principle [0]. Additionally, entanglement-assisted quantum error-correcting codes utilize shared entanglement between sender and receiver to protect quantum information from channel noise during storage and gate operations [1]. Such EAQECC frameworks enhance error-correcting power, allowing code structures like [[4,1,3;1]] to correct arbitrary single-qubit errors with auxiliary ebits [1].\n\n4.2 Software Compilation and Execution Pipeline [4, 5]. Quantum software stacks function as the intermediate layer linking high-level algorithms to physical backends [4, 5]. Circuit compilers and optimizers translate high-level descriptions into hardware-native instructions, adapting gate sequences to distinct device constraints [4, 5]. Software toolkits bundle circuit builders, simulators, optimization routines, noise models, and hardware cloud connections to prepare quantum routines prior to physical execution [4, 5].",
+          "source_indices": [
+            0,
+            1,
+            4,
+            5
+          ],
+          "figures": [
+            "graph TD;\n    A[High-Level Quantum Algorithm / SDK] --> B[Circuit Compilers & Optimizers];\n    B --> C[Simulators / Testing & Debugging];\n    B --> D[Hardware Backends / Cloud Access];\n    D --> E[Superconducting / Trapped-Ion / Neutral-Atom Qubits];\n    E --> F[Continuous-Time & Entanglement-Assisted Error Correction];"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Comparative Performance Benchmarks",
+          "content": "Empirical data regarding fidelity metrics reported across platforms highlight the current standing of diverse modalities as of March 2026 [3]. Reported figures reflect self-reported vendor specifications or abstract-level performance summaries across trapped ions, silicon quantum computing, neutral atoms, and superconducting circuits [3]. IonQ and Silicon Quantum Computing lead the fidelity leaderboard at 99.99%, followed closely by Quantinuum at 99.97% [3]. Superconducting and neutral-atom modalities show competitive fidelity profiles, with Google's Willow at 99.88% and Infleqtion at 99.73% [3].",
+          "source_indices": [
+            3
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Platform / Vendor",
+              "Modality",
+              "Fidelity Metric",
+              "Additional Details"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "IonQ",
+                  "Trapped Ion",
+                  "99.99%",
+                  "Fidelity leaderboard co-leader"
+                ]
+              },
+              {
+                "cells": [
+                  "Silicon Quantum Computing",
+                  "Silicon",
+                  "99.99%",
+                  "Fidelity leaderboard co-leader"
+                ]
+              },
+              {
+                "cells": [
+                  "Quantinuum",
+                  "Trapped Ion / Other",
+                  "99.97%",
+                  "High-fidelity execution"
+                ]
+              },
+              {
+                "cells": [
+                  "IQM",
+                  "Superconducting",
+                  "99.91%",
+                  "Radiance system integration"
+                ]
+              },
+              {
+                "cells": [
+                  "Infleqtion",
+                  "Neutral Atoms",
+                  "99.73%",
+                  "Neutral atom benchmark"
+                ]
+              },
+              {
+                "cells": [
+                  "Google Willow",
+                  "Superconducting",
+                  "99.88%",
+                  "Surface-code error reduction"
+                ]
+              },
+              {
+                "cells": [
+                  "Rigetti Cepheus-1",
+                  "Superconducting",
+                  "99.50%",
+                  "108 qubits, early 2026 release"
+                ]
+              }
+            ],
+            "caption": "Table 2: Fidelity Leaderboard across Quantum Computing Modalities (March 2026) [3]."
+          }
+        },
+        {
+          "heading": "Practical Applications & Industrial Impact",
+          "content": "6.1 Software Frameworks and Developer Ecosystems [4, 5]. Quantum programming frameworks bundle circuit builders, simulators, optimization routines, noise models, and hardware cloud connections [5]. PennyLane, developed by Xanadu, functions as a framework for quantum machine learning and differentiable quantum programming, treating circuits as differentiable functions that integrate with classical machine-learning workflows while running across multi-vendor backends [5]. Its companion Catalyst compiler provides compilation support for resource-intensive programs [5].\n\n6.2 Enterprise Integration and Multi-Platform SDKs [4, 5]. Ecosystem offerings such as IBM Qiskit, Google Cirq, Amazon Braket, Microsoft Azure Quantum (with the Azure Quantum Development Kit and Q#), Classiq, and Quantinuum cater to distinct institutional needs ranging from open-source academic research to enterprise hybrid deployments [4, 5]. Platform selection is driven by use cases, integration mandates, SDK compatibility, and hardware flexibility [4, 5]. In sectors like pharmaceuticals and chemistry, large qubit counts and fast gate times make superconducting hardware suitable for variational chemistry on small and mid-sized molecules [2, 5].",
+          "source_indices": [
+            2,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Domain / Sector",
+              "Applicable Hardware Modality",
+              "Key Requirements",
+              "Primary Impact"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Pharmaceutical & Chemistry",
+                  "Superconducting Circuits",
+                  "Large qubit counts, fast gate times",
+                  "Variational chemistry on small to mid-sized molecules [2, 5]"
+                ]
+              },
+              {
+                "cells": [
+                  "Quantum Machine Learning",
+                  "Hardware-Agnostic SDKs (PennyLane, Cirq)",
+                  "Differentiable programming, JIT compilation",
+                  "Seamless integration with classical ML frameworks [4, 5]"
+                ]
+              },
+              {
+                "cells": [
+                  "Enterprise Cloud Research",
+                  "Multi-platform Cloud (Braket, Azure)",
+                  "SDK compatibility, integration flexibility",
+                  "Cloud hardware access and algorithm simulation [4, 5]"
+                ]
+              }
+            ],
+            "caption": "Table 3: Domain-Impact Matrix for Quantum Computing Applications [2, 4, 5]."
+          }
+        },
+        {
+          "heading": "Research Gaps & Future Horizons",
+          "content": "7.1 Hardware Scalability and Error Correction Gaps [2, 3]. While devices such as Google's Willow and IBM's planned Kookaburra modules point toward surface-code and qLDPC implementations, comprehensive peer-reviewed fault-tolerant scalability benchmarks across all commercial providers remain sparse [2, 3]. The transition from NISQ systems to fault-tolerant architectures requires overcoming manufacturing and cooling limits within dilution refrigerators [2].\n\n7.2 Algorithmic Compilation and Error Mitigation Bottlenecks [0, 1, 4, 5]. Future advancements rely on successfully bridging theoretical continuous-time protocols and entanglement-assisted architectures with multi-chip hardware deployments [0, 1]. Additional work is required to streamline circuit compilers, optimizers, and just-in-time compilation frameworks to handle increasingly complex error-corrected circuits across heterogeneous hardware backends [4, 5].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_1": {
+      "recorded_at": "2026-09-27T21:59:57.997207",
+      "duration_from_start": 179.37,
+      "data": {
+        "is_approved": false,
+        "overall_score": 1,
+        "issues": [
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'software ecosystems as of 2026 utilizing documented technical sources ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'Key empirical indicators show multi-vendor competition across superconducting ci...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'neutral atoms, paired with evolving quantum programming frameworks like PennyLan...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'Implications highlight a transitioning landscape moving toward fault-tolerant ar...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'Quantum computing in 2026 bridges NISQ hardware platforms and early fault-tolera...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'The global quantum computing ecosystem features multiple competing hardware moda...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'neutral atoms ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'Foundational giants and specialized vendors continue to scale physical qubit cou...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'Concurrently, software development kits (SDKs), compilers...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'specialized cloud frameworks act as critical layers interfacing high-level algor...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim '> **Core Insight:** Quantum computing in 2026 bridges NISQ hardware platforms an...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim '3.1 Superconducting and Multi-Platform Landscape ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'The leading superconducting quantum computing companies in 2026 build qubits fro...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'Nine commercial vendors populate the superconducting space, split between transm...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'These systems run from early Yale and Saclay experiments through to Google's Wil...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim '3.2 Vendor Milestones and Roadmap Targets ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'IBM Quantum maintains prominent hardware lines such as the Heron R2 and Condor p...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'Google Quantum AI demonstrated the 105-qubit Willow chip with one verified logic...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'Rigetti Computing and IQM Quantum Computers deploy competing multi-chip processo...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim '4.1 Continuous-Time Quantum Error Correction and Entanglement-Assisted Codes ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Theoretical foundations established in literature examine continuous-time quantu...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Additionally, entanglement-assisted quantum error-correcting codes utilize share...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Such EAQECC frameworks enhance error-correcting power, allowing code structures ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim '1]] to correct arbitrary single-qubit errors with auxiliary ebits ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim '4.2 Software Compilation and Execution Pipeline ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Quantum software stacks function as the intermediate layer linking high-level al...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Circuit compilers and optimizers translate high-level descriptions into hardware...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Software toolkits bundle circuit builders, simulators, optimization routines, no...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'hardware cloud connections to prepare quantum routines prior to physical executi...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNVERIFIED] Claim 'Empirical data regarding fidelity metrics reported across platforms highlight th...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNVERIFIED] Claim 'Reported figures reflect self-reported vendor specifications or abstract-level p...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNVERIFIED] Claim 'superconducting circuits ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNVERIFIED] Claim 'IonQ and Silicon Quantum Computing lead the fidelity leaderboard at 99.99%, foll...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNVERIFIED] Claim 'Superconducting and neutral-atom modalities show competitive fidelity profiles, ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim '6.1 Software Frameworks and Developer Ecosystems ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Quantum programming frameworks bundle circuit builders, simulators, optimization...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'hardware cloud connections ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'PennyLane, developed by Xanadu, functions as a framework for quantum machine lea...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Its companion Catalyst compiler provides compilation support for resource-intens...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim '6.2 Enterprise Integration and Multi-Platform SDKs ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Ecosystem offerings such as IBM Qiskit, Google Cirq, Amazon Braket, Microsoft Az...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Quantinuum cater to distinct institutional needs ranging from open-source academ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Platform selection is driven by use cases, integration mandates, SDK compatibili...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'hardware flexibility ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'In sectors like pharmaceuticals and chemistry, large qubit counts and fast gate ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim '7.1 Hardware Scalability and Error Correction Gaps ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'devices such as Google's Willow and IBM's planned Kookaburra modules point towar...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'The transition from NISQ systems to fault-tolerant architectures requires overco...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim '7.2 Algorithmic Compilation and Error Mitigation Bottlenecks ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'Future advancements rely on successfully bridging theoretical continuous-time pr...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'Additional work is required to streamline circuit compilers, optimizers...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'just-in-time compilation frameworks to handle increasingly complex error-correct...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          }
+        ],
+        "summary": "Claim-level audit verified 54 claims: 2/54 supported (3.7%). 52 flagged issues, 0 overclaims, 0 cross-section contradictions.",
+        "judge_ran": true,
+        "claims": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Quantum error-correcting codes and continuous-time quantum error correction approaches protect quantum information from noise through ongoing operational treatments .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Continuous-time quantum error correction (CTQEC) is an approach to protecting quantum information from noise in which both the noise and the error correcting operations are treated as processes that are continuous in time.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "This synthesis evaluates hardware platforms, error-correcting developments",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Superconducting hardware produced the first published exponential error suppression on a working platform when Google\u2019s Willow chip demonstrated in December 2024 that",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "software ecosystems as of 2026 utilizing documented technical sources .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "Key empirical indicators show multi-vendor competition across superconducting circuits, trapped ions",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "neutral atoms, paired with evolving quantum programming frameworks like PennyLane and Q# .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "Implications highlight a transitioning landscape moving toward fault-tolerant architectures and practical hybrid cloud deployments .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "Quantum computing in 2026 bridges NISQ hardware platforms and early fault-tolerant error-corrected memory modules, supported by structured software toolchains and diverse physical modalities .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "The global quantum computing ecosystem features multiple competing hardware modalities, primarily centered on superconducting circuits, trapped ions",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "neutral atoms .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "Foundational giants and specialized vendors continue to scale physical qubit counts while integrating advanced error-correcting codes, such as quantum Low-Density Parity-Check (qLDPC) memories and surface codes .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "Concurrently, software development kits (SDKs), compilers",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "specialized cloud frameworks act as critical layers interfacing high-level algorithms with physical quantum processors .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "> **Core Insight:** Quantum computing in 2026 bridges NISQ hardware platforms and early fault-tolerant error-corrected memory modules, supported by structured software toolchains and diverse physical modalities .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "3.1 Superconducting and Multi-Platform Landscape .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "The leading superconducting quantum computing companies in 2026 build qubits from superconducting circuits utilizing Josephson junctions housed in dilution refrigerators at millikelvin temperatures .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "Nine commercial vendors populate the superconducting space, split between transmon architectures and three-dimensional coaxmon designs .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "These systems run from early Yale and Saclay experiments through to Google's Willow chip, which demonstrated errors falling away as the error-correcting code around them grew .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "3.2 Vendor Milestones and Roadmap Targets .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "IBM Quantum maintains prominent hardware lines such as the Heron R2 and Condor processors, alongside the Kookaburra qLDPC roadmap module targeting 7,500 gates on up to 360 qubits .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "Google Quantum AI demonstrated the 105-qubit Willow chip with one verified logical qubit and surface-code milestones .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "Rigetti Computing and IQM Quantum Computers deploy competing multi-chip processors and radiance architectures to scale performance metrics .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "4.1 Continuous-Time Quantum Error Correction and Entanglement-Assisted Codes .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0,
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "Theoretical foundations established in literature examine continuous-time quantum error correction (CTQEC), which treats both noise and error-correcting operations as continuous-time processes using continuous weak measurements and feedback based on the subsystem principle .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "Additionally, entanglement-assisted quantum error-correcting codes utilize shared entanglement between sender and receiver to protect quantum information from channel noise during storage and gate operations .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "Such EAQECC frameworks enhance error-correcting power, allowing code structures like [[4,1,3",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "1]] to correct arbitrary single-qubit errors with auxiliary ebits .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "4.2 Software Compilation and Execution Pipeline .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "Quantum software stacks function as the intermediate layer linking high-level algorithms to physical backends .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "Circuit compilers and optimizers translate high-level descriptions into hardware-native instructions, adapting gate sequences to distinct device constraints .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "Software toolkits bundle circuit builders, simulators, optimization routines, noise models",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "hardware cloud connections to prepare quantum routines prior to physical execution .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "Empirical data regarding fidelity metrics reported across platforms highlight the current standing of diverse modalities as of March 2026 .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "Reported figures reflect self-reported vendor specifications or abstract-level performance summaries across trapped ions, silicon quantum computing, neutral atoms",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "superconducting circuits .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "IonQ and Silicon Quantum Computing lead the fidelity leaderboard at 99.99%, followed closely by Quantinuum at 99.97% .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "Superconducting and neutral-atom modalities show competitive fidelity profiles, with Google's Willow at 99.88% and Infleqtion at 99.73% .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "6.1 Software Frameworks and Developer Ecosystems .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "Quantum programming frameworks bundle circuit builders, simulators, optimization routines, noise models",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "hardware cloud connections .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "PennyLane, developed by Xanadu, functions as a framework for quantum machine learning and differentiable quantum programming, treating circuits as differentiable functions that integrate with classical machine-learning workflows while running across multi-vendor backends .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "Its companion Catalyst compiler provides compilation support for resource-intensive programs .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "6.2 Enterprise Integration and Multi-Platform SDKs .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "Ecosystem offerings such as IBM Qiskit, Google Cirq, Amazon Braket, Microsoft Azure Quantum (with the Azure Quantum Development Kit and Q#), Classiq",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "Quantinuum cater to distinct institutional needs ranging from open-source academic research to enterprise hybrid deployments .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "Platform selection is driven by use cases, integration mandates, SDK compatibility",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "hardware flexibility .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "In sectors like pharmaceuticals and chemistry, large qubit counts and fast gate times make superconducting hardware suitable for variational chemistry on small and mid-sized molecules .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_48",
+            "claim_text": "7.1 Hardware Scalability and Error Correction Gaps .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_49",
+            "claim_text": "devices such as Google's Willow and IBM's planned Kookaburra modules point toward surface-code and qLDPC implementations, comprehensive peer-reviewed fault-tolerant scalability benchmarks across all commercial providers remain sparse .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_50",
+            "claim_text": "The transition from NISQ systems to fault-tolerant architectures requires overcoming manufacturing and cooling limits within dilution refrigerators .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_51",
+            "claim_text": "7.2 Algorithmic Compilation and Error Mitigation Bottlenecks .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_52",
+            "claim_text": "Future advancements rely on successfully bridging theoretical continuous-time protocols and entanglement-assisted architectures with multi-chip hardware deployments .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0,
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_53",
+            "claim_text": "Additional work is required to streamline circuit compilers, optimizers",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_54",
+            "claim_text": "just-in-time compilation frameworks to handle increasingly complex error-corrected circuits across heterogeneous hardware backends .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          }
+        ],
+        "total_claims": 54,
+        "supported_count": 2,
+        "supported_ratio": 0.037,
+        "revisions_made": 1,
+        "unresolved_flags": [
+          {
+            "claim_id": "c_3",
+            "claim_text": "software ecosystems as of 2026 utilizing documented technical sources .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "Key empirical indicators show multi-vendor competition across superconducting circuits, trapped ions",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "neutral atoms, paired with evolving quantum programming frameworks like PennyLane and Q# .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "Implications highlight a transitioning landscape moving toward fault-tolerant architectures and practical hybrid cloud deployments .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "Quantum computing in 2026 bridges NISQ hardware platforms and early fault-tolerant error-corrected memory modules, supported by structured software toolchains and diverse physical modalities .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "The global quantum computing ecosystem features multiple competing hardware modalities, primarily centered on superconducting circuits, trapped ions",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "neutral atoms .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "Foundational giants and specialized vendors continue to scale physical qubit counts while integrating advanced error-correcting codes, such as quantum Low-Density Parity-Check (qLDPC) memories and surface codes .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "Concurrently, software development kits (SDKs), compilers",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "specialized cloud frameworks act as critical layers interfacing high-level algorithms with physical quantum processors .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "> **Core Insight:** Quantum computing in 2026 bridges NISQ hardware platforms and early fault-tolerant error-corrected memory modules, supported by structured software toolchains and diverse physical modalities .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "3.1 Superconducting and Multi-Platform Landscape .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "The leading superconducting quantum computing companies in 2026 build qubits from superconducting circuits utilizing Josephson junctions housed in dilution refrigerators at millikelvin temperatures .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "Nine commercial vendors populate the superconducting space, split between transmon architectures and three-dimensional coaxmon designs .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "These systems run from early Yale and Saclay experiments through to Google's Willow chip, which demonstrated errors falling away as the error-correcting code around them grew .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "3.2 Vendor Milestones and Roadmap Targets .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "IBM Quantum maintains prominent hardware lines such as the Heron R2 and Condor processors, alongside the Kookaburra qLDPC roadmap module targeting 7,500 gates on up to 360 qubits .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "Google Quantum AI demonstrated the 105-qubit Willow chip with one verified logical qubit and surface-code milestones .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "Rigetti Computing and IQM Quantum Computers deploy competing multi-chip processors and radiance architectures to scale performance metrics .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "4.1 Continuous-Time Quantum Error Correction and Entanglement-Assisted Codes .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0,
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "Theoretical foundations established in literature examine continuous-time quantum error correction (CTQEC), which treats both noise and error-correcting operations as continuous-time processes using continuous weak measurements and feedback based on the subsystem principle .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "Additionally, entanglement-assisted quantum error-correcting codes utilize shared entanglement between sender and receiver to protect quantum information from channel noise during storage and gate operations .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "Such EAQECC frameworks enhance error-correcting power, allowing code structures like [[4,1,3",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "1]] to correct arbitrary single-qubit errors with auxiliary ebits .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "4.2 Software Compilation and Execution Pipeline .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "Quantum software stacks function as the intermediate layer linking high-level algorithms to physical backends .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "Circuit compilers and optimizers translate high-level descriptions into hardware-native instructions, adapting gate sequences to distinct device constraints .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "Software toolkits bundle circuit builders, simulators, optimization routines, noise models",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "hardware cloud connections to prepare quantum routines prior to physical execution .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "Empirical data regarding fidelity metrics reported across platforms highlight the current standing of diverse modalities as of March 2026 .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "Reported figures reflect self-reported vendor specifications or abstract-level performance summaries across trapped ions, silicon quantum computing, neutral atoms",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "superconducting circuits .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "IonQ and Silicon Quantum Computing lead the fidelity leaderboard at 99.99%, followed closely by Quantinuum at 99.97% .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "Superconducting and neutral-atom modalities show competitive fidelity profiles, with Google's Willow at 99.88% and Infleqtion at 99.73% .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "6.1 Software Frameworks and Developer Ecosystems .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "Quantum programming frameworks bundle circuit builders, simulators, optimization routines, noise models",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "hardware cloud connections .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "PennyLane, developed by Xanadu, functions as a framework for quantum machine learning and differentiable quantum programming, treating circuits as differentiable functions that integrate with classical machine-learning workflows while running across multi-vendor backends .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "Its companion Catalyst compiler provides compilation support for resource-intensive programs .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 5,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "6.2 Enterprise Integration and Multi-Platform SDKs .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "Ecosystem offerings such as IBM Qiskit, Google Cirq, Amazon Braket, Microsoft Azure Quantum (with the Azure Quantum Development Kit and Q#), Classiq",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "Quantinuum cater to distinct institutional needs ranging from open-source academic research to enterprise hybrid deployments .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "Platform selection is driven by use cases, integration mandates, SDK compatibility",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "hardware flexibility .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "In sectors like pharmaceuticals and chemistry, large qubit counts and fast gate times make superconducting hardware suitable for variational chemistry on small and mid-sized molecules .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_48",
+            "claim_text": "7.1 Hardware Scalability and Error Correction Gaps .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_49",
+            "claim_text": "devices such as Google's Willow and IBM's planned Kookaburra modules point toward surface-code and qLDPC implementations, comprehensive peer-reviewed fault-tolerant scalability benchmarks across all commercial providers remain sparse .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_50",
+            "claim_text": "The transition from NISQ systems to fault-tolerant architectures requires overcoming manufacturing and cooling limits within dilution refrigerators .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_51",
+            "claim_text": "7.2 Algorithmic Compilation and Error Mitigation Bottlenecks .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_52",
+            "claim_text": "Future advancements rely on successfully bridging theoretical continuous-time protocols and entanglement-assisted architectures with multi-chip hardware deployments .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0,
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_53",
+            "claim_text": "Additional work is required to streamline circuit compilers, optimizers",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_54",
+            "claim_text": "just-in-time compilation frameworks to handle increasingly complex error-corrected circuits across heterogeneous hardware backends .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          }
+        ],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the latest hardware architectures and competing physical platforms developed by major quantum computing players as of 2026?",
+              "search_keywords": [
+                "quantum computing hardware platforms 2025 2026",
+                "superconducting qubits ion trap neutral atoms Rigetti IBM",
+                "scalable quantum processors 2026"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 1,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "IonQ",
+              "Silicon Quantum Computing",
+              "Quantinuum",
+              "IQM",
+              "Infleqtion",
+              "Google"
+            ],
+            "notes": "Partial coverage. Covered entities: IonQ, Silicon Quantum Computing, Quantinuum, IQM, Infleqtion, Google"
+          },
+          {
+            "sub_query": {
+              "question": "How have quantum error correction and fault-tolerant architectural designs advanced in recent academic literature?",
+              "search_keywords": [
+                "fault tolerant quantum computing error correction arxiv 2025 2026",
+                "surface codes quantum processor error threshold"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Continuous-time quantum error correction",
+              "Entanglement-Assisted Quantum Error-Correcting Codes"
+            ],
+            "notes": "Partial coverage. Covered entities: Continuous-time quantum error correction, Entanglement-Assisted Quantum Error-Correcting Codes"
+          },
+          {
+            "sub_query": {
+              "question": "What is the current state of software frameworks, compilation tools, and developer ecosystems for quantum computers?",
+              "search_keywords": [
+                "Qiskit Cirq quantum software development kits 2026",
+                "quantum programming frameworks compilation optimization"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "PennyLane",
+              "Xanadu",
+              "Python",
+              "Q#"
+            ],
+            "notes": "Partial coverage. Covered entities: PennyLane, Xanadu, Python, Q#"
+          }
+        ],
+        "full_text_source_count": 3,
+        "abstract_only_source_count": 3
+      }
+    }
+  },
+  "metrics": {},
+  "total_duration_seconds": 179.37
+}

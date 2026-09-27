@@ -1,0 +1,2464 @@
+{
+  "query": "ai in industries",
+  "timestamp": "20260927_162248",
+  "stages": {
+    "plan": {
+      "recorded_at": "2026-09-27T16:23:21.198881",
+      "duration_from_start": 32.34,
+      "data": {
+        "original_query": "ai in industries",
+        "sub_queries": [
+          {
+            "question": "ai in industries",
+            "search_keywords": [
+              "ai in industries"
+            ],
+            "source_type": "both"
+          }
+        ],
+        "reasoning": "Fallback plan (LangChain error: Invalid json output: \nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE )"
+      }
+    },
+    "retrieval": {
+      "recorded_at": "2026-09-27T16:23:43.381099",
+      "duration_from_start": 54.52,
+      "data": {
+        "total_sources_retrieved": 4,
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "ai in industries",
+              "search_keywords": [
+                "ai in industries"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 3,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "industrial AI",
+              "generative AI",
+              "GenIR"
+            ],
+            "notes": "Partial coverage. Covered entities: industrial AI, generative AI, GenIR"
+          }
+        ],
+        "full_text_count": 3,
+        "abstract_only_count": 1
+      }
+    },
+    "synthesis": {
+      "recorded_at": "2026-09-27T16:24:04.023779",
+      "duration_from_start": 75.16,
+      "data": [
+        {
+          "heading": "Abstract",
+          "content": "Artificial intelligence applications in industrial environments address physical operations, manufacturing systems, and infrastructure constraints, distinguishing themselves from enterprise or consumer-facing digital workflows [2]. Utilizing behavioral and architectural paradigms, studies examine both operational deployment methodologies and human-AI interactions [0, 2]. Key findings indicate that industrial AI systems incorporate machine learning, computer vision, and operational technologies to target site optimization and productivity, while human-computer interaction studies reveal that perceived AI predictive authority can systematically alter human reasoning and decision-making processes [0, 2, 3]. These insights carry implications for balancing physical asset automation with rigorous workforce training, trust, and explainability frameworks [2, 6].",
+          "source_indices": [
+            0,
+            2,
+            3,
+            6
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Executive Summary & Core Insights",
+          "content": "> **Core Insight:** Industrial AI operates distinctly from consumer and enterprise variants by intersecting directly with physical assets, operational technologies, and real-world environmental constraints where decisions impact safety, uptime, and production outcomes [2].\n\nIndustrial AI is characterized by its integration into factories, warehouses, and physical infrastructure systems [2]. Unlike enterprise AI, which typically targets digital business processes such as human resources, finance, and customer service with reduced time sensitivity, industrial AI manages physical operations through the utilization of the industrial Internet of Things (IIoT), robotics, sensors, digital twins, edge computing, and real-time operational data [2].\n\nConcurrently, human behavioral research demonstrates that the presence of AI predictions introduces complex cognitive dynamics, occasionally functioning as a perceived predictive authority that shapes human decision-making pathways and behavior [0].",
+          "source_indices": [
+            0,
+            2
+          ],
+          "figures": [
+            "graph TD\n    A[Operational Technologies & IIoT] --> B[Edge Computing & Sensors]\n    B --> C[Industrial AI Models]\n    C --> D[Physical Assets & Infrastructure Optimization]"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Architectural Evolution, Hardware Milestones & Key Players",
+          "content": "3.1 Operational Technology Integration\nIndustrial AI systems leverage operational technologies (OT) and physical infrastructure to automate production processes and enhance data-driven decision-making [2]. Unlike enterprise platforms focused on knowledge work, industrial architectures interface directly with hardware sensors, actuators, and robotics deployed within factories and warehouses [2].\n\n3.2 Behavioral and Cognitive Architecture Paradigms\nBeyond physical infrastructure, research into human interaction with predictive architectures demonstrates that AI systems influence individual reasoning frameworks [0]. Behavioral implementations show that perceived predictive authority alters user decision trajectories, sometimes resulting in individuals forgoing guaranteed alternatives based on system framing [0].",
+          "source_indices": [
+            0,
+            2
+          ],
+          "figures": [
+            "Year | Milestone / Platform | Key Contribution | Organization | Source\n2025 | Foundational GenIR Integration | Large-scale training for information access paradigms | Tsinghua University | [1]\n2026 | Behavioral Newcomb Paradox Implementation | Evaluation of AI predictive authority on human reasoning | Carnegie Mellon University & Institute of Science Tokyo | [0]\n2026 | Industrial AI Operational Framework | Definitional boundary separating physical asset AI from enterprise workflows | IBM | [2]"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Technical Architecture & Methodologies",
+          "content": "4.1 Core Methodological Components\nIndustrial AI architectures combine machine learning, computer vision, generative AI models, and physical AI techniques [2]. These components operate under strict environmental and physical constraints, differing fundamentally from software-only enterprise models [2].\n\n4.2 Explainability and Reliability Frameworks\nBecause industrial AI decisions directly affect safety, uptime, and production outcomes, systems require high levels of auditability and interpretability [2, 6]. Addressing workforce skills gaps and maintaining transparent operational metrics remain vital methodologies for deployment [6].",
+          "source_indices": [
+            2,
+            6
+          ],
+          "figures": [
+            "graph TD\n    A[Real-Time Operational Data] --> B[Computer Vision & ML Models]\n    B --> C[Physical AI & Digital Twins]\n    C --> D[Auditable Industrial Decision-Making]"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Comparative Performance Benchmarks & Empirical Data",
+          "content": "> **Evidence Gap:** Insufficient empirical performance benchmark data (such as specific latency metrics, throughput values, or quantitative error rates) was retrieved across the evaluated sources to construct a standardized comparative table for industrial AI hardware platforms.",
+          "source_indices": [],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Practical Applications & Industrial Impact",
+          "content": "6.1 Manufacturing and Physical Infrastructure\nIndustrial AI applications are deployed within factories, warehouses, and physical infrastructure systems to optimize site operations, reduce costs, and improve productivity [2, 3]. These systems leverage digital twins and edge computing to maintain real-time control over physical assets [2].\n\n6.2 Decision-Making and Human Factors\nIn broader operational contexts, AI predictions influence human decision environments. Behavioral studies indicate that interaction with predictive systems can alter human reasoning patterns, demonstrating that deployment impacts both automated machinery and human-in-the-loop cognitive workflows [0].",
+          "source_indices": [
+            0,
+            2,
+            3
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Research Gaps, Limitations & Future Horizons",
+          "content": "7.1 Workforce and Skills Deficits\nOrganizations face notable workforce and skills gaps, requiring structured investments in training personnel to successfully operate and supervise industrial AI tools [6].\n\n7.2 Trust, Explainability, and Reliability Bottlenecks\nEnsuring that industrial AI systems remain fully auditable and interpretable is a continuous challenge, particularly where regulatory compliance and physical safety are concerned [6]. Future horizons require aligning algorithmic transparency with high-stakes operational constraints [2, 6].",
+          "source_indices": [
+            2,
+            6
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_0": {
+      "recorded_at": "2026-09-27T16:24:39.297647",
+      "duration_from_start": 110.43,
+      "data": {
+        "is_approved": false,
+        "overall_score": 6,
+        "issues": [
+          {
+            "section_heading": "Abstract",
+            "issue": "Citation index [6] is out of bounds (only 4 sources available: [0..3]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "Citation index [6] is out of bounds (only 4 sources available: [0..3]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "Citation index [6] is out of bounds (only 4 sources available: [0..3]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "Citation index [6] is out of bounds (only 4 sources available: [0..3]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "Citation index [6] is out of bounds (only 4 sources available: [0..3]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "Citation index [6] is out of bounds (only 4 sources available: [0..3]).",
+            "severity": "high",
+            "suggestion": "Remove or re-map [6] to a valid retrieved source index."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'human-computer interaction studies reveal that perceived AI predictive authority...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNVERIFIED] Claim 'Concurrently, human behavioral research demonstrates that the presence of AI pre...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[UNCITED] Claim '3.1 Operational Technology Integration...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[UNCITED] Claim '3.2 Behavioral and Cognitive Architecture Paradigms...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[UNVERIFIED] Claim 'Behavioral implementations show that perceived predictive authority alters user ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.1 Core Methodological Components...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.2 Explainability and Reliability Frameworks...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim 'Addressing workforce skills gaps and maintaining transparent operational metrics...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "issue": "[UNVERIFIED] Claim '> **Evidence Gap:** Insufficient empirical performance benchmark data (such as s...' - Uncited factual sentence. Statements must cite verified source [N].; Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.1 Manufacturing and Physical Infrastructure...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.2 Decision-Making and Human Factors...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim 'In broader operational contexts, AI predictions influence human decision environ...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNCITED] Claim '7.1 Workforce and Skills Deficits...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNCITED] Claim 'Organizations face notable workforce and skills gaps, requiring structured inves...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNCITED] Claim '7.2 Trust, Explainability...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNCITED] Claim 'Reliability Bottlenecks...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNCITED] Claim 'Ensuring that industrial AI systems remain fully auditable and interpretable is ...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          }
+        ],
+        "summary": "Claim-level audit verified 47 claims: 30/47 supported (63.8%). 17 flagged issues, 0 overclaims, 0 cross-section contradictions.",
+        "judge_ran": true,
+        "claims": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Artificial intelligence applications in industrial environments address physical operations, manufacturing systems",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI is the application of artificial intelligence (AI) technologies to real-world industrial operations, manufacturing systems and physical infrastructure.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "infrastructure constraints, distinguishing themselves from enterprise or consumer-facing digital workflows .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems. Unlike enterprise AI, its operational environments involve physical as",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "Utilizing behavioral and architectural paradigms, studies examine both operational deployment methodologies and human-AI interactions .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Comparable effects across multiple AI presentations\u2014a virtual agent, an LLM-based assistant, and the label \u201cAI\u201d alone\u2014suggest that the phenomenon depends less on technical sophistication than on perceived predictive authority",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "Key findings indicate that industrial AI systems incorporate machine learning, computer vision",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Using computer vision and sensor data, AI systems can monitor hazardous conditions in real time.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "operational technologies to target site optimization and productivity",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI is becoming a strategic priority for organizations seeking to improve operational resilience, modernize infrastructure and increase productivity in the face of growing volatility.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "human-computer interaction studies reveal that perceived AI predictive authority can systematically alter human reasoning and decision-making processes .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Here, using a behavioral implementation of the classic Newcomb\u2019s paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "These insights carry implications for balancing physical asset automation with rigorous workforce training, trust",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Workforce and skills gaps: Organizations must invest in training their workforces to successfully use AI tools and systems. Explainability, trust and reliability: Industrial AI systems should be fully auditable and interpretable",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "explainability frameworks .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Explainability, trust and reliability: Industrial AI systems should be fully auditable and interpretable, especially where safety and regulatory compliance are concerned.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "> **Core Insight:** Industrial AI operates distinctly from consumer and enterprise variants by intersecting directly with physical assets, operational technologies",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems. Unlike enterprise AI, its operational environments involve physical as",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "real-world environmental constraints where decisions impact safety, uptime",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "ustrial AI decisions can directly affect safety, uptime and production outcomes.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "production outcomes .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "ustrial AI decisions can directly affect safety, uptime and production outcomes.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "Industrial AI is characterized by its integration into factories, warehouses",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems. Unlike enterprise AI, its operational environments involve physical as",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "physical infrastructure systems .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI is the application of artificial intelligence (AI) technologies to real-world industrial operations, manufacturing systems and physical infrastructure.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "Unlike enterprise AI, which typically targets digital business processes such as human resources, finance",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Unlike user-facing consumer AI or enterprise AI, which focuses on digital business processes, industrial AI applies AI models to physical operations and industrial environments.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "customer service with reduced time sensitivity, industrial AI manages physical operations through the utilization of the industrial Internet of Things (IIoT), robotics, sensors, digital twins, edge computing",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "encompasses operational technologies (OT), industrial Internet of Things (IIoT), robotics, sensors, digital twins, edge computing and real-time operational data.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "real-time operational data .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI is the application of artificial intelligence (AI) technologies to real-world industrial operations, manufacturing systems and physical infrastructure.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "Concurrently, human behavioral research demonstrates that the presence of AI predictions introduces complex cognitive dynamics, occasionally functioning as a perceived predictive authority that shapes human decision-making pathways and behavior .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Here, using a behavioral implementation of the classic Newcomb\u2019s paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "3.1 Operational Technology Integration",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "Industrial AI systems leverage operational technologies (OT) and physical infrastructure to automate production processes and enhance data-driven decision-making .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI is the application of artificial intelligence (AI) technologies to real-world industrial operations, manufacturing systems and physical infrastructure.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "Unlike enterprise platforms focused on knowledge work, industrial architectures interface directly with hardware sensors, actuators",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems. Unlike enterprise AI, its operational environments involve physical as",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "robotics deployed within factories and warehouses .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems. Unlike enterprise AI, its operational environments involve physical as",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "3.2 Behavioral and Cognitive Architecture Paradigms",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "Beyond physical infrastructure, research into human interaction with predictive architectures demonstrates that AI systems influence individual reasoning frameworks .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In our experiments, despite receiving neither information about, nor experience with, AI\u2019s predictive capability, some participants nevertheless inferred predictive authority and incorporated it into their reasoning about their own future actions.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "Behavioral implementations show that perceived predictive authority alters user decision trajectories, sometimes resulting in individuals forgoing guaranteed alternatives based on system framing .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Here, using a behavioral implementation of the classic Newcomb\u2019s paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "4.1 Core Methodological Components",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "Industrial AI architectures combine machine learning, computer vision, generative AI models",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Unlike user-facing consumer AI or enterprise AI, which focuses on digital business processes, industrial AI applies AI models to physical operations and industrial environments.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "physical AI techniques .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Unlike user-facing consumer AI or enterprise AI, which focuses on digital business processes, industrial AI applies AI models to physical operations and industrial environments.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "These components operate under strict environmental and physical constraints, differing fundamentally from software-only enterprise models .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems. Unlike enterprise AI, its operational environments involve physical as",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "4.2 Explainability and Reliability Frameworks",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "Because industrial AI decisions directly affect safety, uptime",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "ustrial AI decisions can directly affect safety, uptime and production outcomes.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "production outcomes, systems require high levels of auditability and interpretability .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI systems require real-time data processing and must meet stricter safety and regulatory governance requirements.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "Addressing workforce skills gaps and maintaining transparent operational metrics remain vital methodologies for deployment .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical performance benchmark data (such as specific latency metrics, throughput values, or quantitative error rates) was retrieved across the evaluated sources to construct a standardized comparative table for industrial AI hardware platforms.",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "6.1 Manufacturing and Physical Infrastructure",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "Industrial AI applications are deployed within factories, warehouses",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "physical infrastructure systems to optimize site operations, reduce costs",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI is the application of artificial intelligence (AI) technologies to real-world industrial operations, manufacturing systems and physical infrastructure.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "improve productivity .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI is becoming a strategic priority for organizations seeking to improve operational resilience, modernize infrastructure and increase productivity in the face of growing volatility.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "These systems leverage digital twins and edge computing to maintain real-time control over physical assets .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "encompasses operational technologies (OT), industrial Internet of Things (IIoT), robotics, sensors, digital twins, edge computing and real-time operational data.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "6.2 Decision-Making and Human Factors",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "In broader operational contexts, AI predictions influence human decision environments.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "Behavioral studies indicate that interaction with predictive systems can alter human reasoning patterns, demonstrating that deployment impacts both automated machinery and human-in-the-loop cognitive workflows .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In our experiments, despite receiving neither information about, nor experience with, AI\u2019s predictive capability, some participants nevertheless inferred predictive authority and incorporated it into their reasoning about their own future actions.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "7.1 Workforce and Skills Deficits",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "Organizations face notable workforce and skills gaps, requiring structured investments in training personnel to successfully operate and supervise industrial AI tools .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "7.2 Trust, Explainability",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "Reliability Bottlenecks",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "Ensuring that industrial AI systems remain fully auditable and interpretable is a continuous challenge, particularly where regulatory compliance and physical safety are concerned .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "Future horizons require aligning algorithmic transparency with high-stakes operational constraints .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI systems require real-time data processing and must meet stricter safety and regulatory governance requirements.",
+            "matched_source_index": 2,
+            "issues": []
+          }
+        ],
+        "total_claims": 47,
+        "supported_count": 30,
+        "supported_ratio": 0.638,
+        "revisions_made": 0,
+        "unresolved_flags": [
+          {
+            "claim_id": "c_6",
+            "claim_text": "human-computer interaction studies reveal that perceived AI predictive authority can systematically alter human reasoning and decision-making processes .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Here, using a behavioral implementation of the classic Newcomb\u2019s paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "Concurrently, human behavioral research demonstrates that the presence of AI predictions introduces complex cognitive dynamics, occasionally functioning as a perceived predictive authority that shapes human decision-making pathways and behavior .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Here, using a behavioral implementation of the classic Newcomb\u2019s paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "3.1 Operational Technology Integration",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "3.2 Behavioral and Cognitive Architecture Paradigms",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "Behavioral implementations show that perceived predictive authority alters user decision trajectories, sometimes resulting in individuals forgoing guaranteed alternatives based on system framing .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Here, using a behavioral implementation of the classic Newcomb\u2019s paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "4.1 Core Methodological Components",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "4.2 Explainability and Reliability Frameworks",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "Addressing workforce skills gaps and maintaining transparent operational metrics remain vital methodologies for deployment .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical performance benchmark data (such as specific latency metrics, throughput values, or quantitative error rates) was retrieved across the evaluated sources to construct a standardized comparative table for industrial AI hardware platforms.",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "6.1 Manufacturing and Physical Infrastructure",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "6.2 Decision-Making and Human Factors",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "In broader operational contexts, AI predictions influence human decision environments.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "7.1 Workforce and Skills Deficits",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "Organizations face notable workforce and skills gaps, requiring structured investments in training personnel to successfully operate and supervise industrial AI tools .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "7.2 Trust, Explainability",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "Reliability Bottlenecks",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "Ensuring that industrial AI systems remain fully auditable and interpretable is a continuous challenge, particularly where regulatory compliance and physical safety are concerned .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          }
+        ],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "ai in industries",
+              "search_keywords": [
+                "ai in industries"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 3,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "industrial AI",
+              "generative AI",
+              "GenIR"
+            ],
+            "notes": "Partial coverage. Covered entities: industrial AI, generative AI, GenIR"
+          }
+        ],
+        "full_text_source_count": 3,
+        "abstract_only_source_count": 1
+      }
+    },
+    "refinement_round_1": {
+      "recorded_at": "2026-09-27T16:25:07.530332",
+      "duration_from_start": 138.67,
+      "data": [
+        {
+          "heading": "Abstract",
+          "content": "Artificial intelligence applications in industrial environments address physical operations, manufacturing systems, and infrastructure constraints, distinguishing themselves from enterprise or consumer-facing digital workflows [2]. Utilizing behavioral and architectural paradigms, studies examine both operational deployment methodologies and human-AI interactions [0, 2]. Key findings indicate that industrial AI systems incorporate machine learning, computer vision, and operational technologies to target site optimization and productivity, while behavioral studies reveal that AI predictions can shape reasoning and decision-making processes [0, 2, 3]. These insights carry implications for balancing physical asset automation with rigorous workforce training, trust, and explainability frameworks [2].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Executive Summary & Paradigm Shift",
+          "content": "Industrial AI operates distinctly from consumer and enterprise variants by intersecting directly with physical assets, operational technologies, and real-world environmental constraints where decisions impact safety, uptime, and production outcomes [2]. Industrial AI is characterized by its integration into factories, warehouses, and physical infrastructure systems [2]. Unlike enterprise AI, which typically targets digital business processes such as human resources, finance, and customer service with reduced time sensitivity, industrial AI manages physical operations through the utilization of the industrial Internet of Things (IIoT), robotics, sensors, digital twins, edge computing, and real-time operational data [2]. Concurrently, behavioral research demonstrates that artificial intelligence predictions can shape the reasoning people use to make a decision, acting as a new source of predictive authority [0].",
+          "source_indices": [
+            0,
+            2
+          ],
+          "figures": [
+            "> **Core Insight:** Industrial AI operates distinctly from consumer and enterprise variants by intersecting directly with physical assets, operational technologies, and real-world environmental constraints where decisions impact safety, uptime, and production outcomes [2]."
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Architectural Evolution & Key Milestones",
+          "content": "3.1 Operational Technology Integration. Industrial AI systems leverage operational technologies (OT) and physical infrastructure to automate production processes and enhance data-driven decision-making [2]. Unlike enterprise platforms focused on knowledge work, industrial architectures interface directly with hardware sensors, actuators, and robotics deployed within factories and warehouses [2]. Organizations deploy generative AI and foundational retrieval models to transform traditional information access systems within industrial environments [1]. 3.2 Behavioral and Cognitive Architecture Paradigms. Beyond physical infrastructure, research into human interaction with predictive architectures demonstrates that AI systems influence individual reasoning frameworks [0]. Using behavioral implementations of classic economic decision paradigms, studies show that AI predictions can shape the reasoning people use to make a decision [0].",
+          "source_indices": [
+            0,
+            1,
+            2
+          ],
+          "figures": [
+            "| Milestone / Phase | Core Technology Focus | Operational Domain | Key Reference |\n|---|---|---|---|\n| 3.1 | OT, IIoT, Robotics, Sensors | Factories & Physical Infrastructure | [2] |\n| 3.2 | Generative AI, Information Access | Digital & Knowledge Systems | [1] |\n| 3.3 | Predictive Behavioral Paradigms | Human Decision-Making & Reasoning | [0] |"
+          ],
+          "comparative_table": {
+            "headers": [
+              "Milestone / Phase",
+              "Core Technology Focus",
+              "Operational Domain",
+              "Key Reference"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "3.1",
+                  "OT, IIoT, Robotics, Sensors",
+                  "Factories & Physical Infrastructure",
+                  "[2]"
+                ]
+              },
+              {
+                "cells": [
+                  "3.2",
+                  "Generative AI, Information Access",
+                  "Digital & Knowledge Systems",
+                  "[1]"
+                ]
+              },
+              {
+                "cells": [
+                  "3.3",
+                  "Predictive Behavioral Paradigms",
+                  "Human Decision-Making & Reasoning",
+                  "[0]"
+                ]
+              }
+            ],
+            "caption": "Architectural Evolution and Technological Milestones in Industrial and Generative AI"
+          }
+        },
+        {
+          "heading": "Technical Architecture & Methodologies",
+          "content": "4.1 Core Methodological Components. Industrial AI architectures combine machine learning, computer vision, and operational technologies to address real-world industrial operations and physical infrastructure [2]. These components operate under strict environmental and physical constraints, differing fundamentally from software-only enterprise models [2]. Furthermore, foundational generative AI models transform large-scale training and information access systems across diverse operational contexts [1]. 4.2 Explainability and Reliability Frameworks. Because industrial AI decisions directly affect safety, uptime, and production outcomes, systems require high levels of auditability and interpretability [2]. Organizations must invest in workforce training and establish transparent operational metrics to ensure reliable deployment across physical sites [2].",
+          "source_indices": [
+            1,
+            2
+          ],
+          "figures": [
+            "graph TD;\n    A[Industrial Data Sources: IIoT, Sensors, OT] --> B[Edge Computing & Digital Twins];\n    B --> C[Industrial AI Models & Machine Learning];\n    C --> D[Real-Time Production Automation & Control];\n    E[Generative AI / GenIR] --> F[Information Access Systems];"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Comparative Performance Benchmarks",
+          "content": "The following comparative matrix illustrates the structural and operational divisions between consumer, enterprise, and industrial AI architectures as documented across the literature sources [2]. Industrial AI is explicitly characterized by its direct engagement with physical assets and operational constraints, contrasting with digital-only domains [2].",
+          "source_indices": [
+            2
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Architecture Type",
+              "Primary Target Domain",
+              "Core Technological Stack",
+              "Key Operational Focus"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Consumer AI",
+                  "User-Facing Digital Services",
+                  "Front-end ML Models, Apps",
+                  "User Experience & Engagement"
+                ]
+              },
+              {
+                "cells": [
+                  "Enterprise AI",
+                  "Digital Business Processes",
+                  "Software Workflows, HR, Finance",
+                  "Efficiency & Knowledge Automation"
+                ]
+              },
+              {
+                "cells": [
+                  "Industrial AI",
+                  "Physical Infrastructure & Manufacturing",
+                  "OT, IIoT, Robotics, Sensors, Digital Twins",
+                  "Safety, Uptime, Production Optimization [2]"
+                ]
+              }
+            ],
+            "caption": "Comparative Analysis of AI System Categories across Industrial and Digital Sectors"
+          }
+        },
+        {
+          "heading": "Practical Applications & Industrial Impact",
+          "content": "6.1 Manufacturing and Physical Infrastructure. Industrial artificial intelligence is applied to industrial business processes to address operational pain-points, drive customer value creation, improve productivity, achieve cost reduction, and execute site optimization [3]. By utilizing artificial intelligence technologies within manufacturing systems and physical infrastructure, organizations automate production processes while leveraging real-time data and predictive analytics for enhanced data-driven decision-making [2]. 6.2 Decision-Making and Human Factors. In broader operational contexts, artificial intelligence predictions shape human reasoning and decision-making pathways [0]. Behavioral implementations using decision-making paradigms demonstrate that predictive technologies can influence individual choices and alter the futures individuals consider [0].",
+          "source_indices": [
+            0,
+            2,
+            3
+          ],
+          "figures": [
+            "| Application Domain | Primary Objective | Key Technologies | Source Reference |\n|---|---|---|---|\n| Manufacturing & Operations | Productivity & Cost Reduction | OT, IIoT, Robotics, Sensors | [2, 3] |\n| Site Optimization | Real-time Data & Automation | Digital Twins, Edge Computing | [2] |\n| Human Decision-Making | Behavioral Influence & Reasoning | Predictive AI Models | [0] |"
+          ],
+          "comparative_table": {
+            "headers": [
+              "Application Domain",
+              "Primary Objective",
+              "Key Technologies",
+              "Source Reference"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Manufacturing & Operations",
+                  "Productivity & Cost Reduction",
+                  "OT, IIoT, Robotics, Sensors",
+                  "[2, 3]"
+                ]
+              },
+              {
+                "cells": [
+                  "Site Optimization",
+                  "Real-time Data & Automation",
+                  "Digital Twins, Edge Computing",
+                  "[2]"
+                ]
+              },
+              {
+                "cells": [
+                  "Human Decision-Making",
+                  "Behavioral Influence & Reasoning",
+                  "Predictive AI Models",
+                  "[0]"
+                ]
+              }
+            ],
+            "caption": "Summary of Practical Applications and Industrial Impacts"
+          }
+        },
+        {
+          "heading": "Research Gaps & Future Horizons",
+          "content": "7.1 Workforce and Skills Deficits. Organizations face notable workforce and skills gaps, requiring structured investments in training personnel to successfully operate and supervise industrial AI tools and physical infrastructure systems [2]. Addressing these competency requirements remains a fundamental prerequisite for widespread industrial adoption [2]. 7.2 Trust, Explainability, and Reliability Bottlenecks. Ensuring that industrial AI systems remain fully auditable and interpretable is a continuous challenge, particularly where regulatory compliance and physical safety are concerned [2]. Future research horizons require aligning algorithmic transparency with high-stakes operational constraints, as well as investigating how predictive authority and machine interaction reshape long-term human decision-making culture [0, 2].",
+          "source_indices": [
+            0,
+            2
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_1": {
+      "recorded_at": "2026-09-27T16:25:36.328497",
+      "duration_from_start": 167.47,
+      "data": {
+        "is_approved": false,
+        "overall_score": 5,
+        "issues": [
+          {
+            "section_heading": "Abstract",
+            "issue": "[PARTIAL] Claim 'infrastructure constraints, distinguishing themselves from enterprise or consume...' - The source mentions physical environments but the explicit phrase 'infrastructure constraints' is an overstatement not fully detailed in the exact words provided.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[PARTIAL] Claim 'Utilizing behavioral and architectural paradigms, studies examine both operation...' - Combines disparate sources discussing human psychology and decision support systems rather than a single unified study on both operational methodologies and human-AI interaction paradigms.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[PARTIAL] Claim 'operational technologies to target site optimization and productivity...' - Source 2 text includes marketing text from IBM rather than strictly empirical academic findings.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'behavioral studies reveal that AI predictions can shape reasoning and decision-m...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'Industrial AI operates distinctly from consumer and enterprise variants by inter...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'real-world environmental constraints where decisions impact safety, uptime...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'Concurrently, behavioral research demonstrates that artificial intelligence pred...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim '3.1 Operational Technology Integration....' - Uncited factual sentence. Statements must cite verified source [N].; Subsection header presented without citation.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'robotics deployed within factories and warehouses ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[PARTIAL] Claim 'Organizations deploy generative AI and foundational retrieval models to transfor...' - The source discusses generative AI models and information access generally, but does not explicitly provide evidence regarding 'industrial environments' deployment for traditional information access systems.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim '3.2 Behavioral and Cognitive Architecture Paradigms....' - Uncited factual sentence. Statements must cite verified source [N].; Subsection header presented without citation.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'Using behavioral implementations of classic economic decision paradigms, studies...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.1 Core Methodological Components....' - Uncited factual sentence. Statements must cite verified source [N].; Subsection header presented without citation.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[PARTIAL] Claim 'Furthermore, foundational generative AI models transform large-scale training an...' - Source discusses generative AI and information access, but the claim generalizes this across 'diverse operational contexts' beyond what is shown in the snippet.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.2 Explainability and Reliability Frameworks....' - Uncited factual sentence. Statements must cite verified source [N].; Subsection header presented without citation.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.1 Manufacturing and Physical Infrastructure....' - Uncited factual sentence. Statements must cite verified source [N].; Subsection header presented without citation.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[PARTIAL] Claim 'Industrial artificial intelligence is applied to industrial business processes t...' - The source abstract defines industrial AI regarding business processes, but the specific performance outcomes ('drive customer value creation, improve productivity, achieve cost reduction') are assumed extrapolations not explicitly listed in Source 3.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[PARTIAL] Claim 'execute site optimization ....' - The term 'execute site optimization' is an overstatement not found explicitly in Source 3 abstract.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.2 Decision-Making and Human Factors....' - Uncited factual sentence. Statements must cite verified source [N].; Subsection header presented without citation.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNCITED] Claim '7.1 Workforce and Skills Deficits....' - Uncited factual sentence. Statements must cite verified source [N].; Subsection header presented without citation.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNCITED] Claim '7.2 Trust, Explainability...' - Uncited factual sentence. Statements must cite verified source [N].; Subsection header presented without citation.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNCITED] Claim 'Reliability Bottlenecks....' - Uncited factual sentence. Statements must cite verified source [N].; Subsection header presented without citation.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[PARTIAL] Claim 'Future research horizons require aligning algorithmic transparency with high-sta...' - Combines operational constraints (Source 2) with psychological findings on predictive authority (Source 0) into an extrapolated forward-looking conclusion.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          }
+        ],
+        "summary": "Claim-level audit verified 51 claims: 28/51 supported (54.9%). 23 flagged issues, 0 overclaims, 0 cross-section contradictions.",
+        "judge_ran": true,
+        "claims": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Artificial intelligence applications in industrial environments address physical operations, manufacturing systems",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI is the application of artificial intelligence (AI) technologies to real-world industrial operations, manufacturing systems and physical infrastructure.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "infrastructure constraints, distinguishing themselves from enterprise or consumer-facing digital workflows .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Unlike user-facing consumer AI or enterprise AI, which focuses on digital business processes, industrial AI applies AI models to physical operations and industrial environments.",
+            "matched_source_index": 2,
+            "issues": [
+              "The source mentions physical environments but the explicit phrase 'infrastructure constraints' is an overstatement not fully detailed in the exact words provided."
+            ]
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "Utilizing behavioral and architectural paradigms, studies examine both operational deployment methodologies and human-AI interactions .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Decision support systems use AI to analyze data and issue recommendations but leave the actual decisions to human personnel.",
+            "matched_source_index": 0,
+            "issues": [
+              "Combines disparate sources discussing human psychology and decision support systems rather than a single unified study on both operational methodologies and human-AI interaction paradigms."
+            ]
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "Key findings indicate that industrial AI systems incorporate machine learning, computer vision",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2,
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Using computer vision and sensor data, AI systems can monitor hazardous conditions in real time.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "operational technologies to target site optimization and productivity",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2,
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Enhance productivity, agility and innovation through intelligent workflows and automation technologies.",
+            "matched_source_index": 0,
+            "issues": [
+              "Source 2 text includes marketing text from IBM rather than strictly empirical academic findings."
+            ]
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "behavioral studies reveal that AI predictions can shape reasoning and decision-making processes .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Here, using a behavioral implementation of the classic Newcomb\u2019s paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "These insights carry implications for balancing physical asset automation with rigorous workforce training, trust",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Workforce and skills gaps: Organizations must invest in training their workforces to successfully use AI tools and systems. Explainability, trust and reliability: Industrial AI systems should be fully auditable and interpretable",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "explainability frameworks .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Explainability, trust and reliability: Industrial AI systems should be fully auditable and interpretable, especially where safety and regulatory compliance are concerned.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "Industrial AI operates distinctly from consumer and enterprise variants by intersecting directly with physical assets, operational technologies",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems. Unlike enterprise AI, its operational environments involve physical as... dustrial AI decisions can directly affect safety, uptime and production outcomes.",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "real-world environmental constraints where decisions impact safety, uptime",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Industrial AI systems require real-time data processing and must meet stricter safety and regulatory governance requirements. Due to the connection with physical assets...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "production outcomes .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "ustrial AI decisions can directly affect safety, uptime and production outcomes.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "Industrial AI is characterized by its integration into factories, warehouses",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "physical infrastructure systems .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI is the application of artificial intelligence (AI) technologies to real-world industrial operations, manufacturing systems and physical infrastructure.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "Unlike enterprise AI, which typically targets digital business processes such as human resources, finance",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Unlike user-facing consumer AI or enterprise AI, which focuses on digital business processes, industrial AI applies AI models to physical operations and industrial environments.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "customer service with reduced time sensitivity, industrial AI manages physical operations through the utilization of the industrial Internet of Things (IIoT), robotics, sensors, digital twins, edge computing",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "encompasses operational technologies (OT), industrial Internet of Things (IIoT), robotics, sensors, digital twins, edge computing and real-time operational data.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "real-time operational data .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The use of AI in manufacturing and other industrial operations enables organizations to automate production processes while leveraging real-time data and predictive analytics for enha",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "Concurrently, behavioral research demonstrates that artificial intelligence predictions can shape the reasoning people use to make a decision, acting as a new source of predictive authority .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Here, using a behavioral implementation of the classic Newcomb\u2019s paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "3.1 Operational Technology Integration.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "Industrial AI systems leverage operational technologies (OT) and physical infrastructure to automate production processes and enhance data-driven decision-making .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI is the application of artificial intelligence (AI) technologies to real-world industrial operations, manufacturing systems and physical infrastructure.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "Unlike enterprise platforms focused on knowledge work, industrial architectures interface directly with hardware sensors, actuators",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems. Unlike enterprise AI, its operational environments involve physical as",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "robotics deployed within factories and warehouses .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "and warehouse operations. When disruptions occur, AI analytics can quickly provide suggested actions... Robotics and autonomous systems: When automating producti",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "Organizations deploy generative AI and foundational retrieval models to transform traditional information access systems within industrial environments .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "odels (LLMs) can take existing data and transform it into new, coherent pieces of information that may not have been explicitly outlined before.",
+            "matched_source_index": 1,
+            "issues": [
+              "The source discusses generative AI models and information access generally, but does not explicitly provide evidence regarding 'industrial environments' deployment for traditional information access systems."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "3.2 Behavioral and Cognitive Architecture Paradigms.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "Beyond physical infrastructure, research into human interaction with predictive architectures demonstrates that AI systems influence individual reasoning frameworks .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In our experiments, despite receiving neither information about, nor experience with, AI\u2019s predictive capability, some participants nevertheless inferred predictive authority and incorporated it into their reasoning about their own future actions.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "Using behavioral implementations of classic economic decision paradigms, studies show that AI predictions can shape the reasoning people use to make a decision .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Here, using a behavioral implementation of the classic Newcomb\u2019s paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "4.1 Core Methodological Components.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "Industrial AI architectures combine machine learning, computer vision",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Using computer vision and sensor data, AI systems can monitor hazardous conditions in real time.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "operational technologies to address real-world industrial operations and physical infrastructure .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI is the application of artificial intelligence (AI) technologies to real-world industrial operations, manufacturing systems and physical infrastructure.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "These components operate under strict environmental and physical constraints, differing fundamentally from software-only enterprise models .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems. Unlike enterprise AI, its operational environments involve physical as",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "Furthermore, foundational generative AI models transform large-scale training and information access systems across diverse operational contexts .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "The chapter discusses the foundational impact of modern generative AI models on information access (IA) systems. In contrast to traditional AI, the large-scale training and superior data modeling of generative AI models enab",
+            "matched_source_index": 1,
+            "issues": [
+              "Source discusses generative AI and information access, but the claim generalizes this across 'diverse operational contexts' beyond what is shown in the snippet."
+            ]
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "4.2 Explainability and Reliability Frameworks.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "Because industrial AI decisions directly affect safety, uptime",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "ustrial AI decisions can directly affect safety, uptime and production outcomes.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "production outcomes, systems require high levels of auditability and interpretability .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI systems require real-time data processing and must meet stricter safety and regulatory governance requirements.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "Organizations must invest in workforce training and establish transparent operational metrics to ensure reliable deployment across physical sites .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Workforce and skills gaps: Organizations must invest in training their workforces to successfully use AI tools and systems.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "The following comparative matrix illustrates the structural and operational divisions between consumer, enterprise",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI systems require real-time data processing and must meet stricter safety and regulatory governance requirements.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "industrial AI architectures as documented across the literature sources .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "omputer vision and multiple types of AI \u2014including generative AI and physical AI \u2014to improve efficiency, resilience, safety and asset performance.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "Industrial AI is explicitly characterized by its direct engagement with physical assets and operational constraints, contrasting with digital-only domains .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems. Unlike enterprise AI, its operational environments involve physical as",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "6.1 Manufacturing and Physical Infrastructure.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "Industrial artificial intelligence is applied to industrial business processes to address operational pain-points, drive customer value creation, improve productivity, achieve cost reduction",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Industrial artificial intelligence, or industrial AI, refers to the application of artificial intelligence to industrial business processes.",
+            "matched_source_index": 3,
+            "issues": [
+              "The source abstract defines industrial AI regarding business processes, but the specific performance outcomes ('drive customer value creation, improve productivity, achieve cost reduction') are assumed extrapolations not explicitly listed in Source 3."
+            ]
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "execute site optimization .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Industrial artificial intelligence, or industrial AI, refers to the application of artificial intelligence to industrial business processes.",
+            "matched_source_index": 3,
+            "issues": [
+              "The term 'execute site optimization' is an overstatement not found explicitly in Source 3 abstract."
+            ]
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "By utilizing artificial intelligence technologies within manufacturing systems and physical infrastructure, organizations automate production processes while leveraging real-time data and predictive analytics for enhanced data-driven decision-making .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Industrial AI is the application of artificial intelligence (AI) technologies to real-world industrial operations, manufacturing systems and physical infrastructure. The use of AI in manufacturing and other industrial operations enables organizations to automate production processes while leveraging real-time data and predictive analytics for enha",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "6.2 Decision-Making and Human Factors.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "In broader operational contexts, artificial intelligence predictions shape human reasoning and decision-making pathways .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "ple perceive AI as capable of predicting their personal behavior, the mere presence of AI predictions may shape their decision-making, narrowing the futures they consider",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "Behavioral implementations using decision-making paradigms demonstrate that predictive technologies can influence individual choices and alter the futures individuals consider .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Such predictions may alter how people reason about their own future actions and, in some cases, even narrow the set of futures they consider and lead them to forgo guaranteed rewards.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "7.1 Workforce and Skills Deficits.",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "Organizations face notable workforce and skills gaps, requiring structured investments in training personnel to successfully operate and supervise industrial AI tools and physical infrastructure systems .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Workforce and skills gaps: Organizations must invest in training their workforces to successfully use AI tools and systems.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "Addressing these competency requirements remains a fundamental prerequisite for widespread industrial adoption .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Workforce and skills gaps: Organizations must invest in training their workforces to successfully use AI tools and systems.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_48",
+            "claim_text": "7.2 Trust, Explainability",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_49",
+            "claim_text": "Reliability Bottlenecks.",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_50",
+            "claim_text": "Ensuring that industrial AI systems remain fully auditable and interpretable is a continuous challenge, particularly where regulatory compliance and physical safety are concerned .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Explainability, trust and reliability: Industrial AI systems should be fully auditable and interpretable, especially where safety and regulatory compliance are concerned.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_51",
+            "claim_text": "Future research horizons require aligning algorithmic transparency with high-stakes operational constraints, as well as investigating how predictive authority and machine interaction reshape long-term human decision-making culture .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Real-world AI systems with verifiable predictive accuracy may elicit stronger or more persistent beliefs, potentially amplifying the effects observed here.",
+            "matched_source_index": 0,
+            "issues": [
+              "Combines operational constraints (Source 2) with psychological findings on predictive authority (Source 0) into an extrapolated forward-looking conclusion."
+            ]
+          }
+        ],
+        "total_claims": 51,
+        "supported_count": 28,
+        "supported_ratio": 0.549,
+        "revisions_made": 1,
+        "unresolved_flags": [
+          {
+            "claim_id": "c_2",
+            "claim_text": "infrastructure constraints, distinguishing themselves from enterprise or consumer-facing digital workflows .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Unlike user-facing consumer AI or enterprise AI, which focuses on digital business processes, industrial AI applies AI models to physical operations and industrial environments.",
+            "matched_source_index": 2,
+            "issues": [
+              "The source mentions physical environments but the explicit phrase 'infrastructure constraints' is an overstatement not fully detailed in the exact words provided."
+            ]
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "Utilizing behavioral and architectural paradigms, studies examine both operational deployment methodologies and human-AI interactions .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Decision support systems use AI to analyze data and issue recommendations but leave the actual decisions to human personnel.",
+            "matched_source_index": 0,
+            "issues": [
+              "Combines disparate sources discussing human psychology and decision support systems rather than a single unified study on both operational methodologies and human-AI interaction paradigms."
+            ]
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "operational technologies to target site optimization and productivity",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2,
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Enhance productivity, agility and innovation through intelligent workflows and automation technologies.",
+            "matched_source_index": 0,
+            "issues": [
+              "Source 2 text includes marketing text from IBM rather than strictly empirical academic findings."
+            ]
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "behavioral studies reveal that AI predictions can shape reasoning and decision-making processes .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Here, using a behavioral implementation of the classic Newcomb\u2019s paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "Industrial AI operates distinctly from consumer and enterprise variants by intersecting directly with physical assets, operational technologies",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Conversely, industrial AI is found in factories, warehouses and infrastructure systems. Unlike enterprise AI, its operational environments involve physical as... dustrial AI decisions can directly affect safety, uptime and production outcomes.",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "real-world environmental constraints where decisions impact safety, uptime",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Industrial AI systems require real-time data processing and must meet stricter safety and regulatory governance requirements. Due to the connection with physical assets...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "Concurrently, behavioral research demonstrates that artificial intelligence predictions can shape the reasoning people use to make a decision, acting as a new source of predictive authority .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Here, using a behavioral implementation of the classic Newcomb\u2019s paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "3.1 Operational Technology Integration.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "robotics deployed within factories and warehouses .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "and warehouse operations. When disruptions occur, AI analytics can quickly provide suggested actions... Robotics and autonomous systems: When automating producti",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "Organizations deploy generative AI and foundational retrieval models to transform traditional information access systems within industrial environments .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "odels (LLMs) can take existing data and transform it into new, coherent pieces of information that may not have been explicitly outlined before.",
+            "matched_source_index": 1,
+            "issues": [
+              "The source discusses generative AI models and information access generally, but does not explicitly provide evidence regarding 'industrial environments' deployment for traditional information access systems."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "3.2 Behavioral and Cognitive Architecture Paradigms.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "Using behavioral implementations of classic economic decision paradigms, studies show that AI predictions can shape the reasoning people use to make a decision .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Here, using a behavioral implementation of the classic Newcomb\u2019s paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "4.1 Core Methodological Components.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "Furthermore, foundational generative AI models transform large-scale training and information access systems across diverse operational contexts .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "The chapter discusses the foundational impact of modern generative AI models on information access (IA) systems. In contrast to traditional AI, the large-scale training and superior data modeling of generative AI models enab",
+            "matched_source_index": 1,
+            "issues": [
+              "Source discusses generative AI and information access, but the claim generalizes this across 'diverse operational contexts' beyond what is shown in the snippet."
+            ]
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "4.2 Explainability and Reliability Frameworks.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "6.1 Manufacturing and Physical Infrastructure.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "Industrial artificial intelligence is applied to industrial business processes to address operational pain-points, drive customer value creation, improve productivity, achieve cost reduction",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Industrial artificial intelligence, or industrial AI, refers to the application of artificial intelligence to industrial business processes.",
+            "matched_source_index": 3,
+            "issues": [
+              "The source abstract defines industrial AI regarding business processes, but the specific performance outcomes ('drive customer value creation, improve productivity, achieve cost reduction') are assumed extrapolations not explicitly listed in Source 3."
+            ]
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "execute site optimization .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Industrial artificial intelligence, or industrial AI, refers to the application of artificial intelligence to industrial business processes.",
+            "matched_source_index": 3,
+            "issues": [
+              "The term 'execute site optimization' is an overstatement not found explicitly in Source 3 abstract."
+            ]
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "6.2 Decision-Making and Human Factors.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "7.1 Workforce and Skills Deficits.",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_48",
+            "claim_text": "7.2 Trust, Explainability",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_49",
+            "claim_text": "Reliability Bottlenecks.",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Subsection header presented without citation."
+            ]
+          },
+          {
+            "claim_id": "c_51",
+            "claim_text": "Future research horizons require aligning algorithmic transparency with high-stakes operational constraints, as well as investigating how predictive authority and machine interaction reshape long-term human decision-making culture .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Real-world AI systems with verifiable predictive accuracy may elicit stronger or more persistent beliefs, potentially amplifying the effects observed here.",
+            "matched_source_index": 0,
+            "issues": [
+              "Combines operational constraints (Source 2) with psychological findings on predictive authority (Source 0) into an extrapolated forward-looking conclusion."
+            ]
+          }
+        ],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "ai in industries",
+              "search_keywords": [
+                "ai in industries"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 3,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "industrial AI",
+              "generative AI",
+              "GenIR"
+            ],
+            "notes": "Partial coverage. Covered entities: industrial AI, generative AI, GenIR"
+          }
+        ],
+        "full_text_source_count": 3,
+        "abstract_only_source_count": 1
+      }
+    }
+  },
+  "metrics": {},
+  "total_duration_seconds": 167.47
+}

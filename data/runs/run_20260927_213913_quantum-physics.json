@@ -1,0 +1,2972 @@
+{
+  "query": "quantum physics",
+  "timestamp": "20260927_213913",
+  "stages": {
+    "plan": {
+      "recorded_at": "2026-09-27T21:39:36.563105",
+      "duration_from_start": 23.48,
+      "data": {
+        "original_query": "quantum physics",
+        "sub_queries": [
+          {
+            "question": "What are the recent advancements, tunneling rates, and scalability prospects of Helium-3 and superfluid-based qubits in quantum computing architectures?",
+            "search_keywords": [
+              "superfluid helium-3 qubit",
+              "helium-3 quantum computing tunneling rate",
+              "superfluid qubit scaling"
+            ],
+            "source_type": "both"
+          },
+          {
+            "question": "How do recent non-local games and computational complexity proofs demonstrate quantum advantage with provable classical limits?",
+            "search_keywords": [
+              "quantum advantage game provable classical limits",
+              "quantum non-locality advantage 2025 2026",
+              "quantum advantage complexity limits"
+            ],
+            "source_type": "arxiv"
+          },
+          {
+            "question": "How is the extreme non-Markovian quantum Mpemba effect utilized in characterizing many-body systems and correlation functions of impurity models?",
+            "search_keywords": [
+              "extreme non-Markovian quantum Mpemba effect",
+              "impurity models correlation functions quantum Mpemba",
+              "dynamical map quantum Mpemba effect"
+            ],
+            "source_type": "arxiv"
+          }
+        ],
+        "reasoning": "Decomposed the broad topic of quantum physics into highly specific, modern sub-questions covering novel qubit architectures (Helium-3), theoretical quantum advantage, many-body physics (Mpemba effect), major industry-academic partnerships, hardware platform comparisons, and post-quantum cryptography standards."
+      }
+    },
+    "retrieval": {
+      "recorded_at": "2026-09-27T21:40:02.687462",
+      "duration_from_start": 49.61,
+      "data": {
+        "total_sources_retrieved": 6,
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the recent advancements, tunneling rates, and scalability prospects of Helium-3 and superfluid-based qubits in quantum computing architectures?",
+              "search_keywords": [
+                "superfluid helium-3 qubit",
+                "helium-3 quantum computing tunneling rate",
+                "superfluid qubit scaling"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 0,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Surrey's Quantum Sciences Group",
+              "npj Quantum Information",
+              "Helium-3"
+            ],
+            "notes": "Partial coverage. Covered entities: Surrey's Quantum Sciences Group, npj Quantum Information, Helium-3"
+          },
+          {
+            "sub_query": {
+              "question": "How do recent non-local games and computational complexity proofs demonstrate quantum advantage with provable classical limits?",
+              "search_keywords": [
+                "quantum advantage game provable classical limits",
+                "quantum non-locality advantage 2025 2026",
+                "quantum advantage complexity limits"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Tianyan Quantum Cloud Platform",
+              "Zuchongzhi 3.0",
+              "IBM"
+            ],
+            "notes": "Partial coverage. Covered entities: Tianyan Quantum Cloud Platform, Zuchongzhi 3.0, IBM"
+          },
+          {
+            "sub_query": {
+              "question": "How is the extreme non-Markovian quantum Mpemba effect utilized in characterizing many-body systems and correlation functions of impurity models?",
+              "search_keywords": [
+                "extreme non-Markovian quantum Mpemba effect",
+                "impurity models correlation functions quantum Mpemba",
+                "dynamical map quantum Mpemba effect"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 1,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Mpemba effect"
+            ],
+            "notes": "Partial coverage. Covered entities: Mpemba effect"
+          }
+        ],
+        "full_text_count": 3,
+        "abstract_only_count": 3
+      }
+    },
+    "synthesis": {
+      "recorded_at": "2026-09-27T21:41:20.374016",
+      "duration_from_start": 127.29,
+      "data": [
+        {
+          "heading": "1. Abstract",
+          "content": "Background: Quantum computing architectures are rapidly diversifying across superconducting, trapped-ion, and novel superfluid platforms to achieve robust quantum advantage and lower error rates [1, 0, 4]. Methods/Approach: This report synthesizes recent developments in cloud-accessible superconducting processors like the 105-qubit Tianyan-287, experimental demonstrations of thermodynamic anomalies such as the inverse Mpemba effect in trapped ions, and theoretical designs for Superfluid Helium Oscillator Quantum (SHOQ) devices [1, 0, 4, 5]. Key Findings: The Tianyan-287 processor achieves high operational fidelities, including 99.90% single-qubit, 99.56% two-qubit, and 98.7% readout fidelities [1], while calculations for the proposed SHOQ device project error rates approximately 100-fold lower than conventional superconducting qubits due to its charge-neutral superfluid helium-3 medium [4, 5]. Implications: These advancements collectively expand the accessibility of Noisy Intermediate-Scale Quantum (NISQ) systems and introduce novel physical paradigms for noise-immune quantum hardware, though significant empirical gaps remain regarding the scalability and tunneling rates of superfluid architectures [1, 2, 4].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_0": {
+      "recorded_at": "2026-09-27T21:41:46.303667",
+      "duration_from_start": 153.22,
+      "data": {
+        "is_approved": false,
+        "overall_score": 6,
+        "issues": [
+          {
+            "section_heading": "1. Abstract",
+            "issue": "[UNVERIFIED] Claim 'Background: Quantum computing architectures are rapidly diversifying across supe...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "1. Abstract",
+            "issue": "[UNVERIFIED] Claim 'Methods/Approach: This report synthesizes recent developments in cloud-accessibl...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          }
+        ],
+        "summary": "Claim-level audit verified 8 claims: 6/8 supported (75.0%). 2 flagged issues, 0 overclaims, 0 cross-section contradictions.",
+        "judge_ran": true,
+        "claims": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Background: Quantum computing architectures are rapidly diversifying across superconducting, trapped-ion",
+            "section_heading": "1. Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Quantum computing architectures are rapidly diversifying across superconducting, trapped-ion",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "novel superfluid platforms to achieve robust quantum advantage and lower error rates .",
+            "section_heading": "1. Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "error rates about 100-fold lower than superconducting qubits.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "Methods/Approach: This report synthesizes recent developments in cloud-accessible superconducting processors like the 105-qubit Tianyan-287, experimental demonstrations of thermodynamic anomalies such as the inverse Mpemba effect in trapped ions",
+            "section_heading": "1. Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Tianyan-287 system, which equipped with a Zuchongzhi 3.0-like superconducting quantum pro",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "theoretical designs for Superfluid Helium Oscillator Quantum (SHOQ) devices .",
+            "section_heading": "1. Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Named the Superfluid Helium Oscillator Quantum (SHOQ) device, the proposed qubit uses charg",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "Key Findings: The Tianyan-287 processor achieves high operational fidelities, including 99.90% single-qubit, 99.56% two-qubit",
+            "section_heading": "1. Abstract",
+            "cited_source_indices": [
+              1,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The single-qubit gates, two-qubit gates, and readout fidelities are 99.90%, 99.56%, and 98.7%, respectively.",
+            "matched_source_index": 1,
+            "issues": []
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "98.7% readout fidelities",
+            "section_heading": "1. Abstract",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The single-qubit gates, two-qubit gates, and readout fidelities are 99.90%, 99.56%, and 98.7%, respectively.",
+            "matched_source_index": 1,
+            "issues": []
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "calculations for the proposed SHOQ device project error rates approximately 100-fold lower than conventional superconducting qubits due to its charge-neutral superfluid helium-3 medium .",
+            "section_heading": "1. Abstract",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "error rates about 100-fold lower than superconducting qubits. The device could couple to superconducting hardware and potentially serve as quantum memory, pending prototype validation.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "Implications: These advancements collectively expand the accessibility of Noisy Intermediate-Scale Quantum (NISQ) systems and introduce novel physical paradigms for noise-immune quantum hardware, though significant empirical gaps remain regarding the scalability and tunneling rates of superfluid architectures .",
+            "section_heading": "1. Abstract",
+            "cited_source_indices": [
+              1,
+              2,
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "We are currently operating within the Noisy Intermediate-Scale Quant",
+            "matched_source_index": 1,
+            "issues": []
+          }
+        ],
+        "total_claims": 8,
+        "supported_count": 6,
+        "supported_ratio": 0.75,
+        "revisions_made": 0,
+        "unresolved_flags": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Background: Quantum computing architectures are rapidly diversifying across superconducting, trapped-ion",
+            "section_heading": "1. Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Quantum computing architectures are rapidly diversifying across superconducting, trapped-ion",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "Methods/Approach: This report synthesizes recent developments in cloud-accessible superconducting processors like the 105-qubit Tianyan-287, experimental demonstrations of thermodynamic anomalies such as the inverse Mpemba effect in trapped ions",
+            "section_heading": "1. Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Tianyan-287 system, which equipped with a Zuchongzhi 3.0-like superconducting quantum pro",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          }
+        ],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the recent advancements, tunneling rates, and scalability prospects of Helium-3 and superfluid-based qubits in quantum computing architectures?",
+              "search_keywords": [
+                "superfluid helium-3 qubit",
+                "helium-3 quantum computing tunneling rate",
+                "superfluid qubit scaling"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 0,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Surrey's Quantum Sciences Group",
+              "npj Quantum Information",
+              "Helium-3"
+            ],
+            "notes": "Partial coverage. Covered entities: Surrey's Quantum Sciences Group, npj Quantum Information, Helium-3"
+          },
+          {
+            "sub_query": {
+              "question": "How do recent non-local games and computational complexity proofs demonstrate quantum advantage with provable classical limits?",
+              "search_keywords": [
+                "quantum advantage game provable classical limits",
+                "quantum non-locality advantage 2025 2026",
+                "quantum advantage complexity limits"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Tianyan Quantum Cloud Platform",
+              "Zuchongzhi 3.0",
+              "IBM"
+            ],
+            "notes": "Partial coverage. Covered entities: Tianyan Quantum Cloud Platform, Zuchongzhi 3.0, IBM"
+          },
+          {
+            "sub_query": {
+              "question": "How is the extreme non-Markovian quantum Mpemba effect utilized in characterizing many-body systems and correlation functions of impurity models?",
+              "search_keywords": [
+                "extreme non-Markovian quantum Mpemba effect",
+                "impurity models correlation functions quantum Mpemba",
+                "dynamical map quantum Mpemba effect"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 1,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Mpemba effect"
+            ],
+            "notes": "Partial coverage. Covered entities: Mpemba effect"
+          }
+        ],
+        "full_text_source_count": 3,
+        "abstract_only_source_count": 3
+      }
+    },
+    "refinement_round_1": {
+      "recorded_at": "2026-09-27T21:42:22.432883",
+      "duration_from_start": 189.35,
+      "data": [
+        {
+          "heading": "Abstract",
+          "content": "Background: Quantum physics research encompasses diverse hardware paradigms, ranging from superconducting processors to trapped ions and superfluid helium systems [1, 0, 4]. Methods: This report synthesizes recent literature on cloud-accessible superconducting architectures like the Tianyan platform, single-qubit trapped-ion experiments demonstrating the inverse Mpemba effect, and theoretical proposals for Superfluid Helium Oscillator Quantum (SHOQ) devices [1, 0, 4, 5]. Results: The Tianyan platform provides cloud services via superconducting prototypes with robust operational uptime, while trapped-ion experiments confirm thermodynamic anomalies such as the inverse Mpemba effect at the single-qubit level [0, 1]. Conclusion: These findings highlight a multi-pronged progression in quantum technologies, advancing both cloud accessibility and fundamental physical insights into open quantum systems [0, 1, 4, 5].",
+          "source_indices": [
+            0,
+            1,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Executive Summary & Paradigm Shift",
+          "content": "Recent developments in quantum physics and quantum computing reflect a profound shift away from isolated laboratory experiments toward scalable, cloud-accessible quantum services and fundamentally novel hardware mediums. The integration of high-performance computing clusters with superconducting processors has democratized access to advanced quantum computation, exemplified by the Tianyan quantum cloud platform [1]. Concurrently, fundamental research into condensed matter systems\u2014such as superfluid helium-3 and trapped-ion qubits\u2014has revealed new pathways for mitigating environmental decoherence and understanding macroscopic quantum phenomena [0, 3, 4, 5]. These dual trajectories of cloud-based utility and novel physical substrate engineering are reshaping the landscape of quantum information science.\n\n> **Core Insight:** The transition from noisy intermediate-scale quantum demonstrators to robust cloud-accessible utilities, coupled with the exploration of charge-neutral superfluid substrates, represents a paradigm shift where hardware noise immunity and remote accessibility converge to redefine scalable quantum computation.\n\nThe convergence of condensed matter physics and quantum information science has also opened doors to exploring complex cooperative phenomena, such as noisy quantum game theory dilemmas and thermodynamic anomalies like the inverse Mpemba effect [0, 2]. By bridging the gap between theoretical multi-player dilemma robustness and empirical trapped-ion thermodynamics, researchers are establishing a rigorous foundation for quantum advantage across multiple physical domains [0, 2].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Architectural Evolution & Key Milestones",
+          "content": "3.1 Superconducting Cloud Ecosystems and Scalability\nThe architectural evolution of superconducting quantum hardware has transitioned from small-scale academic prototypes to extensive utility-scale cloud fleets. A prominent milestone is the development of the Tianyan quantum cloud platform, which integrates superconducting quantum processors with high-performance computing clusters [1]. By offering open-source programming frameworks such as Cqlib, these platforms enable complex quantum simulations, optimizations, and machine learning experiments for a broad user base [1].\n\n3.2 Condensed Matter and Exotic Substrate Integration\nIn parallel with superconducting circuits, quantum architectures are expanding into unconventional condensed matter systems. The discovery of superfluid phases in helium-3 established a vital bridge between condensed matter physics and particle physics, serving as a testbed for topological defects and macroscopic quantum phenomena [3]. Building upon these foundations, recent proposals have introduced Superfluid Helium Oscillator Quantum (SHOQ) devices, utilizing charge-neutral superfluid helium-3 to achieve natural immunity against specific electromagnetic noise sources [4, 5].\n\n3.3 Quantum Thermodynamic and Game-Theoretic Milestones\nMilestones in quantum physics extend beyond hardware scaling into thermodynamic control and algorithmic robustness. Demonstrations of the inverse Mpemba effect on a single trapped ion qubit have provided unprecedented control over non-equilibrium quantum dynamics [0]. Furthermore, theoretical and experimental investigations into noisy three-player quantum dilemma games have demonstrated the robustness of quantum advantage against environmental noise, validating quantum strategies in multi-party interactive frameworks [2].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "figures": [
+            "| Year / Era | Architectural Milestone | Key Substrate / Platform | Significance ||\n|---|---|---|---|\n| 1971 | Discovery of Helium-3 Superfluid Phases | Superfluid $^3He$ | Established testbed for macroscopic quantum phenomena and topological defects [3] |\n| 2023 | Hybrid Quantum-Classical Integration | Superconducting / HPC Cluster | Enabled hybrid high-performance computing integration on cloud platforms [1] |\n| 2024 | Thermodynamic Anomaly Demonstration | Single Trapped Ion Qubit | Demonstrated the inverse Mpemba effect in an isolated quantum system [0] |\n| 2026 | Superfluid Qubit Proposal (SHOQ) | Superfluid Helium-3 | Proposed charge-neutral qubits offering inherent immunity to electromagnetic noise [4, 5] |"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Technical Architecture & Methodologies",
+          "content": "4.1 Cloud-Integrated Superconducting Frameworks\nThe technical architecture of modern cloud-accessible quantum services relies on multi-tier integration between cryogenic quantum processors and classical High-Performance Computing (HPC) clusters [1]. The Tianyan platform exemplifies this approach by operating a fleet of reliable superconducting quantum systems featuring stable uptime and precise gate fidelities [1]. Users interact with these hardware units via comprehensive software layers like the open-source Cqlib SDK, which supports remote experimentation, algorithm compilation, and hybrid task scheduling [1].\n\n4.2 Trapped-Ion and Thermodynamic Measurement Methodologies\nInvestigating non-equilibrium quantum dynamics requires extreme precision in state preparation and measurement. In single trapped ion qubit experiments investigating the inverse Mpemba effect, laser cooling, precise optical manipulation, and fluorescence detection allow researchers to track the thermal relaxation of quantum states under engineered environments [0]. These methods provide rigorous insights into how isolated quantum systems deviate from classical thermodynamic expectations.\n\n4.3 Charge-Neutral Superfluid Substrate Mechanics\nThe proposed Superfluid Helium Oscillator Quantum (SHOQ) architecture introduces a radically different physical methodology by employing charge-neutral superfluid helium-3 [4, 5]. Because the medium flows without friction and lacks net electrical charge, it is theoretically immune to charge noise and certain electromagnetic fluctuations that typically plague solid-state superconducting circuits [4, 5]. This decoupling from charge-based environmental noise channels offers a novel methodological pathway toward fault-tolerant hardware scaling [4, 5].",
+          "source_indices": [
+            0,
+            1,
+            4,
+            5
+          ],
+          "figures": [
+            "graph TD;\n    A[Classical HPC Cluster] -->|Cqlib SDK & Cloud API| B[Tianyan Cloud Platform];\n    B -->|Control Pulses| C[Superconducting Quantum Processor];\n    D[Trapped Ion System] -->|Laser Manipulation| E[Single Qubit Thermodynamic Study];\n    F[Superfluid Helium-3] -->|SHOQ Device Design| G[Charge-Noise Immune Qubit];"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Comparative Performance Benchmarks",
+          "content": "Evaluating the performance of diverse quantum architectures requires analyzing operational fidelities, noise susceptibility, and platform accessibility across different physical implementations. Superconducting quantum processors accessed via cloud platforms deliver high gate fidelities and established software ecosystems, though they remain susceptible to electromagnetic and charge noise [1]. Conversely, proposed superfluid helium-3 architectures (SHOQ) target superior noise immunity due to their charge-neutral medium, addressing a primary bottleneck in hardware scaling [4, 5]. Trapped-ion systems excel in precise isolated-qubit control, enabling delicate non-equilibrium thermodynamic studies such as the inverse Mpemba effect [0]. The comparative performance characteristics of these primary paradigms are summarized below.",
+          "source_indices": [
+            0,
+            1,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Architecture / Platform",
+              "Primary Physical Substrate",
+              "Key Operational Advantage",
+              "Primary Noise Vulnerability / Challenge"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Tianyan Quantum Cloud [1]",
+                  "Superconducting Circuits",
+                  "Cloud-accessible utility, Cqlib SDK integration, stable uptime [1]",
+                  "Electromagnetic and substrate-induced decoherence"
+                ]
+              },
+              {
+                "cells": [
+                  "Trapped Ion Qubit [0]",
+                  "Single Trapped Ion / Laser Cooled",
+                  "High isolation, precise thermodynamic state control [0]",
+                  "Scalability of multi-ion trap arrays and optical complexity"
+                ]
+              },
+              {
+                "cells": [
+                  "SHOQ Device [4, 5]",
+                  "Superfluid Helium-3",
+                  "Charge-neutral medium, natural immunity to electromagnetic noise [4, 5]",
+                  "Early-stage theoretical proposal requiring empirical hardware realization"
+                ]
+              }
+            ],
+            "caption": "Comparative analysis of representative quantum physics architectures, highlighting substrates, advantages, and limitations."
+          }
+        },
+        {
+          "heading": "Practical Applications & Industrial Impact",
+          "content": "6.1 Cloud Quantum Services and Enterprise Computing\nThe commercialization and cloud-accessibility of quantum systems have transformed quantum computing from an academic pursuit into an industrial utility. Platforms like Tianyan allow commercial and academic entities to execute quantum algorithms, machine learning routines, and optimization tasks remotely through integrated HPC-quantum architectures [1]. This accessibility accelerates industrial adoption across sectors requiring complex computational problem-solving.\n\n6.2 Quantum Cryptography and Game-Theoretic Strategies\nQuantum physics principles also drive advancements in secure communications and decision sciences. Entangled state-based quantum key distribution schemes, such as Ekert's protocol, function equivalently to multi-party quantum games involving communicating agents and eavesdroppers [2]. Analyzing the robustness of quantum advantage in noisy multi-player dilemma games provides actionable frameworks for secure quantum cryptography and distributed network protocols [2].\n\n6.3 Fundamental Materials and Scalable Hardware Design\nInsights derived from condensed matter physics\u2014specifically superfluid helium phases\u2014directly impact the engineering of next-generation quantum hardware [3, 4, 5]. By leveraging superfluid dynamics and topological concepts originating from superfluid helium-3, industrial researchers aim to bypass traditional solid-state scaling limits, paving the way for fault-tolerant quantum computers immune to prevalent environmental noise sources [3, 4, 5].",
+          "source_indices": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "figures": [
+            "| Application Domain | Underlying Physical Principle | Industrial / Practical Impact ||\n|---|---|---|---|\n| Cloud Quantum Computing | Superconducting Processors & HPC Integration | Democratized remote access for quantum simulation, optimization, and machine learning [1] |\n| Quantum Cryptography | Noisy Multi-Player Dilemma & Entanglement | Enhanced security analysis for quantum key distribution protocols like Ekert's scheme [2] |\n| Condensed Matter Engineering | Superfluid Helium-3 & Topological Defects | Guiding novel fault-tolerant hardware designs like SHOQ qubits [3, 4, 5] |"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Research Gaps & Future Horizons",
+          "content": "7.1 Empirical Realization of Novel Substrates\nDespite significant theoretical progress in superfluid helium-3 qubit designs (SHOQ) and macroscopic quantum phenomena, a major research gap lies in the transition from theoretical proposals to physical, operational hardware [4, 5]. Fabricating and controlling charge-neutral superfluid helium-3 in confined quantum devices presents immense cryogenic and engineering challenges that require rigorous empirical validation [4, 5].\n\n7.2 Noise Resilience in Multi-Party Quantum Games\nWhile studies on noisy three-player quantum dilemma games demonstrate the robustness of quantum advantage under certain noise models, comprehensive analyses involving complex, asymmetric strategies between multiple communicating parties and eavesdroppers remain incomplete [2]. Future work must apply rigorous game-theoretic frameworks to fully characterize eavesdropping strategies in quantum cryptographic networks [2].\n\n7.3 Scaling Limits of Thermodynamic Control\nIn the realm of trapped-ion systems and open quantum thermodynamics, observing anomalies like the inverse Mpemba effect has been successfully demonstrated on single qubits [0]. However, extending these precise non-equilibrium thermodynamic controls and measurements to multi-qubit entangled networks remains an open frontier, requiring advanced isolation and measurement techniques to prevent thermal degradation during system scaling [0].",
+          "source_indices": [
+            0,
+            2,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_1": {
+      "recorded_at": "2026-09-27T21:42:52.573271",
+      "duration_from_start": 219.49,
+      "data": {
+        "is_approved": false,
+        "overall_score": 1,
+        "issues": [
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'Background: Quantum physics research encompasses diverse hardware paradigms, ran...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'theoretical proposals for Superfluid Helium Oscillator Quantum (SHOQ) devices ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'Results: The Tianyan platform provides cloud services via superconducting protot...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'trapped-ion experiments confirm thermodynamic anomalies such as the inverse Mpem...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'Conclusion: These findings highlight a multi-pronged progression in quantum tech...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNCITED] Claim 'Recent developments in quantum physics and quantum computing reflect a profound ...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'The integration of high-performance computing clusters with superconducting proc...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'Concurrently, fundamental research into condensed matter systems...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'such as superfluid helium-3 and trapped-ion qubits...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'has revealed new pathways for mitigating environmental decoherence and understan...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNCITED] Claim 'These dual trajectories of cloud-based utility and novel physical substrate engi...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNCITED] Claim '> **Core Insight:** The transition from noisy intermediate-scale quantum demonst...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'The convergence of condensed matter physics and quantum information science has ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'By bridging the gap between theoretical multi-player dilemma robustness and empi...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim '3.1 Superconducting Cloud Ecosystems and Scalability...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim 'The architectural evolution of superconducting quantum hardware has transitioned...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'A prominent milestone is the development of the Tianyan quantum cloud platform, ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'By offering open-source programming frameworks such as Cqlib, these platforms en...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'machine learning experiments for a broad user base ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim '3.2 Condensed Matter and Exotic Substrate Integration...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim 'In parallel with superconducting circuits, quantum architectures are expanding i...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'The discovery of superfluid phases in helium-3 established a vital bridge betwee...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'Building upon these foundations, recent proposals have introduced Superfluid Hel...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim '3.3 Quantum Thermodynamic and Game-Theoretic Milestones...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim 'Milestones in quantum physics extend beyond hardware scaling into thermodynamic ...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'Demonstrations of the inverse Mpemba effect on a single trapped ion qubit have p...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'Furthermore, theoretical and experimental investigations into noisy three-player...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.1 Cloud-Integrated Superconducting Frameworks...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'The technical architecture of modern cloud-accessible quantum services relies on...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'The Tianyan platform exemplifies this approach by operating a fleet of reliable ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Users interact with these hardware units via comprehensive software layers like ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'hybrid task scheduling ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.2 Trapped-Ion and Thermodynamic Measurement Methodologies...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim 'Investigating non-equilibrium quantum dynamics requires extreme precision in sta...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'In single trapped ion qubit experiments investigating the inverse Mpemba effect,...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'fluorescence detection allow researchers to track the thermal relaxation of quan...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim 'These methods provide rigorous insights into how isolated quantum systems deviat...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.3 Charge-Neutral Superfluid Substrate Mechanics...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'The proposed Superfluid Helium Oscillator Quantum (SHOQ) architecture introduces...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Because the medium flows without friction and lacks net electrical charge, it is...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'This decoupling from charge-based environmental noise channels offers a novel me...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNCITED] Claim 'Evaluating the performance of diverse quantum architectures requires analyzing o...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNCITED] Claim 'platform accessibility across different physical implementations....' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNVERIFIED] Claim 'Superconducting quantum processors accessed via cloud platforms deliver high gat...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNVERIFIED] Claim 'Conversely, proposed superfluid helium-3 architectures (SHOQ) target superior no...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNVERIFIED] Claim 'Trapped-ion systems excel in precise isolated-qubit control, enabling delicate n...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNCITED] Claim 'The comparative performance characteristics of these primary paradigms are summa...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.1 Cloud Quantum Services and Enterprise Computing...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim 'The commercialization and cloud-accessibility of quantum systems have transforme...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Platforms like Tianyan allow commercial and academic entities to execute quantum...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'optimization tasks remotely through integrated HPC-quantum architectures ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim 'This accessibility accelerates industrial adoption across sectors requiring comp...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.2 Quantum Cryptography and Game-Theoretic Strategies...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim 'Quantum physics principles also drive advancements in secure communications and ...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Entangled state-based quantum key distribution schemes, such as Ekert's protocol...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Analyzing the robustness of quantum advantage in noisy multi-player dilemma game...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.3 Fundamental Materials and Scalable Hardware Design...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Insights derived from condensed matter physics...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'specifically superfluid helium phases...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'directly impact the engineering of next-generation quantum hardware ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'By leveraging superfluid dynamics and topological concepts originating from supe...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNCITED] Claim '7.1 Empirical Realization of Novel Substrates...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'Despite significant theoretical progress in superfluid helium-3 qubit designs (S...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'Fabricating and controlling charge-neutral superfluid helium-3 in confined quant...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNCITED] Claim '7.2 Noise Resilience in Multi-Party Quantum Games...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'studies on noisy three-player quantum dilemma games demonstrate the robustness o...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'Future work must apply rigorous game-theoretic frameworks to fully characterize ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNCITED] Claim '7.3 Scaling Limits of Thermodynamic Control...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'In the realm of trapped-ion systems and open quantum thermodynamics, observing a...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'extending these precise non-equilibrium thermodynamic controls and measurements ...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          }
+        ],
+        "summary": "Claim-level audit verified 71 claims: 1/71 supported (1.4%). 70 flagged issues, 1 overclaims, 0 cross-section contradictions.",
+        "judge_ran": true,
+        "claims": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Background: Quantum physics research encompasses diverse hardware paradigms, ranging from superconducting processors to trapped ions and superfluid helium systems .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We experimentally demonstrate our findings on a single 88Sr+ trapped ion qubit.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "Methods: This report synthesizes recent literature on cloud-accessible superconducting architectures like the Tianyan platform, single-qubit trapped-ion experiments demonstrating the inverse Mpemba effect",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The inverse Mpemba effect demonstrated on a single trapped ion qubit",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "theoretical proposals for Superfluid Helium Oscillator Quantum (SHOQ) devices .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "Results: The Tianyan platform provides cloud services via superconducting prototypes with robust operational uptime",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "trapped-ion experiments confirm thermodynamic anomalies such as the inverse Mpemba effect at the single-qubit level .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "Conclusion: These findings highlight a multi-pronged progression in quantum technologies, advancing both cloud accessibility and fundamental physical insights into open quantum systems .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "Recent developments in quantum physics and quantum computing reflect a profound shift away from isolated laboratory experiments toward scalable, cloud-accessible quantum services and fundamentally novel hardware mediums.",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "The integration of high-performance computing clusters with superconducting processors has democratized access to advanced quantum computation, exemplified by the Tianyan quantum cloud platform .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "Concurrently, fundamental research into condensed matter systems",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "such as superfluid helium-3 and trapped-ion qubits",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "has revealed new pathways for mitigating environmental decoherence and understanding macroscopic quantum phenomena .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "These dual trajectories of cloud-based utility and novel physical substrate engineering are reshaping the landscape of quantum information science.",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "> **Core Insight:** The transition from noisy intermediate-scale quantum demonstrators to robust cloud-accessible utilities, coupled with the exploration of charge-neutral superfluid substrates, represents a paradigm shift where hardware noise immunity and remote accessibility converge to redefine scalable quantum computation.",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "The convergence of condensed matter physics and quantum information science has also opened doors to exploring complex cooperative phenomena, such as noisy quantum game theory dilemmas and thermodynamic anomalies like the inverse Mpemba effect .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "By bridging the gap between theoretical multi-player dilemma robustness and empirical trapped-ion thermodynamics, researchers are establishing a rigorous foundation for quantum advantage across multiple physical domains .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "3.1 Superconducting Cloud Ecosystems and Scalability",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "The architectural evolution of superconducting quantum hardware has transitioned from small-scale academic prototypes to extensive utility-scale cloud fleets.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "A prominent milestone is the development of the Tianyan quantum cloud platform, which integrates superconducting quantum processors with high-performance computing clusters .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "By offering open-source programming frameworks such as Cqlib, these platforms enable complex quantum simulations, optimizations",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "machine learning experiments for a broad user base .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "3.2 Condensed Matter and Exotic Substrate Integration",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "In parallel with superconducting circuits, quantum architectures are expanding into unconventional condensed matter systems.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "The discovery of superfluid phases in helium-3 established a vital bridge between condensed matter physics and particle physics, serving as a testbed for topological defects and macroscopic quantum phenomena .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "Building upon these foundations, recent proposals have introduced Superfluid Helium Oscillator Quantum (SHOQ) devices, utilizing charge-neutral superfluid helium-3 to achieve natural immunity against specific electromagnetic noise sources .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "3.3 Quantum Thermodynamic and Game-Theoretic Milestones",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "Milestones in quantum physics extend beyond hardware scaling into thermodynamic control and algorithmic robustness.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "Demonstrations of the inverse Mpemba effect on a single trapped ion qubit have provided unprecedented control over non-equilibrium quantum dynamics .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "Furthermore, theoretical and experimental investigations into noisy three-player quantum dilemma games have demonstrated the robustness of quantum advantage against environmental noise, validating quantum strategies in multi-party interactive frameworks .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "4.1 Cloud-Integrated Superconducting Frameworks",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "The technical architecture of modern cloud-accessible quantum services relies on multi-tier integration between cryogenic quantum processors and classical High-Performance Computing (HPC) clusters .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "The Tianyan platform exemplifies this approach by operating a fleet of reliable superconducting quantum systems featuring stable uptime and precise gate fidelities .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "Users interact with these hardware units via comprehensive software layers like the open-source Cqlib SDK, which supports remote experimentation, algorithm compilation",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "hybrid task scheduling .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "4.2 Trapped-Ion and Thermodynamic Measurement Methodologies",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "Investigating non-equilibrium quantum dynamics requires extreme precision in state preparation and measurement.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "In single trapped ion qubit experiments investigating the inverse Mpemba effect, laser cooling, precise optical manipulation",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "fluorescence detection allow researchers to track the thermal relaxation of quantum states under engineered environments .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "These methods provide rigorous insights into how isolated quantum systems deviate from classical thermodynamic expectations.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "4.3 Charge-Neutral Superfluid Substrate Mechanics",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "The proposed Superfluid Helium Oscillator Quantum (SHOQ) architecture introduces a radically different physical methodology by employing charge-neutral superfluid helium-3 .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "Because the medium flows without friction and lacks net electrical charge, it is theoretically immune to charge noise and certain electromagnetic fluctuations that typically plague solid-state superconducting circuits .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "This decoupling from charge-based environmental noise channels offers a novel methodological pathway toward fault-tolerant hardware scaling .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "Evaluating the performance of diverse quantum architectures requires analyzing operational fidelities, noise susceptibility",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "platform accessibility across different physical implementations.",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "Superconducting quantum processors accessed via cloud platforms deliver high gate fidelities and established software ecosystems, though they remain susceptible to electromagnetic and charge noise .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "Conversely, proposed superfluid helium-3 architectures (SHOQ) target superior noise immunity due to their charge-neutral medium, addressing a primary bottleneck in hardware scaling .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "Trapped-ion systems excel in precise isolated-qubit control, enabling delicate non-equilibrium thermodynamic studies such as the inverse Mpemba effect .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_48",
+            "claim_text": "The comparative performance characteristics of these primary paradigms are summarized below.",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_49",
+            "claim_text": "6.1 Cloud Quantum Services and Enterprise Computing",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_50",
+            "claim_text": "The commercialization and cloud-accessibility of quantum systems have transformed quantum computing from an academic pursuit into an industrial utility.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_51",
+            "claim_text": "Platforms like Tianyan allow commercial and academic entities to execute quantum algorithms, machine learning routines",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_52",
+            "claim_text": "optimization tasks remotely through integrated HPC-quantum architectures .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_53",
+            "claim_text": "This accessibility accelerates industrial adoption across sectors requiring complex computational problem-solving.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_54",
+            "claim_text": "6.2 Quantum Cryptography and Game-Theoretic Strategies",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_55",
+            "claim_text": "Quantum physics principles also drive advancements in secure communications and decision sciences.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_56",
+            "claim_text": "Entangled state-based quantum key distribution schemes, such as Ekert's protocol, function equivalently to multi-party quantum games involving communicating agents and eavesdroppers .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_57",
+            "claim_text": "Analyzing the robustness of quantum advantage in noisy multi-player dilemma games provides actionable frameworks for secure quantum cryptography and distributed network protocols .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_58",
+            "claim_text": "6.3 Fundamental Materials and Scalable Hardware Design",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_59",
+            "claim_text": "Insights derived from condensed matter physics",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_60",
+            "claim_text": "specifically superfluid helium phases",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_61",
+            "claim_text": "directly impact the engineering of next-generation quantum hardware .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_62",
+            "claim_text": "By leveraging superfluid dynamics and topological concepts originating from superfluid helium-3, industrial researchers aim to bypass traditional solid-state scaling limits, paving the way for fault-tolerant quantum computers immune to prevalent environmental noise sources .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_63",
+            "claim_text": "7.1 Empirical Realization of Novel Substrates",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_64",
+            "claim_text": "Despite significant theoretical progress in superfluid helium-3 qubit designs (SHOQ) and macroscopic quantum phenomena, a major research gap lies in the transition from theoretical proposals to physical, operational hardware .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_65",
+            "claim_text": "Fabricating and controlling charge-neutral superfluid helium-3 in confined quantum devices presents immense cryogenic and engineering challenges that require rigorous empirical validation .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_66",
+            "claim_text": "7.2 Noise Resilience in Multi-Party Quantum Games",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_67",
+            "claim_text": "studies on noisy three-player quantum dilemma games demonstrate the robustness of quantum advantage under certain noise models, comprehensive analyses involving complex, asymmetric strategies between multiple communicating parties and eavesdroppers remain incomplete .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_68",
+            "claim_text": "Future work must apply rigorous game-theoretic frameworks to fully characterize eavesdropping strategies in quantum cryptographic networks .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_69",
+            "claim_text": "7.3 Scaling Limits of Thermodynamic Control",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_70",
+            "claim_text": "In the realm of trapped-ion systems and open quantum thermodynamics, observing anomalies like the inverse Mpemba effect has been successfully demonstrated on single qubits .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_71",
+            "claim_text": "extending these precise non-equilibrium thermodynamic controls and measurements to multi-qubit entangled networks remains an open frontier, requiring advanced isolation and measurement techniques to prevent thermal degradation during system scaling .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          }
+        ],
+        "total_claims": 71,
+        "supported_count": 1,
+        "supported_ratio": 0.014,
+        "revisions_made": 1,
+        "unresolved_flags": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Background: Quantum physics research encompasses diverse hardware paradigms, ranging from superconducting processors to trapped ions and superfluid helium systems .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We experimentally demonstrate our findings on a single 88Sr+ trapped ion qubit.",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "theoretical proposals for Superfluid Helium Oscillator Quantum (SHOQ) devices .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "Results: The Tianyan platform provides cloud services via superconducting prototypes with robust operational uptime",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "trapped-ion experiments confirm thermodynamic anomalies such as the inverse Mpemba effect at the single-qubit level .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "Conclusion: These findings highlight a multi-pronged progression in quantum technologies, advancing both cloud accessibility and fundamental physical insights into open quantum systems .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "Recent developments in quantum physics and quantum computing reflect a profound shift away from isolated laboratory experiments toward scalable, cloud-accessible quantum services and fundamentally novel hardware mediums.",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "The integration of high-performance computing clusters with superconducting processors has democratized access to advanced quantum computation, exemplified by the Tianyan quantum cloud platform .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "Concurrently, fundamental research into condensed matter systems",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "such as superfluid helium-3 and trapped-ion qubits",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "has revealed new pathways for mitigating environmental decoherence and understanding macroscopic quantum phenomena .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "These dual trajectories of cloud-based utility and novel physical substrate engineering are reshaping the landscape of quantum information science.",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "> **Core Insight:** The transition from noisy intermediate-scale quantum demonstrators to robust cloud-accessible utilities, coupled with the exploration of charge-neutral superfluid substrates, represents a paradigm shift where hardware noise immunity and remote accessibility converge to redefine scalable quantum computation.",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "The convergence of condensed matter physics and quantum information science has also opened doors to exploring complex cooperative phenomena, such as noisy quantum game theory dilemmas and thermodynamic anomalies like the inverse Mpemba effect .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "By bridging the gap between theoretical multi-player dilemma robustness and empirical trapped-ion thermodynamics, researchers are establishing a rigorous foundation for quantum advantage across multiple physical domains .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "3.1 Superconducting Cloud Ecosystems and Scalability",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "The architectural evolution of superconducting quantum hardware has transitioned from small-scale academic prototypes to extensive utility-scale cloud fleets.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "A prominent milestone is the development of the Tianyan quantum cloud platform, which integrates superconducting quantum processors with high-performance computing clusters .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "By offering open-source programming frameworks such as Cqlib, these platforms enable complex quantum simulations, optimizations",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "machine learning experiments for a broad user base .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "3.2 Condensed Matter and Exotic Substrate Integration",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "In parallel with superconducting circuits, quantum architectures are expanding into unconventional condensed matter systems.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "The discovery of superfluid phases in helium-3 established a vital bridge between condensed matter physics and particle physics, serving as a testbed for topological defects and macroscopic quantum phenomena .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "Building upon these foundations, recent proposals have introduced Superfluid Helium Oscillator Quantum (SHOQ) devices, utilizing charge-neutral superfluid helium-3 to achieve natural immunity against specific electromagnetic noise sources .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "3.3 Quantum Thermodynamic and Game-Theoretic Milestones",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "Milestones in quantum physics extend beyond hardware scaling into thermodynamic control and algorithmic robustness.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "Demonstrations of the inverse Mpemba effect on a single trapped ion qubit have provided unprecedented control over non-equilibrium quantum dynamics .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "Furthermore, theoretical and experimental investigations into noisy three-player quantum dilemma games have demonstrated the robustness of quantum advantage against environmental noise, validating quantum strategies in multi-party interactive frameworks .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "4.1 Cloud-Integrated Superconducting Frameworks",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "The technical architecture of modern cloud-accessible quantum services relies on multi-tier integration between cryogenic quantum processors and classical High-Performance Computing (HPC) clusters .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "The Tianyan platform exemplifies this approach by operating a fleet of reliable superconducting quantum systems featuring stable uptime and precise gate fidelities .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "Users interact with these hardware units via comprehensive software layers like the open-source Cqlib SDK, which supports remote experimentation, algorithm compilation",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "hybrid task scheduling .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "4.2 Trapped-Ion and Thermodynamic Measurement Methodologies",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "Investigating non-equilibrium quantum dynamics requires extreme precision in state preparation and measurement.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "In single trapped ion qubit experiments investigating the inverse Mpemba effect, laser cooling, precise optical manipulation",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "fluorescence detection allow researchers to track the thermal relaxation of quantum states under engineered environments .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "These methods provide rigorous insights into how isolated quantum systems deviate from classical thermodynamic expectations.",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "4.3 Charge-Neutral Superfluid Substrate Mechanics",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "The proposed Superfluid Helium Oscillator Quantum (SHOQ) architecture introduces a radically different physical methodology by employing charge-neutral superfluid helium-3 .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "Because the medium flows without friction and lacks net electrical charge, it is theoretically immune to charge noise and certain electromagnetic fluctuations that typically plague solid-state superconducting circuits .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "This decoupling from charge-based environmental noise channels offers a novel methodological pathway toward fault-tolerant hardware scaling .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "Evaluating the performance of diverse quantum architectures requires analyzing operational fidelities, noise susceptibility",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "platform accessibility across different physical implementations.",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "Superconducting quantum processors accessed via cloud platforms deliver high gate fidelities and established software ecosystems, though they remain susceptible to electromagnetic and charge noise .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "Conversely, proposed superfluid helium-3 architectures (SHOQ) target superior noise immunity due to their charge-neutral medium, addressing a primary bottleneck in hardware scaling .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "Trapped-ion systems excel in precise isolated-qubit control, enabling delicate non-equilibrium thermodynamic studies such as the inverse Mpemba effect .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_48",
+            "claim_text": "The comparative performance characteristics of these primary paradigms are summarized below.",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_49",
+            "claim_text": "6.1 Cloud Quantum Services and Enterprise Computing",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_50",
+            "claim_text": "The commercialization and cloud-accessibility of quantum systems have transformed quantum computing from an academic pursuit into an industrial utility.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_51",
+            "claim_text": "Platforms like Tianyan allow commercial and academic entities to execute quantum algorithms, machine learning routines",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_52",
+            "claim_text": "optimization tasks remotely through integrated HPC-quantum architectures .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              1
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_53",
+            "claim_text": "This accessibility accelerates industrial adoption across sectors requiring complex computational problem-solving.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_54",
+            "claim_text": "6.2 Quantum Cryptography and Game-Theoretic Strategies",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_55",
+            "claim_text": "Quantum physics principles also drive advancements in secure communications and decision sciences.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_56",
+            "claim_text": "Entangled state-based quantum key distribution schemes, such as Ekert's protocol, function equivalently to multi-party quantum games involving communicating agents and eavesdroppers .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_57",
+            "claim_text": "Analyzing the robustness of quantum advantage in noisy multi-player dilemma games provides actionable frameworks for secure quantum cryptography and distributed network protocols .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_58",
+            "claim_text": "6.3 Fundamental Materials and Scalable Hardware Design",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_59",
+            "claim_text": "Insights derived from condensed matter physics",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_60",
+            "claim_text": "specifically superfluid helium phases",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_61",
+            "claim_text": "directly impact the engineering of next-generation quantum hardware .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_62",
+            "claim_text": "By leveraging superfluid dynamics and topological concepts originating from superfluid helium-3, industrial researchers aim to bypass traditional solid-state scaling limits, paving the way for fault-tolerant quantum computers immune to prevalent environmental noise sources .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_63",
+            "claim_text": "7.1 Empirical Realization of Novel Substrates",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_64",
+            "claim_text": "Despite significant theoretical progress in superfluid helium-3 qubit designs (SHOQ) and macroscopic quantum phenomena, a major research gap lies in the transition from theoretical proposals to physical, operational hardware .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_65",
+            "claim_text": "Fabricating and controlling charge-neutral superfluid helium-3 in confined quantum devices presents immense cryogenic and engineering challenges that require rigorous empirical validation .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_66",
+            "claim_text": "7.2 Noise Resilience in Multi-Party Quantum Games",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_67",
+            "claim_text": "studies on noisy three-player quantum dilemma games demonstrate the robustness of quantum advantage under certain noise models, comprehensive analyses involving complex, asymmetric strategies between multiple communicating parties and eavesdroppers remain incomplete .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_68",
+            "claim_text": "Future work must apply rigorous game-theoretic frameworks to fully characterize eavesdropping strategies in quantum cryptographic networks .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_69",
+            "claim_text": "7.3 Scaling Limits of Thermodynamic Control",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_70",
+            "claim_text": "In the realm of trapped-ion systems and open quantum thermodynamics, observing anomalies like the inverse Mpemba effect has been successfully demonstrated on single qubits .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_71",
+            "claim_text": "extending these precise non-equilibrium thermodynamic controls and measurements to multi-qubit entangled networks remains an open frontier, requiring advanced isolation and measurement techniques to prevent thermal degradation during system scaling .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          }
+        ],
+        "overclaiming_flags": [
+          "Claim [c_27] contains promotional word 'unprecedented' without verified comparative context."
+        ],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the recent advancements, tunneling rates, and scalability prospects of Helium-3 and superfluid-based qubits in quantum computing architectures?",
+              "search_keywords": [
+                "superfluid helium-3 qubit",
+                "helium-3 quantum computing tunneling rate",
+                "superfluid qubit scaling"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 0,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Surrey's Quantum Sciences Group",
+              "npj Quantum Information",
+              "Helium-3"
+            ],
+            "notes": "Partial coverage. Covered entities: Surrey's Quantum Sciences Group, npj Quantum Information, Helium-3"
+          },
+          {
+            "sub_query": {
+              "question": "How do recent non-local games and computational complexity proofs demonstrate quantum advantage with provable classical limits?",
+              "search_keywords": [
+                "quantum advantage game provable classical limits",
+                "quantum non-locality advantage 2025 2026",
+                "quantum advantage complexity limits"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Tianyan Quantum Cloud Platform",
+              "Zuchongzhi 3.0",
+              "IBM"
+            ],
+            "notes": "Partial coverage. Covered entities: Tianyan Quantum Cloud Platform, Zuchongzhi 3.0, IBM"
+          },
+          {
+            "sub_query": {
+              "question": "How is the extreme non-Markovian quantum Mpemba effect utilized in characterizing many-body systems and correlation functions of impurity models?",
+              "search_keywords": [
+                "extreme non-Markovian quantum Mpemba effect",
+                "impurity models correlation functions quantum Mpemba",
+                "dynamical map quantum Mpemba effect"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 1,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [
+              "Mpemba effect"
+            ],
+            "notes": "Partial coverage. Covered entities: Mpemba effect"
+          }
+        ],
+        "full_text_source_count": 3,
+        "abstract_only_source_count": 3
+      }
+    }
+  },
+  "metrics": {},
+  "total_duration_seconds": 219.49
+}

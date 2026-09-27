@@ -1,0 +1,91 @@
+{
+  "query": "Test Topic",
+  "timestamp": "20260927_155226",
+  "stages": {
+    "plan": {
+      "recorded_at": "2026-09-27T15:52:26.022812",
+      "duration_from_start": 0.01,
+      "data": {
+        "original_query": "Test Topic",
+        "sub_queries": [
+          {
+            "question": "Sub Q",
+            "search_keywords": [
+              "kw"
+            ],
+            "source_type": "both"
+          }
+        ],
+        "reasoning": ""
+      }
+    },
+    "retrieval": {
+      "recorded_at": "2026-09-27T15:52:27.563806",
+      "duration_from_start": 1.55,
+      "data": {
+        "total_sources_retrieved": 1,
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "Sub Q",
+              "search_keywords": [
+                "kw"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 1,
+            "full_text_count": 0,
+            "evidence_extracted": true,
+            "status": "Answered",
+            "covered_entities": [
+              "Sub"
+            ],
+            "notes": "Answered. Covered entities: Sub"
+          }
+        ],
+        "full_text_count": 0,
+        "abstract_only_count": 1
+      }
+    },
+    "synthesis": {
+      "recorded_at": "2026-09-27T15:52:27.569088",
+      "duration_from_start": 1.55,
+      "data": [
+        {
+          "heading": "Findings",
+          "content": "Content",
+          "source_indices": [
+            0
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_0": {
+      "recorded_at": "2026-09-27T15:52:27.572450",
+      "duration_from_start": 1.56,
+      "data": {
+        "is_approved": true,
+        "overall_score": 9,
+        "issues": [],
+        "summary": "Excellent.",
+        "judge_ran": true,
+        "claims": [],
+        "total_claims": 0,
+        "supported_count": 0,
+        "supported_ratio": 0.0,
+        "revisions_made": 0,
+        "unresolved_flags": [],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [],
+        "full_text_source_count": 0,
+        "abstract_only_source_count": 0
+      }
+    }
+  },
+  "metrics": {},
+  "total_duration_seconds": 1.56
+}

@@ -56,6 +56,13 @@ class Settings:
     LANGCHAIN_PROJECT: str = field(default_factory=lambda: os.getenv("LANGCHAIN_PROJECT", "research-assistant"))
     LANGCHAIN_ENDPOINT: str = field(default_factory=lambda: os.getenv("LANGCHAIN_ENDPOINT", "https://api.smith.langchain.com"))
 
+    # Phase 6: Local Guardrails, PII Redaction & Token-Bucket Rate Limiting
+    ENABLE_GUARDRAILS: bool = field(default_factory=lambda: os.getenv("ENABLE_GUARDRAILS", "true").lower() in ("true", "1", "yes"))
+    ENABLE_PII_MASKING: bool = field(default_factory=lambda: os.getenv("ENABLE_PII_MASKING", "true").lower() in ("true", "1", "yes"))
+    RATE_LIMIT_ENABLED: bool = field(default_factory=lambda: os.getenv("RATE_LIMIT_ENABLED", "true").lower() in ("true", "1", "yes"))
+    RATE_LIMIT_RPS: float = field(default_factory=lambda: float(os.getenv("RATE_LIMIT_RPS", "5.0")))
+    RATE_LIMIT_BURST: float = field(default_factory=lambda: float(os.getenv("RATE_LIMIT_BURST", "10.0")))
+
     def validate_keys(self) -> dict[str, Any]:
         """Check available LLM and search keys without exposing values."""
         ls_key = (os.getenv("LANGSMITH_API_KEY") or os.getenv("LANGCHAIN_API_KEY", "")).strip("'\"")
@@ -66,6 +73,9 @@ class Settings:
             "openai": bool(self.OPENAI_API_KEY),
             "gemini": bool(self.GEMINI_API_KEY),
             "tavily": bool(self.TAVILY_API_KEY),
+            "local_guardrails": self.ENABLE_GUARDRAILS,
+            "pii_masker": self.ENABLE_PII_MASKING,
+            "rate_limiter": self.RATE_LIMIT_ENABLED,
             "langsmith": _ls_is_valid,
             "langsmith_configured": is_ls_configured,
             "langsmith_msg": _ls_status_msg,
