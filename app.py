@@ -34,7 +34,7 @@ from src.security import (
 # Page Config & Global Styles
 # ─────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="AI Research Assistant",
+    page_title="Research Assistant",
     page_icon="🔬",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -44,20 +44,6 @@ st.markdown("""
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
   html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
-
-  .main-header {
-      font-size: 2rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #60a5fa, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.1rem;
-  }
-  .sub-header {
-      color: #64748b;
-      font-size: 0.9rem;
-      margin-bottom: 1.2rem;
-  }
 </style>
 """, unsafe_allow_html=True)
 
@@ -198,38 +184,36 @@ if "chat_model" not in st.session_state:
 # Sidebar
 # ─────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.image("https://img.icons8.com/fluency/96/artificial-intelligence.png", width=64)
-    st.title("Research Engine")
-    
-    # Environment Status
+    st.title("Research Assistant")
+
+    # API Status
     keys = settings.validate_keys()
-    st.markdown("### 🔑 API Status")
+    st.caption("APIs")
     if keys.get("gemini"):
-        st.success("Google AI Studio: Connected")
+        st.success("Gemini ✓")
     else:
-        st.info("Google AI Studio: Not Set (Add GEMINI_API_KEY to .env)")
+        st.info("Gemini — add GEMINI_API_KEY to .env")
 
     if keys["groq"]:
-        st.success("Groq API: Connected")
+        st.success("Groq ✓")
     else:
-        st.error("Groq API: Missing — Add GROQ_API_KEY to .env")
+        st.error("Groq missing — add GROQ_API_KEY to .env")
 
     if keys["tavily"]:
-        st.success("Tavily API: Connected (Primary Web)")
+        st.success("Tavily ✓")
     else:
-        st.info("Tavily API: Not Set (Using DuckDuckGo Fallback)")
+        st.caption("Tavily not set — using DuckDuckGo")
 
     if keys.get("langsmith"):
-        st.success("LangSmith: Connected (Tracing Active)")
+        st.success("LangSmith ✓ (tracing on)")
     elif keys.get("langsmith_configured"):
-        st.warning(f"LangSmith: {keys.get('langsmith_msg', 'Invalid Key')} — Tracing Auto-Disabled")
+        st.warning(f"LangSmith — {keys.get('langsmith_msg', 'invalid key')}")
     else:
-        st.caption("LangSmith: Disabled")
+        st.caption("LangSmith off")
 
     st.divider()
 
-    # 🤖 Model Selection
-    st.subheader("🤖 Pipeline Models")
+    st.caption("Models")
     available_models = fetch_available_models()
 
     gemini_prefs = ["gemini-3.5-flash", "gemini-3.6-flash", "gemini-2.5-flash"]
@@ -244,67 +228,69 @@ with st.sidebar:
     primary_prefs  = gemini_prefs if settings.GEMINI_API_KEY else groq_prefs
     verifier_prefs = (["gemini-3.6-flash"] + gemini_prefs) if settings.GEMINI_API_KEY else groq_prefs
 
-    selected_planner_model  = st.selectbox("🧠 Planner",    available_models,
+    selected_planner_model  = st.selectbox("Planner",    available_models,
         index=available_models.index(_pick(primary_prefs)),
-        help="Decomposes the research topic into sub-queries.")
-    selected_synth_model    = st.selectbox("⚗️ Synthesizer", available_models,
+        help="Decomposes the topic into sub-queries.")
+    selected_synth_model    = st.selectbox("Synthesizer", available_models,
         index=available_models.index(_pick(primary_prefs)),
-        help="Generates the full report sections.")
-    selected_verifier_model = st.selectbox("⚖️ Verifier",    available_models,
+        help="Writes the report sections.")
+    selected_verifier_model = st.selectbox("Verifier",    available_models,
         index=available_models.index(_pick(verifier_prefs)),
         help="Scores and audits the report.")
-    selected_improver_model = st.selectbox("🛠️ Refiner",     available_models,
+    selected_improver_model = st.selectbox("Refiner",     available_models,
         index=available_models.index(_pick(verifier_prefs)),
         help="Rewrites sections below the score threshold.")
 
-    # Chat model for report editor
-    st.markdown("---")
-    st.subheader("💬 Chat Model")
+    st.divider()
+
+    st.caption("Chat model")
     selected_chat_model = st.selectbox(
-        "🤖 Report Chat LLM", available_models,
+        "Chat LLM", available_models,
         index=available_models.index(_pick(primary_prefs)),
-        help="LLM used in the Chat tab to explain and edit your report.",
+        help="Used in the Chat tab to explain and edit the report.",
     )
     st.session_state.chat_model = selected_chat_model
 
     st.divider()
-    st.subheader("⚡ Research Depth")
+
+    st.caption("Depth")
     depth_choice = st.radio(
         "Mode",
-        ["⚡ Quick (~15s)", "🔬 Deep (~60s)"],
+        ["Quick (~15s)", "Deep (~60s)"],
         index=0,
-        help="Quick: 3 sub-queries, fast pass. Deep: 5-7 sub-queries, full multi-round audit."
+        help="Quick: 3 sub-queries. Deep: 5-7 sub-queries, full audit."
     )
     is_quick_mode = "Quick" in depth_choice
     selected_research_mode = "quick" if is_quick_mode else "deep"
 
     st.divider()
-    st.subheader("🔍 Search Params")
+
+    st.caption("Sources")
     def_n = 2 if is_quick_mode else 3
-    arxiv_max = st.slider("Max ArXiv Papers", 1, 10, def_n)
-    web_max   = st.slider("Max Web Results",  1, 10, def_n)
+    arxiv_max = st.slider("ArXiv papers", 1, 10, def_n)
+    web_max   = st.slider("Web results",  1, 10, def_n)
 
     st.divider()
-    st.subheader("🛡️ Security")
-    st.caption(f"🔒 PII Masker: **{'Active' if settings.ENABLE_PII_MASKING else 'Off'}**")
-    st.caption(f"🛡️ Guardrails: **{'Active' if settings.ENABLE_GUARDRAILS else 'Off'}**")
-    st.caption(f"⏱️ Rate Limiter: **{'Active' if settings.RATE_LIMIT_ENABLED else 'Off'}**")
+
+    st.caption("Security")
+    st.write(f"PII masking: {'on' if settings.ENABLE_PII_MASKING else 'off'} · "
+             f"Guardrails: {'on' if settings.ENABLE_GUARDRAILS else 'off'} · "
+             f"Rate limit: {'on' if settings.RATE_LIMIT_ENABLED else 'off'}")
 
     st.divider()
-    st.subheader("🗂️ Navigation")
+
     mode = st.radio(
-        "App Mode",
+        "View",
         ["🔬 Research & Chat", "🔧 Tools Explorer", "🛡️ Security Audit"],
         index=0,
     )
-    st.caption("Phase 6 — Security + Chatbot Editor")
 
 
 # ═══════════════════════════════════════════════════════════════
 # Header
 # ═══════════════════════════════════════════════════════════════
-st.markdown('<div class="main-header">🔬 AI Research Assistant</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-header">Generate research reports, then chat to edit, explain, and improve any section.</div>', unsafe_allow_html=True)
+st.title("🔬 Research Assistant")
+st.caption("Enter a topic. Get a structured report back.")
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -321,7 +307,7 @@ if "🔬" in mode:
             key="main_query_input",
         )
     with col_btn:
-        search_clicked = st.button("🔍 Generate", type="primary", use_container_width=True)
+        search_clicked = st.button("Run", type="primary", use_container_width=True)
 
     result = st.session_state.last_research_result
     has_cached = (
@@ -438,17 +424,6 @@ if "🔬" in mode:
                 report_context = _report_to_context_text(result)
                 system_prompt  = _build_chat_system_prompt(report_context, query)
 
-                st.markdown("""
-> 💡 **Chat with your report.** Ask the AI to:
-> - **Explain** a section: *"Explain the methodology section"*
-> - **Edit** content: *"Rewrite the Introduction to be more concise"*
-> - **Expand**: *"Add a section on ethical implications"*
-> - **Summarise**: *"Give me a 3-bullet executive summary"*
-> - **Critique**: *"What are the weaknesses of this report?"*
-""")
-
-                # Quick-action chips
-                st.markdown("#### ⚡ Quick Actions")
                 qa_cols = st.columns(4)
                 quick_actions = [
                     ("📋 Executive Summary",   "Give me a 3-bullet executive summary of this entire report."),
@@ -580,7 +555,7 @@ if "🔬" in mode:
                     st.info("No past runs in LTM yet.")
 
     else:
-        st.info("💡 Enter a research topic above and click **Generate** to create a report. Then use the **Chat** tab to edit or explain any section.")
+        st.info("Enter a research topic above and click **Run**.")
         history = get_ltm().get_history(limit=5)
         if history:
             with st.expander(f"📚 Recent Research Archive ({len(history)} topics)"):
@@ -592,14 +567,14 @@ if "🔬" in mode:
 # MODE 2: Tools Explorer
 # ═══════════════════════════════════════════════════════════════
 elif "🔧" in mode:
-    st.markdown("## 🔧 Manual Tools Explorer")
+    st.subheader("Tools Explorer")
     col_q2, col_btn2 = st.columns([5, 1])
     with col_q2:
         query = st.text_input("Search Topic",
             placeholder="e.g. Transformer attention mechanisms",
             label_visibility="collapsed", key="tools_query")
     with col_btn2:
-        search_clicked = st.button("🔍 Search", type="primary", use_container_width=True, key="tools_search_btn")
+        search_clicked = st.button("Search", type="primary", use_container_width=True, key="tools_search_btn")
 
     if search_clicked and query.strip():
         with st.spinner("Querying tools..."):
@@ -643,11 +618,10 @@ elif "🔧" in mode:
 # MODE 3: Security Audit (PyRIT Red-Teaming)
 # ═══════════════════════════════════════════════════════════════
 else:
-    st.markdown("## 🛡️ PyRIT Adversarial Security & Red-Teaming Dashboard")
-    st.write(
-        "Execute automated penetration scans against **Direct Prompt Injection**, "
-        "**Delimiter Smuggling**, **XPIA**, **DAN Jailbreaks**, **PII Exfiltration**, "
-        "and **Prompt Leaks** using the **100% Local Guardrails Engine**."
+    st.subheader("Security Audit")
+    st.caption(
+        "Runs adversarial probes (prompt injection, jailbreaks, PII extraction, delimiter smuggling) "
+        "against the local guardrails engine."
     )
 
     col1, col2, col3 = st.columns(3)
@@ -668,9 +642,9 @@ else:
 
     col_r1, col_r2 = st.columns([2, 1])
     with col_r1:
-        run_full_suite = st.button("🚀 Run PyRIT Full Benchmark (8 Vectors)", type="primary", use_container_width=True)
+        run_full_suite = st.button("Run security scan", type="primary", use_container_width=True)
     with col_r2:
-        test_custom = st.button("🧪 Test Custom Payload", use_container_width=True)
+        test_custom = st.button("Test custom payload", use_container_width=True)
 
     if test_custom and custom_probe.strip():
         with st.spinner("Evaluating..."):
