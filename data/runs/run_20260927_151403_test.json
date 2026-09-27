@@ -1,0 +1,92 @@
+{
+  "query": "test",
+  "timestamp": "20260927_151403",
+  "stages": {
+    "plan": {
+      "recorded_at": "2026-09-27T15:14:03.275172",
+      "duration_from_start": 0.04,
+      "data": {
+        "original_query": "test",
+        "sub_queries": [
+          {
+            "question": "sub q1",
+            "search_keywords": [
+              "kw1"
+            ],
+            "source_type": "both"
+          }
+        ],
+        "reasoning": "test plan"
+      }
+    },
+    "retrieval": {
+      "recorded_at": "2026-09-27T15:14:08.664180",
+      "duration_from_start": 5.43,
+      "data": {
+        "total_sources_retrieved": 2,
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "sub q1",
+              "search_keywords": [
+                "kw1"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": true,
+            "status": "Answered",
+            "covered_entities": [
+              "sub"
+            ],
+            "notes": "Answered. Covered entities: sub"
+          }
+        ],
+        "full_text_count": 0,
+        "abstract_only_count": 2
+      }
+    },
+    "synthesis": {
+      "recorded_at": "2026-09-27T15:14:08.672284",
+      "duration_from_start": 5.44,
+      "data": [
+        {
+          "heading": "Findings",
+          "content": "Summary text",
+          "source_indices": [
+            0,
+            1
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_0": {
+      "recorded_at": "2026-09-27T15:14:08.679742",
+      "duration_from_start": 5.44,
+      "data": {
+        "is_approved": true,
+        "overall_score": 8,
+        "issues": [],
+        "summary": "Good report.",
+        "judge_ran": true,
+        "claims": [],
+        "total_claims": 0,
+        "supported_count": 0,
+        "supported_ratio": 0.0,
+        "revisions_made": 0,
+        "unresolved_flags": [],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [],
+        "full_text_source_count": 0,
+        "abstract_only_source_count": 0
+      }
+    }
+  },
+  "metrics": {},
+  "total_duration_seconds": 5.44
+}

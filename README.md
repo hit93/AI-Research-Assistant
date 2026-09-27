@@ -11,52 +11,104 @@ An autonomous, production-grade AI Research Platform built with a **100% textboo
 ## 🧭 System Architecture
 
 ```mermaid
-flowchart TD
-    UserQuery["User Topic / Query"] --> SemanticCache{"Semantic Cache Check\n(Similarity >= 85%)"}
-    SemanticCache -- "Cache Hit" --> CachedResult["⚡ Instant 0-Token Return"]
-    SemanticCache -- "Cache Miss" --> Planner["1. Query Planner & Decomposer"]
-
-    Planner --> SearchTools["2. Research & Retrieval Tools"]
-
-    subgraph RetrievalLayer ["Data Retrieval Layer (Phase 2)"]
-        SearchTools --> Arxiv["ArXiv Tool (Academic Papers)"]
-        SearchTools --> WebSearch["Web Search (Tavily / DuckDuckGo)"]
-        SearchTools --> DocParser["Document & HTML Normalizer"]
+flowchart TB
+    %% Actors & User Interface
+    subgraph UI_Layer ["User Interface"]
+        Researcher((Researcher))
+        StreamlitUI["Streamlit UI<br/><code>[app.py]</code>"]
     end
 
-    RetrievalLayer --> Synthesizer["3. Synthesis Engine"]
-    Synthesizer --> Verifier["4. Verify Agent (LLM-as-Judge)"]
-
-    subgraph RefinementLoop ["Closed-Loop Self-Correction"]
-        Verifier -- "Score < 8 & Revisions < Max" --> Improver["5. Refiner / Improver Agent"]
-        Improver --> Verifier
+    %% Models and Memory Subgraph
+    subgraph ModelsMemory ["Models and Memory"]
+        Gateway["LLM Gateway<br/><code>[gateway.py]</code>"]
+        LTM[("Long-Term Memory<br/><code>[ltm.py]</code>")]
+        STM[("Short-Term Memory<br/><code>[stm.py]</code>")]
+        SemanticCache[("Semantic Cache<br/><code>[semantic_cache.py]</code>")]
+        LLMChain["LLM Chain<br/><code>[llm.py]</code>"]
+        
+        Gateway -->|"routes requests"| LLMChain
     end
 
-    Verifier -- "Score >= 8 or Max Revisions" --> Exporter["6. Multi-Format Exporter (PDF / MD / JSON)"]
+    %% External LLMs
+    GeminiLLM{{"Gemini LLM"}}
+    GroqLLM{{"Groq LLM"}}
+    LLMChain -->|"calls model"| GeminiLLM
+    LLMChain -->|"calls model"| GroqLLM
 
-    subgraph GatewayMemory ["Phase 4: Gateway, Layered Memory & Observability"]
-        Gateway["LLM Gateway (Circuit Breaker & Fallback)"]
-        STM["Redis Short-Term Memory (Session State)"]
-        LTM["PostgreSQL + pgvector / SQLite Long-Term Memory"]
-        Trace["LangSmith Tracing (US / EU Multi-Region)"]
+    %% Research Workflow Subgraph
+    subgraph ResearchWorkflow ["Research Workflow"]
+        ResearchGraph["Research Graph<br/><code>[graph.py]</code>"]
+        WorkflowState["Workflow State<br/><code>[state.py]</code>"]
+        GraphNodes["Graph Nodes<br/><code>[nodes.py]</code>"]
+        
+        ResearchGraph -->|"dispatches stages"| GraphNodes
+        ResearchGraph -->|"tracks state"| WorkflowState
+        
+        QueryPlanner["Query Planner<br/><code>[planner.py]</code>"]
+        SynthesisChain["Synthesis Chain<br/><code>[synthesizer.py]</code>"]
+        ReportRefiner["Report Refiner<br/><code>[refiner.py]</code>"]
+        ClaimVerifier["Claim Verifier<br/><code>[verifier.py]</code>"]
+        PromptTemplates["Prompt Templates<br/><code>[synthesizer.py]</code>"]
+        
+        GraphNodes -->|"plans queries"| QueryPlanner
+        GraphNodes -->|"synthesizes evidence"| SynthesisChain
+        GraphNodes -->|"revises weak result"| ReportRefiner
+        GraphNodes -->|"audits claims"| ClaimVerifier
+        
+        SynthesisChain -.->|"uses template"| PromptTemplates
+        ReportRefiner -.->|"uses template"| PromptTemplates
+        ClaimVerifier -.->|"uses template"| PromptTemplates
     end
 
-    subgraph VisualExt ["Phase 5: Visual LLM Extension"]
-        VLM["Visual Analyst Agent (VLM)"]
-        VisualVerify["Visual Verification vs. Source Figures"]
+    %% Evidence Retrieval Subgraph
+    subgraph EvidenceRetrieval ["Evidence Retrieval"]
+        ArxivSearch["ArXiv Search<br/><code>[arxiv_tool.py]</code>"]
+        WebSearch["Web Search<br/><code>[web_search_tool.py]</code>"]
+        FullTextFetch["Full-Text Fetch"]
+        TextNormalizer["Text Normalizer<br/><code>[text_cleaner.py]</code>"]
+        HybridRetrieval["Hybrid Retrieval<br/><code>[hybrid_rag.py]</code>"]
+        
+        FullTextFetch -->|"normalizes text"| TextNormalizer
     end
 
-    subgraph SecurityLayer ["Phase 6: Security & Red Teaming"]
-        Guardrails["AWS Bedrock Guardrails"]
-        RedTeam["PyRIT Red-Team Dashboard (Prompt Injection & XPIA)"]
+    %% External Search APIs
+    ArXivAPI(["ArXiv API"])
+    TavilySearch(["Tavily Search"])
+    DuckDuckGo(["DuckDuckGo"])
+
+    ArxivSearch -->|"queries API"| ArXivAPI
+    WebSearch -->|"queries first"| TavilySearch
+    WebSearch -.->|"falls back"| DuckDuckGo
+
+    %% Report Delivery Subgraph
+    subgraph ReportDelivery ["Report Delivery"]
+        ReportExporter["Report Exporter<br/><code>[exporter.py]</code>"]
+        ResearchReport["Research Report<br/><code>[schemas.py]</code>"]
+        
+        ReportExporter -->|"formats report"| ResearchReport
     end
 
-    subgraph ServerLayer ["Phase 7: Infrastructure & Deployment"]
-        Exporter --> APIServer["FastAPI Server / Background Workers"]
-        APIServer --> Terraform["Terraform: ECS, RDS, ElastiCache, ALB, Secrets Manager"]
-        Terraform --> CICD["GitHub Actions CI/CD (Build, Test, Deploy)"]
-        CICD --> WebUI["Streamlit Web UI / Dashboard"]
-    end
+    %% Connections between layers
+    Researcher -->|"enters topic"| StreamlitUI
+    StreamlitUI -->|"shows downloads"| Researcher
+    StreamlitUI -->|"checks query"| SemanticCache
+    SemanticCache -.->|"returns hit"| StreamlitUI
+    StreamlitUI -->|"starts research"| ResearchGraph
+    StreamlitUI -.->|"tracks session"| STM
+
+    GraphNodes -->|"searches papers"| ArxivSearch
+    GraphNodes -->|"searches web"| WebSearch
+    GraphNodes -->|"fetches text"| FullTextFetch
+    GraphNodes -->|"indexes and retrieves"| HybridRetrieval
+
+    QueryPlanner -->|"generates plan"| Gateway
+    SynthesisChain -->|"requests generation"| Gateway
+    ReportRefiner -->|"requests revision"| Gateway
+    ClaimVerifier -->|"requests judgment"| Gateway
+    GraphNodes -.->|"archives run"| LTM
+
+    GraphNodes -->|"produces result"| ReportExporter
+    ReportExporter -->|"exports report"| StreamlitUI
 ```
 
 ---

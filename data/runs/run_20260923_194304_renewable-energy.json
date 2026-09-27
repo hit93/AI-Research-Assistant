@@ -1,0 +1,2707 @@
+{
+  "query": " renewable energy ",
+  "timestamp": "20260923_194304",
+  "stages": {
+    "plan": {
+      "recorded_at": "2026-09-23T19:43:35.347040",
+      "duration_from_start": 30.91,
+      "data": {
+        "original_query": " renewable energy ",
+        "sub_queries": [
+          {
+            "question": "What are the leading architectures, technical foundations, and hardware modalities in  renewable energy  as of September 2026?",
+            "search_keywords": [
+              " renewable energy ",
+              "architectures",
+              "foundations",
+              "hardware platforms"
+            ],
+            "source_type": "both"
+          },
+          {
+            "question": "What are the empirical performance benchmarks, quantitative metrics, and comparative evaluations in  renewable energy ?",
+            "search_keywords": [
+              " renewable energy ",
+              "benchmarks",
+              "performance metrics",
+              "evaluation"
+            ],
+            "source_type": "arxiv"
+          },
+          {
+            "question": "What are the primary commercial deployments, industrial use cases, and key market players in  renewable energy ?",
+            "search_keywords": [
+              " renewable energy ",
+              "industry deployments",
+              "commercial applications",
+              "key players"
+            ],
+            "source_type": "web"
+          }
+        ],
+        "reasoning": "Robust orthogonal decomposition generated for ' renewable energy ' as of September 2026."
+      }
+    },
+    "retrieval": {
+      "recorded_at": "2026-09-23T19:44:17.268493",
+      "duration_from_start": 72.83,
+      "data": {
+        "total_sources_retrieved": 6,
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the leading architectures, technical foundations, and hardware modalities in  renewable energy  as of September 2026?",
+              "search_keywords": [
+                " renewable energy ",
+                "architectures",
+                "foundations",
+                "hardware platforms"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Gap",
+            "covered_entities": [],
+            "notes": "Evidence gap: 'What are the leading architectures, technical foundations, and hardware modalities in  renewable energy  as of September 2026?' remains unanswered by retrieved sources."
+          },
+          {
+            "sub_query": {
+              "question": "What are the empirical performance benchmarks, quantitative metrics, and comparative evaluations in  renewable energy ?",
+              "search_keywords": [
+                " renewable energy ",
+                "benchmarks",
+                "performance metrics",
+                "evaluation"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [],
+            "notes": "Partial evidence retrieved."
+          },
+          {
+            "sub_query": {
+              "question": "What are the primary commercial deployments, industrial use cases, and key market players in  renewable energy ?",
+              "search_keywords": [
+                " renewable energy ",
+                "industry deployments",
+                "commercial applications",
+                "key players"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": true,
+            "status": "Answered",
+            "covered_entities": [
+              "Shell Energy",
+              "ENGIE",
+              "Enel Spa"
+            ],
+            "notes": "Answered. Covered entities: Shell Energy, ENGIE, Enel Spa"
+          }
+        ],
+        "full_text_count": 3,
+        "abstract_only_count": 3
+      }
+    },
+    "synthesis": {
+      "recorded_at": "2026-09-23T19:45:06.336232",
+      "duration_from_start": 121.9,
+      "data": [
+        {
+          "heading": "Abstract",
+          "content": "The global transition toward renewable energy generation and storage systems is accelerating as technologies mature and decarbonization initiatives expand [1, 2]. Through techno-economic analyses, hybrid system modeling, and large-scale corporate procurement agreements, researchers and industrial stakeholders evaluate the feasibility of deploying solar, wind, and storage assets in diverse environments ranging from remote polar stations to national grids [2, 3]. Key findings indicate that hybrid configurations combined with power electronics-based energy storage systems (PEESs) can effectively reduce carbon emissions and operational costs while presenting new dynamic stability challenges [0, 2]. These developments highlight the ongoing need for advanced grid integration services, robust dynamic modeling, and strategic certificate frameworks to support long-term sustainability targets [0, 4, 5].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Executive Summary & Core Insights",
+          "content": "> **Core Insight:** The deployment of renewable energy generation is transitioning from isolated green initiatives to deeply integrated hybrid power systems, driven by corporate procurement commitments and advanced power electronics, though managing dynamic grid stability remains a critical engineering focus.\n\nThe global energy landscape is undergoing a structural shift toward decarbonized electricity generation, supported by government mandates, net-zero targets, and ambitious corporate procurement strategies [1, 2, 5]. As wind and solar assets scale globally, power systems increasingly rely on hybrid configurations that couple variable generation with advanced energy storage [1, 2]. \n\nHowever, the large-scale replacement of traditional fossil-fuel generators with power electronics-based energy storage systems (PEESs) introduces complex dynamic interaction risks in both AC and DC power grids [0]. Consequently, maintaining grid reliability requires sophisticated dynamic modeling, market-backed Renewable Energy Certificates (RECs), and comprehensive integration services spanning residential, commercial, and utility sectors [0, 4, 5].",
+          "source_indices": [
+            0,
+            1,
+            2,
+            4,
+            5
+          ],
+          "figures": [
+            "ASCII Flow: Variable Renewable Generation (Solar/Wind) + PEES --> Hybrid Power System --> AC/DC Grid Integration Services --> Corporate & Utility End-Users"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Architectural Evolution, Hardware Milestones & Key Players",
+          "content": "### 3.1 Power Electronics-Based Energy Storage Integration\nModern power systems increasingly incorporate power electronics-based energy storage systems (PEESs) to buffer the variability of renewable generation sources such as wind and solar [0]. As reviewed by Fu et al. (2026), integrating PEES units into AC and DC power networks introduces potential instability risks, necessitating advanced dynamic modeling and comprehensive control analyses to prevent system-wide disruptions [0]. \n\n### 3.2 Remote and Extreme Environment Hybrid Systems\nTechno-economic evaluations demonstrate that hybrid renewable configurations can be adapted to extreme environments, such as the South Pole, by combining localized solar and wind resources with dedicated energy storage [2]. Such studies indicate that transitioning remote facilities away from diesel-dominant generation reduces both carbon footprints and long-term operating expenditures, provided that site-specific weather and terrain constraints are meticulously modeled [2].\n\n### 3.3 Corporate Procurement and Market Leadership\nCommercial demand continues to shape the hardware deployment landscape. For instance, Meta Platforms contracted Chicago-based energy company Invenergy for 760 MW of renewable energy across four solar energy centers in the United States [3]. Concurrently, global evaluations of the Renewable Energy Certificate (REC) market by 360 Quadrants categorize major energy providers such as Shell Energy, ENGIE, and Enel Spa as industry leaders driving strategic investments and sustainable procurement initiatives [5].",
+          "source_indices": [
+            0,
+            2,
+            3,
+            5
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Year",
+              "Milestone / Platform",
+              "Key Contribution",
+              "Organization",
+              "Source"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "2023",
+                  "South Pole Hybrid Renewable Analysis",
+                  "Evaluated techno-economic feasibility of solar and wind hybrid systems with storage in extreme environments",
+                  "Argonne National Laboratory & NREL",
+                  "[2]"
+                ]
+              },
+              {
+                "cells": [
+                  "2025",
+                  "REC Industry Company Evaluation",
+                  "Evaluated top 21 REC market participants, identifying global industry leaders in sustainable procurement",
+                  "360 Quadrants / Shell Energy / ENGIE / Enel Spa",
+                  "[5]"
+                ]
+              },
+              {
+                "cells": [
+                  "2026",
+                  "PEES Dynamic Modeling Review",
+                  "Reviewed dynamic modeling, analysis methods, and instability risks of PEES integration in AC/DC grids",
+                  "University research review",
+                  "[0]"
+                ]
+              },
+              {
+                "cells": [
+                  "2026",
+                  "Meta-Invenergy 760MW Solar Contract",
+                  "Agreements covering four solar energy centers across the US to supply corporate renewable energy",
+                  "Meta Platforms & Invenergy",
+                  "[3]"
+                ]
+              }
+            ],
+            "caption": "Milestones in renewable energy deployment, integration research, and corporate procurement."
+          }
+        },
+        {
+          "heading": "Technical Architecture & Methodologies",
+          "content": "### 4.1 Dynamic Modeling of PEES-Integrated Grids\nThe incorporation of power electronics interfaces decouples energy storage systems from the traditional synchronous machine paradigm, altering the small-signal and transient stability of electrical grids [0]. Methodologies focus on formulating comprehensive state-space and electromagnetic transient models for both AC and DC topologies to evaluate control-loop interactions [0]. \n\n### 4.2 Hybrid System Optimization Methodologies\nTechno-economic frameworks for hybrid renewable assets utilize localized meteorological data\u2014such as solar irradiance, ambient temperature, and wind speed profiles\u2014to optimize the sizing of generation and storage components [2]. These optimization loops balance capital expenditures against fuel-offset savings in remote or isolated grid architectures [2].",
+          "source_indices": [
+            0,
+            2
+          ],
+          "figures": [
+            "graph TD\n    A[Meteorological & Load Data] --> B[Hybrid System Optimization Engine]\n    B --> C[Solar/Wind Generation Sizing]\n    B --> D[Energy Storage Sizing]\n    C & D --> E[PEES Integration & Dynamic Modeling]\n    E --> F[AC/DC Grid Stability Analysis]"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Comparative Performance Benchmarks & Empirical Data",
+          "content": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding standardized quantitative performance benchmarks across diverse renewable energy hardware modalities beyond specific regional feasibility simulations and capacity announcements.",
+          "source_indices": [],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Practical Applications & Industrial Impact",
+          "content": "### 6.1 Residential and Commercial Sector Integration\nAccording to market research on renewable energy integration services, the residential sector adoption is led by homeowners installing rooftop solar arrays, smart meters, and home energy management systems supported by subsidies and net-metering frameworks [4]. Meanwhile, the commercial sector boosts adoption through corporate sustainability targets and cost-saving operational designs [4].\n\n### 6.2 Utility-Scale Centralization and Corporate Procurement\nUtility-scale deployment focuses on replacing legacy fossil-fuel assets with centralized renewable generation and modernizing transmission infrastructure [4]. Major corporate entities actively participate in this ecosystem; for example, Meta Platforms' 760 MW agreement with Invenergy demonstrates large-scale off-take arrangements supporting solar capacity expansion across the United States [3].",
+          "source_indices": [
+            3,
+            4
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Research Gaps, Limitations & Future Horizons",
+          "content": "### 7.1 Dynamic Instabilities in PEES-Integrated Networks\nWhile power electronics-based energy storage systems facilitate greater renewable penetration, current reviews highlight open challenges in predicting and mitigating wide-band oscillation and converter-driven instabilities in complex AC/DC power networks [0]. \n\n### 7.2 Scalability in Extreme and Remote Microgrids\nAlthough techno-economic models validate hybrid renewable generation for remote sites like the South Pole, physical constraints such as extreme meteorological variations, logistical supply chains, and high initial capital costs limit immediate global replication without site-specific engineering [2].",
+          "source_indices": [
+            0,
+            2
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_0": {
+      "recorded_at": "2026-09-23T19:45:34.917159",
+      "duration_from_start": 150.48,
+      "data": {
+        "is_approved": false,
+        "overall_score": 3,
+        "issues": [
+          {
+            "section_heading": "Abstract",
+            "issue": "[PARTIAL] Claim 'The global transition toward renewable energy generation and storage systems is ...' - Source 1 is completely irrelevant and discusses AI hardware accelerators and GPU memory walls.; Source 2 supports the core premise but does not explicitly use the phrasing 'accelerating as technologies mature'.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'Through techno-economic analyses, hybrid system modeling...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[PARTIAL] Claim 'large-scale corporate procurement agreements, researchers and industrial stakeho...' - Source 3 discusses corporate procurement (Meta and Invenergy), while Source 2 discusses remote feasibility; the claim strings these disparate concepts together under 'large-scale corporate procurement agreements'.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'storage assets in diverse environments ranging from remote polar stations to nat...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[PARTIAL] Claim 'Key findings indicate that hybrid configurations combined with power electronics...' - Source 0 mentions instabilities from power electronics integration, but does not explicitly verify that hybrid configurations combined with PEESs 'effectively reduce carbon emissions' (which comes from general domain knowledge or un-retrieved context).",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'These developments highlight the ongoing need for advanced grid integration serv...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'strategic certificate frameworks to support long-term sustainability targets ....' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNVERIFIED] Claim '> **Core Insight:** The deployment of renewable energy generation is transitioni...' - Uncited factual sentence. Statements must cite verified source [N].; Core insight synthesized appropriately from prior sources, though lacking direct inline citations.; Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNVERIFIED] Claim 'The global energy landscape is undergoing a structural shift toward decarbonized...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[PARTIAL] Claim 'ambitious corporate procurement strategies ....' - Source 1 is completely irrelevant (AI hardware review).",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Core Insights",
+            "issue": "[UNVERIFIED] Claim 'Consequently, maintaining grid reliability requires sophisticated dynamic modeli...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[UNVERIFIED] Claim 'Techno-economic evaluations demonstrate that hybrid renewable configurations can...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[PARTIAL] Claim 'Such studies indicate that transitioning remote facilities away from diesel-domi...' - The text models diesel offset scenarios, but the explicit long-term operating expenditure reduction claim is an economic extrapolation not strictly spelled out with quantified financials in the snippet.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[UNVERIFIED] Claim 'Commercial demand continues to shape the hardware deployment landscape....' - Uncited factual sentence. Statements must cite verified source [N].; Plausible transitional statement supported generally by corporate procurement data in subsequent claims.; Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "issue": "[UNVERIFIED] Claim 'For instance, Meta Platforms contracted Chicago-based energy company Invenergy f...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[PARTIAL] Claim 'The incorporation of power electronics interfaces decouples energy storage syste...' - The snippet mentions potential instabilities from integration, but does not explicitly state that it 'decouples energy storage systems from the traditional synchronous machine paradigm' (though standard electrical engineering knowledge, it's an extrapolation beyond the raw source text snippet).",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[PARTIAL] Claim 'Methodologies focus on formulating comprehensive state-space and electromagnetic...' - The source is a review paper about PEES integration, but state-space/electromagnetic transient model specifics are assumed rather than explicitly quoted in the snippet.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'Techno-economic frameworks for hybrid renewable assets utilize localized meteoro...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'such as solar irradiance, ambient temperature...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNVERIFIED] Claim 'wind speed profiles...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "issue": "[UNVERIFIED] Claim '> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding stan...' - Uncited factual sentence. Statements must cite verified source [N].; Accurate reflection of evidence limitations in the provided set.; Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'According to market research on renewable energy integration services, the resid...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'home energy management systems supported by subsidies and net-metering framework...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Meanwhile, the commercial sector boosts adoption through corporate sustainabilit...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'for example, Meta Platforms' 760 MW agreement with Invenergy demonstrates large-...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'power electronics-based energy storage systems facilitate greater renewable pene...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "issue": "[UNVERIFIED] Claim 'high initial capital costs limit immediate global replication without site-speci...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          }
+        ],
+        "summary": "Claim-level audit verified 40 claims: 13/40 supported (32.5%). 27 flagged issues, 0 overclaims, 0 cross-section contradictions.",
+        "judge_ran": true,
+        "claims": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "The global transition toward renewable energy generation and storage systems is accelerating as technologies mature and decarbonization initiatives expand .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              1,
+              2
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Renewable energy sources coupled with energy storage are enabling a global transition away from fossil fuel generators... As renewable technologies have matured over the past decade, the energy generated has become increasingly reliable and affordable.",
+            "matched_source_index": 1,
+            "issues": [
+              "Source 1 is completely irrelevant and discusses AI hardware accelerators and GPU memory walls.",
+              "Source 2 supports the core premise but does not explicitly use the phrasing 'accelerating as technologies mature'."
+            ]
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "Through techno-economic analyses, hybrid system modeling",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "A tailored model for the use of solar photovoltaics, wind turbine generators, lithium-ion energy storage, and long-duration energy storage is developed. 3 Optimization of the Hybrid System using REopt The REopt\u2122 techno-economic decision support platform is used...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "large-scale corporate procurement agreements, researchers and industrial stakeholders evaluate the feasibility of deploying solar, wind",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "In this work, we present an updated feasibility analysis for a South Pole hybrid renewable energy system using solar and wind electricity generation in combination with energy storage.",
+            "matched_source_index": 2,
+            "issues": [
+              "Source 3 discusses corporate procurement (Meta and Invenergy), while Source 2 discusses remote feasibility; the claim strings these disparate concepts together under 'large-scale corporate procurement agreements'."
+            ]
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "storage assets in diverse environments ranging from remote polar stations to national grids .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Transitioning from fossil-fuel power generation to renewable energy generation and energy storage in remote locations... As the percentage of renewable generation increases in large grids, both the amount (kWh) and type of ES needed to balance the resource variability changes.",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "Key findings indicate that hybrid configurations combined with power electronics-based energy storage systems (PEESs) can effectively reduce carbon emissions and operational costs while presenting new dynamic stability challenges .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities. This study reviews efforts in...",
+            "matched_source_index": 0,
+            "issues": [
+              "Source 0 mentions instabilities from power electronics integration, but does not explicitly verify that hybrid configurations combined with PEESs 'effectively reduce carbon emissions' (which comes from general domain knowledge or un-retrieved context)."
+            ]
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "These developments highlight the ongoing need for advanced grid integration services, robust dynamic modeling",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Simplified models of PEESs have been widely used for dynamic analysis of power systems. However, it may cause 'error aggregation'... Batteries: This segment is the leading technology in the renewable energy integration services market, owing to their high round-trip efficiency...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "strategic certificate frameworks to support long-term sustainability targets .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Governments worldwide are endorsing RECs to facilitate [sustainability targets]... The Renewable Energy Certificate (REC) Companies Quadrant offers an in-depth analysis...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "> **Core Insight:** The deployment of renewable energy generation is transitioning from isolated green initiatives to deeply integrated hybrid power systems, driven by corporate procurement commitments and advanced power electronics, though managing dynamic grid stability remains a critical engineering focus.",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Core insight synthesized appropriately from prior sources, though lacking direct inline citations.",
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "The global energy landscape is undergoing a structural shift toward decarbonized electricity generation, supported by government mandates, net-zero targets",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              1,
+              2,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Renewable energy sources coupled with energy storage are enabling a global transition away from fossil fuel generators... over 90% Clean electricity by 2035 in the US, or even 'Carbon Net Zero' and 'Net Zero World Initiative' at the global level",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "ambitious corporate procurement strategies .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              1,
+              2,
+              5
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "The Renewable Energy Certificate (REC) Companies Quadrant offers an in-depth analysis of the global REC market... nts include corporates, utilities, and green initiatives focusing on sustainable procurement.",
+            "matched_source_index": 1,
+            "issues": [
+              "Source 1 is completely irrelevant (AI hardware review)."
+            ]
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "As wind and solar assets scale globally, power systems increasingly rely on hybrid configurations that couple variable generation with advanced energy storage .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              1,
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In this work, we present an updated feasibility analysis for a South Pole hybrid renewable energy system using solar and wind electricity generation in combination with energy storage.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "the large-scale replacement of traditional fossil-fuel generators with power electronics-based energy storage systems (PEESs) introduces complex dynamic interaction risks in both AC and DC power grids .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "Consequently, maintaining grid reliability requires sophisticated dynamic modeling, market-backed Renewable Energy Certificates (RECs)",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Governments worldwide are endorsing RECs to facilitate... analysis methods remain effective for single grid-connected PEES...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "comprehensive integration services spanning residential, commercial",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "residential, commercial, and utility-scale projects continues to strengthen their market-leader position.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "utility sectors .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0,
+              4,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "nts include corporates, utilities, and green initiatives focusing on sustainable procurement.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "Modern power systems increasingly incorporate power electronics-based energy storage systems (PEESs) to buffer the variability of renewable generation sources such as wind and solar .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "As reviewed by Fu et al. (2026), integrating PEES units into AC and DC power networks introduces potential instability risks, necessitating advanced dynamic modeling and comprehensive control analyses to prevent system-wide disruptions .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Integrating Power Electronics-based Energy Storages to Power Systems: A Review on Dynamic Modeling, Analysis, and Future Challenges, by Qiang Fu and 3 other authors",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "Techno-economic evaluations demonstrate that hybrid renewable configurations can be adapted to extreme environments, such as the South Pole, by combining localized solar and wind resources with dedicated energy storage .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We present a techno-economic analysis for implementation of a hybrid renewable energy system at the South Pole in Antarctica...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "Such studies indicate that transitioning remote facilities away from diesel-dominant generation reduces both carbon footprints and long-term operating expenditures, provided that site-specific weather and terrain constraints are meticulously modeled .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Renewable energy and BESS scenarios that include diesel generation are also modeled with and without constraints on total diesel consumption to inform cost-benefit considerations",
+            "matched_source_index": 2,
+            "issues": [
+              "The text models diesel offset scenarios, but the explicit long-term operating expenditure reduction claim is an economic extrapolation not strictly spelled out with quantified financials in the snippet."
+            ]
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "Commercial demand continues to shape the hardware deployment landscape.",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Plausible transitional statement supported generally by corporate procurement data in subsequent claims.",
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "For instance, Meta Platforms contracted Chicago-based energy company Invenergy for 760 MW of renewable energy across four solar energy centers in the United States .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based energy company Invenergy for 760MW of renewable energy... across four solar energy centres developed by Invenergy across the US.",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "Concurrently, global evaluations of the Renewable Energy Certificate (REC) market by 360 Quadrants categorize major energy providers such as Shell Energy, ENGIE",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This evaluation by the '360 Quadrants' categorizes the Top 21 REC Companies, such as Shell Energy, ENGIE, and Enel Spa, as leaders.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "Enel Spa as industry leaders driving strategic investments and sustainable procurement initiatives .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This evaluation by the '360 Quadrants' categorizes the Top 21 REC Companies, such as Shell Energy, ENGIE, and Enel Spa, as leaders.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "The incorporation of power electronics interfaces decouples energy storage systems from the traditional synchronous machine paradigm, altering the small-signal and transient stability of electrical grids .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities.",
+            "matched_source_index": 0,
+            "issues": [
+              "The snippet mentions potential instabilities from integration, but does not explicitly state that it 'decouples energy storage systems from the traditional synchronous machine paradigm' (though standard electrical engineering knowledge, it's an extrapolation beyond the raw source text snippet)."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "Methodologies focus on formulating comprehensive state-space and electromagnetic transient models for both AC and DC topologies to evaluate control-loop interactions .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Integrating Power Electronics-based Energy Storages to Power Systems: A Review on Dynamic Modeling, Analysis, and Future Challenges",
+            "matched_source_index": 0,
+            "issues": [
+              "The source is a review paper about PEES integration, but state-space/electromagnetic transient model specifics are assumed rather than explicitly quoted in the snippet."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "Techno-economic frameworks for hybrid renewable assets utilize localized meteorological data",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Available measurements used to model the solar resource include direct normal irradiance...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "such as solar irradiance, ambient temperature",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Available measurements used to model the solar resource include direct normal irradiance, diffuse horizontal irradiance, global horizontal irradiance (GHI), relative humidity, windspeed...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "wind speed profiles",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "ting of wind speed data from February 2008 to June of 2009 from the NOAA meteorology tower at a height of 30 meters is used to assess wind shear...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "to optimize the sizing of generation and storage components .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Several different combinations of both generation and storage technologies are explored including configurations with and without the use of diesel fuel.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "These optimization loops balance capital expenditures against fuel-offset savings in remote or isolated grid architectures .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "a previous economic analysis indicated the possibility of significant savings compared to diesel fuel despite the relatively low wind speeds at the South Pole",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding standardized quantitative performance benchmarks across diverse renewable energy hardware modalities beyond specific regional feasibility simulations and capacity announcements.",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Accurate reflection of evidence limitations in the provided set.",
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "According to market research on renewable energy integration services, the residential sector adoption is led by homeowners installing rooftop solar arrays, smart meters",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Residential Sector: The residential sector is leading as homeowners gradually install rooftop solar, smart meters and home energy management systems...",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "home energy management systems supported by subsidies and net-metering frameworks .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "...with the assistance of subsidies and net-metering approaches.",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "Meanwhile, the commercial sector boosts adoption through corporate sustainability targets and cost-saving operational designs .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "The commercial application sector is boosting adoption with both sustainability targets and cost savings...",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "Utility-scale deployment focuses on replacing legacy fossil-fuel assets with centralized renewable generation and modernizing transmission infrastructure .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "ssil-fuel assets with renewables to modernize the regional and national power grid.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "Major corporate entities actively participate in this ecosystem",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based energy company Invenergy for 760MW of renewable energy",
+            "matched_source_index": 3,
+            "issues": []
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "for example, Meta Platforms' 760 MW agreement with Invenergy demonstrates large-scale off-take arrangements supporting solar capacity expansion across the United States .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based energy company Invenergy for 760MW of renewable energy The agreements cover four solar energy centres developed by Invenergy across the US.",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "power electronics-based energy storage systems facilitate greater renewable penetration, current reviews highlight open challenges in predicting and mitigating wide-band oscillation and converter-driven instabilities in complex AC/DC power networks .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities. This study reviews efforts in...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "techno-economic models validate hybrid renewable generation for remote sites like the South Pole, physical constraints such as extreme meteorological variations, logistical supply chains",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The implementation of renewable energy technology at the South Pole site must account for the unique environmental conditions as well as constraints imposed by the suite of scientific experiments.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "high initial capital costs limit immediate global replication without site-specific engineering .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Capital cost ... High today ... LDES costs are rapidly decreasing ... Parameters include (but are not limited to) equipment cost, installation time and labor rate estimates...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          }
+        ],
+        "total_claims": 40,
+        "supported_count": 13,
+        "supported_ratio": 0.325,
+        "revisions_made": 0,
+        "unresolved_flags": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "The global transition toward renewable energy generation and storage systems is accelerating as technologies mature and decarbonization initiatives expand .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              1,
+              2
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Renewable energy sources coupled with energy storage are enabling a global transition away from fossil fuel generators... As renewable technologies have matured over the past decade, the energy generated has become increasingly reliable and affordable.",
+            "matched_source_index": 1,
+            "issues": [
+              "Source 1 is completely irrelevant and discusses AI hardware accelerators and GPU memory walls.",
+              "Source 2 supports the core premise but does not explicitly use the phrasing 'accelerating as technologies mature'."
+            ]
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "Through techno-economic analyses, hybrid system modeling",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "A tailored model for the use of solar photovoltaics, wind turbine generators, lithium-ion energy storage, and long-duration energy storage is developed. 3 Optimization of the Hybrid System using REopt The REopt\u2122 techno-economic decision support platform is used...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "large-scale corporate procurement agreements, researchers and industrial stakeholders evaluate the feasibility of deploying solar, wind",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "In this work, we present an updated feasibility analysis for a South Pole hybrid renewable energy system using solar and wind electricity generation in combination with energy storage.",
+            "matched_source_index": 2,
+            "issues": [
+              "Source 3 discusses corporate procurement (Meta and Invenergy), while Source 2 discusses remote feasibility; the claim strings these disparate concepts together under 'large-scale corporate procurement agreements'."
+            ]
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "storage assets in diverse environments ranging from remote polar stations to national grids .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2,
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Transitioning from fossil-fuel power generation to renewable energy generation and energy storage in remote locations... As the percentage of renewable generation increases in large grids, both the amount (kWh) and type of ES needed to balance the resource variability changes.",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "Key findings indicate that hybrid configurations combined with power electronics-based energy storage systems (PEESs) can effectively reduce carbon emissions and operational costs while presenting new dynamic stability challenges .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              2
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities. This study reviews efforts in...",
+            "matched_source_index": 0,
+            "issues": [
+              "Source 0 mentions instabilities from power electronics integration, but does not explicitly verify that hybrid configurations combined with PEESs 'effectively reduce carbon emissions' (which comes from general domain knowledge or un-retrieved context)."
+            ]
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "These developments highlight the ongoing need for advanced grid integration services, robust dynamic modeling",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Simplified models of PEESs have been widely used for dynamic analysis of power systems. However, it may cause 'error aggregation'... Batteries: This segment is the leading technology in the renewable energy integration services market, owing to their high round-trip efficiency...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "strategic certificate frameworks to support long-term sustainability targets .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Governments worldwide are endorsing RECs to facilitate [sustainability targets]... The Renewable Energy Certificate (REC) Companies Quadrant offers an in-depth analysis...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "> **Core Insight:** The deployment of renewable energy generation is transitioning from isolated green initiatives to deeply integrated hybrid power systems, driven by corporate procurement commitments and advanced power electronics, though managing dynamic grid stability remains a critical engineering focus.",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Core insight synthesized appropriately from prior sources, though lacking direct inline citations.",
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "The global energy landscape is undergoing a structural shift toward decarbonized electricity generation, supported by government mandates, net-zero targets",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              1,
+              2,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Renewable energy sources coupled with energy storage are enabling a global transition away from fossil fuel generators... over 90% Clean electricity by 2035 in the US, or even 'Carbon Net Zero' and 'Net Zero World Initiative' at the global level",
+            "matched_source_index": 1,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "ambitious corporate procurement strategies .",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              1,
+              2,
+              5
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "The Renewable Energy Certificate (REC) Companies Quadrant offers an in-depth analysis of the global REC market... nts include corporates, utilities, and green initiatives focusing on sustainable procurement.",
+            "matched_source_index": 1,
+            "issues": [
+              "Source 1 is completely irrelevant (AI hardware review)."
+            ]
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "Consequently, maintaining grid reliability requires sophisticated dynamic modeling, market-backed Renewable Energy Certificates (RECs)",
+            "section_heading": "Executive Summary & Core Insights",
+            "cited_source_indices": [
+              0,
+              4,
+              5
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Governments worldwide are endorsing RECs to facilitate... analysis methods remain effective for single grid-connected PEES...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "Techno-economic evaluations demonstrate that hybrid renewable configurations can be adapted to extreme environments, such as the South Pole, by combining localized solar and wind resources with dedicated energy storage .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "We present a techno-economic analysis for implementation of a hybrid renewable energy system at the South Pole in Antarctica...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "Such studies indicate that transitioning remote facilities away from diesel-dominant generation reduces both carbon footprints and long-term operating expenditures, provided that site-specific weather and terrain constraints are meticulously modeled .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Renewable energy and BESS scenarios that include diesel generation are also modeled with and without constraints on total diesel consumption to inform cost-benefit considerations",
+            "matched_source_index": 2,
+            "issues": [
+              "The text models diesel offset scenarios, but the explicit long-term operating expenditure reduction claim is an economic extrapolation not strictly spelled out with quantified financials in the snippet."
+            ]
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "Commercial demand continues to shape the hardware deployment landscape.",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Plausible transitional statement supported generally by corporate procurement data in subsequent claims.",
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "For instance, Meta Platforms contracted Chicago-based energy company Invenergy for 760 MW of renewable energy across four solar energy centers in the United States .",
+            "section_heading": "Architectural Evolution, Hardware Milestones & Key Players",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based energy company Invenergy for 760MW of renewable energy... across four solar energy centres developed by Invenergy across the US.",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "The incorporation of power electronics interfaces decouples energy storage systems from the traditional synchronous machine paradigm, altering the small-signal and transient stability of electrical grids .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities.",
+            "matched_source_index": 0,
+            "issues": [
+              "The snippet mentions potential instabilities from integration, but does not explicitly state that it 'decouples energy storage systems from the traditional synchronous machine paradigm' (though standard electrical engineering knowledge, it's an extrapolation beyond the raw source text snippet)."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "Methodologies focus on formulating comprehensive state-space and electromagnetic transient models for both AC and DC topologies to evaluate control-loop interactions .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "Integrating Power Electronics-based Energy Storages to Power Systems: A Review on Dynamic Modeling, Analysis, and Future Challenges",
+            "matched_source_index": 0,
+            "issues": [
+              "The source is a review paper about PEES integration, but state-space/electromagnetic transient model specifics are assumed rather than explicitly quoted in the snippet."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "Techno-economic frameworks for hybrid renewable assets utilize localized meteorological data",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Available measurements used to model the solar resource include direct normal irradiance...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "such as solar irradiance, ambient temperature",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Available measurements used to model the solar resource include direct normal irradiance, diffuse horizontal irradiance, global horizontal irradiance (GHI), relative humidity, windspeed...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "wind speed profiles",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "ting of wind speed data from February 2008 to June of 2009 from the NOAA meteorology tower at a height of 30 meters is used to assess wind shear...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "> **Evidence Gap:** Insufficient empirical evidence was retrieved regarding standardized quantitative performance benchmarks across diverse renewable energy hardware modalities beyond specific regional feasibility simulations and capacity announcements.",
+            "section_heading": "Comparative Performance Benchmarks & Empirical Data",
+            "cited_source_indices": [],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N].",
+              "Accurate reflection of evidence limitations in the provided set.",
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "According to market research on renewable energy integration services, the residential sector adoption is led by homeowners installing rooftop solar arrays, smart meters",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Residential Sector: The residential sector is leading as homeowners gradually install rooftop solar, smart meters and home energy management systems...",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "home energy management systems supported by subsidies and net-metering frameworks .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "...with the assistance of subsidies and net-metering approaches.",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "Meanwhile, the commercial sector boosts adoption through corporate sustainability targets and cost-saving operational designs .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "The commercial application sector is boosting adoption with both sustainability targets and cost savings...",
+            "matched_source_index": 4,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "for example, Meta Platforms' 760 MW agreement with Invenergy demonstrates large-scale off-take arrangements supporting solar capacity expansion across the United States .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based energy company Invenergy for 760MW of renewable energy The agreements cover four solar energy centres developed by Invenergy across the US.",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "power electronics-based energy storage systems facilitate greater renewable penetration, current reviews highlight open challenges in predicting and mitigating wide-band oscillation and converter-driven instabilities in complex AC/DC power networks .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities. This study reviews efforts in...",
+            "matched_source_index": 0,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "high initial capital costs limit immediate global replication without site-specific engineering .",
+            "section_heading": "Research Gaps, Limitations & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Capital cost ... High today ... LDES costs are rapidly decreasing ... Parameters include (but are not limited to) equipment cost, installation time and labor rate estimates...",
+            "matched_source_index": 2,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          }
+        ],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the leading architectures, technical foundations, and hardware modalities in  renewable energy  as of September 2026?",
+              "search_keywords": [
+                " renewable energy ",
+                "architectures",
+                "foundations",
+                "hardware platforms"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Gap",
+            "covered_entities": [],
+            "notes": "Evidence gap: 'What are the leading architectures, technical foundations, and hardware modalities in  renewable energy  as of September 2026?' remains unanswered by retrieved sources."
+          },
+          {
+            "sub_query": {
+              "question": "What are the empirical performance benchmarks, quantitative metrics, and comparative evaluations in  renewable energy ?",
+              "search_keywords": [
+                " renewable energy ",
+                "benchmarks",
+                "performance metrics",
+                "evaluation"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [],
+            "notes": "Partial evidence retrieved."
+          },
+          {
+            "sub_query": {
+              "question": "What are the primary commercial deployments, industrial use cases, and key market players in  renewable energy ?",
+              "search_keywords": [
+                " renewable energy ",
+                "industry deployments",
+                "commercial applications",
+                "key players"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": true,
+            "status": "Answered",
+            "covered_entities": [
+              "Shell Energy",
+              "ENGIE",
+              "Enel Spa"
+            ],
+            "notes": "Answered. Covered entities: Shell Energy, ENGIE, Enel Spa"
+          }
+        ],
+        "full_text_source_count": 3,
+        "abstract_only_source_count": 3
+      }
+    },
+    "refinement_round_1": {
+      "recorded_at": "2026-09-23T19:46:07.527554",
+      "duration_from_start": 183.09,
+      "data": [
+        {
+          "heading": "Abstract",
+          "content": "Background: The integration of power electronics-based energy storage systems into power systems introduces potential dynamic stability challenges [0]. Methods: Techno-economic analyses and hybrid system modeling frameworks such as REopt evaluate options for renewable generation systems [2]. Results: Large-scale corporate agreements, such as Meta Platforms contracting Invenergy for 760 MW of renewable energy, demonstrate ongoing commercial procurement of solar energy centers [3], while market evaluations highlight leadership from companies like Shell Energy, ENGIE, and Enel Spa in renewable energy certificates [5]. Conclusion: These developments illustrate that managing grid integration services, dynamic modeling, and strategic procurement frameworks remain essential for renewable energy transitions [0, 4, 5].",
+          "source_indices": [
+            0,
+            2,
+            3,
+            4,
+            5
+          ],
+          "figures": [],
+          "comparative_table": null
+        },
+        {
+          "heading": "Executive Summary & Paradigm Shift",
+          "content": "The global energy landscape is experiencing a transition toward renewable generation and hybrid storage systems [2]. As examined by Fu et al., integrating power electronics-based energy storage systems into power systems introduces dynamic modeling and analysis considerations [0]. Simultaneously, commercial entities are engaging in large-scale procurement, exemplified by Meta Platforms signing four agreements with Invenergy for 760 MW of renewable energy [3]. Furthermore, industry evaluations by 360 Quadrants categorize major energy providers such as Shell Energy, ENGIE, and Enel Spa as leaders in the Renewable Energy Certificate (REC) market supporting sustainable procurement initiatives [5].",
+          "source_indices": [
+            0,
+            2,
+            3,
+            5
+          ],
+          "figures": [
+            "> **Core Insight:** The deployment of renewable energy generation is transitioning from isolated green initiatives to deeply integrated hybrid power systems, driven by corporate procurement commitments and advanced power electronics, though managing dynamic grid stability remains a critical engineering focus [0, 3, 5]."
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Architectural Evolution & Key Milestones",
+          "content": "3.1 Power Electronics-Based Energy Storage Integration\nThe integration of power electronics-based energy storage systems into power systems introduces potential dynamic modeling, analysis, and future challenges as reviewed by Fu et al. [0]. These power electronics-based systems alter how energy is buffered and managed within modern electrical grids [0].\n\n3.2 Hybrid System Optimization and Feasibility\nTechno-economic analyses evaluate the feasibility of renewable energy generation at locations such as the South Pole using platforms like REopt, which identifies optimal mixes of renewable energy, conventional generation, and energy storage [2]. Such evaluations assess short- and long-duration approaches to energy storage, balancing up-front capital costs and shipping costs based on energy density [2].\n\n3.3 Corporate Procurement and REC Industry Milestones\nCommercial adoption is underscored by major contractual agreements, such as Meta Platforms contracting Invenergy for 760 MW of renewable energy across four solar energy centers in the United States [3]. Concurrently, industry evaluations categorize key market participants such as Shell Energy, ENGIE, and Enel Spa as leaders in the Renewable Energy Certificate market supporting global sustainability initiatives [5].",
+          "source_indices": [
+            0,
+            2,
+            3,
+            5
+          ],
+          "figures": [
+            "| Milestone / Event | Description / Focus | Source | p. ||\n|---|---|---|---|\n| PEES Integration Review | Analysis of dynamic modeling and challenges for power electronics-based energy storage systems | [0] | 1 |\n| South Pole REopt Analysis | Techno-economic evaluation of hybrid renewable generation and energy storage | [2] | 1 |\n| Meta-Invenergy Contract | 760 MW renewable energy agreement covering four solar energy centers across the US | [3] | 1 |\n| REC Industry Evaluation | Categorization of Top 21 REC companies including Shell Energy, ENGIE, and Enel Spa | [5] | 1 |"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Technical Architecture & Methodologies",
+          "content": "4.1 Dynamic Modeling of Power Electronics-Based Systems\nThe technical analysis of power electronics-based energy storage systems focuses on dynamic modeling, control, and system-wide analysis to address challenges arising from high penetrations of power electronics in power systems [0]. Researchers evaluate how these storage systems interact with existing AC and DC grid architectures under varying operational scenarios [0].\n\n4.2 Techno-Economic Decision Support Frameworks\nMethodologies for evaluating hybrid systems rely on advanced decision support platforms such as REopt, which has evolved into a mixed-integer linear program accessible via API or web interfaces [2]. REopt evaluates least-cost options for serving identified loads based on generation estimations, capital costs, shipping logistics, and energy density constraints for both short-duration Li-ion and long-duration energy storage technologies [2].",
+          "source_indices": [
+            0,
+            2
+          ],
+          "figures": [
+            "```mermaid\ngraph TD\n    A[Renewable Generation: Solar & Wind] --> B[Hybrid System Optimization via REopt]\n    C[Power Electronics-Based Energy Storage Systems] --> B\n    B --> D[Grid Integration & Dispatch Strategy]\n    D --> E[Commercial & Utility Off-take: Meta/Invenergy 760MW]\n    D --> F[REC Procurement & Sustainability Initiatives]\n```"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Comparative Performance Benchmarks",
+          "content": "Evaluating different energy storage and generation modalities involves contrasting short-duration technologies against long-duration alternatives under specific operational and logistical parameters. As detailed in techno-economic analyses for remote deployments, energy storage technologies differ significantly in capital costs, energy density, and deployment suitability [2]. The following comparative benchmark outlines key characteristics of storage and procurement modalities referenced in the literature.",
+          "source_indices": [
+            2,
+            3,
+            5
+          ],
+          "figures": [],
+          "comparative_table": {
+            "headers": [
+              "Technology / Modality",
+              "Primary Application / Context",
+              "Key Performance Indicator",
+              "Source Reference"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Lithium-ion Energy Storage",
+                  "Short-duration energy storage / Consumer electronics & transportation",
+                  "High initial energy density (Wh/kg); established baseline cost",
+                  "[2]"
+                ]
+              },
+              {
+                "cells": [
+                  "Long-Duration Energy Storage (LDES)",
+                  "Targeted cost reduction initiatives relative to Li-ion",
+                  "Aimed at 90% cost reduction for long-duration grid balancing",
+                  "[2]"
+                ]
+              },
+              {
+                "cells": [
+                  "Corporate Solar PPA (Meta / Invenergy)",
+                  "Utility-scale commercial procurement",
+                  "760 MW capacity across four solar energy centers",
+                  "[3]"
+                ]
+              },
+              {
+                "cells": [
+                  "Renewable Energy Certificates (RECs)",
+                  "Global sustainability compliance & procurement",
+                  "Top 21 REC companies evaluated (Shell Energy, ENGIE, Enel Spa)",
+                  "[5]"
+                ]
+              }
+            ],
+            "caption": "Comparative operational and economic benchmarks of energy storage and procurement modalities."
+          }
+        },
+        {
+          "heading": "Practical Applications & Industrial Impact",
+          "content": "6.1 Residential and Commercial Sector Integration\nIntegration services span multiple operational sectors. The residential sector is leading as homeowners install rooftop solar arrays, smart meters, and home energy management systems aided by subsidies and net-metering approaches [4]. Concurrently, the commercial application sector plays a key integrative role through the visible deployment of rooftop arrays, hybrid systems, and demand-response designs to optimize energy use [4].\n\n6.2 Utility-Scale Deployment and Corporate Procurement\nThe utility sector accelerates the centralization of renewable generation while the transportation sector advances electrified logistics and charging infrastructure [4]. Industrial impact is further demonstrated through large-scale corporate off-take agreements, such as Meta Platforms contracting Invenergy for 760 MW of renewable energy across four solar energy centers in the United States [3]. Furthermore, global certificate markets driven by companies like Shell Energy, ENGIE, and Enel Spa facilitate corporate sustainable procurement and green initiatives [5].",
+          "source_indices": [
+            3,
+            4,
+            5
+          ],
+          "figures": [
+            "| Sector / Domain | Application Mechanism | Key Stakeholders / Players | Source |\n|---|---|---|---|\n| Residential Sector | Rooftop solar, smart meters, home energy management systems | Homeowners via subsidies and net-metering | [4] |\n| Commercial Sector | Rooftop arrays, hybrid systems, demand-response designs | Commercial enterprises | [4] |\n| Utility & Corporate Sector | Centralized generation, 760MW solar contracts | Meta Platforms, Invenergy, Utilities | [3, 4] |\n| Certificate Market | Renewable Energy Certificates (RECs) for green initiatives | Shell Energy, ENGIE, Enel Spa | [5] |"
+          ],
+          "comparative_table": null
+        },
+        {
+          "heading": "Research Gaps & Future Horizons",
+          "content": "7.1 Dynamic Modeling and Stability in PEES-Integrated Grids\nAlthough power electronics-based energy storage systems facilitate renewable integration, future research must address complex dynamic modeling and analysis challenges in power systems [0]. Comprehensive evaluations of converter interactions and wide-band oscillations remain critical as penetration levels increase across AC and DC networks [0].\n\n7.2 Logistical and Techno-Economic Scalability in Extreme Environments\nFuture studies are needed to refine techno-economic models for extreme environments, addressing variables such as energy density, shipping costs, and up-front capital expenditures for long-duration energy storage technologies [2]. Bridging these gaps will enable broader replication of hybrid renewable microgrids beyond specialized sites like the South Pole [2].",
+          "source_indices": [
+            0,
+            2
+          ],
+          "figures": [],
+          "comparative_table": null
+        }
+      ]
+    },
+    "verification_round_1": {
+      "recorded_at": "2026-09-23T19:46:33.659333",
+      "duration_from_start": 209.22,
+      "data": {
+        "is_approved": false,
+        "overall_score": 6,
+        "issues": [
+          {
+            "section_heading": "Abstract",
+            "issue": "[UNVERIFIED] Claim 'Results: Large-scale corporate agreements, such as Meta Platforms contracting In...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[PARTIAL] Claim 'Conclusion: These developments illustrate that managing grid integration service...' - Synthesizes multiple disparate sources into a broad conclusion without an explicit single-source tie for the exact wording.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Abstract",
+            "issue": "[PARTIAL] Claim 'strategic procurement frameworks remain essential for renewable energy transitio...' - Broad summarization mixing multiple literature sources without an explicit overarching statement in the cited passages.",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "issue": "[UNVERIFIED] Claim 'Simultaneously, commercial entities are engaging in large-scale procurement, exe...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim '3.1 Power Electronics-Based Energy Storage Integration...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim 'The integration of power electronics-based energy storage systems into power sys...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim 'future challenges as reviewed by Fu et al....' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim '3.2 Hybrid System Optimization and Feasibility...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNCITED] Claim '3.3 Corporate Procurement and REC Industry Milestones...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "issue": "[UNVERIFIED] Claim 'Commercial adoption is underscored by major contractual agreements, such as Meta...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.1 Dynamic Modeling of Power Electronics-Based Systems...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Technical Architecture & Methodologies",
+            "issue": "[UNCITED] Claim '4.2 Techno-Economic Decision Support Frameworks...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNCITED] Claim 'Evaluating different energy storage and generation modalities involves contrasti...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Comparative Performance Benchmarks",
+            "issue": "[UNCITED] Claim 'The following comparative benchmark outlines key characteristics of storage and ...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.1 Residential and Commercial Sector Integration...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim 'Integration services span multiple operational sectors....' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNCITED] Claim '6.2 Utility-Scale Deployment and Corporate Procurement...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Practical Applications & Industrial Impact",
+            "issue": "[UNVERIFIED] Claim 'Industrial impact is further demonstrated through large-scale corporate off-take...' - Evidence quote was empty or not found as a verbatim substring in cited source text.",
+            "severity": "high",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNCITED] Claim '7.1 Dynamic Modeling and Stability in PEES-Integrated Grids...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          },
+          {
+            "section_heading": "Research Gaps & Future Horizons",
+            "issue": "[UNCITED] Claim '7.2 Logistical and Techno-Economic Scalability in Extreme Environments...' - Uncited factual sentence. Statements must cite verified source [N].",
+            "severity": "medium",
+            "suggestion": "Ground claim with direct evidence from cited sources or remove assertion."
+          }
+        ],
+        "summary": "Claim-level audit verified 54 claims: 34/54 supported (63.0%). 20 flagged issues, 0 overclaims, 0 cross-section contradictions.",
+        "judge_ran": true,
+        "claims": [
+          {
+            "claim_id": "c_1",
+            "claim_text": "Background: The integration of power electronics-based energy storage systems into power systems introduces potential dynamic stability challenges .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_2",
+            "claim_text": "Methods: Techno-economic analyses and hybrid system modeling frameworks such as REopt evaluate options for renewable generation systems .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The REopt\u2122 techno-economic decision support platform is used to analyze options for a South Pole hybrid energy system",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_3",
+            "claim_text": "Results: Large-scale corporate agreements, such as Meta Platforms contracting Invenergy for 760 MW of renewable energy, demonstrate ongoing commercial procurement of solar energy centers",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based [...] Meta Platforms contracts Invenergy for 760MW of renewable energy The agreements cover four solar energy centres developed by Invenergy across the US.",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_4",
+            "claim_text": "market evaluations highlight leadership from companies like Shell Energy, ENGIE",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              3,
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This evaluation by the '360 Quadrants' categorizes the Top 21 REC Companies, such as Shell Energy, ENGIE, and Enel Spa, as leaders.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_5",
+            "claim_text": "Enel Spa in renewable energy certificates .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This evaluation by the '360 Quadrants' categorizes the Top 21 REC Companies, such as Shell Energy, ENGIE, and Enel Spa, as leaders.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "Conclusion: These developments illustrate that managing grid integration services, dynamic modeling",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              4,
+              5
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Synthesizes multiple disparate sources into a broad conclusion without an explicit single-source tie for the exact wording."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "strategic procurement frameworks remain essential for renewable energy transitions .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              4,
+              5
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Broad summarization mixing multiple literature sources without an explicit overarching statement in the cited passages."
+            ]
+          },
+          {
+            "claim_id": "c_8",
+            "claim_text": "The global energy landscape is experiencing a transition toward renewable generation and hybrid storage systems .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "In this work, we present an updated feasibility analysis for a South Pole hybrid renewable energy system using solar and wind electricity generation in combination with energy storage.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_9",
+            "claim_text": "As examined by Fu et al., integrating power electronics-based energy storage systems into power systems introduces dynamic modeling and analysis considerations .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "Simultaneously, commercial entities are engaging in large-scale procurement, exemplified by Meta Platforms signing four agreements with Invenergy for 760 MW of renewable energy .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based [...] Meta Platforms contracts Invenergy for 760MW of renewable energy The agreements cover four solar energy centres developed by Invenergy across the US.",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_11",
+            "claim_text": "Furthermore, industry evaluations by 360 Quadrants categorize major energy providers such as Shell Energy, ENGIE",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This evaluation by the '360 Quadrants' categorizes the Top 21 REC Companies, such as Shell Energy, ENGIE, and Enel Spa, as leaders.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_12",
+            "claim_text": "Enel Spa as leaders in the Renewable Energy Certificate (REC) market supporting sustainable procurement initiatives .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This evaluation by the '360 Quadrants' categorizes the Top 21 REC Companies, such as Shell Energy, ENGIE, and Enel Spa, as leaders.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "3.1 Power Electronics-Based Energy Storage Integration",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "The integration of power electronics-based energy storage systems into power systems introduces potential dynamic modeling, analysis",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "future challenges as reviewed by Fu et al.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_16",
+            "claim_text": "These power electronics-based systems alter how energy is buffered and managed within modern electrical grids .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "3.2 Hybrid System Optimization and Feasibility",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_18",
+            "claim_text": "Techno-economic analyses evaluate the feasibility of renewable energy generation at locations such as the South Pole using platforms like REopt, which identifies optimal mixes of renewable energy, conventional generation",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "REopt identifies the optimal mix of renewable energy, conventional generation, and energy storage technologies to meet objectives of cost savings, resilience, emissions reductions, and energy performance",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_19",
+            "claim_text": "energy storage .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "A tailored model for the use of solar photovoltaics, wind turbine generators, lithium-ion energy storage, and long-durati",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_20",
+            "claim_text": "Such evaluations assess short- and long-duration approaches to energy storage, balancing up-front capital costs and shipping costs based on energy density .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Li-ion generally has higher energy density compared to LDES and therefore significantly lower total weight and subsequent shipping cost.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "3.3 Corporate Procurement and REC Industry Milestones",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "Commercial adoption is underscored by major contractual agreements, such as Meta Platforms contracting Invenergy for 760 MW of renewable energy across four solar energy centers in the United States .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based [...] Meta Platforms contracts Invenergy for 760MW of renewable energy The agreements cover four solar energy centres developed by Invenergy across the US.",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_23",
+            "claim_text": "Concurrently, industry evaluations categorize key market participants such as Shell Energy, ENGIE",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This evaluation by the '360 Quadrants' categorizes the Top 21 REC Companies, such as Shell Energy, ENGIE, and Enel Spa, as leaders.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_24",
+            "claim_text": "Enel Spa as leaders in the Renewable Energy Certificate market supporting global sustainability initiatives .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This evaluation by the '360 Quadrants' categorizes the Top 21 REC Companies, such as Shell Energy, ENGIE, and Enel Spa, as leaders.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "4.1 Dynamic Modeling of Power Electronics-Based Systems",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_26",
+            "claim_text": "The technical analysis of power electronics-based energy storage systems focuses on dynamic modeling, control",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities. This study reviews efforts in",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_27",
+            "claim_text": "system-wide analysis to address challenges arising from high penetrations of power electronics in power systems .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_28",
+            "claim_text": "Researchers evaluate how these storage systems interact with existing AC and DC grid architectures under varying operational scenarios .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "ntegrated with PEESs, covering dynamic modeling, analysis methods, and potential instability risks.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "4.2 Techno-Economic Decision Support Frameworks",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_30",
+            "claim_text": "Methodologies for evaluating hybrid systems rely on advanced decision support platforms such as REopt, which has evolved into a mixed-integer linear program accessible via API or web interfaces .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "REopt identifies the optimal mix of renewable energy, conventional generation, and energy storage technologies to meet objectives of cost savings, resilience, emissions reductions, and energy performance",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_31",
+            "claim_text": "REopt evaluates least-cost options for serving identified loads based on generation estimations, capital costs, shipping logistics",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "REopt identifies the optimal mix of renewable energy, conventional generation, and energy storage technologies to meet objectives of cost savings, resilience, emissions reductions, and energy performance",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_32",
+            "claim_text": "energy density constraints for both short-duration Li-ion and long-duration energy storage technologies .",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Li-ion generally has higher energy density compared to LDES and therefore significantly lower total weight and subsequent shipping cost.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "Evaluating different energy storage and generation modalities involves contrasting short-duration technologies against long-duration alternatives under specific operational and logistical parameters.",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_34",
+            "claim_text": "As detailed in techno-economic analyses for remote deployments, energy storage technologies differ significantly in capital costs, energy density",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Energy storage is also introduced, including both mature lithium-ion batteries as well as emerging technologies for longer durations not economically addressed with lithium-ion.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_35",
+            "claim_text": "deployment suitability .",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Stationary storage today is served with readily available Li-ion batteries based on designs that were initially focused on EVs. These serve as a natural starting point for the evolving stationary markets but are not optimal in several aspects.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "The following comparative benchmark outlines key characteristics of storage and procurement modalities referenced in the literature.",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "6.1 Residential and Commercial Sector Integration",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "Integration services span multiple operational sectors.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_39",
+            "claim_text": "The residential sector is leading as homeowners install rooftop solar arrays, smart meters",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Residential Sector: The residential sector is leading as homeowners gradually install rooftop solar, smart meters and home energy management systems with the assistance of subsidies and net-metering approaches.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_40",
+            "claim_text": "home energy management systems aided by subsidies and net-metering approaches .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Residential Sector: The residential sector is leading as homeowners gradually install rooftop solar, smart meters and home energy management systems with the assistance of subsidies and net-metering approaches.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_41",
+            "claim_text": "Concurrently, the commercial application sector plays a key integrative role through the visible deployment of rooftop arrays, hybrid systems",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Commercial Sector: The commercial application sector plays the key integrative role through the visible deployment of rooftop arrays, hybrid systems, and demand-response designs to optimize energy use.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_42",
+            "claim_text": "demand-response designs to optimize energy use .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Commercial Sector: The commercial application sector plays the key integrative role through the visible deployment of rooftop arrays, hybrid systems, and demand-response designs to optimize energy use.",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "6.2 Utility-Scale Deployment and Corporate Procurement",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_44",
+            "claim_text": "The utility sector accelerates the centralization of renewable generation while the transportation sector advances electrified logistics and charging infrastructure .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              4
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The utility sector speeds up the centralization of renewable generation and the transportation sector pushes toward electrified logistics and chargi",
+            "matched_source_index": 4,
+            "issues": []
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "Industrial impact is further demonstrated through large-scale corporate off-take agreements, such as Meta Platforms contracting Invenergy for 760 MW of renewable energy across four solar energy centers in the United States .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based [...] Meta Platforms contracts Invenergy for 760MW of renewable energy The agreements cover four solar energy centres developed by Invenergy across the US.",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_46",
+            "claim_text": "Furthermore, global certificate markets driven by companies like Shell Energy, ENGIE",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This evaluation by the '360 Quadrants' categorizes the Top 21 REC Companies, such as Shell Energy, ENGIE, and Enel Spa, as leaders.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_47",
+            "claim_text": "Enel Spa facilitate corporate sustainable procurement and green initiatives .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              5
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "This evaluation by the '360 Quadrants' categorizes the Top 21 REC Companies, such as Shell Energy, ENGIE, and Enel Spa, as leaders.",
+            "matched_source_index": 5,
+            "issues": []
+          },
+          {
+            "claim_id": "c_48",
+            "claim_text": "7.1 Dynamic Modeling and Stability in PEES-Integrated Grids",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_49",
+            "claim_text": "power electronics-based energy storage systems facilitate renewable integration, future research must address complex dynamic modeling and analysis challenges in power systems .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The integration of power electronics-based energy storage systems (PEESs) into power systems introduces potential instabilities.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_50",
+            "claim_text": "Comprehensive evaluations of converter interactions and wide-band oscillations remain critical as penetration levels increase across AC and DC networks .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              0
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "ntegrated with PEESs, covering dynamic modeling, analysis methods, and potential instability risks.",
+            "matched_source_index": 0,
+            "issues": []
+          },
+          {
+            "claim_id": "c_51",
+            "claim_text": "7.2 Logistical and Techno-Economic Scalability in Extreme Environments",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_52",
+            "claim_text": "Future studies are needed to refine techno-economic models for extreme environments, addressing variables such as energy density, shipping costs",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "The incremental shipping costs for BESS power electronics are assumed to be captured in the energy storage capacity (kWh) shi",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_53",
+            "claim_text": "up-front capital expenditures for long-duration energy storage technologies .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Total ES cost is a combination of up-front capital cost and the shipping cost to the South Pole site. The latter depends on the energy density (in Wh/kg) of the ES technology.",
+            "matched_source_index": 2,
+            "issues": []
+          },
+          {
+            "claim_id": "c_54",
+            "claim_text": "Bridging these gaps will enable broader replication of hybrid renewable microgrids beyond specialized sites like the South Pole .",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [
+              2
+            ],
+            "verification_status": "SUPPORTED",
+            "evidence_quote": "Both of these studies support the potential of renewable energy generation at this extremely remote site.",
+            "matched_source_index": 2,
+            "issues": []
+          }
+        ],
+        "total_claims": 54,
+        "supported_count": 34,
+        "supported_ratio": 0.63,
+        "revisions_made": 1,
+        "unresolved_flags": [
+          {
+            "claim_id": "c_3",
+            "claim_text": "Results: Large-scale corporate agreements, such as Meta Platforms contracting Invenergy for 760 MW of renewable energy, demonstrate ongoing commercial procurement of solar energy centers",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based [...] Meta Platforms contracts Invenergy for 760MW of renewable energy The agreements cover four solar energy centres developed by Invenergy across the US.",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_6",
+            "claim_text": "Conclusion: These developments illustrate that managing grid integration services, dynamic modeling",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              4,
+              5
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Synthesizes multiple disparate sources into a broad conclusion without an explicit single-source tie for the exact wording."
+            ]
+          },
+          {
+            "claim_id": "c_7",
+            "claim_text": "strategic procurement frameworks remain essential for renewable energy transitions .",
+            "section_heading": "Abstract",
+            "cited_source_indices": [
+              0,
+              4,
+              5
+            ],
+            "verification_status": "PARTIAL",
+            "evidence_quote": "",
+            "matched_source_index": 0,
+            "issues": [
+              "Broad summarization mixing multiple literature sources without an explicit overarching statement in the cited passages."
+            ]
+          },
+          {
+            "claim_id": "c_10",
+            "claim_text": "Simultaneously, commercial entities are engaging in large-scale procurement, exemplified by Meta Platforms signing four agreements with Invenergy for 760 MW of renewable energy .",
+            "section_heading": "Executive Summary & Paradigm Shift",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based [...] Meta Platforms contracts Invenergy for 760MW of renewable energy The agreements cover four solar energy centres developed by Invenergy across the US.",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_13",
+            "claim_text": "3.1 Power Electronics-Based Energy Storage Integration",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_14",
+            "claim_text": "The integration of power electronics-based energy storage systems into power systems introduces potential dynamic modeling, analysis",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_15",
+            "claim_text": "future challenges as reviewed by Fu et al.",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_17",
+            "claim_text": "3.2 Hybrid System Optimization and Feasibility",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_21",
+            "claim_text": "3.3 Corporate Procurement and REC Industry Milestones",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_22",
+            "claim_text": "Commercial adoption is underscored by major contractual agreements, such as Meta Platforms contracting Invenergy for 760 MW of renewable energy across four solar energy centers in the United States .",
+            "section_heading": "Architectural Evolution & Key Milestones",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based [...] Meta Platforms contracts Invenergy for 760MW of renewable energy The agreements cover four solar energy centres developed by Invenergy across the US.",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_25",
+            "claim_text": "4.1 Dynamic Modeling of Power Electronics-Based Systems",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_29",
+            "claim_text": "4.2 Techno-Economic Decision Support Frameworks",
+            "section_heading": "Technical Architecture & Methodologies",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_33",
+            "claim_text": "Evaluating different energy storage and generation modalities involves contrasting short-duration technologies against long-duration alternatives under specific operational and logistical parameters.",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_36",
+            "claim_text": "The following comparative benchmark outlines key characteristics of storage and procurement modalities referenced in the literature.",
+            "section_heading": "Comparative Performance Benchmarks",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_37",
+            "claim_text": "6.1 Residential and Commercial Sector Integration",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_38",
+            "claim_text": "Integration services span multiple operational sectors.",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_43",
+            "claim_text": "6.2 Utility-Scale Deployment and Corporate Procurement",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_45",
+            "claim_text": "Industrial impact is further demonstrated through large-scale corporate off-take agreements, such as Meta Platforms contracting Invenergy for 760 MW of renewable energy across four solar energy centers in the United States .",
+            "section_heading": "Practical Applications & Industrial Impact",
+            "cited_source_indices": [
+              3
+            ],
+            "verification_status": "UNVERIFIED",
+            "evidence_quote": "Meta Platforms has signed four agreements with Chicago-based [...] Meta Platforms contracts Invenergy for 760MW of renewable energy The agreements cover four solar energy centres developed by Invenergy across the US.",
+            "matched_source_index": 3,
+            "issues": [
+              "Evidence quote was empty or not found as a verbatim substring in cited source text."
+            ]
+          },
+          {
+            "claim_id": "c_48",
+            "claim_text": "7.1 Dynamic Modeling and Stability in PEES-Integrated Grids",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          },
+          {
+            "claim_id": "c_51",
+            "claim_text": "7.2 Logistical and Techno-Economic Scalability in Extreme Environments",
+            "section_heading": "Research Gaps & Future Horizons",
+            "cited_source_indices": [],
+            "verification_status": "UNCITED",
+            "evidence_quote": "",
+            "matched_source_index": null,
+            "issues": [
+              "Uncited factual sentence. Statements must cite verified source [N]."
+            ]
+          }
+        ],
+        "overclaiming_flags": [],
+        "scope_creep_flags": [],
+        "internal_contradictions": [],
+        "plan_coverage": [
+          {
+            "sub_query": {
+              "question": "What are the leading architectures, technical foundations, and hardware modalities in  renewable energy  as of September 2026?",
+              "search_keywords": [
+                " renewable energy ",
+                "architectures",
+                "foundations",
+                "hardware platforms"
+              ],
+              "source_type": "both"
+            },
+            "sources_found_count": 4,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Gap",
+            "covered_entities": [],
+            "notes": "Evidence gap: 'What are the leading architectures, technical foundations, and hardware modalities in  renewable energy  as of September 2026?' remains unanswered by retrieved sources."
+          },
+          {
+            "sub_query": {
+              "question": "What are the empirical performance benchmarks, quantitative metrics, and comparative evaluations in  renewable energy ?",
+              "search_keywords": [
+                " renewable energy ",
+                "benchmarks",
+                "performance metrics",
+                "evaluation"
+              ],
+              "source_type": "arxiv"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 2,
+            "evidence_extracted": false,
+            "status": "Partial",
+            "covered_entities": [],
+            "notes": "Partial evidence retrieved."
+          },
+          {
+            "sub_query": {
+              "question": "What are the primary commercial deployments, industrial use cases, and key market players in  renewable energy ?",
+              "search_keywords": [
+                " renewable energy ",
+                "industry deployments",
+                "commercial applications",
+                "key players"
+              ],
+              "source_type": "web"
+            },
+            "sources_found_count": 2,
+            "full_text_count": 0,
+            "evidence_extracted": true,
+            "status": "Answered",
+            "covered_entities": [
+              "Shell Energy",
+              "ENGIE",
+              "Enel Spa"
+            ],
+            "notes": "Answered. Covered entities: Shell Energy, ENGIE, Enel Spa"
+          }
+        ],
+        "full_text_source_count": 3,
+        "abstract_only_source_count": 3
+      }
+    }
+  },
+  "metrics": {},
+  "total_duration_seconds": 209.22
+}
