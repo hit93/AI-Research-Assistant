@@ -5,6 +5,7 @@ graphs
 memory
 models
 prompts
+security
 server
 tools
 utils

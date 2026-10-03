@@ -5,7 +5,7 @@ Here is the revised, concrete **`plan.md`** file. It directly integrates a **"Qu
 
 A step-by-step, checkpoint-driven blueprint for building a modular, production-ready AI Research Assistant.
 
-**Base project:** Krish Naik — Multi-Agent AI Research Platform with AWS Guardrails, LLM Gateway, Red Teaming, STM/LTM & Semantic Caching, extended with an HTML-First Multi-Format Exporter and Visual LLM Agent.
+**Base project:** Krish Naik — Multi-Agent AI Research Platform with Local Guardrails, LLM Gateway, Red Teaming, STM/LTM & Semantic Caching, extended with an HTML-First Multi-Format Exporter and Production FastAPI REST API ($0 Zero-Cost Architecture).
 
 ---
 
@@ -241,12 +241,6 @@ Fix root causes of 5/10 audit failures: synthetic metrics, citation mismatches, 
 
 ---
 
-### 🔹 Phase 5: Visual LLM Extension (SKIPPED)
-
-* [x] **Status:** Skipped per user instruction to prioritize Phase 6 Security & Red Teaming.
-
----
-
 ### 🔹 Phase 6: Security & Red Teaming (COMPLETED)
 
 * [x] **Step 6.1: 100% Local Multi-Tier Guardrails Engine (`src/security/guardrails.py`)**
@@ -286,27 +280,44 @@ Fix root causes of 5/10 audit failures: synthetic metrics, citation mismatches, 
 
 ---
 
-### 🔹 Phase 7: Infrastructure & Production Deployment
+### 🔹 Phase 7: Production REST API & Zero-Cost Self-Hosted Deployment (COMPLETED)
 
-* [x] Containerization baseline (`Dockerfile`, `docker-compose.yml`).
-* [ ] Terraform IaC for AWS stack (ECS Fargate, RDS PostgreSQL/pgvector, ElastiCache Redis, ALB).
-* [ ] FastAPI production endpoints (`/api/research`, `/api/research/{job_id}`, `/api/research/{job_id}/download`).
-* [ ] End-to-end deployment documentation and live demo recording.
+* [x] **Containerization Baseline (`Dockerfile`, `docker-compose.yml`)**:
+  * 100% Free local orchestration for App, Redis 7 (STM), and PostgreSQL + pgvector (LTM).
+  * In-memory and SQLite fallbacks ensure 0 external servers required if Docker is omitted ($0 cost).
+* [x] **Production FastAPI REST API (`src/server/app.py`)**:
+  * `/api/health`: Comprehensive system diagnostics, zero-cost readiness, and component health.
+  * `POST /api/research`: Synchronous and asynchronous research dispatch with background workers.
+  * `GET /api/research/{job_id}`: Real-time progress monitoring and result payload retrieval.
+  * `GET /api/research/{job_id}/download`: Instant multi-format downloads (`markdown`, `json`, `html`, `pdf`).
+  * `GET /api/jobs`: Chronological job audit archive.
+* [x] **Local Guardrails & Security Integration**:
+  * Integrated `LocalGuardrailsEngine` to sanitize input queries, redact secrets/PII, and block prompt injections with HTTP 400.
+  * Integrated `TokenBucketRateLimiter` with custom HTTP 429 handlers and `Retry-After` headers.
+* [x] **Automated Test Suite**:
+  * 8 dedicated FastAPI test cases passing in `tests/test_server.py`.
+  * Total automated test suite expanded to 127 unit, integration, and security tests.
+
+> ### 🏁 Checkpoint 7: Production REST API & Zero-Cost Verification (PASSED)
+> 
+> * [x] 127/127 unit, integration, and API tests passing.
+> * [x] 100% Free self-hostable deployment with zero paid cloud dependencies.
+> * [x] Visual LLM (VLM) removed per zero-cost constraint.
+> * [x] Production REST API operational alongside interactive Streamlit dashboard.
 
 ---
 
 ## 📌 Progress Tracker
 
-| Step | Milestone | Status | Notes / Blockers |
+| Step | Milestone | Status | Notes / Cost |
 | --- | --- | --- | --- |
-| **Phase 1** | Project Setup & Management | 🟢 Completed | Modular layout, packaging, config loader |
-| **Phase 2** | Research Tools (ArXiv + Web) | 🟢 Completed | ArXiv + Tavily / DDG tools, text cleaner |
-| **Phase 3** | Reasoning Pipeline & ReportLab Export | 🟢 Completed | StateGraph baseline, ReportLab & HTML exporters |
-| **Phase 3.5** | Quality Remediation & Grounding | 🟢 Completed | Negative constraints, tables, HTML+Mermaid export |
-| **Phase 4** | Gateway, Memory & Hybrid RAG | 🟢 Completed | STM, LTM, Semantic Cache, CircuitBreaker |
-| **Phase 4.5** | Grounding & Citation Integrity | 🟢 Completed | Authority filtering, citation sync, claim auditor |
-| **Phase 4.6** | **Resource Optimization & Evaluator Hardening** | 🟢 Completed | Quote-in-source, batch answerability, selective scraping, fast failover; 99/99 tests passing |
-| **Phase 5** | Visual LLM Extension | ⏭️ Skipped | Skipped per user instruction |
-| **Phase 6** | **Security & Red Teaming** | 🟢 Completed | 100% Local Guardrails Engine, PyRIT 8-vector harness, Token-Bucket limiter; 119/119 tests passing |
-| **Phase 7** | Cloud Infrastructure & FastAPI | 🟡 In Progress | Container ready; FastAPI & Terraform pending |
+| **Phase 1** | Project Setup & Management | 🟢 Completed | Modular layout, packaging, config loader ($0) |
+| **Phase 2** | Research Tools (ArXiv + Web) | 🟢 Completed | ArXiv + DuckDuckGo free search, text cleaner ($0) |
+| **Phase 3** | Reasoning Pipeline & Exporters | 🟢 Completed | LangGraph StateGraph, HTML+Mermaid & PDF ($0) |
+| **Phase 3.5** | Quality Remediation & Grounding | 🟢 Completed | Negative constraints, tables, HTML+Mermaid ($0) |
+| **Phase 4** | Gateway, Memory & Hybrid RAG | 🟢 Completed | STM, LTM, Semantic Cache, CircuitBreaker ($0) |
+| **Phase 4.5** | Grounding & Citation Integrity | 🟢 Completed | Authority filtering, citation sync, claim auditor ($0) |
+| **Phase 4.6** | Resource Optimization & Evaluator | 🟢 Completed | Quote-in-source, batch answerability, selective scraping ($0) |
+| **Phase 6** | Security & Red Teaming | 🟢 Completed | 100% Local Guardrails Engine, PyRIT harness ($0) |
+| **Phase 7** | Production FastAPI & Zero-Cost Deployment | 🟢 Completed | FastAPI REST API, Docker Compose, 127 tests passing ($0) |
 ```

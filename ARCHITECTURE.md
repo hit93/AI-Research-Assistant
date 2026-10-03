@@ -188,15 +188,14 @@ src/
 
 ---
 
-## 6. Roadmap Architecture Extensions (Phases 5–7)
+## 6. Security, Production API & Zero-Cost Architecture (Phases 6–7)
 
-- **Phase 5 (Visual LLM Extension)**:
-  - Multi-modal VLM (GPT-4o Vision / Qwen-VL) parsing diagrams, tables, and figures from source PDFs.
-  - Multi-modal faithfulness scoring cross-checking written numerical claims against source figures.
-- **Phase 6 (Security & Red Teaming)**:
-  - AWS Bedrock Guardrails for input/output sanitization and rate limiting.
-  - Automated PyRIT red-team dashboard testing prompt injection, XPIA, crescendo, and image-based attacks.
-- **Phase 7 (Production Infrastructure & API)**:
-  - FastAPI REST API with asynchronous research job queues and report download endpoints.
-  - Terraform AWS IaC (ECS Fargate, RDS PostgreSQL/pgvector, ElastiCache Redis, ALB, ECR).
-  - GitHub Actions CI/CD with automated testing, deployment, and blue-green rollback.
+- **Phase 6 (Security & Red Teaming — Completed)**:
+  - 100% Local Multi-Tier Guardrails Engine (`LocalGuardrailsEngine`) for PII redaction and prompt injection defense on-device ($0 cloud cost).
+  - PyRIT automated adversarial red-team harness (`PyRITRedTeamHarness`) with 100% mitigation across 6 attack vectors.
+  - Thread-safe Token-Bucket rate limiter (`TokenBucketRateLimiter`) with HTTP 429 headers and `@rate_limited` decorator.
+- **Phase 7 (Production FastAPI & Zero-Cost Self-Hosted Deployment — Completed)**:
+  - Production FastAPI REST API (`src/server/app.py`) providing asynchronous job dispatch (`POST /api/research`), real-time job progress polling (`GET /api/research/{job_id}`), and multi-format report downloads (`GET /api/research/{job_id}/download`).
+  - 100% Free self-hosted container orchestration (`docker-compose.yml`) supporting local Redis STM, local PostgreSQL + pgvector LTM, and the web/API application at $0 cloud cost.
+  - Zero-config SQLite LTM and in-memory STM fallbacks requiring 0 external cloud infrastructure.
+

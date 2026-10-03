@@ -314,8 +314,22 @@ class LocalGuardrailsEngine:
         )
 
 
+    def validate_input(self, text: str) -> Tuple[bool, str, Optional[str]]:
+        """Validate input text. Returns (passed: bool, sanitized_text: str, reason: Optional[str])."""
+        res = self.evaluate_input(text)
+        if res.is_blocked:
+            reasons = [v.description for v in res.violations]
+            return False, res.sanitized_text, "; ".join(reasons) or "Security policy violation"
+        return True, res.sanitized_text, None
+
+
 # Backward-compatible alias
 BedrockGuardrailsEngine = LocalGuardrailsEngine
 
 # Global singleton instance
 guardrails_engine = LocalGuardrailsEngine()
+
+
+def get_guardrails() -> LocalGuardrailsEngine:
+    """Return the global LocalGuardrailsEngine instance."""
+    return guardrails_engine

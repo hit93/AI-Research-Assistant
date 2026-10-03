@@ -170,3 +170,8 @@ def rate_limited(
 
 # Global singleton rate limiter instance
 global_rate_limiter = TokenBucketRateLimiter(rate_per_second=10.0, burst_capacity=20.0)
+
+
+def get_rate_limiter() -> TokenBucketRateLimiter:
+    """Return the global TokenBucketRateLimiter instance."""
+    return global_rate_limiter
